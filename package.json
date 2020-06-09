@@ -17,7 +17,8 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'",
     "start": "start-storybook -p 9009",
-    "test": "jest -c jest.config.js"
+    "test": "jest -c jest.config.js",
+    "test:ci": "jest -c jest.config.js --ci"
   },
   "peerDependencies": {
     "react": "^16.0.0"
