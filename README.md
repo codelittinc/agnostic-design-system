@@ -1,3 +1,3 @@
 # codelitt-design-system
 
-To update
+TODO: add docs
