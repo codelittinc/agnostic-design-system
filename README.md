@@ -1,3 +1,3 @@
 # codelitt-design-system
 
-TODO: add docs
+TODO: add some docs
