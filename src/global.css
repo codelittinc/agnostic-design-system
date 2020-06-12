@@ -1,0 +1,37 @@
+/* import font typeface */
+
+@import "../node_modules/typeface-open-sans/index.css";
+
+/* variables */
+
+:root {
+  --base-font-family: 'Open Sans', sans-serif;
+  --base-font-size: 16px;
+  --heading-1-font-size: 2.5rem;
+  --heading-2-font-size: 2rem;
+  --heading-3-font-size: 1.6rem;
+  --heading-4-font-size: 1.5rem;
+  --heading-5-font-size: 1.2rem;
+  --heading-6-font-size: 1rem;
+}
+
+/* global styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body, input, textarea, button {
+  font-family: var(--base-font-family);
+}
+
+p {
+  font-size: var(--base-font-size);
+}
+
+h1 { font-size: var(--heading-1-font-size); }
+h2 { font-size: var(--heading-2-font-size); }
+h3 { font-size: var(--heading-3-font-size); }
+h4 { font-size: var(--heading-4-font-size); }
+h5 { font-size: var(--heading-5-font-size); }
+h6 { font-size: var(--heading-6-font-size); }
