@@ -1,4 +1,59 @@
 .button
-  background-color: darkcyan
+  background: linear-gradient(90deg, #FF465D 0%, #BC46BA 100%)
+  box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.2)
+  border-radius: 0.25rem
   border: none
-  color: white
+  color: #fff
+  padding: 0.75rem 1.5rem
+  outline: none
+  cursor: pointer
+  box-sizing: border-box
+  font-size: 1.125rem
+  font-weight: 400
+  transition: box-shadow 100ms linear
+  display: flex
+  align-items: center
+  justify-content: center
+  min-height: 3rem
+
+  &:hover:not([disabled])
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2)
+
+  &:active:not([disabled])
+    box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.2), inset 0 0 2rem rgba(0, 0, 0, 0.3)
+
+  &[disabled]
+    box-shadow: none
+    background: #E9ECEC
+    color: #C8CED0
+
+  &.big
+    padding: 1.25rem 1.5rem
+    min-height: 4rem
+
+  &.full-width
+    width: 100%
+
+  &.icon-left
+    flex-direction: row
+    > span
+      margin-left: 1rem
+
+  &.icon-right
+    flex-direction: row-reverse
+    > span
+      margin-right: 1rem
+
+  &.icon-full-left
+    flex-direction: row
+    padding-left: 1rem
+    > span
+      margin-left: 1rem
+      flex: 1
+
+  &.icon-full-right
+    flex-direction: row-reverse
+    padding-right: 1rem
+    > span
+      margin-right: 1rem
+      flex: 1

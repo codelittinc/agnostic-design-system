@@ -66,6 +66,7 @@
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
     "ts-jest": "^26.1.0",
+    "typeface-open-sans": "0.0.75",
     "typescript": "^3.7.5"
   },
   "files": [

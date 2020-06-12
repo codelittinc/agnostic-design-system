@@ -7,6 +7,8 @@ exports[`ExampleComponent is renders correctly 1`] = `
   title="this is a test"
   type="button"
 >
-  this is a test
+  <span>
+    this is a test
+  </span>
 </button>
 `;
