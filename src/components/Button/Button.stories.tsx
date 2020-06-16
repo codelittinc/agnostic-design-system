@@ -6,6 +6,9 @@ import { action } from '@storybook/addon-actions';
 import Button from './index';
 import exampleIcon from '../../assets/images/icons/icon.svg';
 
+const THEME_OPTIONS = ['default', 'ghost', 'text'];
+const ICON_POSITION_OPTIONS = ['left', 'right', 'full-left', 'full-right'];
+
 const stories = storiesOf('Components/Button', module);
 
 stories.addDecorator(withKnobs);
@@ -16,6 +19,7 @@ stories.add('Text', () => {
   const disabled = boolean('disabled', false);
   const big = boolean('big', false);
   const fullWidth = boolean('fullWidth', false);
+  const theme = select('theme', THEME_OPTIONS, 'default');
 
   return (
     <Button
@@ -25,6 +29,7 @@ stories.add('Text', () => {
       disabled={disabled}
       big={big}
       fullWidth={fullWidth}
+      theme={theme}
     />
   );
 });
@@ -35,20 +40,21 @@ stories.add('Text and icon', () => {
   const disabled = boolean('disabled', false);
   const big = boolean('big', false);
   const fullWidth = boolean('fullWidth', false);
+  const theme = select('theme', THEME_OPTIONS, 'default');
 
-  const iconPositionOptions: any = ['left', 'right', 'full-left', 'full-right'];
-  const iconPosition = select('iconPosition', iconPositionOptions, 'left');
+  const iconPosition = select('iconPosition', ICON_POSITION_OPTIONS, 'left');
 
   return (
     <Button
       icon={exampleIcon}
-      iconPosition={iconPosition}
+      iconPosition={iconPosition as any}
       onClick={action('button-click')}
       text={buttonText}
       wrapperClassName={wrapperClassName}
       disabled={disabled}
       big={big}
       fullWidth={fullWidth}
+      theme={theme}
     />
   );
 });
@@ -58,6 +64,7 @@ stories.add('Only icon', () => {
   const disabled = boolean('disabled', false);
   const big = boolean('big', false);
   const fullWidth = boolean('fullWidth', false);
+  const theme = select('theme', THEME_OPTIONS, 'default');
 
   return (
     <Button
@@ -67,6 +74,7 @@ stories.add('Only icon', () => {
       disabled={disabled}
       big={big}
       fullWidth={fullWidth}
+      theme={theme}
     />
   );
 });

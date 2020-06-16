@@ -13,6 +13,7 @@ interface Props {
   disabled?: boolean;
   big?: boolean;
   fullWidth?: boolean;
+  theme?: string;
 }
 
 const Button: React.FC<Props> = props => {
@@ -34,6 +35,7 @@ const Button: React.FC<Props> = props => {
       [styles.big]: props.big,
       [styles['full-width']]: props.fullWidth,
       [styles[`icon-${props.iconPosition || DEFAULT_ICON_POSITION}`]]: props.text && props.icon,
+      [styles[`theme-${props.theme}`]]: !!props.theme,
     },
   ];
 
