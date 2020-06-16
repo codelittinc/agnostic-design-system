@@ -26,6 +26,7 @@
     box-shadow: none
     background: #E9ECEC
     color: #C8CED0
+    cursor: not-allowed
 
   &.big
     padding: 1.25rem 1.5rem
@@ -57,3 +58,41 @@
     > span
       margin-right: 1rem
       flex: 1
+
+  &.theme-ghost
+    background: transparent
+    border: 0.0625rem solid #431F92
+    box-shadow: none
+    color: #431F92
+
+    &:hover:not([disabled])
+      border-width: 0.125rem
+      box-shadow: none
+
+    &:active:not([disabled])
+      box-shadow: none
+
+    &[disabled]
+      background: transparent
+      color: #C8CED0
+      border: none
+      cursor: not-allowed
+
+  &.theme-text
+    background: transparent
+    box-shadow: none
+    color: #101378
+
+    &:hover:not([disabled])
+      color: #431F92
+      box-shadow: none
+
+    &:active:not([disabled])
+      color: #431F92
+      text-decoration: underline
+      box-shadow: none
+
+    &[disabled]
+      background: transparent
+      color: #C8CED0
+      cursor: not-allowed
