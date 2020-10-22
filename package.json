@@ -12,8 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "rm -rf dist; webpack --mode=production",
-    "build-storybook": "build-storybook",
+    "build": "build-storybook",
     "publish-storybook": "build-storybook -s public",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'",
