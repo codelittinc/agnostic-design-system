@@ -1,0 +1,17 @@
+:root {
+  --spacing-horizontal-xs: 0.25rem;
+  --spacing-horizontal-s: 0.5rem;
+  --spacing-horizontal-m: 1rem;
+  --spacing-horizontal-l: 2rem;
+  --spacing-horizontal-x: 4rem;
+  --spacing-horizontal-xxl: 7.75rem;
+  --spacing-horizontal-xxxl: 13.25rem;
+
+  --spacing-vertical-xs: 0.25rem;
+  --spacing-vertical-s: 0.5rem;
+  --spacing-vertical-m: 1rem;
+  --spacing-vertical-l: 2rem;
+  --spacing-vertical-x: 4rem;
+  --spacing-vertical-xxl: 7.75rem;
+  --spacing-vertical-xxxl: 13.25rem;
+}

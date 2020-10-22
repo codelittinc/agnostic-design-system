@@ -1,9 +1,11 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
   entry: "./src/index.tsx",
   mode: process.env.NODE_ENV,
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -14,11 +16,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
     ]
   },
-  resolve: { extensions: [".js", ".jsx", ".ts", ".tsx"] },
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, 'src/')
+    },
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
+  },
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, "dist/"),

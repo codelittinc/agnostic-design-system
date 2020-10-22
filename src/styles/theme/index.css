@@ -1,0 +1,8 @@
+@import './tokens/index.css';
+
+:root {
+  --button-primary-large-side-padding: var(--spacing-horizontal-m);
+  --button-primary-medium-side-padding: var(--spacing-horizontal-m);
+  --button-secondary-large-side-padding: var(--spacing-horizontal-m);
+  --button-secondary-medium-side-padding: var(--spacing-horizontal-m);
+}

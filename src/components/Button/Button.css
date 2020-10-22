@@ -1,5 +1,8 @@
+@import "../../styles/theme/index.css";
+
 .button {
   background-color: darkcyan;
   border: none;
   color: white;
+  padding: 0 var(--button-primary-large-side-padding);
 }
