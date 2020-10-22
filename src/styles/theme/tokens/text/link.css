@@ -1,0 +1,25 @@
+:root {
+  --link-font-weight-normal: 400;
+  --link-font-weight-bold: 500;
+
+  --link-xs: 8px;
+  --link-xs-line-height: 1.5;
+  
+  --link-s: 10px;
+  --link-s-line-height: 1.5;
+  
+  --link-m: 12px;
+  --link-m-line-height: 1.5;
+  
+  --link-l: 14px;
+  --link-l-line-height: 1.5;
+  
+  --link-xl: 16px;
+  --link-xl-line-height: 1.5;
+  
+  --link-xxl: 18px;
+  --link-xxl-line-height: 1.5;
+  
+  --link-xxxl: 20px;
+  --link-xxxl-line-height: 1.5;
+}

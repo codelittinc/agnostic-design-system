@@ -1,0 +1,25 @@
+:root {
+  --paragraph-font-weight-normal: 400;
+  --paragraph-font-weight-bold: 500;
+
+  --paragraph-xs: 8px;
+  --paragraph-xs-line-height: 1.5;
+  
+  --paragraph-s: 10px;
+  --paragraph-s-line-height: 1.5;
+  
+  --paragraph-m: 12px;
+  --paragraph-m-line-height: 1.5;
+  
+  --paragraph-l: 14px;
+  --paragraph-l-line-height: 1.5;
+  
+  --paragraph-xl: 16px;
+  --paragraph-xl-line-height: 1.5;
+  
+  --paragraph-xxl: 18px;
+  --paragraph-xxl-line-height: 1.5;
+  
+  --paragraph-xxxl: 20px;
+  --paragraph-xxxl-line-height: 1.5;
+}

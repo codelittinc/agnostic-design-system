@@ -1,0 +1,25 @@
+:root {
+  --heading-font-weight-normal: 400;
+  --heading-font-weight-bold: 600;
+
+  --heading-xs: 20px;
+  --heading-xs-line-height: 1.5;
+  
+  --heading-s: 24px;
+  --heading-s-line-height: 1.5;
+  
+  --heading-m: 28px;
+  --heading-m-line-height: 1.5;
+  
+  --heading-l: 32px;
+  --heading-l-line-height: 1.5;
+  
+  --heading-xl: 40px;
+  --heading-xl-line-height: 1.5;
+  
+  --heading-xxl: 48px;
+  --heading-xxl-line-height: 1.5;
+  
+  --heading-xxxl: 56px;
+  --heading-xxxl-line-height: 1.5;
+}
