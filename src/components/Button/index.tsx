@@ -1,24 +1,27 @@
 import React from 'react';
 
-import '@/components/Button/Button.css';
+import PrimaryButton from '@/components/Button/PrimaryButton';
+import SecondaryButton from '@/components/Button/SecondaryButton';
+
+type Category = 'primary' | 'secondary';
 
 interface Props {
-  title?: string;
-  wrapperClassName?: string;
+  disabled?: boolean;
+  label?: string;
+  category?: Category,
   onClick: () => void;
 }
 
+const buttons = {
+  'primary': PrimaryButton,
+  'secondary': SecondaryButton,
+};
+
 const Button: React.FC<Props> = props => {
+  const ButtonType = buttons[props.category || 'primary'];
 
   return (
-    <button
-      onClick={props.onClick}
-      title={props.title}
-      type='button'
-      className="button"
-    >
-      {props.title}
-    </button>
+    <ButtonType {...props} />
   );
 };
 

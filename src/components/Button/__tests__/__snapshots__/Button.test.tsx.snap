@@ -1,12 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExampleComponent is renders correctly 1`] = `
-<button
-  className="button"
+<Button
+  label="this is a test"
   onClick={[Function]}
-  title="this is a test"
-  type="button"
 >
-  this is a test
-</button>
+  <PrimaryButton
+    label="this is a test"
+    onClick={[Function]}
+  >
+    <DefaultButton
+      className="button button--primary button--large"
+      label="this is a test"
+      onClick={[Function]}
+    >
+      <button
+        className="button button--primary button--large"
+        label="this is a test"
+        onClick={[Function]}
+        type="button"
+      >
+        this is a test
+      </button>
+    </DefaultButton>
+  </PrimaryButton>
+</Button>
 `;

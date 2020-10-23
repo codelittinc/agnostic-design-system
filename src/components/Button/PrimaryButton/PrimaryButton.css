@@ -1,0 +1,46 @@
+@import "../../../styles/theme/index.css";
+
+:root {
+  --button-primary-background-color: var(--primary-color-500);
+  --button-primary-background-color-active: var(--primary-color-700);
+  --button-primary-background-color-disabled: var(--structure-color-400);
+  --button-primary-background-color-hover: var(--primary-color-400);
+
+  --button-primary-large-border-radius: var(--round-m);
+  --button-primary-medium-border-radius: var(--round-m);
+
+  --button-primary-large-side-padding: var(--spacing-horizontal-m);
+  --button-primary-medium-side-padding: var(--spacing-horizontal-m);
+}
+
+.button {
+  border: none;
+  color: white;
+}
+
+.button--primary {
+  background: var(--button-primary-background-color);
+}
+
+.button--primary:hover,
+.button--primary:focus {
+  background: var(--button-primary-background-color-hover);
+}
+
+.button--primary:active {
+  background: var(--button-primary-background-color-active);
+}
+
+.button--primary:disabled {
+  background: var(--button-primary-background-color-disabled);
+}
+
+.button--primary.button--large {
+  border-radius: var(--button-primary-large-border-radius);
+  padding: 0 var(--button-primary-large-side-padding);
+}
+
+.button--primary.button--medium {
+  border-radius: var(--button-primary-medium-border-radius);
+  padding: 0 var(--button-primary-medium-side-padding);
+}

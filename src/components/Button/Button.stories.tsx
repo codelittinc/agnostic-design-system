@@ -8,10 +8,16 @@ const stories = storiesOf('Components/Button', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('With text', () => {
-  const title = text('Title', 'Click me');
-  const wrapperClassName = text('Wrapper class name', '');
+stories.add('Primary', () => {
+  const label = text('Primary button', 'Click me');
   return (
-    <Button onClick={action('button-click')} title={title} wrapperClassName={wrapperClassName} />
+    <Button onClick={action('button-click')} label={label} />
+  );
+});
+
+stories.add('Secondary', () => {
+  const label = text('Secondary button', 'Click me');
+  return (
+    <Button onClick={action('button-click')} label={label} category="secondary" />
   );
 });
