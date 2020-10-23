@@ -1,10 +1,10 @@
 {
-  "name": "codelitt-design-system",
+  "name": "@codelittinc/agnostic-design-system",
   "version": "1.0.0",
   "description": "Made with create-react-library",
   "author": "codelittinc",
   "license": "MIT",
-  "repository": "codelittinc/codelitt-design-system",
+  "repository": "codelittinc/agnostic-design-system",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -17,6 +17,7 @@
     "publish-storybook": "build-storybook -s public",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'",
+    "release": "release-it --ci",
     "start": "start-storybook -p 9009",
     "test": "jest -c jest.config.js"
   },
@@ -72,6 +73,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "react-test-renderer": "^16.13.1",
+    "release-it": "^14.2.0",
     "style-loader": "^1.2.1",
     "ts-jest": "^26.1.0",
     "typescript": "^3.7.5",
