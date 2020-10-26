@@ -5,6 +5,7 @@ import '@/components/Button/SecondaryButton/SecondaryButton.css';
 
 interface Props {
   disabled?: boolean;
+  fixed?: boolean,
   label?: string;
   onClick: () => void;
 }

@@ -16,7 +16,6 @@ exports[`ExampleComponent is renders correctly 1`] = `
     >
       <button
         className="button button--primary button--large"
-        label="this is a test"
         onClick={[Function]}
         type="button"
       >

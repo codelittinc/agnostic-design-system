@@ -5,6 +5,7 @@ import '@/components/Button/PrimaryButton/PrimaryButton.css';
 
 interface Props {
   disabled?: boolean;
+  fixed?: boolean,
   label?: string;
   onClick: () => void;
 }

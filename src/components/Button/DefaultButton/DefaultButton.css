@@ -1,0 +1,7 @@
+@import "../../../styles/theme/index.css";
+
+.button--fixed {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+}

@@ -9,6 +9,7 @@ interface Props {
   disabled?: boolean;
   label?: string;
   category?: Category,
+  fixed?: boolean,
   onClick: () => void;
 }
 

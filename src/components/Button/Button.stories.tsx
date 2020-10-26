@@ -21,3 +21,10 @@ stories.add('Secondary', () => {
     <Button onClick={action('button-click')} label={label} category="secondary" />
   );
 });
+
+stories.add('Fixed', () => {
+  const label = text('Fixed button', 'Click me');
+  return (
+    <Button onClick={action('button-click')} label={label} fixed />
+  );
+});
