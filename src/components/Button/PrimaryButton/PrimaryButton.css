@@ -9,6 +9,9 @@
   --button-primary-large-border-radius: var(--round-m);
   --button-primary-medium-border-radius: var(--round-m);
 
+  --button-primary-large-height: var(--height-m);
+  --button-primary-medium-height: var(--height-m);
+
   --button-primary-large-side-padding: var(--spacing-horizontal-m);
   --button-primary-medium-side-padding: var(--spacing-horizontal-m);
 }
@@ -37,10 +40,12 @@
 
 .button--primary.button--large {
   border-radius: var(--button-primary-large-border-radius);
+  height: var(--button-primary-large-height);
   padding: 0 var(--button-primary-large-side-padding);
 }
 
 .button--primary.button--medium {
   border-radius: var(--button-primary-medium-border-radius);
+  height: var(--button-primary-medium-height);
   padding: 0 var(--button-primary-medium-side-padding);
 }

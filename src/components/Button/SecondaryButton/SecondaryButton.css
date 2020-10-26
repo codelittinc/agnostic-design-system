@@ -15,6 +15,9 @@
   --button-secondary-large-border-radius: var(--round-m);
   --button-secondary-medium-border-radius: var(--round-m);
 
+  --button-secondary-large-height: var(--height-m);
+  --button-secondary-medium-height: var(--height-m);
+
   --button-secondary-large-side-padding: var(--spacing-horizontal-m);
   --button-secondary-medium-side-padding: var(--spacing-horizontal-m);
 }
@@ -51,10 +54,12 @@
 
 .button--secondary.button--large {
   border-radius: var(--button-secondary-large-border-radius);
+  height: var(--button-secondary-large-height);
   padding: 0 var(--button-secondary-large-side-padding);
 }
 
 .button--secondary.button--medium {
   border-radius: var(--button-secondary-medium-border-radius);
+  height: var(--button-secondary-medium-height);
   padding: 0 var(--button-secondary-medium-side-padding);
 }
