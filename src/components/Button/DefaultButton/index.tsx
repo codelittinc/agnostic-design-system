@@ -1,6 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 
-import '@/components/Button/DefaultButton/DefaultButton.css'
+import styles from '@/components/Button/DefaultButton/DefaultButton.css'
 
 interface Props {
   className: string,
@@ -19,14 +20,14 @@ const DefaultButton: React.FC<Props> = props => {
     ...buttonProps
   } = props;
 
-  const btnClassName = fixed ? `button--fixed ${props.className}` : props.className;
-
   return (
     <button
       {...buttonProps}
       onClick={onClick}
       type='button'
-      className={btnClassName}
+      className={classNames(props.className, {
+        [styles['button--fixed']]: fixed,
+      })}
     >
       {label}
     </button>

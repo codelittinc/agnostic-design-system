@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "build-storybook",
+    "build-package": "rm -rf dist; webpack --mode=production",
     "publish-storybook": "build-storybook -s public",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'",
@@ -47,6 +48,7 @@
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-root-import": "^6.5.0",
+    "classnames": "^2.2.6",
     "css-loader": "^4.3.0",
     "css-modules-typescript-loader": "^4.0.1",
     "enzyme": "^3.11.0",
@@ -79,7 +81,5 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "classnames": "^2.2.6"
-  }
+  "dependencies": {}
 }

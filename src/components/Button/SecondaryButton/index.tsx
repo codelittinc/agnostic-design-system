@@ -1,7 +1,8 @@
 import React from 'react';
 import DefaultButton from '@/components/Button/DefaultButton';
+import classNames from 'classnames';
 
-import '@/components/Button/SecondaryButton/SecondaryButton.css';
+import styles from '@/components/Button/SecondaryButton/SecondaryButton.css';
 
 interface Props {
   disabled?: boolean;
@@ -14,7 +15,7 @@ const SecondaryButton: React.FC<Props> = props => {
   return (
     <DefaultButton
       {...props}
-      className="button button--secondary button--large"
+      className={classNames(styles.button, styles['button--secondary'], styles['button--large'])}
     />
   );
 };
