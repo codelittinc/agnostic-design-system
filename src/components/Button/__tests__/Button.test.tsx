@@ -22,4 +22,9 @@ describe('ExampleComponent', () => {
     const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="secondary" fixed />);
     expect(wrapper.exists('.button--secondary')).toBeTruthy();
   });
+
+  it('is renders a positive button', () => {
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="positive" />);
+    expect(wrapper.exists('.button--positive')).toBeTruthy();
+  });
 });

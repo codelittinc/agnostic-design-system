@@ -1,0 +1,70 @@
+@import "../../../styles/theme/index.css";
+
+:root {
+  --button-positive-background-color: var(--structure-color-200);
+  --button-positive-background-color-active: var(--primary-color-700);
+  --button-positive-background-color-disabled: var(--structure-color-200);
+  --button-positive-background-color-hover: var(--primary-color-500);
+
+  --button-positive-color: var(--primary-color-500);
+  --button-positive-color-hover: var(--structure-color-white);
+  --button-positive-color-active: var(--structure-color-white);
+  --button-positive-color-disabled: var(--structure-color-500);
+
+  --button-positive-large-border-radius: var(--round-m);
+  --button-positive-medium-border-radius: var(--round-m);
+
+  --button-positive-large-font-size: var(--paragraph-xl);
+  --button-positive-large-font-weight: var(--paragraph-font-weight-bold);
+  --button-positive-medium-line-height: var(--paragraph-xl-line-height);
+  
+  --button-positive-medium-font-size: var(--paragraph-l);
+  --button-positive-medium-font-weight: var(--paragraph-font-weight-bold);
+  --button-positive-medium-line-height: var(--paragraph-l-line-height);
+
+  --button-positive-large-height: var(--height-m);
+  --button-positive-medium-height: var(--height-m);
+
+  --button-positive-large-side-padding: var(--spacing-horizontal-m);
+  --button-positive-medium-side-padding: var(--spacing-horizontal-m);
+}
+
+.button--positive {
+  border: none;
+  background: var(--button-positive-background-color);
+  color: var(--button-positive-color);
+}
+
+.button--positive:hover,
+.button--positive:focus {
+  background: var(--button-positive-background-color-hover);
+  color: var(--button-positive-color-hover);
+}
+
+.button--positive:active {
+  background: var(--button-positive-background-color-active);
+  color: var(--button-positive-color-active);
+}
+
+.button--positive:disabled {
+  background: var(--button-positive-background-color-disabled);
+  color: var(--button-positive-color-disabled);
+}
+
+.button--positive.button--large {
+  border-radius: var(--button-positive-large-border-radius);
+  font-size: var(--button-positive-large-font-size);
+  font-weight: var(--button-positive-large-font-weight);
+  height: var(--button-positive-large-height);
+  line-height: var(--button-positive-medium-line-height);
+  padding: 0 var(--button-positive-large-side-padding);
+}
+
+.button--positive.button--medium {
+  border-radius: var(--button-positive-medium-border-radius);
+  font-size: var(--button-positive-medium-font-size);
+  font-weight: var(--button-positive-medium-font-weight);
+  height: var(--button-positive-medium-height);
+  line-height: var(--button-positive-medium-line-height);
+  padding: 0 var(--button-positive-medium-side-padding);
+}

@@ -28,3 +28,10 @@ stories.add('Fixed', () => {
     <Button onClick={action('button-click')} label={label} fixed />
   );
 });
+
+stories.add('Positive', () => {
+  const label = text('Fixed button', 'Click me');
+  return (
+    <Button onClick={action('button-click')} label={label} category="positive" />
+  );
+});

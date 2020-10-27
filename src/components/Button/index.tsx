@@ -1,9 +1,10 @@
 import React from 'react';
 
+import PositiveButton from '@/components/Button/PositiveButton';
 import PrimaryButton from '@/components/Button/PrimaryButton';
 import SecondaryButton from '@/components/Button/SecondaryButton';
 
-type Category = 'primary' | 'secondary';
+type Category = 'primary' | 'secondary' | 'positive';
 
 interface Props {
   disabled?: boolean;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const buttons = {
+  'positive': PositiveButton,
   'primary': PrimaryButton,
   'secondary': SecondaryButton,
 };

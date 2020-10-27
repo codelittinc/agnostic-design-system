@@ -2,7 +2,6 @@ module.exports = {
   roots: ['<rootDir>'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
-    '.+\\.(css|sass)$': 'jest-transform-stub',
   },
   testMatch: ['**/?(*.)+(spec|test).+(ts|tsx|js)'],
   testPathIgnorePatterns: ['/node_modules/'],
@@ -10,7 +9,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>setup-jest.tsx'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
+    "\\.css$": "identity-obj-proxy",
     '^@/(.*)$': '<rootDir>src/$1',
-    '\\.(css|sass)$': 'identity-obj-proxy',
   },
 };
