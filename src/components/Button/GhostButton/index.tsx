@@ -5,17 +5,18 @@ import classNames from 'classnames';
 import styles from '@/components/Button/GhostButton/GhostButton.css';
 
 interface Props {
-  disabled?: boolean;
-  fixed?: boolean,
-  label?: string;
   onClick: () => void;
+  size: string,
 }
 
 const GhostButton: React.FC<Props> = props => {
+  const { size, ...buttonProps } = props;
+  const sizeClass = `button--${size}`;
+
   return (
     <DefaultButton
-      {...props}
-      className={classNames(styles.button, styles['button--ghost'], styles['button--large'])}
+      {...buttonProps}
+      className={classNames(styles.button, styles['button--ghost'], styles[sizeClass])}
     />
   );
 };

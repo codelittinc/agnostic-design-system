@@ -5,17 +5,18 @@ import classNames from 'classnames';
 import styles from '@/components/Button/PositiveButton/PositiveButton.css';
 
 interface Props {
-  disabled?: boolean;
-  fixed?: boolean,
-  label?: string;
-  onClick: () => void;
+  onClick: () => void,
+  size: string,
 }
 
 const PositiveButton: React.FC<Props> = props => {
+  const { size, ...buttonProps } = props;
+  const sizeClass = `button--${size}`;
+
   return (
     <DefaultButton
-      {...props}
-      className={classNames(styles.button, styles['button--positive'], styles['button--large'])}
+      {...buttonProps}
+      className={classNames(styles.button, styles['button--positive'], styles[sizeClass])}
     />
   );
 };

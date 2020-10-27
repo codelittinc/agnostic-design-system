@@ -5,17 +5,18 @@ import classNames from 'classnames';
 import styles from '@/components/Button/NegativeButton/NegativeButton.css';
 
 interface Props {
-  disabled?: boolean;
-  fixed?: boolean,
-  label?: string;
-  onClick: () => void;
+  onClick: () => void,
+  size: string,
 }
 
 const NegativeButton: React.FC<Props> = props => {
+  const { size, ...buttonProps } = props;
+  const sizeClass = `button--${size}`;
+
   return (
     <DefaultButton
-      {...props}
-      className={classNames(styles.button, styles['button--negative'], styles['button--large'])}
+      {...buttonProps}
+      className={classNames(styles.button, styles['button--negative'], styles[sizeClass])}
     />
   );
 };

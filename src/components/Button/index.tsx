@@ -7,7 +7,8 @@ import PositiveButton from '@/components/Button/PositiveButton';
 import PrimaryButton from '@/components/Button/PrimaryButton';
 import SecondaryButton from '@/components/Button/SecondaryButton';
 
-type Category = 'ghost' | 'negative' | 'positive' | 'primary' | 'secondary';
+type Category = 'ghost' | 'negative' | 'neutral' | 'positive' | 'primary' | 'secondary';
+type Size = 'large' | 'medium';
 
 interface Props {
   disabled?: boolean;
@@ -15,6 +16,7 @@ interface Props {
   category?: Category,
   fixed?: boolean,
   onClick: () => void;
+  size?: Size,
 }
 
 const buttons = {
@@ -32,6 +34,13 @@ const Button: React.FC<Props> = props => {
   return (
     <ButtonType {...props} />
   );
+};
+
+Button.defaultProps = {
+  category: 'neutral',
+  disabled: false,
+  fixed: false,
+  size: 'large',
 };
 
 export default Button;
