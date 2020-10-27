@@ -9,6 +9,14 @@
   --button-primary-large-border-radius: var(--round-m);
   --button-primary-medium-border-radius: var(--round-m);
 
+  --button-primary-large-font-size: var(--paragraph-xl);
+  --button-primary-large-font-weight: var(--paragraph-font-weight-bold);
+  --button-primary-medium-line-height: var(--paragraph-xl-line-height);
+  
+  --button-primary-medium-font-size: var(--paragraph-l);
+  --button-primary-medium-font-weight: var(--paragraph-font-weight-bold);
+  --button-primary-medium-line-height: var(--paragraph-l-line-height);
+
   --button-primary-large-height: var(--height-m);
   --button-primary-medium-height: var(--height-m);
 
@@ -40,12 +48,18 @@
 
 .button--primary.button--large {
   border-radius: var(--button-primary-large-border-radius);
+  font-size: var(--button-primary-large-font-size);
+  font-weight: var(--button-primary-large-font-weight);
   height: var(--button-primary-large-height);
+  line-height: var(--button-primary-medium-line-height);
   padding: 0 var(--button-primary-large-side-padding);
 }
 
 .button--primary.button--medium {
   border-radius: var(--button-primary-medium-border-radius);
+  font-size: var(--button-primary-medium-font-size);
+  font-weight: var(--button-primary-medium-font-weight);
   height: var(--button-primary-medium-height);
+  line-height: var(--button-primary-medium-line-height);
   padding: 0 var(--button-primary-medium-side-padding);
 }
