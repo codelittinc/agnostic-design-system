@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 stories.add('Primary', () => {
   const label = text('Primary button', 'Click me');
   return (
-    <Button onClick={action('button-click')} label={label} />
+    <Button onClick={action('button-click')} label={label} category="primary" />
   );
 });
 
@@ -30,8 +30,29 @@ stories.add('Fixed', () => {
 });
 
 stories.add('Positive', () => {
-  const label = text('Fixed button', 'Click me');
+  const label = text('Positive button', 'Click me');
   return (
     <Button onClick={action('button-click')} label={label} category="positive" />
+  );
+});
+
+stories.add('Neutral', () => {
+  const label = text('Neutral button', 'Click me');
+  return (
+    <Button onClick={action('button-click')} label={label} />
+  );
+});
+
+stories.add('Negative', () => {
+  const label = text('Negative button', 'Click me');
+  return (
+    <Button onClick={action('button-click')} label={label} category="negative" />
+  );
+});
+
+stories.add('Ghost', () => {
+  const label = text('Ghost button', 'Click me');
+  return (
+    <Button onClick={action('button-click')} label={label} category="ghost" />
   );
 });

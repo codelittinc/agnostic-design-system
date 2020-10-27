@@ -14,7 +14,7 @@ describe('ExampleComponent', () => {
   });
 
   it('is renders a primary button', () => {
-    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} />);
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="primary" />);
     expect(wrapper.exists('.button--primary')).toBeTruthy();
   });
 
@@ -26,5 +26,20 @@ describe('ExampleComponent', () => {
   it('is renders a positive button', () => {
     const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="positive" />);
     expect(wrapper.exists('.button--positive')).toBeTruthy();
+  });
+
+  it('is renders a neutral button', () => {
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} />);
+    expect(wrapper.exists('.button--neutral')).toBeTruthy();
+  });
+
+  it('is renders a negative button', () => {
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="negative" />);
+    expect(wrapper.exists('.button--negative')).toBeTruthy();
+  });
+
+  it('is renders a ghost button', () => {
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="ghost" />);
+    expect(wrapper.exists('.button--ghost')).toBeTruthy();
   });
 });
