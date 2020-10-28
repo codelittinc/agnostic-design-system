@@ -5,3 +5,46 @@
   min-width: 100%;
   width: 100%;
 }
+
+.button {
+  border: var(--button-border, none);
+  background: var(--button-background-color, transparent);
+  color: var(--button-color);
+}
+
+.button:hover,
+.button:focus {
+  background: var(--button-background-color-hover, transparent);
+  border: var(--button-border-hover, none);
+  color: var(--button-color-hover);
+}
+
+.button:active {
+  background: var(--button-background-color-active, transparent);
+  border: var(--button-border-active, none);
+  color: var(--button-color-active);
+}
+
+.button:disabled {
+  background: var(--button-background-color-disabled, transparent);
+  border: var(--button-border-disabled, none);
+  color: var(--button-color-disabled);
+}
+
+.button.button--large {
+  border-radius: var(--button-large-border-radius);
+  font-size: var(--button-large-font-size);
+  font-weight: var(--button-large-font-weight);
+  height: var(--button-large-height);
+  line-height: var(--button-large-line-height);
+  padding: var(--button-large-side-padding);
+}
+
+.button.button--medium {
+  border-radius: var(--button-medium-border-radius);
+  font-size: var(--button-medium-font-size);
+  font-weight: var(--button-medium-font-weight);
+  height: var(--button-medium-height);
+  line-height: var(--button-medium-line-height);
+  padding: var(--button-medium-side-padding);
+}

@@ -6,17 +6,13 @@ import styles from '@/components/Button/SecondaryButton/SecondaryButton.css';
 
 interface Props {
   onClick: () => void,
-  size: string,
 }
 
 const SecondaryButton: React.FC<Props> = props => {
-  const { size, ...buttonProps } = props;
-  const sizeClass = `button--${size}`;
-
   return (
     <DefaultButton
-      {...buttonProps}
-      className={classNames(styles.button, styles['button--secondary'], styles[sizeClass])}
+      {...props}
+      className={classNames(styles.button, styles['button--secondary'])}
     />
   );
 };

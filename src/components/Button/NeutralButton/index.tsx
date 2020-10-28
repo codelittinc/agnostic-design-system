@@ -6,17 +6,13 @@ import styles from '@/components/Button/NeutralButton/NeutralButton.css';
 
 interface Props {
   onClick: () => void,
-  size: string,
 }
 
 const NeutralButton: React.FC<Props> = props => {
-  const { size, ...buttonProps } = props;
-  const sizeClass = `button--${size}`;
-
   return (
     <DefaultButton
-      {...buttonProps}
-      className={classNames(styles.button, styles['button--neutral'], styles[sizeClass])}
+      {...props}
+      className={classNames(styles.button, styles['button--neutral'])}
     />
   );
 };

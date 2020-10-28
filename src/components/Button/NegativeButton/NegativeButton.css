@@ -16,7 +16,7 @@
 
   --button-negative-large-font-size: var(--paragraph-xl);
   --button-negative-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-negative-medium-line-height: var(--paragraph-xl-line-height);
+  --button-negative-large-line-height: var(--paragraph-xl-line-height);
   
   --button-negative-medium-font-size: var(--paragraph-l);
   --button-negative-medium-font-weight: var(--paragraph-font-weight-bold);
@@ -30,41 +30,30 @@
 }
 
 .button--negative {
-  border: none;
-  background: var(--button-negative-background-color);
-  color: var(--button-negative-color);
-}
+  --button-border: none;
+  --button-background-color: var(--button-negative-background-color);
+  --button-color: var(--button-negative-color);
 
-.button--negative:hover,
-.button--negative:focus {
-  background: var(--button-negative-background-color-hover);
-  color: var(--button-negative-color-hover);
-}
+  --button-background-color-hover: var(--button-negative-background-color-hover);
+  --button-color-hover: var(--button-negative-color-hover);
 
-.button--negative:active {
-  background: var(--button-negative-background-color-active);
-  color: var(--button-negative-color-active);
-}
+  --button-background-color-active: var(--button-negative-background-color-active);
+  --button-color-active: var(--button-negative-color-active);
 
-.button--negative:disabled {
-  background: var(--button-negative-background-color-disabled);
-  color: var(--button-negative-color-disabled);
-}
+  --button-background-color-disabled: var(--button-negative-background-color-disabled);
+  --button-color-disabled: var(--button-negative-color-disabled);
 
-.button--negative.button--large {
-  border-radius: var(--button-negative-large-border-radius);
-  font-size: var(--button-negative-large-font-size);
-  font-weight: var(--button-negative-large-font-weight);
-  height: var(--button-negative-large-height);
-  line-height: var(--button-negative-medium-line-height);
-  padding: 0 var(--button-negative-large-side-padding);
-}
+  --button-large-border-radius: var(--button-negative-large-border-radius);
+  --button-large-font-size: var(--button-negative-large-font-size);
+  --button-large-font-weight: var(--button-negative-large-font-weight);
+  --button-large-height: var(--button-negative-large-height);
+  --button-large-line-height: var(--button-negative-large-line-height);
+  --button-large-side-padding: 0 var(--button-negative-large-side-padding);
 
-.button--negative.button--medium {
-  border-radius: var(--button-negative-medium-border-radius);
-  font-size: var(--button-negative-medium-font-size);
-  font-weight: var(--button-negative-medium-font-weight);
-  height: var(--button-negative-medium-height);
-  line-height: var(--button-negative-medium-line-height);
-  padding: 0 var(--button-negative-medium-side-padding);
+  --button-medium-border-radius: var(--button-negative-medium-border-radius);
+  --button-medium-font-size: var(--button-negative-medium-font-size);
+  --button-medium-font-weight: var(--button-negative-medium-font-weight);
+  --button-medium-height: var(--button-negative-medium-height);
+  --button-medium-line-height: var(--button-negative-medium-line-height);
+  --button-medium-side-padding: 0 var(--button-negative-medium-side-padding);
 }

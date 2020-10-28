@@ -28,19 +28,12 @@ const buttons = {
   'secondary': SecondaryButton,
 };
 
-const Button: React.FC<Props> = props => {
+const Button: React.FC<Props> = (props) => {
   const ButtonType = buttons[props.category || 'neutral'];
 
   return (
     <ButtonType {...props} />
   );
-};
-
-Button.defaultProps = {
-  category: 'neutral',
-  disabled: false,
-  fixed: false,
-  size: 'large',
 };
 
 export default Button;

@@ -9,9 +9,14 @@
   --button-primary-large-border-radius: var(--round-m);
   --button-primary-medium-border-radius: var(--round-m);
 
+  --button-primary-color: var(--structure-color-white);
+  --button-primary-color-hover: var(--structure-color-white);
+  --button-primary-color-active: var(--structure-color-white);
+  --button-primary-color-disabled: var(--structure-color-white);
+
   --button-primary-large-font-size: var(--paragraph-xl);
   --button-primary-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-primary-medium-line-height: var(--paragraph-xl-line-height);
+  --button-primary-large-line-height: var(--paragraph-xl-line-height);
   
   --button-primary-medium-font-size: var(--paragraph-l);
   --button-primary-medium-font-weight: var(--paragraph-font-weight-bold);
@@ -24,42 +29,31 @@
   --button-primary-medium-side-padding: var(--spacing-horizontal-m);
 }
 
-.button {
-  border: none;
-  color: white;
-}
-
 .button--primary {
-  background: var(--button-primary-background-color);
-}
+  --button-border: none;
+  --button-background-color: var(--button-primary-background-color);
+  --button-color: var(--button-primary-color);
 
-.button--primary:hover,
-.button--primary:focus {
-  background: var(--button-primary-background-color-hover);
-}
+  --button-background-color-hover: var(--button-primary-background-color-hover);
+  --button-color-hover: var(--button-primary-color-hover);
 
-.button--primary:active {
-  background: var(--button-primary-background-color-active);
-}
+  --button-background-color-active: var(--button-primary-background-color-active);
+  --button-color-active: var(--button-primary-color-active);
 
-.button--primary:disabled {
-  background: var(--button-primary-background-color-disabled);
-}
+  --button-background-color-disabled: var(--button-primary-background-color-disabled);
+  --button-color-disabled: var(--button-primary-color-disabled);
 
-.button--primary.button--large {
-  border-radius: var(--button-primary-large-border-radius);
-  font-size: var(--button-primary-large-font-size);
-  font-weight: var(--button-primary-large-font-weight);
-  height: var(--button-primary-large-height);
-  line-height: var(--button-primary-medium-line-height);
-  padding: 0 var(--button-primary-large-side-padding);
-}
+  --button-large-border-radius: var(--button-primary-large-border-radius);
+  --button-large-font-size: var(--button-primary-large-font-size);
+  --button-large-font-weight: var(--button-primary-large-font-weight);
+  --button-large-height: var(--button-primary-large-height);
+  --button-large-line-height: var(--button-primary-large-line-height);
+  --button-large-side-padding: 0 var(--button-primary-large-side-padding);
 
-.button--primary.button--medium {
-  border-radius: var(--button-primary-medium-border-radius);
-  font-size: var(--button-primary-medium-font-size);
-  font-weight: var(--button-primary-medium-font-weight);
-  height: var(--button-primary-medium-height);
-  line-height: var(--button-primary-medium-line-height);
-  padding: 0 var(--button-primary-medium-side-padding);
+  --button-medium-border-radius: var(--button-primary-medium-border-radius);
+  --button-medium-font-size: var(--button-primary-medium-font-size);
+  --button-medium-font-weight: var(--button-primary-medium-font-weight);
+  --button-medium-height: var(--button-primary-medium-height);
+  --button-medium-line-height: var(--button-primary-medium-line-height);
+  --button-medium-side-padding: 0 var(--button-primary-medium-side-padding);
 }

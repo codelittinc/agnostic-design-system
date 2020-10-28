@@ -10,12 +10,16 @@ exports[`ExampleComponent is renders correctly 1`] = `
     onClick={[Function]}
   >
     <DefaultButton
-      className="button button--neutral button--large"
+      className="button button--neutral"
+      disabled={false}
+      fixed={false}
       label="this is a test"
       onClick={[Function]}
+      size="large"
     >
       <button
-        className="button button--neutral button--large"
+        className="button button--neutral button button--large"
+        disabled={false}
         onClick={[Function]}
         type="button"
       >
