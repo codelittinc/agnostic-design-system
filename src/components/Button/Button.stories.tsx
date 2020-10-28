@@ -1,58 +1,46 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import { Meta } from '@storybook/react'
 import Button from '@/components/Button';
 
-const stories = storiesOf('Components/Button', module);
+export default {
+  title: 'Button',
+  component: Button,
+} as Meta;
 
-stories.addDecorator(withKnobs);
+const Template = (args) => <Button {...args} />;
 
-stories.add('Primary', () => {
-  const label = text('Primary button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} category="primary" />
-  );
-});
+export const Neutral = Template.bind({});
+Neutral.args = {
+  label: 'Neutral Button',
+  category: 'neutral',
+};
 
-stories.add('Secondary', () => {
-  const label = text('Secondary button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} category="secondary" />
-  );
-});
+export const Primary = Template.bind({});
+Primary.args = {
+  label: 'Primary Button',
+  category: 'primary',
+};
 
-stories.add('Fixed', () => {
-  const label = text('Fixed button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} fixed />
-  );
-});
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'Secondary Button',
+  category: 'secondary',
+};
 
-stories.add('Positive', () => {
-  const label = text('Positive button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} category="positive" />
-  );
-});
+export const Positive = Template.bind({});
+Positive.args = {
+  label: 'Positive Button',
+  category: 'positive',
+};
 
-stories.add('Neutral', () => {
-  const label = text('Neutral button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} />
-  );
-});
+export const Negative = Template.bind({});
+Negative.args = {
+  label: 'Negative Button',
+  category: 'negative',
+};
 
-stories.add('Negative', () => {
-  const label = text('Negative button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} category="negative" />
-  );
-});
-
-stories.add('Ghost', () => {
-  const label = text('Ghost button', 'Click me');
-  return (
-    <Button onClick={action('button-click')} label={label} category="ghost" />
-  );
-});
+export const Ghost = Template.bind({});
+Ghost.args = {
+  label: 'Ghost Button',
+  category: 'ghost',
+};
