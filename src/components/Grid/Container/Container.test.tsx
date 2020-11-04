@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Container from '@/components/Grid/Container';
+import Row from '@/components/Grid/Row';
+import Col from '@/components/Grid/Col';
 
 describe('Container', () => {
   it('renders without crashing', () => {
@@ -10,11 +12,16 @@ describe('Container', () => {
 
   it('renders children components', () => {
     const text = 'Codelitt';
-    const container = render(
+    const { getByText } = render(
       <Container>
-        <p>{text}</p>
+        <Row>
+          <Col>
+            <p>{text}</p>
+          </Col>
+        </Row>
       </Container>,
     );
-    return expect(container!.findByDisplayValue(text)).toBeTruthy();
+
+    return expect(getByText(text)).toBeInTheDocument();
   });
 });

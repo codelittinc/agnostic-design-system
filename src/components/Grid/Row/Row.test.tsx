@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Row from '@/components/Grid/Row';
+import Col from '@/components/Grid/Col';
+import "@testing-library/jest-dom/extend-expect"
 
 describe('Row', () => {
   it('renders without crashing', () => {
@@ -10,11 +12,13 @@ describe('Row', () => {
 
   it('renders children components', () => {
     const text = 'Codelitt';
-    const row = render(
+    const { getByText } = render(
       <Row>
-        <p>{text}</p>
+        <Col>
+          <p>{text}</p>
+        </Col>
       </Row>,
     );
-    return expect(row!.findByDisplayValue(text)).toBeTruthy();
+    return expect(getByText(text)).toBeInTheDocument();
   });
 });

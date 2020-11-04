@@ -5,7 +5,7 @@ interface PropTypes {
   children?: React.ReactNode;
 }
 
-const Row: React.FC<PropTypes> = (props: PropTypes) => {
+const Row: React.FC<PropTypes> = props => {
   const { children, ...attributes } = props;
 
   return (

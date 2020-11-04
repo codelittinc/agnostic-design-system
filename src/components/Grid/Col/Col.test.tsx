@@ -10,12 +10,13 @@ describe('Col', () => {
 
   it('renders children components', () => {
     const text = 'Codelitt';
-    const col = render(
+    const { getByText } = render(
       <Col>
         <p>{text}</p>
       </Col>,
     );
-    return expect(col!.findByDisplayValue(text)).toBeTruthy();
+
+    return expect(getByText(text)).toBeInTheDocument();
   });
 
   describe('when using responsive columns', () => {
