@@ -3,10 +3,16 @@ import { Meta } from '@storybook/react'
 import Container from './Container';
 import Row from './Row';
 import Col from './Col';
+import mdx from './Grid.stories.mdx'
 
 export default {
-  component: Container,
   title: 'Grid System',
+  component: Container,
+  parameters: {
+    docs: {
+      page: mdx,
+    }
+  }
 } as Meta;
 
 export const Grid = () => (

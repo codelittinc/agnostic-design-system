@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Container from '../../../../src/components/Grid/Container';
+import Container from '@/components/Grid/Container';
 
 describe('Container', () => {
   it('renders without crashing', () => {

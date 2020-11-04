@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Row from '../../../../src/components/Grid/Row';
+import Row from '@/components/Grid/Row';
 
 describe('Row', () => {
   it('renders without crashing', () => {
