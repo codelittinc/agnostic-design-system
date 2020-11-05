@@ -7,6 +7,27 @@ Column classes indicate the number of columns you’d like to use out of the pos
 * `sm`: Small screens (tablets) are divided into 8 columns.
 * `xs`: Extra small screens (phones) are divided into 4 columns.
 
+example:
+
+```
+<Container>
+  <Row>
+    <Col xs={4} sm={4} md={3} lg={1}>
+      Col 1
+    </Col>
+    <Col xs={4} sm={4} md={3} lg={1}>
+      Col 2
+    </Col>
+    <Col xs={4} sm={4} md={3} lg={1}>
+      Col 3
+    </Col>
+    <Col xs={4} sm={4} md={3} lg={1}>
+      Col 4
+    </Col>
+  </Row>
+</Container>
+```
+
 Breaking it down, here’s how it works:
 * Containers provide a means to center and horizontally pad your page’s contents.
 * Rows are wrappers for columns. Each column has horizontal padding (called a gutter) for controlling the space between them.
