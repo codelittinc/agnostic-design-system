@@ -13,7 +13,7 @@ describe('Col', () => {
     const { getByText } = render(
       <Col>
         <p>{text}</p>
-      </Col>,
+      </Col>
     );
 
     return expect(getByText(text)).toBeInTheDocument();

@@ -13,28 +13,26 @@ type Size = 'large' | 'medium';
 interface Props {
   disabled?: boolean;
   label?: string;
-  category?: Category,
-  fixed?: boolean,
+  category?: Category;
+  fixed?: boolean;
   onClick: () => void;
-  size?: Size,
+  size?: Size;
   variablesClassName?: string;
 }
 
 const buttons = {
-  'ghost': GhostButton,
-  'negative': NegativeButton,
-  'neutral': NeutralButton,
-  'positive': PositiveButton,
-  'primary': PrimaryButton,
-  'secondary': SecondaryButton,
+  ghost: GhostButton,
+  negative: NegativeButton,
+  neutral: NeutralButton,
+  positive: PositiveButton,
+  primary: PrimaryButton,
+  secondary: SecondaryButton
 };
 
-const Button: React.FC<Props> = (props) => {
+const Button: React.FC<Props> = props => {
   const ButtonType = buttons[props.category || 'neutral'];
 
-  return (
-    <ButtonType {...props} />
-  );
+  return <ButtonType {...props} />;
 };
 
 export default Button;

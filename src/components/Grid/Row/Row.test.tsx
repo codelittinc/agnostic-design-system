@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Row from '@/components/Grid/Row';
 import Col from '@/components/Grid/Col';
-import "@testing-library/jest-dom/extend-expect"
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Row', () => {
   it('renders without crashing', () => {
@@ -17,7 +17,7 @@ describe('Row', () => {
         <Col>
           <p>{text}</p>
         </Col>
-      </Row>,
+      </Row>
     );
     return expect(getByText(text)).toBeInTheDocument();
   });

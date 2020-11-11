@@ -19,7 +19,7 @@ describe('Container', () => {
             <p>{text}</p>
           </Col>
         </Row>
-      </Container>,
+      </Container>
     );
 
     return expect(getByText(text)).toBeInTheDocument();

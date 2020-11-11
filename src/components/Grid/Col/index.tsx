@@ -60,16 +60,16 @@ interface PropTypes {
   lgOffset?: MDAndUpColumns;
 }
 
-const getClasses = (cols: ColSizeIndex, type:string) => (
-  Object.keys(cols).map((size: string) => {
+const getClasses = (cols: ColSizeIndex, type: string) => {
+  return Object.keys(cols).map((size: string) => {
     const sizeValue: number | undefined = cols[size];
 
     if (!sizeValue) {
       return;
     }
-    return styles[`codelitt-${type}-${size}-${sizeValue}`]
-  })
-);
+    return styles[`codelitt-${type}-${size}-${sizeValue}`];
+  });
+};
 
 const Col: React.FC<PropTypes> = props => {
   const { xs, sm, md, lg, xsOffset, smOffset, mdOffset, lgOffset, ...attributes } = props;
@@ -80,16 +80,14 @@ const Col: React.FC<PropTypes> = props => {
 
   const colClasses: string[] = [
     ...getClasses(colSizes, 'col'),
-    ...getClasses(offsetSizes, 'offset'),
-  ].filter(c => c);;
+    ...getClasses(offsetSizes, 'offset')
+  ].filter(c => c);
 
   if (!colClasses.length) {
     colClasses.push(styles['codelitt-col-xs-4']);
   }
 
-  return (
-    <div {...attributes} className={classNames(colClasses)} />
-  );
+  return <div {...attributes} className={classNames(colClasses)} />;
 };
 
 export default Col;

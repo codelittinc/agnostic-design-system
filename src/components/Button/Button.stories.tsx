@@ -1,46 +1,46 @@
 import React from 'react';
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react';
 import Button from '@/components/Button';
 
 export default {
   title: 'Button',
-  component: Button,
+  component: Button
 } as Meta;
 
-const Template = (args) => <Button {...args} />;
+const Template = args => <Button {...args} />;
 
 export const Neutral = Template.bind({});
 Neutral.args = {
   label: 'Neutral Button',
-  category: 'neutral',
+  category: 'neutral'
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Primary Button',
-  category: 'primary',
+  category: 'primary'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Secondary Button',
-  category: 'secondary',
+  category: 'secondary'
 };
 
 export const Positive = Template.bind({});
 Positive.args = {
   label: 'Positive Button',
-  category: 'positive',
+  category: 'positive'
 };
 
 export const Negative = Template.bind({});
 Negative.args = {
   label: 'Negative Button',
-  category: 'negative',
+  category: 'negative'
 };
 
 export const Ghost = Template.bind({});
 Ghost.args = {
   label: 'Ghost Button',
-  category: 'ghost',
+  category: 'ghost'
 };

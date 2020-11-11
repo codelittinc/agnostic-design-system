@@ -5,17 +5,11 @@ import classNames from 'classnames';
 import styles from '@/components/Button/PrimaryButton/PrimaryButton.css';
 
 interface Props {
-  onClick: () => void,
+  onClick: () => void;
 }
 
-const PrimaryButton: React.FC<Props> = props => {
-
-  return (
-    <DefaultButton
-      {...props}
-      className={classNames(styles.button, styles['button--primary'])}
-    />
-  );
-};
+const PrimaryButton: React.FC<Props> = props => (
+  <DefaultButton {...props} className={classNames(styles.button, styles['button--primary'])} />
+);
 
 export default PrimaryButton;

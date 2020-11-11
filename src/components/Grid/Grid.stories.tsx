@@ -1,16 +1,16 @@
 import React from 'react';
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react';
 import Container from './Container';
 import Row from './Row';
 import Col from './Col';
-import mdx from './Grid.stories.mdx'
+import mdx from './Grid.stories.mdx';
 
 export default {
   title: 'Grid System',
   component: Container,
   parameters: {
     docs: {
-      page: mdx,
+      page: mdx
     }
   }
 } as Meta;
@@ -35,7 +35,7 @@ export const Grid = () => (
       </Col>
       <Col xs={4} sm={4} md={3} lg={1}>
         Col 6
-        </Col>
+      </Col>
       <Col xs={4} sm={4} md={3} lg={1}>
         Col 7
       </Col>

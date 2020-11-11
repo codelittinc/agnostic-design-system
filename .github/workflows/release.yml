@@ -17,6 +17,12 @@ jobs:
     - run: git config --global user.name ${{ secrets.RELEASE_USERNAME }}
     - run: git config --global user.email ${{ secrets.RELEASE_EMAIL }}
 
+    - name: lint
+      run: npm run lint
+
+    - name: test
+      run: npm test
+
     - name: installing npm
       run: npm install
 

@@ -10,7 +10,9 @@ describe('ExampleComponent', () => {
 
   it('is renders the variablesClassName', () => {
     const className = 'my-cool-class';
-    const wrapper = mount(<Button variablesClassName={className} label='this is a test' onClick={jest.fn} />);
+    const wrapper = mount(
+      <Button variablesClassName={className} label='this is a test' onClick={jest.fn} />
+    );
     expect(wrapper.exists(`.${className}`)).toBeTruthy();
   });
 
@@ -20,17 +22,19 @@ describe('ExampleComponent', () => {
   });
 
   it('is renders a primary button', () => {
-    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="primary" />);
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category='primary' />);
     expect(wrapper.exists('.button--primary')).toBeTruthy();
   });
 
   it('is renders a secondary button', () => {
-    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="secondary" fixed />);
+    const wrapper = mount(
+      <Button label='this is a test' onClick={jest.fn} category='secondary' fixed />
+    );
     expect(wrapper.exists('.button--secondary')).toBeTruthy();
   });
 
   it('is renders a positive button', () => {
-    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="positive" />);
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category='positive' />);
     expect(wrapper.exists('.button--positive')).toBeTruthy();
   });
 
@@ -40,12 +44,12 @@ describe('ExampleComponent', () => {
   });
 
   it('is renders a negative button', () => {
-    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="negative" />);
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category='negative' />);
     expect(wrapper.exists('.button--negative')).toBeTruthy();
   });
 
   it('is renders a ghost button', () => {
-    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category="ghost" />);
+    const wrapper = mount(<Button label='this is a test' onClick={jest.fn} category='ghost' />);
     expect(wrapper.exists('.button--ghost')).toBeTruthy();
   });
 });

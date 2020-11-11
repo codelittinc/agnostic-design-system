@@ -5,16 +5,11 @@ import classNames from 'classnames';
 import styles from '@/components/Button/PositiveButton/PositiveButton.css';
 
 interface Props {
-  onClick: () => void,
+  onClick: () => void;
 }
 
-const PositiveButton: React.FC<Props> = props => {
-  return (
-    <DefaultButton
-      {...props}
-      className={classNames(styles.button, styles['button--positive'])}
-    />
-  );
-};
+const PositiveButton: React.FC<Props> = props => (
+  <DefaultButton {...props} className={classNames(styles.button, styles['button--positive'])} />
+);
 
 export default PositiveButton;

@@ -1,28 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from '@/components/Button/DefaultButton/DefaultButton.css'
+import styles from '@/components/Button/DefaultButton/DefaultButton.css';
 
 interface Props {
-  className: string,
+  className: string;
   disabled?: boolean;
-  fixed?: boolean,
+  fixed?: boolean;
   label?: string;
   onClick: () => void;
-  size?: string,
+  size?: string;
   variablesClassName?: string;
 }
 
 const DefaultButton: React.FC<Props> = props => {
-  const {
-    className,
-    fixed,
-    label,
-    onClick,
-    size,
-    variablesClassName,
-    ...buttonProps
-  } = props;
+  const { className, fixed, label, onClick, size, variablesClassName, ...buttonProps } = props;
 
   const sizeClass = `button--${size}`;
 
@@ -31,8 +23,13 @@ const DefaultButton: React.FC<Props> = props => {
       {...buttonProps}
       onClick={onClick}
       type='button'
-      className={classNames(props.className, styles['button'], styles[sizeClass], {
-        [styles['button--fixed']]: fixed}, variablesClassName)}
+      className={classNames(
+        className,
+        styles.button,
+        styles[sizeClass],
+        { [styles['button--fixed']]: fixed },
+        variablesClassName
+      )}
     >
       {label}
     </button>
@@ -42,7 +39,7 @@ const DefaultButton: React.FC<Props> = props => {
 DefaultButton.defaultProps = {
   disabled: false,
   fixed: false,
-  size: 'large',
+  size: 'large'
 };
 
 export default DefaultButton;

@@ -5,16 +5,11 @@ import classNames from 'classnames';
 import styles from '@/components/Button/SecondaryButton/SecondaryButton.css';
 
 interface Props {
-  onClick: () => void,
+  onClick: () => void;
 }
 
-const SecondaryButton: React.FC<Props> = props => {
-  return (
-    <DefaultButton
-      {...props}
-      className={classNames(styles.button, styles['button--secondary'])}
-    />
-  );
-};
+const SecondaryButton: React.FC<Props> = props => (
+  <DefaultButton {...props} className={classNames(styles.button, styles['button--secondary'])} />
+);
 
 export default SecondaryButton;
