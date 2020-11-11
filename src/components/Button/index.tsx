@@ -17,6 +17,7 @@ interface Props {
   fixed?: boolean,
   onClick: () => void;
   size?: Size,
+  variablesClassName?: string;
 }
 
 const buttons = {

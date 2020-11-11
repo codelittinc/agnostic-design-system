@@ -7,7 +7,13 @@ describe('ExampleComponent', () => {
     const wrapper = mount(<Button label='this is a test' onClick={jest.fn} />);
     expect(wrapper).toMatchSnapshot();
   });
-  
+
+  it('is renders the variablesClassName', () => {
+    const className = 'my-cool-class';
+    const wrapper = mount(<Button variablesClassName={className} label='this is a test' onClick={jest.fn} />);
+    expect(wrapper.exists(`.${className}`)).toBeTruthy();
+  });
+
   it('is renders a fixed button', () => {
     const wrapper = mount(<Button label='this is a test' onClick={jest.fn} fixed />);
     expect(wrapper.exists('.button--fixed')).toBeTruthy();

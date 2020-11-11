@@ -10,6 +10,7 @@ interface Props {
   label?: string;
   onClick: () => void;
   size?: string,
+  variablesClassName?: string;
 }
 
 const DefaultButton: React.FC<Props> = props => {
@@ -19,8 +20,10 @@ const DefaultButton: React.FC<Props> = props => {
     label,
     onClick,
     size,
+    variablesClassName,
     ...buttonProps
   } = props;
+
   const sizeClass = `button--${size}`;
 
   return (
@@ -29,7 +32,7 @@ const DefaultButton: React.FC<Props> = props => {
       onClick={onClick}
       type='button'
       className={classNames(props.className, styles['button'], styles[sizeClass], {
-        [styles['button--fixed']]: fixed})}
+        [styles['button--fixed']]: fixed}, variablesClassName)}
     >
       {label}
     </button>
