@@ -1,11 +1,11 @@
-name: Library release
+name: Lint and test
 
 on:
   push:
-    branches: [ master ]
+    branches: '*/*'
 
 jobs:
-  release:
+  lint-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,9 +25,3 @@ jobs:
 
     - name: test
       run: npm test
-
-    - name: build
-      run: npm run build-package
-
-    - name: release
-      run: npm run release
