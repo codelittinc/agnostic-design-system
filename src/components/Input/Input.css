@@ -1,0 +1,136 @@
+@import "../../styles/theme/index.css";
+
+
+:root {
+  --input-background-color: var(--structure-color-100);
+
+  --input-large-border-radius: var(--round-m);
+  --input-medium-border-radius: var(--round-m);
+
+  --input-large-font-size: var(--paragraph-xl);
+  --input-large-font-weight: var(--paragraph-font-weight-bold);
+  --input-large-line-height: var(--paragraph-xl-line-height);
+
+  --input-medium-font-size: var(--paragraph-m);
+  --input-medium-font-weight: var(--paragraph-font-weight-bold);
+  --input-medium-line-height: var(--paragraph-m-line-height);
+
+  --input-large-height: var(--height-l);
+  --input-medium-height: var(--height-m);
+
+  --input-large-side-padding: var(--spacing-horizontal-m);
+  --input-medium-side-padding: var(--spacing-horizontal-m);
+
+  --input-border: 1px solid var(--structure-color-300);
+  --input-border-active: 1px solid var(--primary-color-500);
+  --input-border-hover: 1px solid var(--primary-color-300);
+  --input-border-negative: 1px solid var(--error-color);
+  --input-border-positive: 1px solid var(--success-color);
+
+  --input-color: var(--structure-color-900);
+
+  --input-outline-color-focus: var(--primary-color-500);
+
+  --input-placeholder-color: var(--structure-color-700);
+  --input-placeholder-font-size: var(--paragraph-xl);
+  --input-placeholder-font-weigth: var(--paragraph-font-weight-normal);
+
+  --input-label-font-size: var(--paragraph-l);
+  --input-label-font-weight: var(--paragraph-font-weight-normal);
+  --input-label-line-height: var(--paragraph-l-line-height);
+  --input-label-height: var(--height-s);
+  --input-label-color: var(--structure-color-800);
+
+  --input-span-font-size: var(--paragraph-m);
+  --input-span-font-weight: var(--paragraph-font-weight-normal);
+  --input-span-line-height: var(--paragraph-m-line-height);
+  --input-span-height: var(--height-xs);
+  --input-span-color: var(--structure-color-700);
+
+  --input-message-negative-color: var(--error-color);
+  --input-message-positive-color: var(--success-color);
+}
+
+.input {
+  border: var(--input-border, none);
+  background: var(--input-background-color, transparent);
+  box-sizing: border-box;
+  color: var(--input-color);
+  width: 100%;
+}
+
+.input:not([value=""]) {
+  border: var(--input-border-hover, none);
+}
+
+.input:active,
+.input:focus {
+  border: var(--input-border-active, none);
+}
+
+.input:focus {
+  outline-color: var(--input-outline-color-focus);
+}
+
+.input:hover {
+  border: var(--input-border-hover, none);
+}
+
+.input::placeholder {
+  color: var(--input-placeholder-color);
+  font-size: var(--input-placeholder-font-size);
+  font-weight: var(--input-placeholder-font-weight);
+}
+
+.input.input--medium {
+  border-radius: var(--input-medium-border-radius);
+  font-size: var(--input-medium-font-size);
+  font-weight: var(--input-medium-font-weight);
+  height: var(--input-medium-height);
+  line-height: var(--input-medium-line-height);
+  padding: var(--input-medium-side-padding);
+}
+
+.input.input--large {
+  border-radius: var(--input-large-border-radius);
+  font-size: var(--input-large-font-size);
+  font-weight: var(--input-large-font-weight);
+  height: var(--input-large-height);
+  line-height: var(--input-large-line-height);
+  padding: var(--input-large-side-padding);
+}
+
+.input--label {
+  font-size: var(--input-label-font-size);
+  font-weight: var(--input-label-font-weight);
+  line-height: var(--input-label-line-height);
+  color: var(--input-label-color);
+  display: flex;
+  width: 100%;
+}
+
+.input--description, .input--message {
+  font-size: var(--input-span-font-size);
+  font-weight: var(--input-span-font-weight);
+  line-height: var(--input-span-line-height);
+  height: var(--input-span-height);
+  color: var(--input-span-color);
+  width: 100%;
+}
+
+.input--message-valid {
+  color: var(--input-message-positive-color);
+}
+
+.input--message-invalid {
+  color: var(--input-message-negative-color);
+}
+
+.input.input--valid {
+  border: var(--input-border-positive);
+}
+
+.input.input--invalid {
+  border: var(--input-border-negative);
+}
+

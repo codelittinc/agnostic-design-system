@@ -9,9 +9,19 @@ export default {
 
 const Template = args => <Input {...args} />;
 
-export const Simple = Template.bind({});
-Simple.args = {
-  category: 'simple',
+export const Default = Template.bind({});
+Default.args = {
+  size: 'large'
+};
+
+export const PositiveInput = Template.bind({});
+PositiveInput.args = {
   size: 'large',
-  placeholder: 'Enter text'
+  state: 'valid'
+};
+
+export const NegativeInput = Template.bind({});
+NegativeInput.args = {
+  size: 'large',
+  state: 'invalid'
 };
