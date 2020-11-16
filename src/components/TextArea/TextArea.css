@@ -1,0 +1,135 @@
+@import "../../styles/theme/index.css";
+
+
+:root {
+  --textarea-background-color: var(--structure-color-100);
+
+  --textarea-large-border-radius: var(--round-m);
+  --textarea-medium-border-radius: var(--round-m);
+
+  --textarea-large-font-size: var(--paragraph-l);
+  --textarea-large-font-weight: var(--paragraph-font-weight-bold);
+  --textarea-large-line-height: var(--paragraph-xl-line-height);
+
+  --textarea-medium-font-size: var(--paragraph-m);
+  --textarea-medium-font-weight: var(--paragraph-font-weight-bold);
+  --textarea-medium-line-height: var(--paragraph-m-line-height);
+
+  --textarea-large-height: var(--height-xxl);
+  --textarea-medium-height: var(--height-l);
+
+  --textarea-large-padding: var(--spacing-vertical-s) var(--spacing-horizontal-m);
+  --textarea-medium-padding: var(--spacing-vertical-s) var(--spacing-horizontal-m) var(--spacing-horizontal-s) var(--spacing-vertical-s);
+
+  --textarea-border: 1px solid var(--structure-color-300);
+  --textarea-border-active: 1px solid var(--primary-color-500);
+  --textarea-border-hover: 1px solid var(--primary-color-300);
+  --textarea-border-negative: 1px solid var(--error-color);
+  --textarea-border-positive: 1px solid var(--success-color);
+
+  --textarea-color: var(--structure-color-900);
+
+  --textarea-outline-color-focus: var(--primary-color-500);
+
+  --textarea-placeholder-color: var(--structure-color-700);
+  --textarea-placeholder-font-weigth: var(--paragraph-font-weight-normal);
+
+  --textarea-label-font-size: var(--paragraph-l);
+  --textarea-label-font-weight: var(--paragraph-font-weight-normal);
+  --textarea-label-line-height: var(--paragraph-l-line-height);
+  --textarea-label-height: var(--height-s);
+  --textarea-label-color: var(--structure-color-800);
+
+  --textarea-span-font-size: var(--paragraph-m);
+  --textarea-span-font-weight: var(--paragraph-font-weight-normal);
+  --textarea-span-line-height: var(--paragraph-m-line-height);
+  --textarea-span-height: var(--height-xs);
+  --textarea-span-color: var(--structure-color-700);
+
+  --textarea-message-negative-color: var(--error-color);
+  --textarea-message-positive-color: var(--success-color);
+}
+
+.textarea {
+  border: var(--textarea-border, none);
+  background: var(--textarea-background-color, transparent);
+  box-sizing: border-box;
+  color: var(--textarea-color);
+  width: 100%;
+  display: flex;
+}
+
+.textarea:not(:empty) {
+  border: var(--textarea-border-hover, none);
+}
+
+.textarea:active,
+.textarea:focus {
+  border: var(--textarea-border-active, none);
+}
+
+.textarea:focus {
+  outline-color: var(--textarea-outline-color-focus);
+}
+
+.textarea:hover {
+  border: var(--textarea-border-hover, none);
+}
+
+.textarea::placeholder {
+  color: var(--textarea-placeholder-color);
+  font-weight: var(--textarea-placeholder-font-weight);
+}
+
+.textarea.textarea--medium {
+  border-radius: var(--textarea-medium-border-radius);
+  font-size: var(--textarea-medium-font-size);
+  font-weight: var(--textarea-medium-font-weight);
+  height: var(--textarea-medium-height);
+  line-height: var(--textarea-medium-line-height);
+  padding: var(--textarea-medium-padding);
+}
+
+.textarea.textarea--large {
+  border-radius: var(--textarea-large-border-radius);
+  font-size: var(--textarea-large-font-size);
+  font-weight: var(--textarea-large-font-weight);
+  height: var(--textarea-large-height);
+  line-height: var(--textarea-large-line-height);
+  padding: var(--textarea-large-padding);
+}
+
+.textarea--label {
+  font-size: var(--textarea-label-font-size);
+  font-weight: var(--textarea-label-font-weight);
+  line-height: var(--textarea-label-line-height);
+  color: var(--textarea-label-color);
+  display: flex;
+  width: 100%;
+}
+
+.textarea--description, .textarea--message {
+  font-size: var(--textarea-span-font-size);
+  font-weight: var(--textarea-span-font-weight);
+  line-height: var(--textarea-span-line-height);
+  height: var(--textarea-span-height);
+  color: var(--textarea-span-color);
+  width: 100%;
+}
+
+.textarea--message-valid {
+  color: var(--textarea-message-positive-color);
+}
+
+.textarea--message-invalid {
+  color: var(--textarea-message-negative-color);
+}
+
+.textarea.textarea--valid {
+  border: var(--textarea-border-positive);
+}
+
+.textarea.textarea--invalid {
+  border: var(--textarea-border-negative);
+}
+

@@ -1,18 +1,18 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import Input from '@/components/Input';
+import TextArea from '@/components/TextArea';
 
 export default {
-  title: 'Input',
-  component: Input
+  title: 'Text Area',
+  component: TextArea
 } as Meta;
 
-const Template = args => <Input {...args} />;
+const Template = args => <TextArea {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   size: 'large',
-  placeholder: 'Enter text'
+  placeholder: 'Enter Text'
 };
 
 export const Positive = Template.bind({});
