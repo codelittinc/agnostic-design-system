@@ -33,7 +33,8 @@ export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
   size: 'large',
   placeholder: 'Enter text',
-  label: 'Input Label'
+  label: 'Input Label',
+  id: 'input-id'
 };
 
 export const PositiveWithLabel = Template.bind({});
@@ -41,7 +42,8 @@ PositiveWithLabel.args = {
   size: 'large',
   state: 'valid',
   placeholder: 'Enter Text',
-  label: 'Input Label'
+  label: 'Input Label',
+  id: 'input-id'
 };
 
 export const NegativeWithLabel = Template.bind({});
@@ -49,5 +51,6 @@ NegativeWithLabel.args = {
   size: 'large',
   state: 'invalid',
   placeholder: 'Enter Text',
-  label: 'Input Label'
+  label: 'Input Label',
+  id: 'input-id'
 };

@@ -9,12 +9,13 @@ type State = '' | 'valid' | 'invalid';
 interface Props {
   description?: string;
   disabled?: boolean;
+  id: string;
   label?: string;
   message?: string;
   onChange: () => void;
   placeholder?: string;
-  state?: State;
   size: Size;
+  state?: State;
   value?: string;
   variablesClassName?: string;
 }
@@ -23,9 +24,10 @@ const TextArea: React.FC<Props> = props => {
   const {
     description,
     disabled,
+    id,
     label,
-    onChange,
     message,
+    onChange,
     placeholder,
     size,
     state,
@@ -42,7 +44,13 @@ const TextArea: React.FC<Props> = props => {
 
   return (
     <div className={classNames(variablesClassName)}>
-      {label ? <label className={classNames(styles[labelClass])}>{label}</label> : ''}
+      {label ? (
+        <label htmlFor={id} className={classNames(styles[labelClass])}>
+          {label}
+        </label>
+      ) : (
+        ''
+      )}
       {description ? (
         <span className={classNames(styles[descriptionClass])}>{description}</span>
       ) : (
@@ -51,10 +59,11 @@ const TextArea: React.FC<Props> = props => {
       <textarea
         {...textareaProps}
         className={classNames(styles.textarea, styles[sizeClass], styles[statusClass])}
+        disabled={disabled}
+        id={id}
         onChange={onChange}
         placeholder={placeholder}
         value={value}
-        disabled={disabled}
       />
       {message ? (
         <span className={classNames(styles[messageClass], styles[messageValidateClass])}>
