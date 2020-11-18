@@ -1,0 +1,42 @@
+@import "../../styles/theme/index.css";
+
+
+:root {
+  --icon-border-active: 1px solid var(--primary-color-900);
+  --icon-border-hover: none;
+
+  --icon-filter-color: none;
+  --icon-filter-color-focus: none;
+  --icon-filter-color-hover: none;
+}
+
+.offscreen-button {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  border-radius: 2px;
+}
+
+.offscreen-button:active,
+.offscreen-button:focus {
+  border: var(--icon-border-active, none);
+  filter: var(--icon-filter-color-focus, none);
+}
+
+.offscreen-button:hover {
+  border: var(--icon-border-hover, none);
+  filter: var(--icon-filter-color-hover, none);
+}
+
+.offscreen-button svg {
+  filter: var(--icon-filter-color, none);
+}
+
+.offscreen-desc {
+  position: absolute!important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  clip-path: polygon(0 0,0 0,0 0,0 0);
+}
