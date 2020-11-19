@@ -1,9 +1,9 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require("path");
-const webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
   mode: process.env.NODE_ENV,
   plugins: [new MiniCssExtractPlugin()],
   module: {
@@ -11,16 +11,20 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/preset-env"] }
+        loader: 'babel-loader',
+        options: { presets: ['@babel/preset-env'] }
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader?modules=true"]
+        use: [MiniCssExtractPlugin.loader, 'css-loader?modules=true']
       },
       {
         test: /\.mdx?$/,
         use: ['babel-loader', '@mdx-js/loader']
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack?-svgo,+titleProp,+ref![path]']
       }
     ]
   },
@@ -28,15 +32,15 @@ module.exports = {
     alias: {
       '~': path.resolve(__dirname, 'src/')
     },
-    extensions: [".js", ".jsx", ".ts", ".tsx"]
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   output: {
     libraryTarget: 'umd',
-    path: path.resolve(__dirname, "dist/"),
-    publicPath: "/dist/",
-    filename: "index.js"
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: '/dist/',
+    filename: 'index.js'
   },
   externals: {
-    'react': 'react',
+    react: 'react'
   }
 };
