@@ -86,5 +86,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "downshift": "^6.0.6"
+  }
 }

@@ -1,0 +1,199 @@
+@import "../../styles/theme/index.css";
+
+
+:root {
+  /* dropdown div attributes */
+  --dropdown-background-color: var(--structure-color-100);
+  --dropdown-border-radius: var(--round-m);
+  --dropdown-min-width: var(--spacing-horizontal-xxxl);
+  --dropdown-border: 1px solid var(--structure-color-100);
+
+  --dropdown-border-active: 1px solid var(--structure-color-200);
+  --dropdown-border-hover: 1px solid var(--structure-color-400);
+
+  --dropdown-large-height: var(--height-l);
+  --dropdown-large-font-size: var(--paragraph-l);
+  --dropdown-large-font-weight: var(--paragraph-font-weight-bold);
+  --dropdown-large-line-height: var(--paragraph-l-line-height);
+  --dropdown-large-side-padding: var(--spacing-horizontal-m);
+  --dropdown-large-border-radius: var(--round-m);
+
+  --dropdown-medium-height: var(--height-m);
+  --dropdown-medium-font-size: var(--paragraph-m);
+  --dropdown-medium-font-weight: var(--paragraph-font-weight-bold);
+  --dropdown-medium-line-height: var(--paragraph-m-line-height);
+  --dropdown-medium-side-padding: var(--spacing-horizontal-m);
+  --dropdown-medium-border-radius: var(--round-m);
+
+  --dropdown-label-font-size: var(--paragraph-l);
+  --dropdown-label-font-weight: var(--paragraph-font-weight-normal);
+  --dropdown-label-line-height: var(--paragraph-l-line-height);
+  --dropdown-input-label-height: var(--height-s);
+  --dropdown-label-color: var(--structure-color-800);
+
+  --dropdown-span-color: var(--structure-color-900);
+
+  /* dropdown list */
+  --dropdown-list-padding-inline-start: 0;
+  --dropdown-list-style-type: none;
+  --dropdown-list-margin: 0;
+
+  --dropdown-list-focus-outline: var(--structure-color-400) auto 1px;
+
+  --dropdown-list-item-border: 1px solid var(--structure-color-100);
+  --dropdown-list-item-padding: var(--round-l);
+
+  --dropdown-list-item-background-color-hover: var(--primary-color-100);
+
+  /* dropdown button attributes */
+  --dropdown-button-blackground-color: var(--structure-color-200);
+  --dropdown-button-blackground-color-pressed: var(--structure-color-300);
+  --dropdown-button-color: var(--primary-color-600);
+
+  --dropdown-button-border-radius: var(--round-s);
+  --dropdown-button-border: none;
+  --dropdown-button-padding: var(--spacing-horizontal-xs);
+
+  --dropdown-button-span-text-align: left;
+  --dropdown-button-span-padding: var(--round-l);
+
+  /* dropdown icon attributes */
+  --dropdown-icon-margin: var(--round-m) var(--round-m) 0 var(--round-m);
+  --dropdown-icon-engine-text-align: left;
+  --dropdown-icon-arrow-text-align: right;
+  --dropdown-icon-filter: opacity(0.5);
+}
+
+/* dropdown div */
+.dropdown {
+  background: var(--dropdown-background-color);
+  border-radius: var(--dropdown-border-radius);
+  min-width: var(--dropdown-min-width);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dropdown--medium {
+  height: var(--dropdown-medium-height);
+  font-size: var(--dropdown-medium-font-size);
+  font-weight: var(--dropdown-medium-font-weight);
+  line-height: var(--dropdown-medium-line-height);
+  border-radius: var(--dropdown-medium-border-radius);
+}
+
+.dropdown--large {
+  height: var(--dropdown-large-height);
+  font-size: var(--dropdown-large-font-size);
+  font-weight: var(--dropdown-large-font-weight);
+  line-height: var(--dropdown-large-line-height);
+  border-radius: var(--dropdown-large-border-radius);
+}
+
+.dropdown:active,
+.dropdown:focus {
+  border: var(--dropdown-border-active, none);
+}
+
+.dropdown:hover {
+  border: var(--dropdown-border-hover, none);
+}
+
+.dropdown-list {
+  list-style-type: var(--dropdown-list-style-type);
+  width: 100%;
+  height: 100%;
+  margin: var(--dropdown-list-margin);
+  padding-inline-start: var(--dropdown-list-padding-inline-start);
+}
+
+.dropdown-list:focus {
+  outline: var(--dropdown-list-focus-outline);
+}
+
+.dropdown-list-item:hover,
+.dropdown-list-item--selected {
+  background-color: var(--dropdown-list-item-background-color-hover);
+  border-bottom: 1px solid var(--structure-color-600);
+}
+
+.dropdown-list-item {
+  padding: var(--dropdown-list-item-padding);
+  border: var(--dropdown-list-item-border);
+}
+
+.dropdown-label {
+  font-size: var(--dropdown-label-font-size);
+  font-weight: var(--dropdown-label-font-weight);
+  line-height: var(--dropdown-label-line-height);
+  color: var(--dropdown-label-color);
+  display: flex;
+  width: 100%;
+}
+
+.dropdown-list--medium,
+.dropdown-list-item--medium,
+.dropdown-button-span--medium  {
+  font-size: var(--dropdown-input-medium-font-size);
+  font-weight: var(--dropdown-input-medium-font-weight);
+  line-height: var(--dropdown-input-medium-line-height);
+  border-radius: var(--dropdown-input-medium-border-radius);
+}
+
+.dropdown-list--large,
+.dropdown-list-item--large,
+.dropdown-button-span--large  {
+  font-size: var(--dropdown-input-large-font-size);
+  font-weight: var(--dropdown-input-large-font-weight);
+  line-height: var(--dropdown-input-large-line-height);
+  border-radius: var(--dropdown-input-large-border-radius);
+}
+
+/* button inside dropdown div*/
+.dropdown-button {
+  border: var(--dropdown-button-border);
+  background: var(--dropdown-input-background-color);
+  border-radius: var(--dropdown-button-border-radius);
+  padding: var(--dropdown-button-padding);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.dropdown-button-span {
+  color: var(--dropdown-span-color);
+  padding: var(--dropdown-button-span-padding);
+  text-align: var(--dropdown-button-span-text-align);
+  width: 100%;
+}
+
+.dropdown-icon {
+  margin: var(--dropdown-icon-margin);
+  filter: var(--dropdown-icon-filter);
+}
+
+.dropdown-icon-gear {
+  text-align: var(--dropdown-icon-engine-text-align);
+
+}
+
+.dropdown-icon-arrow {
+  text-align: var(--dropdown-icon-arrow-text-align);
+}
+
+.dropdown-button:hover > .dropdown-icon {
+  filter: none;
+}
+
+.dropdown-button-pressed {
+  filter: none;
+  background-color: var(--dropdown-button-blackground-color-pressed);
+
+}
+
+.dropdown-button-pressed > .dropdown-button-span {
+  color: var(--dropdown-button-color);
+}
