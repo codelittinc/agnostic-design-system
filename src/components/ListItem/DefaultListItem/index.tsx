@@ -1,0 +1,53 @@
+import React from 'react';
+import classNames from 'classnames';
+
+import styles from '@/components/ListItem/DefaultListItem/DefaultListItem.css';
+
+export interface Props<T> {
+  className?: string;
+  getLabel: (item: T) => React.ReactNode;
+  getIcon?: (item: T, size: number) => React.ReactNode;
+  getIsSelected?: (item: T) => boolean;
+  getSelectedMarker?: (item: T) => React.ReactNode;
+  item: T;
+  size: string;
+  variablesClassName?: string;
+}
+
+const DefaultListItem = <T extends {}>(props: Props<T>) => {
+  const {
+    className,
+    size,
+    getLabel,
+    getIcon,
+    getSelectedMarker,
+    item,
+    variablesClassName,
+    ...listItemProps
+  } = props;
+
+  const sizeSpanClass = `list-item--span-${size}`;
+
+  return (
+    <div
+      {...listItemProps}
+      className={classNames(className, styles['list-item'], variablesClassName)}
+      role='button'
+      aria-pressed='false'
+      tabIndex={0}
+    >
+      <div>{getIcon && (size === 'large' ? getIcon(item, 20) : getIcon(item, 13))}</div>
+      <span className={classNames(styles['list-item-span'], styles[sizeSpanClass])}>
+        {getLabel(item)}
+      </span>
+      <span>{getSelectedMarker && getSelectedMarker(item)}</span>
+    </div>
+  );
+};
+
+DefaultListItem.defaultProps = {
+  size: 'large',
+  getLabel: () => {}
+};
+
+export default DefaultListItem;

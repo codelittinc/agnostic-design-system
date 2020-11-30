@@ -1,59 +1,73 @@
 import React from 'react';
 import { useSelect } from 'downshift';
-import ClassNames from 'classnames';
+import classNames from 'classnames';
+import isEqual from 'lodash.isequal';
 
 import styles from '@/components/Dropdown/Dropdown.css';
 
 import IconGear from '@/assets/images/icons/web/gear.svg';
 import IconArrowUp from '@/assets/images/icons/web/arrow-up.svg';
 import IconArrowDown from '@/assets/images/icons/web/arrow-down.svg';
+import ListItem from '@/components/ListItem';
 
 type Category = 'simple' | 'icon';
+type ListItemCategory = 'simple' | 'checkbox';
 type Size = 'large' | 'medium';
+
+const largeSize = 'large';
+const simpleCategory = 'simple';
 
 interface Props<T> {
   category: Category;
-  selected?: T;
   description?: string;
   disabled?: boolean;
+  getDropdownIcon?: () => React.ReactNode;
+  getItemLabel: (item: T) => React.ReactNode;
   id: string;
   label?: string;
-  labelKey: string;
+  listItemCategory: ListItemCategory;
   onChange: (item?: T | null) => void;
   options: [T];
+  selected?: T;
   size: Size;
   valueKey: string;
   variablesClassName?: string;
 }
 
-function Dropdown<T extends {}>(props: Props<T>) {
+const Dropdown = <T extends {}>(props: Props<T>) => {
   const onSelectedItemChange = ({ selectedItem }: { selectedItem?: T | null }) =>
     onChange(selectedItem);
+
   const {
     selected,
     disabled,
     label,
-    labelKey,
     size,
     category,
+    getDropdownIcon,
+    getItemLabel,
     id,
     onChange,
     options,
     valueKey,
-    variablesClassName
+    variablesClassName,
+    listItemCategory
   } = props;
+
   const {
-    isOpen,
     getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getItemProps,
-    highlightedIndex
+    highlightedIndex,
+    isOpen
   } = useSelect<T>({
     items: options,
     selectedItem: selected,
     onSelectedItemChange
   });
+
+  const iconCategory = 'icon';
 
   const sizeClass = `dropdown--${size}`;
   const listSizeClass = `dropdown-list--${size}`;
@@ -61,78 +75,107 @@ function Dropdown<T extends {}>(props: Props<T>) {
   const buttonSpanSizeClass = `dropdown-button-span--${size}`;
   const buttonPressedClass = isOpen ? styles['dropdown-button-pressed'] : '';
 
+  const getGearIcon = () => {
+    const iconSize = size === largeSize ? 20 : 13;
+    return <IconGear width={iconSize} heigth={iconSize} title='Gear Icon' aria-hidden='true' />;
+  };
+
+  const handleArrowIcon = isOpen => {
+    const iconTitle = isOpen ? 'Hide Options' : 'Show Options';
+    const IconType = isOpen ? IconArrowUp : IconArrowDown;
+    const iconSize = size === largeSize ? 15 : 9;
+
+    return <IconType width={iconSize} heigth={iconSize} title={iconTitle} />;
+  };
+
+  const handleCategoryIcon = () => {
+    if (category === iconCategory) {
+      if (getDropdownIcon) {
+        return <div>{getDropdownIcon()}</div>;
+      } else {
+        return (
+          <div
+            className={classNames(
+              styles['dropdown-icon'],
+              styles['dropdown-icon-gear'],
+              buttonPressedClass
+            )}
+          >
+            {getGearIcon()}
+          </div>
+        );
+      }
+    } else {
+      return '';
+    }
+  };
+
   return (
-    <div className={ClassNames(variablesClassName)}>
+    <div className={classNames(variablesClassName)}>
       {label && (
-        <label className={ClassNames(styles['dropdown-label'])} {...getLabelProps()}>
+        <label className={classNames(styles['dropdown-label'])} {...getLabelProps()}>
           {label}
         </label>
       )}
-      <div id={id} className={ClassNames(styles.dropdown, styles[sizeClass])}>
+      <div id={id} className={classNames(styles.dropdown, styles[sizeClass])}>
         <button
           type='button'
           {...getToggleButtonProps()}
-          className={ClassNames(styles['dropdown-button'], buttonPressedClass)}
+          className={classNames(styles['dropdown-button'], buttonPressedClass)}
           disabled={disabled}
         >
-          {category === 'icon' && (
-            <div
-              className={ClassNames(
-                styles['dropdown-icon'],
-                styles['dropdown-icon-gear'],
-                buttonPressedClass
-              )}
-            >
-              <IconGear width='20' heigth='20' title='Gear Icon' aria-hidden='true' />
-            </div>
-          )}
-          <span className={ClassNames(styles['dropdown-button-span'], styles[buttonSpanSizeClass])}>
-            {(selected && selected[labelKey]) || 'Choose an option'}
+          {handleCategoryIcon()}
+          <span className={classNames(styles['dropdown-button-span'], styles[buttonSpanSizeClass])}>
+            {(selected && getItemLabel(selected)) || 'Choose an option'}
           </span>
           <div
-            className={ClassNames(
+            className={classNames(
               styles['dropdown-icon'],
               styles['dropdown-icon-arrow'],
               buttonPressedClass
             )}
           >
-            {isOpen ? (
-              <IconArrowUp height='15' width='15' title='Hide options' />
-            ) : (
-              <IconArrowDown height='15' width='15' title='Show options' />
-            )}
+            {handleArrowIcon(isOpen)}
           </div>
         </button>
         <ul
           {...getMenuProps()}
-          className={ClassNames(styles['dropdown-list'], styles[listSizeClass])}
+          className={classNames(styles['dropdown-list'], styles[listSizeClass])}
         >
           {isOpen &&
             options.map((item, index) => (
               <li
-                className={ClassNames(
+                key={`${item[valueKey]}-${index}`}
+                className={classNames(
                   styles['dropdown-list-item'],
                   styles[listItemSizeClass],
                   highlightedIndex === index ? styles['dropdown-list-item--selected'] : ''
                 )}
-                key={`${item[valueKey]}-${index}`}
                 {...getItemProps({ item, index })}
               >
-                {item[labelKey]}
+                <ListItem<T>
+                  category={listItemCategory}
+                  size={size}
+                  item={item}
+                  key={`${item[valueKey]}-${index}`}
+                  getLabel={getItemLabel}
+                  getIsSelected={item => isEqual(item, selected)}
+                />
               </li>
             ))}
         </ul>
       </div>
     </div>
   );
-}
+};
 
 Dropdown.defaultProps = {
-  category: 'simple',
-  id: 'ads-dropdown',
-  size: 'large',
+  category: simpleCategory,
+  size: largeSize,
   options: [{ label: 'Option', value: 'Option' }],
-  onChange: () => {}
+  onChange: () => {},
+  getItemLabel: () => {},
+  listItemCategory: simpleCategory
 };
 
 export default Dropdown;

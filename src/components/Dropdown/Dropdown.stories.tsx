@@ -8,7 +8,7 @@ export default {
 } as Meta;
 
 const Template = args => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(args.selected);
 
   return <Dropdown {...args} selected={selectedItem} onChange={setSelectedItem} />;
 };
@@ -24,7 +24,7 @@ Default.args = {
 export const SimpleDropdown = Template.bind({});
 SimpleDropdown.args = {
   category: 'simple',
-  labelKey: 'label',
+  id: 'ads-dropdown',
   valueKey: 'value',
   size: 'large',
   selected: {
@@ -40,13 +40,14 @@ SimpleDropdown.args = {
       label: 'Option 2',
       value: '2'
     }
-  ]
+  ],
+  getItemLabel: item => item.label
 };
 
 export const IconDropdown = Template.bind({});
 IconDropdown.args = {
+  id: 'ads-dropdown',
   category: 'icon',
-  labelKey: 'label',
   valueKey: 'value',
   size: 'large',
   selected: {
@@ -62,14 +63,15 @@ IconDropdown.args = {
       label: 'Option 2',
       value: '2'
     }
-  ]
+  ],
+  getItemLabel: item => item.label
 };
 
 export const LabelDropdown = Template.bind({});
 LabelDropdown.args = {
+  id: 'ads-dropdown',
   category: 'simple',
   label: 'Some Label',
-  labelKey: 'label',
   valueKey: 'value',
   size: 'large',
   selected: {
@@ -85,5 +87,87 @@ LabelDropdown.args = {
       label: 'Option 2',
       value: '2'
     }
-  ]
+  ],
+  getItemLabel: item => item.label
+};
+
+export const CustomIconDropdown = Template.bind({});
+CustomIconDropdown.args = {
+  id: 'ads-dropdown',
+  category: 'icon',
+  label: 'Some Label',
+  valueKey: 'value',
+  size: 'large',
+  listItemCategory: 'simple',
+  selected: {
+    label: 'Option 2',
+    value: '2'
+  },
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getDropdownIcon: () => (
+    <img
+      height='20px'
+      width='20px'
+      src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/1024px-Speaker_Icon.svg.png'
+    />
+  )
+};
+
+export const CheckBoxDropdown = Template.bind({});
+CheckBoxDropdown.args = {
+  id: 'ads-dropdown',
+  category: 'icon',
+  label: 'Some Label',
+  valueKey: 'value',
+  size: 'large',
+  listItemCategory: 'checkbox',
+  selected: {
+    label: 'Option 2',
+    value: '2'
+  },
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label
+};
+
+export const SimpleListItemDropdown = Template.bind({});
+SimpleListItemDropdown.args = {
+  id: 'ads-dropdown',
+  category: 'simple',
+  valueKey: 'value',
+  size: 'large',
+  listItemCategory: 'simple',
+  selected: {
+    label: 'Option 2',
+    value: '2'
+  },
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label
 };

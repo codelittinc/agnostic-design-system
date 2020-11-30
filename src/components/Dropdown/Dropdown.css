@@ -1,6 +1,5 @@
 @import "../../styles/theme/index.css";
 
-
 :root {
   /* dropdown div attributes */
   --dropdown-background-color: var(--structure-color-100);
@@ -25,6 +24,9 @@
   --dropdown-medium-side-padding: var(--spacing-horizontal-m);
   --dropdown-medium-border-radius: var(--round-m);
 
+  --dropdown-list-item-large-height: var(--height-l);
+  --dropdown-list-item-medium-height: var(--height-m);
+
   --dropdown-label-font-size: var(--paragraph-l);
   --dropdown-label-font-weight: var(--paragraph-font-weight-normal);
   --dropdown-label-line-height: var(--paragraph-l-line-height);
@@ -40,10 +42,13 @@
 
   --dropdown-list-focus-outline: var(--structure-color-400) auto 1px;
 
-  --dropdown-list-item-border: 1px solid var(--structure-color-100);
-  --dropdown-list-item-padding: var(--round-l);
+  --dropdown-list-item-border: 2px solid var(--structure-color-100);
 
   --dropdown-list-item-background-color-hover: var(--primary-color-100);
+
+  --list-item-border-hover: 1px solid var(--structure-color-600);
+  --list-item-font-weight-hover: var(--paragraph-font-weight-bold);
+  --list-item-background-color-hover: var(--primary-color-100);
 
   /* dropdown button attributes */
   --dropdown-button-blackground-color: var(--structure-color-200);
@@ -111,14 +116,7 @@
   outline: var(--dropdown-list-focus-outline);
 }
 
-.dropdown-list-item:hover,
-.dropdown-list-item--selected {
-  background-color: var(--dropdown-list-item-background-color-hover);
-  border-bottom: 1px solid var(--structure-color-600);
-}
-
 .dropdown-list-item {
-  padding: var(--dropdown-list-item-padding);
   border: var(--dropdown-list-item-border);
 }
 
@@ -141,7 +139,6 @@
 }
 
 .dropdown-list--large,
-.dropdown-list-item--large,
 .dropdown-button-span--large  {
   font-size: var(--dropdown-input-large-font-size);
   font-weight: var(--dropdown-input-large-font-weight);
@@ -177,7 +174,6 @@
 
 .dropdown-icon-gear {
   text-align: var(--dropdown-icon-engine-text-align);
-
 }
 
 .dropdown-icon-arrow {
@@ -191,9 +187,20 @@
 .dropdown-button-pressed {
   filter: none;
   background-color: var(--dropdown-button-blackground-color-pressed);
-
 }
 
 .dropdown-button-pressed > .dropdown-button-span {
   color: var(--dropdown-button-color);
+}
+
+.dropdown-list-item--selected {
+  border-bottom: var(--list-item-border-hover);
+}
+
+.dropdown-list-item--large {
+  height: var(--dropdown-list-item-large-height);
+}
+
+.dropdown-list-item--medium {
+  height: var(--dropdown-list-item-medium-height);
 }

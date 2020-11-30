@@ -80,6 +80,7 @@
     "style-loader": "^1.2.1",
     "ts-jest": "^26.1.0",
     "typescript": "^3.7.5",
+    "url-loader": "^4.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
@@ -87,6 +88,7 @@
     "dist"
   ],
   "dependencies": {
-    "downshift": "^6.0.6"
+    "downshift": "^6.0.6",
+    "lodash.isequal": "^4.5.0"
   }
 }
