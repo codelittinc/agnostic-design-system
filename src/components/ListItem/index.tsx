@@ -4,8 +4,9 @@ import DefaultListItem, {
   Props as DefaultListItemProps // eslint-disable-line no-unused-vars
 } from '@/components/ListItem/DefaultListItem';
 import CheckBoxListItem from '@/components/ListItem/CheckBoxListItem';
+import IconListItem from '@/components/ListItem/IconListItem';
 
-type Category = 'simple' | 'checkbox';
+type Category = 'simple' | 'checkbox' | 'icon';
 
 type Props<T> = DefaultListItemProps<T> & {
   category?: Category;
@@ -13,7 +14,8 @@ type Props<T> = DefaultListItemProps<T> & {
 
 const items = {
   simple: DefaultListItem,
-  checkbox: CheckBoxListItem
+  checkbox: CheckBoxListItem,
+  icon: IconListItem
 };
 
 const ListItem = <T extends {}>(props: Props<T>) => {

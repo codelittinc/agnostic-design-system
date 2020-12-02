@@ -21,8 +21,9 @@ interface Props<T> {
   category: Category;
   description?: string;
   disabled?: boolean;
-  getDropdownIcon?: () => React.ReactNode;
+  getDropdownIcon?: (item?: T) => React.ReactNode;
   getItemLabel: (item: T) => React.ReactNode;
+  getItemIcon?: (item?: T) => React.ReactNode;
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;
@@ -46,6 +47,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     category,
     getDropdownIcon,
     getItemLabel,
+    getItemIcon,
     id,
     onChange,
     options,
@@ -77,34 +79,31 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
 
   const getGearIcon = () => {
     const iconSize = size === largeSize ? 20 : 13;
-    return <IconGear width={iconSize} heigth={iconSize} title='Gear Icon' aria-hidden='true' />;
+    return <IconGear width={iconSize} height={iconSize} title='Gear Icon' aria-hidden='true' />;
   };
 
   const handleArrowIcon = isOpen => {
     const iconTitle = isOpen ? 'Hide Options' : 'Show Options';
     const IconType = isOpen ? IconArrowUp : IconArrowDown;
-    const iconSize = size === largeSize ? 15 : 9;
+    const iconWidthSize = size === largeSize ? 15 : 9;
+    const iconHeightSize = size === largeSize ? 9 : 5;
 
-    return <IconType width={iconSize} heigth={iconSize} title={iconTitle} />;
+    return <IconType width={iconWidthSize} height={iconHeightSize} title={iconTitle} />;
   };
 
-  const handleCategoryIcon = () => {
+  const handleCategoryIcon = item => {
     if (category === iconCategory) {
-      if (getDropdownIcon) {
-        return <div>{getDropdownIcon()}</div>;
-      } else {
-        return (
-          <div
-            className={classNames(
-              styles['dropdown-icon'],
-              styles['dropdown-icon-gear'],
-              buttonPressedClass
-            )}
-          >
-            {getGearIcon()}
-          </div>
-        );
-      }
+      return (
+        <div
+          className={classNames(
+            styles['dropdown-icon'],
+            styles['dropdown-icon-gear'],
+            buttonPressedClass
+          )}
+        >
+          {getDropdownIcon ? getDropdownIcon(item) : getGearIcon()}
+        </div>
+      );
     } else {
       return '';
     }
@@ -124,7 +123,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
           className={classNames(styles['dropdown-button'], buttonPressedClass)}
           disabled={disabled}
         >
-          {handleCategoryIcon()}
+          {handleCategoryIcon(selected)}
           <span className={classNames(styles['dropdown-button-span'], styles[buttonSpanSizeClass])}>
             {(selected && getItemLabel(selected)) || 'Choose an option'}
           </span>
@@ -149,7 +148,8 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
                 className={classNames(
                   styles['dropdown-list-item'],
                   styles[listItemSizeClass],
-                  highlightedIndex === index ? styles['dropdown-list-item--selected'] : ''
+                  highlightedIndex === index ? styles['dropdown-list-item--visit'] : '',
+                  isEqual(item, selected) ? styles['dropdown-list-item--selected'] : ''
                 )}
                 {...getItemProps({ item, index })}
               >
@@ -159,6 +159,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
                   item={item}
                   key={`${item[valueKey]}-${index}`}
                   getLabel={getItemLabel}
+                  getIcon={getItemIcon}
                   getIsSelected={item => isEqual(item, selected)}
                 />
               </li>

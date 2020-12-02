@@ -2,11 +2,10 @@
 
 :root {
   --list-item-background-color: var(--structure-color-100);
-  --list-item-background-color-active: var(--primary-color-800);
-  --list-item-background-color-disabled: var(--structure-color-200);
   --list-item-background-color-hover: var(--structure-color-100);
 
   --list-item-border-radius: var(--round-m);
+  --list-item-padding: var(--round-m);
 
   --list-item-color: var(--structure-color-700);
   --list-item-color-hover: var(--structure-color-800);
@@ -17,25 +16,27 @@
   --list-item-large-font-size: var(--paragraph-xl);
   --list-item-large-font-weight: var(--paragraph-font-weight-normal);
   --list-item-large-line-height: var(--paragraph-m-line-height);
-  --list-item-large-side-padding: var(--spacing-horizontal-m);
 
   --list-item-medium-font-size: var(--paragraph-m);
   --list-item-medium-font-weight: var(--paragraph-font-weight-normal);
   --list-item-medium-line-height: var(--paragraph-s-line-height);
-  --list-item-medium-side-padding: var(--spacing-horizontal-m);
 
   --list-item-border-hover: 1px solid var(--structure-color-600);
   --list-item-font-weight-hover: var(--paragraph-font-weight-bold);
-  --list-item-background-color-hover: var(--primary-color-100);
 
   --list-item-border-active: 1px solid var(--success-color);
   --list-item-background-color-pressed: var(--primary-color-500);
 
+  /* Span attributes */
   --list-item-span-hover: var(--primary-color-600);
-
   --list-item-span-text-align: left;
   --list-item-span-width: 80%;
+  --list-item-span-cursor: default;
 
+  /* Icon div attributes */
+  --list-item-icon-filter: brightness(0.2);
+  --list-item-icon-filter-focus: brightness(0) invert(1);
+  --list-item-icon-margin: var(--round-m) 0 0 0;
 }
 
 .list-item {
@@ -46,7 +47,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 5px;
+  padding: var(--list-item-padding);
   border-radius: var(--list-item-border-radius);
   height: 100%;
 }
@@ -83,7 +84,7 @@
 
 .list-item--selected {
   background-color: var(--list-item-background-color-hover);
-  border-bottom: --list-item-border-hover;
+  border-bottom: var(--list-item-border-hover);
 }
 
 .list-item:hover > .list-item-span {
@@ -91,10 +92,19 @@
 }
 
 .list-item-span:hover {
-  cursor: default;
+  cursor: var(--list-item-span-cursor);
 }
 
 .list-item-span {
   text-align: var(--list-item-span-text-align);
   width: var(--list-item-span-width);
+}
+
+.list-item-div-icon {
+  filter: var(--list-item-icon-filter);
+  margin: var(--list-item-icon-margin);
+}
+
+.list-item:focus > .list-item-div-icon {
+  filter: var(--list-item-icon-filter-focus);
 }
