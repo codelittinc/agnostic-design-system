@@ -8,7 +8,9 @@ export interface Props<T> {
   getLabel: (item: T) => React.ReactNode;
   getIcon?: (item?: T) => React.ReactNode;
   getIsSelected?: (item: T) => boolean;
+  getName?: (item?: T) => string;
   getSelectedMarker?: (item: T) => React.ReactNode;
+  getValue: (item: T) => string | number | string[];
   item: T;
   size: string;
   variablesClassName?: string;

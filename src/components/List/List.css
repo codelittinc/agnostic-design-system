@@ -1,0 +1,114 @@
+@import "../../styles/theme/index.css";
+
+:root {
+  /* list div attributes */
+  --list-background-color: var(--structure-color-100);
+  --list-border-radius: var(--round-m);
+  --list-min-width: var(--spacing-horizontal-xxxl);
+  --list-style-type: none;
+
+  --list-border-active: 1px solid var(--structure-color-200);
+  --list-border-hover: 1px solid var(--structure-color-400);
+
+  --list-large-height: var(--height-l);
+  --list-large-font-size: var(--paragraph-l);
+  --list-large-font-weight: var(--paragraph-font-weight-bold);
+  --list-large-line-height: var(--paragraph-l-line-height);
+  --list-large-border-radius: var(--round-m);
+
+  --list-medium-height: var(--height-m);
+  --list-medium-font-size: var(--paragraph-m);
+  --list-medium-font-weight: var(--paragraph-font-weight-bold);
+  --list-medium-line-height: var(--paragraph-m-line-height);
+  --list-medium-border-radius: var(--round-m);
+
+  --list-item-large-height: var(--height-l);
+  --list-item-medium-height: var(--height-m);
+
+  --list-label-font-size: var(--paragraph-l);
+  --list-label-font-weight: var(--paragraph-font-weight-normal);
+  --list-label-line-height: var(--paragraph-l-line-height);
+  --list-label-color: var(--structure-color-800);
+
+  --list-span-color: var(--structure-color-900);
+
+  /* list */
+  --list-item-margin: 0 0 var(--round-l) 0;
+  --list-item-border-radius: var(--round-m);
+  --list-item-box-sizing: border-box;
+  --list-item-box-shadow: 0px 4px 10px rgba(232, 238, 252, 0.7);
+  --list-item-border: 1px solid var(--primary-color-100);
+  --list-focus-outline: var(--structure-color-400) auto 1px;
+
+  --list-item-border-hover: 1px solid var(--structure-color-600);
+}
+
+/* list div */
+.list {
+  align-items: center;
+  background: var(--list-background-color);
+  border-radius: var(--list-border-radius);
+  height: 100%;
+  justify-content: space-between;
+  list-style-type: var(--list-style-type);
+  min-width: var(--list-min-width);
+  padding-inline-start: var(--list-padding-inline-start);
+  width: 100%;
+}
+
+.list--medium {
+  border-radius: var(--list-medium-border-radius);
+  font-size: var(--list-medium-font-size);
+  font-weight: var(--list-medium-font-weight);
+  height: var(--list-medium-height);
+  line-height: var(--list-medium-line-height);
+}
+
+.list--large {
+  border-radius: var(--list-large-border-radius);
+  font-size: var(--list-large-font-size);
+  font-weight: var(--list-large-font-weight);
+  height: var(--list-large-height);
+  line-height: var(--list-large-line-height);
+}
+
+.list:active,
+.list:focus {
+  border: var(--list-border-active, none);
+}
+
+.list:focus {
+  outline: var(--list-focus-outline);
+}
+
+.list-item {
+  border: var(--list-item-border);
+  border-radius: var(--list-item-border-radius);
+  box-shadow: var(--list-item-box-shadow);
+  box-sizing: var(--list-item-box-sizing);
+  margin: var(--list-item-margin);
+  width: 100%;
+}
+
+.list-label {
+  color: var(--list-label-color);
+  display: flex;
+  font-size: var(--list-label-font-size);
+  font-weight: var(--list-label-font-weight);
+  line-height: var(--list-label-line-height);
+  width: 100%;
+}
+
+.list-item--visit{
+  border-bottom: var(--list-item-border-hover);
+}
+
+.list-item--large,
+.list--large {
+  height: var(--list-item-large-height);
+}
+
+.list-item--medium,
+.list--medium {
+  height: var(--list-item-medium-height);
+}

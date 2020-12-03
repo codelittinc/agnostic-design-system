@@ -161,6 +161,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
                   getLabel={getItemLabel}
                   getIcon={getItemIcon}
                   getIsSelected={item => isEqual(item, selected)}
+                  getValue={item[valueKey]}
                 />
               </li>
             ))}
