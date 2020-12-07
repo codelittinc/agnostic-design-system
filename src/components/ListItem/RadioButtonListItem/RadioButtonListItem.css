@@ -1,0 +1,99 @@
+@import "../../../styles/theme/index.css";
+
+:root {
+  --list-item-rb-flex-direction: row-reverse;
+
+  --list-item-rb-width--large: var(--heading-s);
+  --list-item-rb-height--large: var(--heading-s);
+
+  --list-item-rb-width--medium: var(--heading-xs);
+  --list-item-rb-height--medium: var(--heading-xs);
+
+  --list-item-rb-span-background: var(--structure-color-white);
+  --list-item-rb-span-background-color: var(--structure-color-300);
+  --list-item-rb-span-background-color-hover: var(--structure-color-white);
+  --list-item-rb-span-background-color-checked: var(--primary-color-400);
+  --list-item-rb-span-border: 1px solid var(--success-color);
+  --list-item-rb-span-border-checked: none;
+}
+
+.radio-container {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.radio-container .list-item-radio {
+  opacity: 0;
+  position: absolute;
+}
+
+.list-item-radio-reverse {
+  flex-direction: var(--list-item-rb-flex-direction);
+}
+
+/* Create a custom radio button */
+.radio-check {
+  background-color: var(--list-item-rb-span-background-color);
+  border: var(--list-item-rb-span-border);
+  border-radius: 50%;
+  left: 0;
+  position: absolute;
+}
+
+.list-item-radio--large ~ .radio-check {
+  height: var(--list-item-rb-height--large);
+  top: -8px;
+  width: var(--list-item-rb-width--large);
+}
+
+.list-item-radio--medium ~ .radio-check {
+  height: var(--list-item-rb-height--medium);
+  top: -5px;
+  width: var(--list-item-rb-width--medium);
+}
+
+/* On mouse-over, add a white background color */
+.radio-container:hover .list-item-radio ~ .radio-check {
+  background-color: var(--list-item-rb-span-background-color-hover);
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container .list-item-radio:checked ~ .radio-check {
+  background-color: var(--list-item-rb-span-background-color-checked);
+  border: var(--list-item-rb-span-border-checked);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container .list-item-radio:checked ~ .radio-check:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) large size */
+.radio-container .list-item-radio--large ~ .radio-check:after {
+  background: var(--list-item-rb-span-background);
+  border-radius: 50%;
+  height: 12px;
+  left: 6px;
+  top: 6px;
+  width: 12px;
+}
+
+/* Style the indicator (dot/circle) medium size */
+.radio-container .list-item-radio--medium ~ .radio-check:after {
+  background: var(--list-item-rb-span-background);
+  border-radius: 50%;
+  height: 10px;
+  left: 5px;
+  top: 5px;
+  width: 10px;
+}

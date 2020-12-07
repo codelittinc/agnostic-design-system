@@ -73,3 +73,27 @@ CheckBoxList.args = {
   getItemLabel: item => item.label,
   getItemKey: item => item.value
 };
+
+export const RadioButtonList = Template.bind({});
+RadioButtonList.args = {
+  listItemCategory: 'radio',
+  label: 'Some label',
+  id: 'ads-list',
+  size: 'large',
+  options: [
+    {
+      label: 'Item 1',
+      value: '1',
+      name: 'test'
+    },
+    {
+      label: 'Item 2',
+      value: '2',
+      name: 'test'
+    }
+  ],
+  getItemValue: item => item.value,
+  getItemLabel: item => item.label,
+  getItemName: item => item.name,
+  getItemKey: item => item.value
+};

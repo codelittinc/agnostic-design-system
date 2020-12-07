@@ -6,7 +6,7 @@ import styles from '@/components/List/List.css';
 
 import ListItem from '@/components/ListItem';
 
-type ListItemCategory = 'simple' | 'icon' | 'checkbox';
+type ListItemCategory = 'simple' | 'icon' | 'checkbox' | 'radio';
 type Size = 'large' | 'medium';
 
 const largeSize = 'large';
@@ -50,10 +50,10 @@ const List = <T extends {}>(props: Props<T>) => {
 
   const sizeClass = `list--${size}`;
   const listItemSizeClass = `list-item--${size}`;
-  const checkboxCategory = 'checkbox';
+  const checkCategories = ['checkbox', 'radio'];
 
-  const checkBoxClick = item => {
-    isEqual(item, selectedItem)
+  const checkClick = item => {
+    isEqual(item, selectedItem) && listItemCategory === 'checkbox'
       ? setSelectedItem(null)
       : setSelectedItem(
           options.find(option => getItemValue(option) === getItemValue(item)) || null
@@ -61,8 +61,8 @@ const List = <T extends {}>(props: Props<T>) => {
   };
 
   const handleClick = item => {
-    if (listItemCategory === checkboxCategory) {
-      return onClickItem ? onClickItem(item) : checkBoxClick(item);
+    if (checkCategories.includes(listItemCategory)) {
+      return onClickItem ? onClickItem(item) : checkClick(item);
     }
     return onClickItem ? onClickItem(item) : null;
   };

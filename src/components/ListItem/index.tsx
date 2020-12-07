@@ -5,8 +5,9 @@ import DefaultListItem, {
 } from '@/components/ListItem/DefaultListItem';
 import CheckBoxListItem from '@/components/ListItem/CheckBoxListItem';
 import IconListItem from '@/components/ListItem/IconListItem';
+import RadioListItem from '@/components/ListItem/RadioButtonListItem';
 
-type Category = 'simple' | 'checkbox' | 'icon';
+type Category = 'simple' | 'checkbox' | 'icon' | 'radio';
 
 type Props<T> = DefaultListItemProps<T> & {
   category?: Category;
@@ -15,7 +16,8 @@ type Props<T> = DefaultListItemProps<T> & {
 const items = {
   simple: DefaultListItem,
   checkbox: CheckBoxListItem,
-  icon: IconListItem
+  icon: IconListItem,
+  radio: RadioListItem
 };
 
 const ListItem = <T extends {}>(props: Props<T>) => {
