@@ -58,6 +58,7 @@ interface PropTypes {
    * Accepts values from 1 to 12, which means that each column has a min-width of 8.33%.
    */
   lgOffset?: MDAndUpColumns;
+  variablesClassName?: string;
 }
 
 const getClasses = (cols: ColSizeIndex, type: string) => {
@@ -72,7 +73,18 @@ const getClasses = (cols: ColSizeIndex, type: string) => {
 };
 
 const Col: React.FC<PropTypes> = props => {
-  const { xs, sm, md, lg, xsOffset, smOffset, mdOffset, lgOffset, ...attributes } = props;
+  const {
+    xs,
+    sm,
+    md,
+    lg,
+    xsOffset,
+    smOffset,
+    mdOffset,
+    lgOffset,
+    variablesClassName,
+    ...attributes
+  } = props;
 
   const colSizes: ColSizeIndex = { xs, sm, md, lg };
 
@@ -87,7 +99,12 @@ const Col: React.FC<PropTypes> = props => {
     colClasses.push(styles['codelitt-col-xs-4']);
   }
 
-  return <div {...attributes} className={classNames(colClasses)} />;
+  return (
+    <div
+      {...attributes}
+      className={classNames(styles['codelitt-col'], colClasses, variablesClassName)}
+    />
+  );
 };
 
 export default Col;

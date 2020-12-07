@@ -3,22 +3,36 @@
 :root {
   --grid-border: none;
   --grid-background-color: none;
+
+  --row-border: none;
+  --row-background-color: none;
+
+  --col-border: none;
+  --col-background-color: none;
 }
 
 .codelitt-container {
+  background-color: var(--grid-background-color, none);
+  border: var(--grid-border, none);
   margin: 0 auto;
   max-width: 100%;
   padding-left: 12px;
   padding-right: 12px;
-  border: var(--grid-border, none);
-  background-color: var(--grid-background-color, none);
 }
 
 .codelitt-row {
+  background-color: var(--row-background-color, none);
+  border: var(--row-border, none);
   display: flex;
   flex-wrap: wrap;
   margin-left: -12px;
-  margin-right: -12px; }
+  margin-right: -12px;
+}
+
+.codelitt-col {
+  background-color: var(--col-background-color, none);
+  border: var(--col-border, none);
+}
 
 .codelitt-col-xs-1 {
   box-sizing: border-box;

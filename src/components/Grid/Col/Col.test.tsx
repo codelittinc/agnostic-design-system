@@ -27,19 +27,19 @@ describe('Col', () => {
     };
 
     it('adds the xs class', () => {
-      expect(getCol()).toHaveClass('codelitt-col-xs-4');
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xs-4');
     });
 
     it('adds the sm class', () => {
-      expect(getCol()).toHaveClass('codelitt-col-sm-4');
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-sm-4');
     });
 
     it('adds the md class', () => {
-      expect(getCol()).toHaveClass('codelitt-col-md-3');
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-md-3');
     });
 
     it('adds the lg class', () => {
-      expect(getCol()).toHaveClass('codelitt-col-lg-1');
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-lg-1');
     });
   });
 });
