@@ -10,6 +10,7 @@
   border: var(--button-border, none);
   background: var(--button-background-color, transparent);
   color: var(--button-color);
+  cursor: var(--button-cursor, pointer);
 }
 
 .button:hover,
