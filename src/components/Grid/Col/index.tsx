@@ -9,6 +9,7 @@ type ColSizeIndex = {
 type XSColumns = 1 | 2 | 3 | 4;
 type SMColumns = XSColumns | 5 | 6 | 7 | 8;
 type MDAndUpColumns = XSColumns | SMColumns | 9 | 10 | 11 | 12;
+type LGAndUpColumns = MDAndUpColumns | 13 | 14 | 15 | 16;
 
 interface PropTypes {
   /**
@@ -52,12 +53,32 @@ interface PropTypes {
    * Accepts values from 1 to 12, which means that each column has a min-width of 8.33%.
    */
 
-  lg?: MDAndUpColumns;
+  lg?: LGAndUpColumns;
   /**
    * Number of offset columns for large devices (desktop).
-   * Accepts values from 1 to 12, which means that each column has a min-width of 8.33%.
+   * Accepts values from 1 to 16, which means that each column has a min-width of 8.33%.
    */
-  lgOffset?: MDAndUpColumns;
+  lgOffset?: LGAndUpColumns;
+  /**
+   * Number of offset columns for large devices (desktop).
+   * Accepts values from 1 to 16, which means that each column has a min-width of 8.33%.
+   */
+  xl?: LGAndUpColumns;
+  /**
+   * Number of offset columns for large devices (desktop).
+   * Accepts values from 1 to 16, which means that each column has a min-width of 6.25%.
+   */
+  xlOffset?: LGAndUpColumns;
+  /**
+   * Number of offset columns for large devices (desktop).
+   * Accepts values from 1 to 16, which means that each column has a min-width of 6.25%.
+   */
+  xxl?: LGAndUpColumns;
+  /**
+   * Number of offset columns for large devices (desktop).
+   * Accepts values from 1 to 16, which means that each column has a min-width of 6.25%.
+   */
+  xxlOffset?: LGAndUpColumns;
   variablesClassName?: string;
 }
 
@@ -78,17 +99,28 @@ const Col: React.FC<PropTypes> = props => {
     sm,
     md,
     lg,
+    xl,
+    xxl,
     xsOffset,
     smOffset,
     mdOffset,
     lgOffset,
+    xlOffset,
+    xxlOffset,
     variablesClassName,
     ...attributes
   } = props;
 
-  const colSizes: ColSizeIndex = { xs, sm, md, lg };
+  const colSizes: ColSizeIndex = { xs, sm, md, lg, xl, xxl };
 
-  const offsetSizes: ColSizeIndex = { xs: xsOffset, sm: smOffset, md: mdOffset, lg: lgOffset };
+  const offsetSizes: ColSizeIndex = {
+    xs: xsOffset,
+    sm: smOffset,
+    md: mdOffset,
+    lg: lgOffset,
+    xl: xlOffset,
+    xxl: xxlOffset
+  };
 
   const colClasses: string[] = [
     ...getClasses(colSizes, 'col'),
