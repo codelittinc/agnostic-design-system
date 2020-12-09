@@ -5,7 +5,7 @@
   --dropdown-background-color: var(--structure-color-100);
   --dropdown-border-radius: var(--round-m);
   --dropdown-min-width: var(--spacing-horizontal-xxxl);
-  --dropdown-border: 1px solid var(--structure-color-100);
+  --dropdown-border: 1px solid transparent;
 
   --dropdown-border-active: 1px solid var(--structure-color-200);
   --dropdown-border-hover: 1px solid var(--structure-color-400);
@@ -64,6 +64,7 @@
 /* dropdown div */
 .dropdown {
   background: var(--dropdown-background-color);
+  border: var(--dropdown-border);
   border-radius: var(--dropdown-border-radius);
   min-width: var(--dropdown-min-width);
   align-items: center;
