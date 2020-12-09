@@ -7,6 +7,8 @@
   --list-item-border-radius: var(--round-m);
   --list-item-padding: var(--round-m);
 
+  --list-item-cursor: pointer;
+
   --list-item-color: var(--structure-color-700);
   --list-item-color-hover: var(--structure-color-800);
   --list-item-color-active: var(--structure-color-700);
@@ -31,7 +33,6 @@
   --list-item-span-hover: var(--primary-color-600);
   --list-item-span-text-align: left;
   --list-item-span-width: 80%;
-  --list-item-span-cursor: default;
 
   /* Icon div attributes */
   --list-item-icon-filter: brightness(0.2);
@@ -42,6 +43,7 @@
 .list-item {
   background-color: var(--list-item-background-color);
   color: var(--list-item-color);
+  cursor: var(--list-item-cursor);
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
@@ -92,7 +94,7 @@
 }
 
 .list-item-span:hover {
-  cursor: var(--list-item-span-cursor);
+  cursor: var(--list-item-cursor);
 }
 
 .list-item-span {
