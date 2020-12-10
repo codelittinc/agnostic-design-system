@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash.isequal';
 
@@ -10,6 +10,8 @@ type ListItemCategory = 'simple' | 'icon' | 'checkbox' | 'radio';
 type Size = 'large' | 'medium';
 
 const largeSize = 'large';
+const enterKey = 13;
+const spaceBarKey = 32;
 
 interface Props<T> {
   getItemLabel: (item: T) => React.ReactNode;
@@ -21,7 +23,7 @@ interface Props<T> {
   isItemSelected?: (item?: T) => boolean;
   label?: string;
   listItemCategory: ListItemCategory;
-  onClickItem?: (item: T) => void;
+  onChange: (item?: T) => void;
   options: [T];
   selected?: T;
   size: Size;
@@ -38,7 +40,7 @@ const List = <T extends {}>(props: Props<T>) => {
     getItemKey,
     getItemName,
     id,
-    onClickItem,
+    onChange,
     options,
     selected,
     getItemValue,
@@ -46,25 +48,13 @@ const List = <T extends {}>(props: Props<T>) => {
     listItemCategory
   } = props;
 
-  const [selectedItem, setSelectedItem] = useState(selected || null);
-
   const sizeClass = `list--${size}`;
   const listItemSizeClass = `list-item--${size}`;
-  const checkCategories = ['checkbox', 'radio'];
 
-  const checkClick = item => {
-    isEqual(item, selectedItem) && listItemCategory === 'checkbox'
-      ? setSelectedItem(null)
-      : setSelectedItem(
-          options.find(option => getItemValue(option) === getItemValue(item)) || null
-        );
-  };
-
-  const handleClick = item => {
-    if (checkCategories.includes(listItemCategory)) {
-      return onClickItem ? onClickItem(item) : checkClick(item);
+  const handleKeyDown = item => event => {
+    if (event.keyCode === enterKey || event.keyCode === spaceBarKey) {
+      return onChange(item);
     }
-    return onClickItem ? onClickItem(item) : null;
   };
 
   return (
@@ -75,8 +65,8 @@ const List = <T extends {}>(props: Props<T>) => {
           <li
             key={`${getItemKey(item)}`}
             className={classNames(styles['list-item'], styles[listItemSizeClass])}
-            onClick={() => handleClick(item)}
-            onKeyPress={() => handleClick(item)}
+            onClick={() => onChange(item)}
+            onKeyDown={handleKeyDown(item)}
           >
             <ListItem<T>
               category={listItemCategory}
@@ -84,7 +74,7 @@ const List = <T extends {}>(props: Props<T>) => {
               item={item}
               getLabel={getItemLabel}
               getIcon={getItemIcon}
-              getIsSelected={isItemSelected || (item => isEqual(item, selectedItem))}
+              getIsSelected={isItemSelected || (item => isEqual(item, selected))}
               getValue={getItemValue}
               getName={getItemName}
             />
