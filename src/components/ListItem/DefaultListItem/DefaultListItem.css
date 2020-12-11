@@ -1,9 +1,9 @@
 @import "../../../styles/theme/index.css";
 
 :root {
-  --list-item-background-color: var(--structure-color-100);
   --list-item-background-color-hover: var(--structure-color-100);
 
+  --list-item-border: 1px solid transparent;
   --list-item-border-radius: var(--round-m);
   --list-item-padding: var(--round-m);
 
@@ -41,7 +41,7 @@
 }
 
 .list-item {
-  background-color: var(--list-item-background-color);
+  border: var(--list-item-border);
   color: var(--list-item-color);
   cursor: var(--list-item-cursor);
   width: 100%;
@@ -82,11 +82,6 @@
   background-color: var(--list-item-background-color-pressed);
   color: var(--list-item-color-pressed);
   font-weight: var(--list-item-font-weight-hover);
-}
-
-.list-item--selected {
-  background-color: var(--list-item-background-color-hover);
-  border-bottom: var(--list-item-border-hover);
 }
 
 .list-item:hover > .list-item-span {

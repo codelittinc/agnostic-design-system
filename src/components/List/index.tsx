@@ -64,7 +64,11 @@ const List = <T extends {}>(props: Props<T>) => {
         {options.map(item => (
           <li
             key={`${getItemKey(item)}`}
-            className={classNames(styles['list-item'], styles[listItemSizeClass])}
+            className={classNames(
+              styles['list-item'],
+              styles[listItemSizeClass],
+              isItemSelected || isEqual(item, selected) ? styles['list-item--selected'] : ''
+            )}
             onClick={() => onChange(item)}
             onKeyDown={handleKeyDown(item)}
           >
