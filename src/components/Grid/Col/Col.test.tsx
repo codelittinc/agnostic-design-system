@@ -21,10 +21,14 @@ describe('Col', () => {
 
   describe('when using responsive columns', () => {
     const getCol = () => {
-      const { container } = render(<Col xs={4} sm={4} md={3} lg={1} />);
+      const { container } = render(<Col xxs={4} xs={4} sm={4} md={3} lg={1} xl={1} xxl={1} />);
 
       return container.firstChild;
     };
+
+    it('adds the xxs class', () => {
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xxs-4');
+    });
 
     it('adds the xs class', () => {
       expect(getCol()).toHaveClass('codelitt-col codelitt-col-xs-4');
@@ -40,6 +44,14 @@ describe('Col', () => {
 
     it('adds the lg class', () => {
       expect(getCol()).toHaveClass('codelitt-col codelitt-col-lg-1');
+    });
+
+    it('adds the xl class', () => {
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xl-1');
+    });
+
+    it('adds the xxl class', () => {
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xxl-1');
     });
   });
 

@@ -18,6 +18,18 @@ interface PropTypes {
    * Number of columns for extra-small devices (phones).
    * Accepts values from 1 to 4, which means that each column has a min-width of 25%.
    */
+  xxs?: XSColumns;
+
+  /**
+   * Number of offset columns for extra-small devices (phones).
+   * Accepts values from 1 to 4, which means that each column has a min-width of 25%.
+   */
+  xxsOffset?: XSColumns;
+
+  /**
+   * Number of columns for extra-small devices (phones).
+   * Accepts values from 1 to 4, which means that each column has a min-width of 25%.
+   */
   xs?: XSColumns;
 
   /**
@@ -98,12 +110,14 @@ const getClasses = (cols: ColSizeIndex, type: string) => {
 
 const Col: React.FC<PropTypes> = props => {
   const {
+    xxs,
     xs,
     sm,
     md,
     lg,
     xl,
     xxl,
+    xxsOffset,
     xsOffset,
     smOffset,
     mdOffset,
@@ -115,11 +129,12 @@ const Col: React.FC<PropTypes> = props => {
     ...attributes
   } = props;
 
-  const colSizes: ColSizeIndex = { xs, sm, md, lg, xl, xxl };
+  const colSizes: ColSizeIndex = { xxs, xs, sm, md, lg, xl, xxl };
 
   const gutterTypeClass = gutterType !== 'all-gutters' ? `codelitt-col-${gutterType}` : '';
 
   const offsetSizes: ColSizeIndex = {
+    xxs: xxsOffset,
     xs: xsOffset,
     sm: smOffset,
     md: mdOffset,
