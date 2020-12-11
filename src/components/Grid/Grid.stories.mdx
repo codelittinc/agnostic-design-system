@@ -1,27 +1,52 @@
 Codelitt’s grid system uses a series of containers, rows, and columns to layout and align content. It’s built with flexbox and
 is fully responsive. Below is an example and an in-depth look at how the grid comes together.
-Column classes indicate the number of columns you’d like to use out of the possible 12 per row or less depending on the screen size:
+Column classes indicate the number of columns you’d like to use out of the possible 12 or 16 per row or less depending on the screen size:
 
+* `xl` and `xxl`: Extra Large screens (desktops) are divided into 16 columns (Only for Fluid Containers).
 * `lg`: Large screens (desktops) are divided into 12 columns.
 * `md`: Medium screens (small desktops) are divided into 12 columns.
 * `sm`: Small screens (tablets) are divided into 8 columns.
 * `xs`: Extra small screens (phones) are divided into 4 columns.
+
 
 example:
 
 ```
 <Container>
   <Row>
-    <Col xs={4} sm={4} md={3} lg={1}>
+    <Col xs={4} sm={4} md={3} lg={1} xl={1} xxl={1}>
       Col 1
     </Col>
-    <Col xs={4} sm={4} md={3} lg={1}>
+    <Col xs={4} sm={4} md={3} lg={1} xl={1} xxl={1}>
       Col 2
     </Col>
-    <Col xs={4} sm={4} md={3} lg={1}>
+    <Col xs={4} sm={4} md={3} lg={1} xl={1} xxl={1}>
       Col 3
     </Col>
-    <Col xs={4} sm={4} md={3} lg={1}>
+    <Col xs={4} sm={4} md={3} lg={1} xl={1} xxl={1}>
+      Col 4
+    </Col>
+  </Row>
+</Container>
+```
+
+We can use the Fluid grid type, this type of grid use 100% of width.
+
+example:
+
+```
+<Container fluid>
+  <Row>
+    <Col md={6} lg={4} xl={4} xxl={4}>
+      Col 1
+    </Col>
+    <Col md={6} lg={4} xl={4} xxl={4}>
+      Col 2
+    </Col>
+    <Col md={6} lg={4} xl={4} xxl={4}>
+      Col 3
+    </Col>
+    <Col md={6} lg={4} xl={4} xxl={4}>
       Col 4
     </Col>
   </Row>
@@ -35,7 +60,10 @@ This padding is then counteracted on the rows with negative margins. This way, a
 aligned down the left side.
 * In a grid layout, content must be placed within columns and only columns may be immediate children of rows.
 * Column widths are set in percentages, so they’re always fluid and sized relative to their parent element.
-* Columns have horizontal padding to create the gutters between individual columns.
+* Columns have horizontal padding to create the gutters between individual columns. We are able to remove the gutters using the `gutterType` param:
+
+`<Col gutterType={no-left-gutter | no-right-gutter | no-gutters | all-gutters(default)} />`
+
 * To make the grid responsive, there are four grid breakpoints, one for each responsive breakpoint: all breakpoints (extra small), small, medium, and large.
 * Grid breakpoints are based on minimum width media queries, meaning they apply to that one breakpoint and all those above
 it (e.g., `<Col sm={4} />` applies to small, medium, and large devices, but not the first xs breakpoint).
@@ -43,6 +71,7 @@ This example creates twelve columns with different widths on small, medium, and 
 Those columns are centered in the page with the parent `<Container/>`.
 
 What about %?
+* In extra large screens `xl` and `xxl`: each column has 6.25% of width (1 column of 16)
 * In large screens `lg`: each column has 8.33% of width (1 column of 12)
 * In medium screens `md`: each column has 25% of width (3 columns of 12 )
 * In small screens `sm`: each column has 50% of width (4 columns of 8)

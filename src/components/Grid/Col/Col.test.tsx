@@ -42,4 +42,40 @@ describe('Col', () => {
       expect(getCol()).toHaveClass('codelitt-col codelitt-col-lg-1');
     });
   });
+
+  describe('when using no left gutters', () => {
+    const getCol = () => {
+      const { container } = render(<Col gutterType='no-left-gutter' />);
+
+      return container.firstChild;
+    };
+
+    it('adds the no left gutters class', () => {
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xs-4 codelitt-col-no-left-gutter');
+    });
+  });
+
+  describe('when using no right gutters', () => {
+    const getCol = () => {
+      const { container } = render(<Col gutterType='no-right-gutter' />);
+
+      return container.firstChild;
+    };
+
+    it('adds the no right gutters class', () => {
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xs-4 codelitt-col-no-right-gutter');
+    });
+  });
+
+  describe('when using no gutters', () => {
+    const getCol = () => {
+      const { container } = render(<Col gutterType='no-gutters' />);
+
+      return container.firstChild;
+    };
+
+    it('adds the no gutters class', () => {
+      expect(getCol()).toHaveClass('codelitt-col codelitt-col-xs-4 codelitt-col-no-gutters');
+    });
+  });
 });

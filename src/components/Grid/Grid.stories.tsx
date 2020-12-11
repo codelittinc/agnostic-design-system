@@ -112,3 +112,46 @@ export const FluidGrid = () => (
     </Row>
   </Container>
 );
+
+export const CustomGuttersGrid = () => (
+  <Container>
+    <Row>
+      <Col gutterType='no-gutters' xs={4} sm={4} md={3} lg={1}>
+        No Gutters
+      </Col>
+      <Col gutterType='no-left-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Left Gutter
+      </Col>
+      <Col gutterType='no-right-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Right Gutter
+      </Col>
+      <Col gutterType='no-right-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Right Gutter
+      </Col>
+      <Col gutterType='no-left-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Left Gutter
+      </Col>
+      <Col xs={4} sm={4} md={3} lg={1}>
+        All gutters
+      </Col>
+      <Col gutterType='no-right-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Right Gutter
+      </Col>
+      <Col gutterType='no-left-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Left Gutter
+      </Col>
+      <Col gutterType='no-gutters' xs={4} sm={4} md={3} lg={1}>
+        No Gutters
+      </Col>
+      <Col gutterType='no-right-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Right Gutter
+      </Col>
+      <Col gutterType='no-left-gutter' xs={4} sm={4} md={3} lg={1}>
+        No Left Gutter
+      </Col>
+      <Col gutterType='no-gutters' xs={4} sm={4} md={3} lg={1}>
+        No Gutters
+      </Col>
+    </Row>
+  </Container>
+);

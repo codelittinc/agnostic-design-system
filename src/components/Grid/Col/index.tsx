@@ -11,6 +11,8 @@ type SMColumns = XSColumns | 5 | 6 | 7 | 8;
 type MDAndUpColumns = XSColumns | SMColumns | 9 | 10 | 11 | 12;
 type LGAndUpColumns = MDAndUpColumns | 13 | 14 | 15 | 16;
 
+type Gutter = 'no-left-gutter' | 'no-right-gutter' | 'no-gutters' | 'all-gutters';
+
 interface PropTypes {
   /**
    * Number of columns for extra-small devices (phones).
@@ -80,6 +82,7 @@ interface PropTypes {
    */
   xxlOffset?: LGAndUpColumns;
   variablesClassName?: string;
+  gutterType?: Gutter;
 }
 
 const getClasses = (cols: ColSizeIndex, type: string) => {
@@ -108,10 +111,13 @@ const Col: React.FC<PropTypes> = props => {
     xlOffset,
     xxlOffset,
     variablesClassName,
+    gutterType,
     ...attributes
   } = props;
 
   const colSizes: ColSizeIndex = { xs, sm, md, lg, xl, xxl };
+
+  const gutterTypeClass = gutterType !== 'all-gutters' ? `codelitt-col-${gutterType}` : '';
 
   const offsetSizes: ColSizeIndex = {
     xs: xsOffset,
@@ -134,9 +140,18 @@ const Col: React.FC<PropTypes> = props => {
   return (
     <div
       {...attributes}
-      className={classNames(styles['codelitt-col'], colClasses, variablesClassName)}
+      className={classNames(
+        styles['codelitt-col'],
+        colClasses,
+        variablesClassName,
+        styles[gutterTypeClass]
+      )}
     />
   );
+};
+
+Col.defaultProps = {
+  gutterType: 'all-gutters'
 };
 
 export default Col;
