@@ -9,7 +9,6 @@
   --list-border: 1px solid transparent;
 
   --list-border-active: 1px solid var(--structure-color-200);
-  --list-border-hover: 1px solid var(--structure-color-400);
 
   --list-large-height: var(--height-l);
   --list-large-font-size: var(--paragraph-l);
@@ -31,8 +30,6 @@
   --list-label-line-height: var(--paragraph-l-line-height);
   --list-label-color: var(--structure-color-800);
 
-  --list-span-color: var(--structure-color-900);
-
   /* list */
   --list-item-margin: 0 0 var(--round-l) 0;
   --list-item-border-radius: var(--round-m);
@@ -44,7 +41,7 @@
   --list-item-background-color: var(--structure-color-100);
 
   --list-item-background-color-selected: var(--structure-color-100);
-  --list-item-border-selected: 1px solid transparent;
+  --list-item-border-bottom-selected: 1px solid var(success-color);
 }
 
 /* list div */
@@ -121,6 +118,5 @@
 
 .list-item--selected {
   background-color: var(--list-item-background-color-selected);
-  border: var(--list-item-border-selected);
+  border-bottom: var(--list-item-border-selected);
 }
-

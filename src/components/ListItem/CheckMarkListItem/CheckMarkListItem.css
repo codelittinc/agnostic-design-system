@@ -1,0 +1,45 @@
+@import "../../../styles/theme/index.css";
+
+:root {
+  --list-item-cm-background-color: var(--success-color);
+  --list-item-cm-border-radius: var(--round-m);
+  --list-item-cm-fill-color: var(--success-color);
+  --list-item-cm-fill-color--unchecked: var(--structure-color-100);
+
+  --list-item-cm-margin: var(--round-m) 0 0 0;
+
+  --list-item-cm-width--large: var(--heading-s);
+  --list-item-cm-height--large: var(--heading-s);
+
+  --list-item-cm-width--medium: var(--heading-xs);
+  --list-item-cm-height--medium: var(--heading-xs);
+}
+
+.list-item-checkmark {
+  border-radius: var(--list-item-cm-border-radius);
+}
+
+.list-item-checkmark--checked {
+  fill: var(--list-item-cm-fill-color);
+}
+
+.list-item-checkmark--unchecked {
+  fill: var(--list-item-cm-fill-color--unchecked);
+}
+
+.checkmark-container {
+  margin: var(--list-item-cm-margin);
+}
+
+.checkmark-container--large {
+  height: var(--list-item-cm-height--large);
+  width: var(--list-item-cm-width--large);
+}
+
+.checkmark-container--medium {
+  height: var(--list-item-cm-height--medium);
+  width: var(--list-item-cm-width--medium);
+}
+
+
+

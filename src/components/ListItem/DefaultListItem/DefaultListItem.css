@@ -30,9 +30,10 @@
   --list-item-background-color-pressed: var(--primary-color-500);
 
   /* Span attributes */
-  --list-item-span-hover: var(--primary-color-600);
+  --list-item-span-color-hover: var(--structure-color-800);
   --list-item-span-text-align: left;
   --list-item-span-width: 80%;
+  --list-item-span-color-pressed: var(--structure-color-white);
 
   /* Icon div attributes */
   --list-item-icon-filter: brightness(0.2);
@@ -40,10 +41,15 @@
   --list-item-icon-margin: var(--round-m) 0 0 0;
 
   /* CheckBox attributes */
-  --list-item-checkbox-background-color-hover: var(--structure-color-500);
+  --list-item-checkbox-background-color-hover: var(--structure-color-white);
+  --list-item-checkbox-border-hover: 1px solid var(--structure-color-700);
 
   /* RadioButton attributes */
   --list-item-radio-background-color-hover: var(--structure-color-white);
+
+  /* CheckMark attributes */
+  --list-item-checkmark-fill-hover: var(--structure-color-600);
+  --list-item-checkmark-fill-pressed: var(--structure-color-white);
 }
 
 .list-item {
@@ -60,16 +66,26 @@
   height: 100%;
 }
 
-.list-item--span-medium {
+.list-item-span {
+  text-align: var(--list-item-span-text-align);
+  width: var(--list-item-span-width);
+}
+
+.list-item-span--medium {
   font-size: var(--list-item-medium-font-size);
   font-weight: var(--list-item-medium-font-weight);
   line-height: var(--list-item-medium-line-height);
 }
 
-.list-item--span-large {
+.list-item-span--large {
   font-size: var(--list-item-large-font-size);
   font-weight: var(--list-item-large-font-weight);
   line-height: var(--list-item-large-line-height);
+}
+
+.list-item-div-icon {
+  filter: var(--list-item-icon-filter);
+  margin: var(--list-item-icon-margin);
 }
 
 .list-item:hover {
@@ -78,44 +94,37 @@
   font-weight: var(--list-item-font-weight-hover);
 }
 
-.list-item:active {
-  border-bottom: var(--list-item-border-active);
-  color: var(--list-item-color-active);
-  font-weight: var(--list-item-font-weight-hover);
+.list-item:hover > .list-item-span {
+  color: var(--list-item-span-color-hover);
 }
 
-.list-item:focus {
+.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=checkbox]:not(:checked) ~ span {
+  background-color: var(--list-item-checkbox-background-color-hover);
+  border: var(--list-item-checkbox-border-hover);
+}
+
+.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=radio]:not(:checked) ~ span {
+  background-color: var(--list-item-radio-background-color-hover);
+}
+
+.list-item:hover > .list-item-selected-marker:last-child > div:last-child > svg {
+  fill: var(--list-item-checkmark-fill-hover);
+}
+
+.list-item:active {
   background-color: var(--list-item-background-color-pressed);
   color: var(--list-item-color-pressed);
   font-weight: var(--list-item-font-weight-hover);
 }
 
-.list-item:hover > .list-item-span {
-  color: var(--list-item-span-hover);
+.list-item:active > .list-item-span {
+  color: var(--list-item-span-color-pressed);
 }
 
-.list-item-span:hover {
-  cursor: var(--list-item-cursor);
-}
-
-.list-item-span {
-  text-align: var(--list-item-span-text-align);
-  width: var(--list-item-span-width);
-}
-
-.list-item-div-icon {
-  filter: var(--list-item-icon-filter);
-  margin: var(--list-item-icon-margin);
-}
-
-.list-item:focus > .list-item-div-icon {
+.list-item:active > .list-item-div-icon {
   filter: var(--list-item-icon-filter-focus);
 }
 
-.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=checkbox]:not(:checked) ~ span {
-  background-color: var(--list-item-checkbox-background-color-hover);
-}
-
-.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=radio]:not(:checked) ~ span {
-  background-color: var(--list-item-radio-background-color-hover);
+.list-item:active > .list-item-selected-marker:last-child > div:last-child > svg {
+  fill: var(--list-item-checkmark-fill-pressed);
 }

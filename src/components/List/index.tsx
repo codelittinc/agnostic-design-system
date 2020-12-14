@@ -6,7 +6,7 @@ import styles from '@/components/List/List.css';
 
 import ListItem from '@/components/ListItem';
 
-type ListItemCategory = 'simple' | 'icon' | 'checkbox' | 'radio';
+type ListItemCategory = 'simple' | 'icon' | 'checkbox' | 'radio' | 'checkmark';
 type Size = 'large' | 'medium';
 
 const largeSize = 'large';

@@ -78,7 +78,7 @@ RadioButtonList.args = {
   getItemKey: item => item.value
 };
 
-const CheckBoxTemplate = args => {
+const CheckTemplate = args => {
   const [selectedItem, setSelectedItem] = useState(args.selected);
 
   const checkClick = item => {
@@ -92,9 +92,30 @@ const CheckBoxTemplate = args => {
   return <List {...args} selected={selectedItem} onChange={checkClick} />;
 };
 
-export const CheckBoxList = CheckBoxTemplate.bind({});
+export const CheckBoxList = CheckTemplate.bind({});
 CheckBoxList.args = {
   listItemCategory: 'checkbox',
+  label: 'Some label',
+  id: 'ads-list',
+  size: 'large',
+  options: [
+    {
+      label: 'Item 1',
+      value: '1'
+    },
+    {
+      label: 'Item 2',
+      value: '2'
+    }
+  ],
+  getItemValue: item => item.value,
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value
+};
+
+export const CheckMarkList = CheckTemplate.bind({});
+CheckMarkList.args = {
+  listItemCategory: 'checkmark',
   label: 'Some label',
   id: 'ads-list',
   size: 'large',
