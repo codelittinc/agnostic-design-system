@@ -139,7 +139,11 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
         </button>
         <ul
           {...getMenuProps()}
-          className={classNames(styles['dropdown-list'], styles[listSizeClass])}
+          className={classNames(
+            styles['dropdown-list'],
+            styles[listSizeClass],
+            !isOpen && styles['dropdown-list--hidden']
+          )}
         >
           {isOpen &&
             options.map((item, index) => (

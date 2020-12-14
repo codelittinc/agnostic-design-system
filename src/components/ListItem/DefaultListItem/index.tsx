@@ -42,7 +42,9 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
       <span className={classNames(styles['list-item-span'], styles[sizeSpanClass])}>
         {getLabel(item)}
       </span>
-      <div>{getSelectedMarker && getSelectedMarker(item)}</div>
+      <div className={classNames(styles['list-item-selected-marker'])}>
+        {getSelectedMarker && getSelectedMarker(item)}
+      </div>
     </div>
   );
 };

@@ -11,12 +11,15 @@ const CheckBoxListItem = <T extends {}>({ getIsSelected, ...props }: Props<T>) =
       {...props}
       className={classNames(styles['list-item-checkbox-reverse'])}
       getSelectedMarker={item => (
-        <input
-          type='checkbox'
-          className={classNames(styles['list-item-checkbox'], styles[sizeClass])}
-          checked={getIsSelected && getIsSelected(item)}
-          onChange={() => {}}
-        />
+        <div className={styles['checkbox-container']}>
+          <input
+            type='checkbox'
+            className={classNames(styles['list-item-checkbox'], styles[sizeClass])}
+            checked={getIsSelected && getIsSelected(item)}
+            onChange={() => {}}
+          />
+          <span className={styles['checkbox-check']} />
+        </div>
       )}
     />
   );

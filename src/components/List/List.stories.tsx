@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import List from '@/components/List';
+import isEqual from 'lodash.isequal';
 
 export default {
   title: 'List',
@@ -53,27 +54,6 @@ IconList.args = {
   getItemKey: item => item.value
 };
 
-export const CheckBoxList = Template.bind({});
-CheckBoxList.args = {
-  listItemCategory: 'checkbox',
-  label: 'Some label',
-  id: 'ads-list',
-  size: 'large',
-  options: [
-    {
-      label: 'Item 1',
-      value: '1'
-    },
-    {
-      label: 'Item 2',
-      value: '2'
-    }
-  ],
-  getItemValue: item => item.value,
-  getItemLabel: item => item.label,
-  getItemKey: item => item.value
-};
-
 export const RadioButtonList = Template.bind({});
 RadioButtonList.args = {
   listItemCategory: 'radio',
@@ -95,5 +75,40 @@ RadioButtonList.args = {
   getItemValue: item => item.value,
   getItemLabel: item => item.label,
   getItemName: item => item.name,
+  getItemKey: item => item.value
+};
+
+const CheckBoxTemplate = args => {
+  const [selectedItem, setSelectedItem] = useState(args.selected);
+
+  const checkClick = item => {
+    isEqual(item, selectedItem)
+      ? setSelectedItem(null)
+      : setSelectedItem(
+          args.options.find(option => args.getItemValue(option) === args.getItemValue(item)) || null
+        );
+  };
+
+  return <List {...args} selected={selectedItem} onChange={checkClick} />;
+};
+
+export const CheckBoxList = CheckBoxTemplate.bind({});
+CheckBoxList.args = {
+  listItemCategory: 'checkbox',
+  label: 'Some label',
+  id: 'ads-list',
+  size: 'large',
+  options: [
+    {
+      label: 'Item 1',
+      value: '1'
+    },
+    {
+      label: 'Item 2',
+      value: '2'
+    }
+  ],
+  getItemValue: item => item.value,
+  getItemLabel: item => item.label,
   getItemKey: item => item.value
 };

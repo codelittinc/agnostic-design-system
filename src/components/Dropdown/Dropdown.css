@@ -207,3 +207,7 @@
 .dropdown-list--large {
   height: var(--dropdown-list-item-large-height);
 }
+
+.dropdown-list--hidden {
+  display: none;
+}

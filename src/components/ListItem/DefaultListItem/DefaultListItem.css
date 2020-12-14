@@ -38,6 +38,12 @@
   --list-item-icon-filter: brightness(0.2);
   --list-item-icon-filter-focus: brightness(0) invert(1);
   --list-item-icon-margin: var(--round-m) 0 0 0;
+
+  /* CheckBox attributes */
+  --list-item-checkbox-background-color-hover: var(--structure-color-500);
+
+  /* RadioButton attributes */
+  --list-item-radio-background-color-hover: var(--structure-color-white);
 }
 
 .list-item {
@@ -104,4 +110,12 @@
 
 .list-item:focus > .list-item-div-icon {
   filter: var(--list-item-icon-filter-focus);
+}
+
+.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=checkbox]:not(:checked) ~ span {
+  background-color: var(--list-item-checkbox-background-color-hover);
+}
+
+.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=radio]:not(:checked) ~ span {
+  background-color: var(--list-item-radio-background-color-hover);
 }

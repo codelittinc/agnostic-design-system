@@ -2,6 +2,7 @@
 
 :root {
   --list-item-cb-border-radius: var(--round-m);
+  --list-item-cb-background-color: var(--structure-color-400);
 
   --list-item-cb-width--large: var(--heading-s);
   --list-item-cb-height--large: var(--heading-s);
@@ -10,42 +11,87 @@
   --list-item-cb-height--medium: var(--heading-xs);
 
   --list-item-cb-flex-direction: row-reverse;
-}
-
-.list-item-checkbox {
-  border-radius: var(--list-item-cb-border-radius);
-}
-
-.list-item-checkbox--medium {
-  width: var(--list-item-cb-width--medium);
-  height: var(--list-item-cb-height--medium);
-}
-
-.list-item-checkbox--large {
-  width: var(--list-item-cb-width--large);
-  height: var(--list-item-cb-height--large);
+  --list-item-cb-background-color-checked: var(--success-color);
 }
 
 .list-item-checkbox-reverse {
   flex-direction: var(--list-item-cb-flex-direction);
 }
 
-.list-item-checkbox--large:checked::after{
-  border-radius: var(--list-item-cb-border-radius);
-  background-size: var(--list-item-cb-width--large) var(--list-item-cb-height--large);
-  background-image: url('/src/assets/images/checkbox.jpg');
-  content:"";
-  display: inline-block;
-  width: var(--list-item-cb-width--large);
-  height: var(--list-item-cb-height--large);
+.checkbox-container {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
 }
 
-.list-item-checkbox--medium:checked::after{
+/* Hide the browser's default checkbox */
+.checkbox-container .list-item-checkbox {
+  cursor: pointer;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-check {
+  background-color: var(--list-item-cb-background-color);
   border-radius: var(--list-item-cb-border-radius);
-  background-size: var(--list-item-cb-width--medium) var(--list-item-cb-height--medium);
-  background-image: url('/src/assets/images/checkbox.jpg');
-  content:"";
-  display: inline-block;
-  width: var(--list-item-cb-width--medium);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.list-item-checkbox--large ~ .checkbox-check {
+  height: var(--list-item-cb-height--large);
+  top: -7px;
+  width: var(--list-item-cb-width--large);
+}
+
+.list-item-checkbox--medium ~ .checkbox-check {
   height: var(--list-item-cb-height--medium);
+  top: -5px;
+  width: var(--list-item-cb-width--medium);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container .list-item-checkbox:checked ~ .checkbox-check {
+  background-color: var(--list-item-cb-background-color-checked);
+}
+
+/* Create the checkbox-check/indicator (hidden when not checked) */
+.checkbox-check:after {
+  content: "";
+  display: none;
+  position: absolute;
+}
+
+/* Show the checkbox-check when checked */
+.checkbox-container .list-item-checkbox:checked ~ .checkbox-check:after {
+  display: block;
+}
+
+/* Style the checkbox-check/indicator */
+.checkbox-container .checkbox-check:after {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Style the indicator (dot/circle) large size */
+.checkbox-container .list-item-checkbox--large ~ .checkbox-check:after {
+  height: 12px;
+  left: 8px;
+  top: 3px;
+  width: 6px;
+}
+
+/* Style the indicator (dot/circle) medium size */
+.checkbox-container .list-item-checkbox--medium ~ .checkbox-check:after {
+  height: 10px;
+  left: 7px;
+  top: 2px;
+  width: 4px;
 }

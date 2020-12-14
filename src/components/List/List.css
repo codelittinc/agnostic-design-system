@@ -38,7 +38,7 @@
   --list-item-border-radius: var(--round-m);
   --list-item-box-sizing: border-box;
   --list-item-box-shadow: 0px 4px 10px rgba(232, 238, 252, 0.7);
-  --list-item-border: 1px solid var(--primary-color-100);
+  --list-item-border: 1px solid transparent;
   --list-focus-outline: var(--structure-color-400) auto 1px;
   --list-item-border-hover: 1px solid var(--structure-color-600);
   --list-item-background-color: var(--structure-color-100);
