@@ -20,12 +20,13 @@ interface Props<T> {
   getItemName?: (item?: T) => string;
   getItemValue: (item: T) => string | number | string[];
   id: string;
-  isItemSelected?: (item?: T) => boolean;
+  isItemSelected?: (item?: T | [T]) => boolean;
   label?: string;
   listItemCategory: ListItemCategory;
   onChange: (item?: T) => void;
   options: [T];
-  selected?: T;
+  selected?: [T] | T;
+  multiselect?: boolean;
   size: Size;
   variablesClassName?: string;
 }
@@ -45,15 +46,32 @@ const List = <T extends {}>(props: Props<T>) => {
     selected,
     getItemValue,
     variablesClassName,
-    listItemCategory
+    listItemCategory,
+    multiselect
   } = props;
+
+  const selectedItemsList =
+    !multiselect || (multiselect && !Array.isArray(selected)) ? [selected] : selected;
+
+  const getSelectedItems = item => {
+    if (multiselect) {
+      return isEqual(
+        item,
+        selectedItemsList?.find(s => isEqual(item, s))
+      )
+        ? selectedItemsList?.filter(s => !isEqual(s, item))
+        : [...selectedItemsList, item];
+    }
+
+    return item;
+  };
 
   const sizeClass = `list--${size}`;
   const listItemSizeClass = `list-item--${size}`;
 
   const handleKeyDown = item => event => {
     if (event.keyCode === enterKey || event.keyCode === spaceBarKey) {
-      return onChange(item);
+      return onChange(getSelectedItems(item));
     }
   };
 
@@ -67,9 +85,11 @@ const List = <T extends {}>(props: Props<T>) => {
             className={classNames(
               styles['list-item'],
               styles[listItemSizeClass],
-              isItemSelected || isEqual(item, selected) ? styles['list-item--selected'] : ''
+              isItemSelected || !!selectedItemsList?.find(s => isEqual(item, s))
+                ? styles['list-item--selected']
+                : ''
             )}
-            onClick={() => onChange(item)}
+            onClick={() => onChange(getSelectedItems(item))}
             onKeyDown={handleKeyDown(item)}
           >
             <ListItem<T>
@@ -78,7 +98,9 @@ const List = <T extends {}>(props: Props<T>) => {
               item={item}
               getLabel={getItemLabel}
               getIcon={getItemIcon}
-              getIsSelected={isItemSelected || (item => isEqual(item, selected))}
+              getIsSelected={
+                isItemSelected || (item => !!selectedItemsList?.find(s => isEqual(item, s)))
+              }
               getValue={getItemValue}
               getName={getItemName}
             />
