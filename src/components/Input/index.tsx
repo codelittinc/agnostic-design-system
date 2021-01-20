@@ -14,6 +14,7 @@ interface Props {
   message?: string;
   onChange: () => void;
   onFocus: () => void;
+  onKeyDown: () => void;
   placeholder?: string;
   size: Size;
   state?: State;
@@ -30,6 +31,7 @@ const Input: React.FC<Props> = props => {
     message,
     onChange,
     onFocus,
+    onKeyDown,
     placeholder,
     size,
     state,
@@ -67,6 +69,7 @@ const Input: React.FC<Props> = props => {
         placeholder={placeholder}
         value={value}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
       />
       {message ? (
         <span className={classNames(styles[messageClass], styles[messageValidateClass])}>
