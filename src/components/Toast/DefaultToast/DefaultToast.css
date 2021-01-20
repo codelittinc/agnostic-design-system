@@ -1,0 +1,202 @@
+@import '../../../styles/theme/index.css';
+
+:root {
+  /*Default toast properties*/
+  --toast-background-color: var(--structure-color-100);
+  --toast-box-shadow: 0px 8px 8px rgba(137, 136, 147, 0.32);
+  --toast-border: 1px solid var(--structure-color-500);
+  --toast-padding: 0;
+  --toast-cursor: default;
+  --toast-position: absolute;
+
+  /*Default toast hidden animation */
+  --toast-hidden-animation: FadeAnimation 0.5s ease-in 0.3s forwards;
+
+  /*Default toast events properties*/
+  --toast-background-color-hover: var(--structure-color-100);
+  --toast-background-color-active: var(--structure-color-100);
+  --toast-background-color-focus: var(--structure-color-100);
+  --toast-border-hover: 1px solid var(--structure-color-500);
+  --toast-border-active: 1px solid var(--structure-color-500);
+  --toast-border-focus: 1px solid var(--structure-color-500);
+
+  /*Default toast large properties*/
+  --toast-large-height: 56px;
+  --toast-large-border-radius: var(--round-l);
+  --toast-large-width: 345px;
+  --toast-large-padding: var(--spacing-vertical-s) var(--spacing-horizontal-m);
+
+  /*Default toast body properties */
+  --toast-body-width: 80%;
+  --toast-body-height: 100%;
+  --toast-body-padding: 0;
+  --toast-body-display: flex;
+  --toast-body-flex-direction: column;
+  --toast-body-align-items: flex-start;
+  --toast-body-justify-content: center;
+
+  /*Default toast body message properties*/
+  --toast-message-color: var(--structure-color-800);
+  --toast-message-font-family: 'Inter';
+  --toast-message-font-style: normal;
+
+  /* Default toast body message large properties */
+  --toast-message-large-font-size: var(--paragraph-l);
+  --toast-message-large-font-weight: var(--paragraph-font-weight-normal);
+  --toast-message-large-height: var(--heading-xs);
+  --toast-message-large-line-height: var(--paragraph-l-line-height);
+
+  /*Default toast body title properties*/
+  --toast-title-color: var(--structure-color-800);
+  --toast-title-font-family: 'Inter';
+  --toast-title-font-style: normal;
+
+  /* Default toast body title large properties */
+  --toast-title-large-font-size: var(--paragraph-xxxl);
+  --toast-title-large-font-weight: var(--paragraph-font-weight-bold);
+  --toast-title-large-height: var(--heading-l);
+  --toast-title-large-line-height: var(--paragraph-xxxl-line-height);
+  --toast-title-large-margin: 0 0 8px;
+
+  /*Default toast button properties*/
+  --toast-button-border: none;
+  --toast-button-background-color: transparent;
+  --toast-button-border-radius: 0;
+  --toast-button-padding: 0;
+  --toast-button-margin: 0;
+
+  /*Default toast button icon */
+  --toast-button-icon-fill: var(--primary-color-600);
+
+  /*Default toast button events properties*/
+  --toast-button-blackground-color-hover: transparent;
+  --toast-button-blackground-color-active: transparent;
+
+  /*Default toast close icon properties*/
+  --toast-button-icon-filter-hover: 0;
+  --toast-button-icon-filter-active: 0;
+}
+
+@keyframes FadeAnimation {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.toast {
+  align-items: center;
+  background-color: var(--toast-background-color);
+  border: var(--toast-border);
+  box-shadow: var(--toast-box-shadow);
+  cursor: var(--toast-cursor);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  position: var(--toast-position);
+  width: var(--toast-width);
+  z-index: 999;
+}
+
+.toast:hover {
+  background-color: var(--toast-background-color-hover, transparent);
+  border: var(--toast-border-hover, none);
+}
+
+.toast:active {
+  background-color: var(--toast-background-color-active, transparent);
+  border: var(--toast-border-active, none);
+}
+
+.toast:focus {
+  background-color: var(--toast-background-color-focus, transparent);
+  border: var(--toast-border-focus, none);
+}
+
+.toast.toast--large {
+  border-radius: var(--toast-large-border-radius);
+  height: var(--toast-large-height);
+  width: var(--toast-large-width);
+  padding: var(--toast-large-padding);
+}
+
+.toast-body {
+  display: var(--toast-body-display);
+  flex-direction: var(--toast-body-flex-direction);
+  align-items: var(--toast-body-align-items);
+  justify-content: var(--toast-body-justify-content);
+  padding: var(--toast-body-padding);
+  width: var(--toast-body-width);
+  height: var(--toast-body-height);
+}
+
+.toast-body-title {
+  display: flex;
+  align-items: center;
+  font-family: var(--toast-title-font-family);
+  font-style: var(--toast-title-font-style);
+  color: var(--toast-title-color);
+}
+
+.toast-body-title--large {
+  font-size: var(--toast-title-large-font-size);
+  height: var(--toast-title-large-height);
+  line-height: var(--toast-title-large-line-height);
+  font-weight: var(--toast-title-large-font-weight);
+  margin: var(--toast-title-large-margin);
+}
+
+.toast-body-message {
+  display: flex;
+  align-items: center;
+  font-family: var(--toast-message-font-family);
+  font-style: var(--toast-message-font-style);
+  color: var(--toast-message-color);
+}
+
+.toast-body-message--large {
+  font-size: var(--toast-message-large-font-size);
+  height: var(--toast-message-large-height);
+  line-height: var(--toast-message-large-line-height);
+  font-weight: var(--toast-message-large-font-weight);
+}
+
+.toast-button {
+  border: var(--toast-button-border);
+  background-color: var(--toast-button-blackground-color);
+  border-radius: var(--toast-button-border-radius);
+  padding: var(--toast-button-padding);
+  margin: var(--toast-button-margin);
+  align-items: center;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.toast-button-icon {
+  fill: var(--toast-button-icon-fill);
+}
+
+.toast-button:hover {
+  background-color: var(--toast-button-blackground-color-hover);
+}
+
+.toast-button:active {
+  background-color: var(--toast-button-blackground-color-active);
+}
+
+.toast-button:hover > .toast-button-icon {
+  filter: var(--toast-button-icon-filter-hover);
+}
+.toast-button:active > .toast-button-icon {
+  filter: var(--toast-button-icon-filter-active);
+}
+
+.toast-hidden {
+  overflow: hidden;
+  animation: var(--toast-hidden-animation);
+}

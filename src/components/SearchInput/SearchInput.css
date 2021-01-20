@@ -1,5 +1,4 @@
-@import "../../styles/theme/index.css";
-
+@import '../../styles/theme/index.css';
 
 :root {
   /* Search div attributes */
@@ -67,12 +66,9 @@
   --search-button-margin: 0 var(--spacing-horizontal-xs);
 
   /* Search close icon attributes */
-  --search-close-icon-brightness: brightness(0);
-  --search-close-icon-invert: invert(1);
-
-  /* Search search icon attributes */
-  --search-search-icon-padding: var(--spacing-horizontal-s);
-  --search-search-icon-margin: var(--spacing-horizontal-xs);
+  --search-close-icon-fill: var(--structure-color-600);
+  --search-close-icon-fill-active: var(--structure-color-white);
+  --search-close-icon-fill-hover: var(--structure-color-white);
 
   /* Search Accessible Span attributes */
   --search-accessible-span-value: 0.1rem;
@@ -121,7 +117,8 @@
   width: 100%;
 }
 
-.search-description, .search-message {
+.search-description,
+.search-message {
   font-size: var(--search-input-span-font-size);
   font-weight: var(--search-input-span-font-weight);
   line-height: var(--search-input-span-line-height);
@@ -177,11 +174,11 @@
   color: var(--search-input-placeholder-color-focus);
 }
 
-.search-input[value=""] + .search-button {
-  display: none
+.search-input[value=''] + .search-button {
+  display: none;
 }
 
-.search-input[value=""] {
+.search-input[value=''] {
   margin-right: var(--search-input-without-value);
 }
 
@@ -192,7 +189,6 @@
   position: absolute;
   overflow: hidden;
 }
-
 
 /* close button inside search div*/
 .search-button {
@@ -206,6 +202,10 @@
   cursor: pointer;
 }
 
+.search-close-icon {
+  fill: var(--search-close-icon-fill);
+}
+
 .search-button:hover {
   background: var(--search-button-blackground-color-hover);
 }
@@ -214,8 +214,9 @@
   background: var(--search-button-blackground-color-active);
 }
 
-.search-button:active > svg,
-.search-button:hover > svg {
-  filter: var(--search-close-icon-brightness) var(--search-close-icon-invert);
+.search-button:hover > .search-close-icon {
+  fill: var(--search-close-icon-fill-hover);
 }
-
+.search-button:active > .search-close-icon {
+  fill: var(--search-close-icon-fill-active);
+}

@@ -1,0 +1,40 @@
+@import '../../../styles/theme/index.css';
+
+:root {
+  --toast-success-background-color: var(--success-color);
+  --toast-success-border: none;
+
+  --toast-success-background-color-hover: var(--success-color);
+  --toast-success-background-color-active: var(--success-color);
+  --toast-success-background-color-focus: var(--success-color);
+  --toast-success-border-hover: none;
+  --toast-success-border-active: none;
+  --toast-success-border-focus: none;
+
+  --toast-success-body-padding: 0 0 0 19px;
+
+  --toast-success-message-color: var(--structure-color-white);
+
+  --toast-success-title-color: var(--structure-color-white);
+
+  --toast-success-button-icon-fill: var(--structure-color-white);
+}
+
+.toast--success {
+  --toast-background-color: var(--toast-success-background-color);
+  --toast-border: var(--toast-success-border);
+  --toast-title-color: var(--toast-success-title-color);
+  --toast-message-color: var(--toast-success-message-color);
+  --toast-background-color-hover: var(--toast-success-background-color-hover);
+  --toast-background-color-active: var(--toast-success-background-color-active);
+  --toast-background-color-focus: var(--toast-success-background-color-focus);
+  --toast-border-hover: var(--toast-success-border-hover);
+  --toast-border-active: var(--toast-success-border-active);
+  --toast-border-focus: var(--toast-success-border-focus);
+  --toast-button-icon-fill: var(--toast-success-button-icon-fill);
+  --toast-body-padding: var(--toast-success-body-padding);
+}
+
+.toast-success-icon {
+  fill: var(--toast-success-button-icon-fill);
+}
