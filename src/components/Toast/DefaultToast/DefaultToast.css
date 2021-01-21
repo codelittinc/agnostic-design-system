@@ -8,17 +8,18 @@
   --toast-padding: 0;
   --toast-cursor: default;
   --toast-position: absolute;
+  --toast-margin: 0;
 
   /*Default toast hidden animation */
   --toast-hidden-animation: FadeAnimation 0.5s ease-in 0.3s forwards;
 
   /*Default toast events properties*/
-  --toast-background-color-hover: var(--structure-color-100);
-  --toast-background-color-active: var(--structure-color-100);
-  --toast-background-color-focus: var(--structure-color-100);
-  --toast-border-hover: 1px solid var(--structure-color-500);
-  --toast-border-active: 1px solid var(--structure-color-500);
-  --toast-border-focus: 1px solid var(--structure-color-500);
+  --toast-background-color-hover: var(--toast-background-color);
+  --toast-background-color-active: var(--toast-background-color);
+  --toast-background-color-focus: var(--toast-background-color);
+  --toast-border-hover: var(--toast-border);
+  --toast-border-active: var(--toast-border);
+  --toast-border-focus: var(--toast-border);
 
   /*Default toast large properties*/
   --toast-large-height: 56px;
@@ -34,6 +35,7 @@
   --toast-body-flex-direction: column;
   --toast-body-align-items: flex-start;
   --toast-body-justify-content: center;
+  --toast-body-margin: 0;
 
   /*Default toast body message properties*/
   --toast-message-color: var(--structure-color-800);
@@ -58,6 +60,9 @@
   --toast-title-large-line-height: var(--paragraph-xxxl-line-height);
   --toast-title-large-margin: 0 0 8px;
 
+  /*Default toast button icon */
+  --toast-button-icon-fill: var(--primary-color-600);
+
   /*Default toast button properties*/
   --toast-button-border: none;
   --toast-button-background-color: transparent;
@@ -65,16 +70,13 @@
   --toast-button-padding: 0;
   --toast-button-margin: 0;
 
-  /*Default toast button icon */
-  --toast-button-icon-fill: var(--primary-color-600);
-
   /*Default toast button events properties*/
-  --toast-button-blackground-color-hover: transparent;
-  --toast-button-blackground-color-active: transparent;
+  --toast-button-blackground-color-hover: var(--toast-button-background-color);
+  --toast-button-blackground-color-active: var(--toast-button-background-color);
 
   /*Default toast close icon properties*/
-  --toast-button-icon-filter-hover: 0;
-  --toast-button-icon-filter-active: 0;
+  --toast-button-icon-fill-hover: var(--toast-button-icon-fill);
+  --toast-button-icon-fill-active: var(--toast-button-icon-fill);
 }
 
 @keyframes FadeAnimation {
@@ -96,85 +98,87 @@
   box-shadow: var(--toast-box-shadow);
   cursor: var(--toast-cursor);
   display: flex;
-  justify-content: space-around;
   flex-direction: row;
+  justify-content: space-around;
+  margin: var(--toast-margin);
   position: var(--toast-position);
   width: var(--toast-width);
   z-index: 999;
 }
 
 .toast:hover {
-  background-color: var(--toast-background-color-hover, transparent);
-  border: var(--toast-border-hover, none);
+  background: var(--toast-background-color-hover);
+  border: var(--toast-border-hover);
 }
 
 .toast:active {
-  background-color: var(--toast-background-color-active, transparent);
-  border: var(--toast-border-active, none);
+  background: var(--toast-background-color-active);
+  border: var(--toast-border-active);
 }
 
 .toast:focus {
-  background-color: var(--toast-background-color-focus, transparent);
-  border: var(--toast-border-focus, none);
+  background-color: var(--toast-background-color-focus);
+  border: var(--toast-border-focus);
 }
 
 .toast.toast--large {
   border-radius: var(--toast-large-border-radius);
   height: var(--toast-large-height);
-  width: var(--toast-large-width);
   padding: var(--toast-large-padding);
+  width: var(--toast-large-width);
 }
 
 .toast-body {
+  align-items: var(--toast-body-align-items);
   display: var(--toast-body-display);
   flex-direction: var(--toast-body-flex-direction);
-  align-items: var(--toast-body-align-items);
+  height: var(--toast-body-height);
   justify-content: var(--toast-body-justify-content);
+  margin: var(--toast-body-margin);
   padding: var(--toast-body-padding);
   width: var(--toast-body-width);
-  height: var(--toast-body-height);
 }
 
 .toast-body-title {
-  display: flex;
   align-items: center;
+  color: var(--toast-title-color);
+  display: flex;
   font-family: var(--toast-title-font-family);
   font-style: var(--toast-title-font-style);
-  color: var(--toast-title-color);
 }
 
 .toast-body-title--large {
   font-size: var(--toast-title-large-font-size);
+  font-weight: var(--toast-title-large-font-weight);
   height: var(--toast-title-large-height);
   line-height: var(--toast-title-large-line-height);
-  font-weight: var(--toast-title-large-font-weight);
   margin: var(--toast-title-large-margin);
 }
 
 .toast-body-message {
-  display: flex;
   align-items: center;
+  color: var(--toast-message-color);
+  display: flex;
   font-family: var(--toast-message-font-family);
   font-style: var(--toast-message-font-style);
-  color: var(--toast-message-color);
 }
 
 .toast-body-message--large {
   font-size: var(--toast-message-large-font-size);
+  font-weight: var(--toast-message-large-font-weight);
   height: var(--toast-message-large-height);
   line-height: var(--toast-message-large-line-height);
-  font-weight: var(--toast-message-large-font-weight);
 }
 
 .toast-button {
-  border: var(--toast-button-border);
-  background-color: var(--toast-button-blackground-color);
-  border-radius: var(--toast-button-border-radius);
-  padding: var(--toast-button-padding);
-  margin: var(--toast-button-margin);
   align-items: center;
-  display: inline-flex;
+  background-color: var(--toast-button-blackground-color);
+  border: var(--toast-button-border);
+  border-radius: var(--toast-button-border-radius);
   cursor: pointer;
+  display: inline-flex;
+  margin: var(--toast-button-margin);
+  padding: var(--toast-button-padding);
 }
 
 .toast-button-icon {
@@ -190,13 +194,13 @@
 }
 
 .toast-button:hover > .toast-button-icon {
-  filter: var(--toast-button-icon-filter-hover);
+  fill: var(--toast-button-icon-fill-hover);
 }
 .toast-button:active > .toast-button-icon {
-  filter: var(--toast-button-icon-filter-active);
+  fill: var(--toast-button-icon-fill-active);
 }
 
 .toast-hidden {
-  overflow: hidden;
   animation: var(--toast-hidden-animation);
+  overflow: hidden;
 }

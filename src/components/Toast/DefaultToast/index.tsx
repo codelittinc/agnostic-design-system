@@ -48,6 +48,9 @@ const DefaultToast: React.FC<Props> = props => {
     if (autoCloseInMilliseconds) {
       setTimeout(() => {
         setHideMessage(true);
+        if (onClose) {
+          onClose();
+        }
       }, autoCloseInMilliseconds);
     }
   }, []);
