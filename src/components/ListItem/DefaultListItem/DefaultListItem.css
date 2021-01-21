@@ -89,7 +89,6 @@
 }
 
 .list-item:hover {
-  border-bottom: var(--list-item-border-hover);
   color: var(--list-item-color-hover);
   font-weight: var(--list-item-font-weight-hover);
 }
