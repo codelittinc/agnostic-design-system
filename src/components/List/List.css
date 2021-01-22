@@ -3,7 +3,7 @@
 :root {
   /* list div attributes */
   --list-background-color: var(--structure-color-100);
-  --list-border-radius: var(--round-m);
+  --list-border-radius: 0;
   --list-min-width: var(--spacing-horizontal-xxxl);
   --list-style-type: none;
   --list-border: 1px solid transparent;
@@ -14,13 +14,13 @@
   --list-large-font-size: var(--paragraph-l);
   --list-large-font-weight: var(--paragraph-font-weight-bold);
   --list-large-line-height: var(--paragraph-l-line-height);
-  --list-large-border-radius: var(--round-m);
+  --list-large-border-radius: 0;
 
   --list-medium-height: var(--height-m);
   --list-medium-font-size: var(--paragraph-m);
   --list-medium-font-weight: var(--paragraph-font-weight-bold);
   --list-medium-line-height: var(--paragraph-m-line-height);
-  --list-medium-border-radius: var(--round-m);
+  --list-medium-border-radius: 0;
 
   --list-item-large-height: var(--height-l);
   --list-item-medium-height: var(--height-m);
@@ -32,7 +32,7 @@
 
   /* list */
   --list-item-margin: 0 0 var(--round-l) 0;
-  --list-item-border-radius: var(--round-m);
+  --list-item-border-radius: 0;
   --list-item-box-sizing: border-box;
   --list-item-box-shadow: 0px 4px 10px rgba(232, 238, 252, 0.7);
   --list-item-border: 1px solid transparent;

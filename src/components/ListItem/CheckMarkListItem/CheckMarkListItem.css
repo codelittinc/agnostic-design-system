@@ -2,7 +2,7 @@
 
 :root {
   --list-item-cm-background-color: var(--success-color);
-  --list-item-cm-border-radius: var(--round-m);
+  --list-item-cm-border-radius: 0;
   --list-item-cm-fill-color: var(--success-color);
   --list-item-cm-fill-color--unchecked: var(--structure-color-100);
 

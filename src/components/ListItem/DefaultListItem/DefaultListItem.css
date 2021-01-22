@@ -4,7 +4,7 @@
   --list-item-background-color-hover: var(--structure-color-100);
 
   --list-item-border: 1px solid transparent;
-  --list-item-border-radius: var(--round-m);
+  --list-item-border-radius: 0;
   --list-item-padding: var(--round-m);
 
   --list-item-cursor: pointer;
