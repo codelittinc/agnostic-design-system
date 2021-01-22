@@ -62,7 +62,6 @@
   align-items: center;
   box-sizing: border-box;
   padding: var(--list-item-padding);
-  border-radius: var(--list-item-border-radius);
   height: 100%;
 }
 

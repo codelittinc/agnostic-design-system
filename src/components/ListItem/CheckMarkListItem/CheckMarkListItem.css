@@ -15,10 +15,6 @@
   --list-item-cm-height--medium: var(--heading-xs);
 }
 
-.list-item-checkmark {
-  border-radius: var(--list-item-cm-border-radius);
-}
-
 .list-item-checkmark--checked {
   fill: var(--list-item-cm-fill-color);
 }
