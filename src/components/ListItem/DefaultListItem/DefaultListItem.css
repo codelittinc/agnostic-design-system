@@ -23,7 +23,6 @@
   --list-item-medium-font-weight: var(--paragraph-font-weight-normal);
   --list-item-medium-line-height: var(--paragraph-s-line-height);
 
-  --list-item-border-hover: 1px solid var(--structure-color-600);
   --list-item-font-weight-hover: var(--paragraph-font-weight-bold);
 
   --list-item-border-active: 1px solid var(--success-color);
@@ -53,17 +52,18 @@
 }
 
 .list-item {
+  align-items: center;
   border: var(--list-item-border);
+  border-radius: var(--list-item-border-radius);
+  box-sizing: border-box;
   color: var(--list-item-color);
   cursor: var(--list-item-cursor);
-  width: 100%;
   display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  padding: var(--list-item-padding);
-  border-radius: var(--list-item-border-radius);
   height: 100%;
+  justify-content: space-between;
+  outline: none;
+  padding: var(--list-item-padding);
+  width: 100%;
 }
 
 .list-item-span {
@@ -89,7 +89,6 @@
 }
 
 .list-item:hover {
-  border-bottom: var(--list-item-border-hover);
   color: var(--list-item-color-hover);
   font-weight: var(--list-item-font-weight-hover);
 }

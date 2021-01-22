@@ -93,6 +93,10 @@
   width: 100%;
 }
 
+.list-item:hover {
+  border-bottom: var(--list-item-border-hover);
+}
+
 .list-label {
   color: var(--list-label-color);
   display: flex;
