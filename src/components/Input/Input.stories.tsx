@@ -29,6 +29,14 @@ Negative.args = {
   placeholder: 'Enter Text'
 };
 
+export const WithEmailValidation = Template.bind({});
+WithEmailValidation.args = {
+  size: 'large',
+  validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
+  placeholder: 'Enter Text',
+  invalidMessage: 'Invalid email'
+};
+
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
   size: 'large',
