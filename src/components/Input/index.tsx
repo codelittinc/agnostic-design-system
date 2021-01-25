@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 
 import styles from '@/components/Input/Input.css';
@@ -15,6 +15,7 @@ interface Props {
   onFocus: () => void;
   onKeyDown: () => void;
   isValid: (value) => boolean;
+  inputValidationState?: (value?: string) => void;
   placeholder?: string;
   size: Size;
   value?: string;
@@ -44,6 +45,7 @@ const Input: React.FC<Props> = props => {
     onFocus,
     onKeyDown,
     isValid,
+    inputValidationState,
     placeholder,
     size,
     value,
@@ -60,6 +62,10 @@ const Input: React.FC<Props> = props => {
   const statusClass = validationState ? `input--${validationState}` : '';
   const descriptionClass = 'input--description';
   const labelClass = 'input--label';
+
+  useEffect(() => {
+    inputValidationState?.(validationState);
+  }, [validationState]);
 
   return (
     <div className={classNames(variablesClassName)}>
