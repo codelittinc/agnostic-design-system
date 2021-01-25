@@ -11,10 +11,13 @@ interface Props {
   id: string;
   label?: string;
   message?: string;
-  onChange: () => void;
+  onChange: (e: any) => void;
   onFocus: () => void;
-  onKeyDown: () => void;
-  isValid: (value) => boolean;
+  onKeyDown?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  onBlur?: () => void;
+  isValid?: (value) => boolean;
   placeholder?: string;
   size: Size;
   value?: string;
@@ -42,6 +45,9 @@ const Input: React.FC<Props> = props => {
     message,
     onChange,
     onFocus,
+    onMouseEnter,
+    onMouseLeave,
+    onBlur,
     onKeyDown,
     isValid,
     placeholder,
@@ -60,6 +66,11 @@ const Input: React.FC<Props> = props => {
   const statusClass = validationState ? `input--${validationState}` : '';
   const descriptionClass = 'input--description';
   const labelClass = 'input--label';
+
+  const handleBlur = event => {
+    onBlur && onBlur();
+    setValidationState(getValidationState(event.target.value, validationRegex, isValid));
+  };
 
   return (
     <div className={classNames(variablesClassName)}>
@@ -90,10 +101,10 @@ const Input: React.FC<Props> = props => {
             onFocus();
           }
         }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         onKeyDown={onKeyDown}
-        onBlur={event =>
-          setValidationState(getValidationState(event.target.value, validationRegex, isValid))
-        }
+        onBlur={handleBlur}
         maxLength={limit}
       />
       {message || invalidMessage ? (

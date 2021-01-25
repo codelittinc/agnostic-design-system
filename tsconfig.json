@@ -2,10 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "esnext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "jsx": "react",
     "sourceMap": true,
@@ -31,12 +28,6 @@
       "@/*": ["*"]
     }
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "example"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "example"]
 }

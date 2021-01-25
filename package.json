@@ -40,6 +40,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/classnames": "^2.2.11",
     "@types/enzyme-to-json": "^1.5.4",
+    "@types/googlemaps": "^3.43.2",
     "@types/jest": "^25.1.4",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
@@ -89,6 +90,7 @@
   ],
   "dependencies": {
     "downshift": "^6.0.16",
+    "google-map-react": "^2.1.9",
     "lodash.isequal": "^4.5.0"
   }
 }
