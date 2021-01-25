@@ -89,6 +89,7 @@
   ],
   "dependencies": {
     "downshift": "^6.0.16",
-    "lodash.isequal": "^4.5.0"
+    "lodash.isequal": "^4.5.0",
+    "react-google-places-autocomplete": "^3.0.0"
   }
 }

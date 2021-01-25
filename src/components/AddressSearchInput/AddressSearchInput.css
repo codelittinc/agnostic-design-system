@@ -1,0 +1,199 @@
+@import '../../styles/theme/index.css';
+
+:root {
+  /* Address search div attributes */
+  --address-search-background-color: var(--structure-color-100);
+  --address-search-border-radius: var(--round-m);
+  --address-search-border: 1px solid var(--structure-color-100);
+  --address-search-border-focus: 1px solid var(--primary-color-500);
+  --address-search-border-hover: 1px solid var(--primary-color-300);
+  --address-search-large-min-width: 300px;
+  --address-search-box-shadow-focus: none;
+  --address-search-height: 100%;
+  --address-search-width: 100%;
+
+  --address-search-input-background-color: var(--structure-color-100);
+  --address-search-input-border-focus: 1px solid var(--structure-color-100);
+  --address-search-input-color: var(--structure-color-900);
+  --address-search-input-border: none;
+  --address-search-input-outline-color-focus: var(--structure-color-600);
+  --address-search-input-height: 100%;
+  --address-search-input-width: 100%;
+
+  --address-search-input-font-size: var(--paragraph-l);
+  --address-search-input-font-weight: var(--paragraph-font-weight-bold);
+  --address-search-input-line-height: none;
+  --address-search-input-side-padding: 0;
+  --address-search-input-border-radius: var(--round-m);
+
+  --address-search-input-placeholder-color: var(--structure-color-700);
+  --address-search-input-placeholder-color-focus: var(--structure-color-800);
+  --address-search-input-placeholder-font-size: var(--paragraph-xl);
+  --address-search-input-placeholder-font-weight: var(--paragraph-font-weight-normal);
+
+  --address-search-input-label-font-family: 'Inter';
+  --address-search-input-label-height: var(--height-s);
+  --address-search-input-label-color: var(--structure-color-800);
+  --address-search-input-label-font-weight: var(--paragraph-font-weight-normal);
+  --address-search-input-label-width: 100%;
+
+  --address-search-input-label-medium-font-size: var(--paragraph-m);
+  --address-search-input-label-medium-line-height: var(--paragraph-m-line-height);
+
+  --address-search-input-label-large-font-size: var(--paragraph-l);
+  --address-search-input-label-large-line-height: var(--paragraph-l-line-height);
+
+  --address-search-input-span-font-family: 'Inter';
+  --address-search-input-span-font-weight: var(--paragraph-font-weight-normal);
+  --address-search-input-span-height: var(--height-xs);
+  --address-search-input-span-color: var(--structure-color-700);
+  --address-search-input-span-width: 100%;
+
+  --address-search-input-span-medium-font-size: var(--paragraph-s);
+  --address-search-input-span-medium-line-height: var(--paragraph-s-line-height);
+
+  --address-search-input-span-large-font-size: var(--paragraph-m);
+  --address-search-input-span-large-line-height: var(--paragraph-m-line-height);
+
+  --address-search-menu-border: 1px solid var(--structure-color-200);
+  --address-search-menu-border-radius: 4px;
+  --address-search-menu-background-color: transparent;
+
+  --address-search-menu-list-border: none;
+  --address-search-menu-list-border-radius: none;
+  --address-search-menu-list-background-color: transparent;
+
+  --address-search-separator-background-color: var(--structure-color-600);
+  --address-search-input-value-color: var(--structure-color-900);
+  --address-search-dropdown-indicator-color: var(--structure-color-300);
+  --address-search-dropdown-indicator-color-hover: var(--structure-color-600);
+
+  --address-search-option-background-color: var(--structure-white-color);
+  --address-search-option-color: var(--structure-color-900);
+  --address-search-option-font-size: var(--paragraph-l);
+  --address-search-option-background-color-hover: var(--structure-color-300);
+  --address-search-option-color-hover: var(--structure-color-900);
+}
+
+.address-search-container {
+  align-items: center;
+  background: var(--address-search-background-color);
+  border: var(--address-search-border);
+  border-radius: var(--address-search-border-radius);
+  box-sizing: border-box;
+  display: inline-flex;
+  min-width: var(--address-search-large-min-width);
+  width: var(--address-search-width);
+  height: var(--address-search-height);
+}
+
+.address-search-container :global(.address-search__control):hover {
+  border: var(--address-search-border-hover);
+}
+
+.address-search-container :global(.address-search__control) {
+  width: var(--address-search-input-width);
+  height: var(--address-search-input-height);
+}
+
+.address-search-container :global(.address-search__control--is-focused) {
+  border: var(--address-search-border-focus);
+  box-shadow: var(--address-search-box-shadow-focus);
+}
+
+.address-search-container :global(.address-search__placeholder) {
+  color: var(--address-search-input-placeholder-color);
+  font-size: var(--address-search-input-placeholder-font-size);
+  font-weight: var(--address-search-input-placeholder-font-weight);
+}
+
+.address-search-container :global(.address-search__placeholder):focus {
+  color: var(--address-search-input-placeholder-color-focus);
+}
+
+.address-search-container :global(.address-search__indicator-separator) {
+  background-color: var(--address-search-separator-background-color);
+}
+
+.address-search-container :global(.address-search__input) {
+  background-color: var(--address-search-input-background-color);
+  border: var(--address-search-input-border);
+  border-radius: var(--address-search-input-border-radius);
+  color: var(--address-search-input-color);
+  font-size: var(--address-search-input-font-size);
+  font-weight: var(--address-search-input-font-weight);
+  line-height: var(--address-search-input-line-height);
+  padding: var(--address-search-input-side-padding);
+}
+
+.address-search-container :global(.address-search__single-value) {
+  color: var(--address-search-input-value-color);
+}
+
+.address-search-container :global(.address-search__dropdown-indicator) {
+  color: var(--address-search-dropdown-indicator-color);
+}
+
+.address-search-container :global(.address-search__dropdown-indicator):hover {
+  color: var(--address-search-dropdown-indicator-color-hover);
+}
+
+.address-search-container :global(.address-search__menu) {
+  background-color: var(--address-search-menu-background-color);
+  border-radius: var(--address-search-menu-border-radius);
+  border: var(--address-search-menu-border);
+}
+
+.address-search-container :global(.address-search__menu-list) {
+  background-color: var(--address-search-menu-list-background-color);
+  border-radius: var(--address-search-menu-list-border-radius);
+  border: var(--address-search-menu-list-border);
+}
+
+.address-search-container :global(.address-search__option) {
+  background-color: var(--address-search-option-background-color);
+  font-size: var(--address-search-option-font-size);
+  color: var(--address-search-option-color);
+}
+
+.address-search-container :global(.address-search__option):hover {
+  background-color: var(--address-search-option-background-color-hover);
+  color: var(--address-search-option-color-hover);
+}
+
+.address-search-label {
+  font-family: var(--address-search-input-label-font-family);
+  font-weight: var(--address-search-input-label-font-weight);
+  color: var(--address-search-input-label-color);
+  height: var(--address-search-input-label-height);
+  display: flex;
+  width: var(--address-search-input-label-width);
+}
+
+.address-search-label--large {
+  font-size: var(--address-search-input-label-large-font-size);
+  line-height: var(--address-search-input-label-large-line-height);
+}
+
+.address-search-label--medium {
+  font-size: var(--address-search-input-label-large-font-size);
+  line-height: var(--address-search-input-label-large-line-height);
+}
+
+.address-search-description {
+  font-family: var(--address-search-input-span-font-family);
+  font-weight: var(--address-search-input-span-font-weight);
+  height: var(--address-search-input-span-height);
+  color: var(--address-search-input-span-color);
+  width: var(--address-search-input-span-width);
+}
+
+.address-search-description--large {
+  font-size: var(--address-search-input-span-large-font-size);
+  line-height: var(--address-search-input-span-large-line-height);
+}
+
+.address-search-description--medium {
+  font-size: var(--address-search-input-span-medium-font-size);
+  line-height: var(--address-search-input-span-medium-line-height);
+}
