@@ -4,6 +4,9 @@
 :root {
   --input-background-color: var(--structure-color-100);
 
+  --input-display: flex;
+  --input-flex-directon: column;
+
   --input-large-border-radius: var(--round-m);
   --input-medium-border-radius: var(--round-m);
 
@@ -49,6 +52,11 @@
 
   --input-message-negative-color: var(--error-color);
   --input-message-positive-color: var(--success-color);
+}
+
+.input--container {
+  display: var(--input-display);
+  flex-direction: var(--input-flex-directon);
 }
 
 .input {
@@ -133,4 +141,3 @@
 .input.input--invalid {
   border: var(--input-border-negative);
 }
-

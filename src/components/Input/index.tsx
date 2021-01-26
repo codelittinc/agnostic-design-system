@@ -55,6 +55,7 @@ const Input: React.FC<Props> = props => {
   } = props;
   const [validationState, setValidationState] = useState('');
   const sizeClass = `input--${size}`;
+  const containerClass = 'input--container';
   const messageClass = 'input--message';
   const messageValidateClass = validationState ? `input--message-${validationState}` : '';
   const statusClass = validationState ? `input--${validationState}` : '';
@@ -62,7 +63,7 @@ const Input: React.FC<Props> = props => {
   const labelClass = 'input--label';
 
   return (
-    <div className={classNames(variablesClassName)}>
+    <div className={classNames(variablesClassName, styles[containerClass])}>
       {label ? (
         <label className={classNames(styles[labelClass])} htmlFor={id}>
           {label}
