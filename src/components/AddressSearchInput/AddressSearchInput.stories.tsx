@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
-import AddressSearchInput from '@/components/AddressSearchInput';
+import AddressSearchInput, { MapsProvider } from '@/components/AddressSearchInput';
 
 export default {
   title: 'Address Search Input',
@@ -8,7 +8,19 @@ export default {
 } as Meta;
 
 const Template = args => {
-  return <AddressSearchInput {...args} apiKey={process.env.GOOGLE_API_KEY} />;
+  const [value, setValue] = useState('');
+
+  return (
+    <MapsProvider apiKey={process.env.GOOGLE_API_KEY}>
+      <AddressSearchInput
+        {...args}
+        value={value}
+        onChange={value => {
+          setValue(value ? value.description : '');
+        }}
+      />
+    </MapsProvider>
+  );
 };
 
 export const Default = Template.bind({});

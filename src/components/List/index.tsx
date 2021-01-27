@@ -20,12 +20,12 @@ interface Props<T> {
   getItemName?: (item?: T) => string;
   getItemValue: (item: T) => string | number | string[];
   id: string;
-  isItemSelected?: (item?: T | [T]) => boolean;
+  isItemSelected?: (item?: T | T[]) => boolean;
   label?: string;
   listItemCategory: ListItemCategory;
   onChange: (item?: T) => void;
-  options: [T];
-  selected?: [T] | T;
+  options: T[];
+  selected?: T[] | T;
   multiselect?: boolean;
   size: Size;
   variablesClassName?: string;
@@ -54,7 +54,7 @@ const List = <T extends {}>(props: Props<T>) => {
     !multiselect || (multiselect && !Array.isArray(selected)) ? [selected] : selected;
 
   const getSelectedItems = item => {
-    if (multiselect) {
+    if (multiselect && Array.isArray(selectedItemsList)) {
       return isEqual(
         item,
         selectedItemsList?.find(s => isEqual(item, s))
@@ -85,7 +85,8 @@ const List = <T extends {}>(props: Props<T>) => {
             className={classNames(
               styles['list-item'],
               styles[listItemSizeClass],
-              isItemSelected || !!selectedItemsList?.find(s => isEqual(item, s))
+              isItemSelected ||
+                (Array.isArray(selectedItemsList) && selectedItemsList.find(s => isEqual(item, s)))
                 ? styles['list-item--selected']
                 : ''
             )}

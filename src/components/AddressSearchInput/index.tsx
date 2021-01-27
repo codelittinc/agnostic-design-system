@@ -1,61 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from './AddressSearchInput.css';
 import classnames from 'classnames';
-import { useMapsAutocomplete } from './hooks/useMapsAutocomplete';
-import { hasStreetAddress } from './services/getAddressParts';
-import { loadGoogleMapsLibrary } from '@/components/AddressSearchInput/utils/loadGoogleMapsLibrary';
+import useMapsAutoComplete from './hooks/useMapsAutoComplete';
 import Input from '../Input';
-import Button from '../Button';
+import List from '../List';
+import { Container } from '../Grid';
 
 type Size = 'large' | 'medium';
 
 interface Props {
   apiKey: string;
   clearable?: boolean;
-  onChange: (data?: Object) => void;
-  size: Size;
   value: string;
+  onChange: (data?: google.maps.places.AutocompletePrediction) => void;
+  size: Size;
 }
 
 const ON_BLUR_DELAY = 500;
 
 const AddressSearchInput: React.FC<Props> = props => {
-  const { apiKey, onChange, clearable } = props;
-  loadGoogleMapsLibrary(apiKey);
+  const { value, onChange } = props;
 
-  const [value, setValue] = useState(props.value);
+  const [initialValue, setInitialValue] = useState(props.value);
+
+  useEffect(() => {
+    setInitialValue(value);
+  }, [value]);
+
   const [isSuggestionListOpen, setIsSuggestionListOpen] = useState(false);
   const [placesSuggestions, setPlacesSuggestions] = useState<
     google.maps.places.AutocompletePrediction[]
   >([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [autocompleteService, sessionToken] = useMapsAutocomplete();
-  const [
-    selectedSuggestion,
-    setSelectedSuggestion
-  ] = useState<google.maps.places.AutocompletePrediction>();
+  const { loading, service: autocompleteService, sessionToken } = useContext(MapsProviderContext);
   const [isInputHovered, setIsInputHovered] = useState(false);
-
-  const clearBtnVisible = clearable && value.length > 0;
   const hasSuggestions = placesSuggestions.length > 0;
-
-  useEffect(() => {
-    if (!value || !autocompleteService || selectedSuggestion) return;
-
-    autocompleteService.getPlacePredictions(
-      { input: value, sessionToken: sessionToken },
-      (
-        predictions: google.maps.places.AutocompletePrediction[],
-        status: google.maps.places.PlacesServiceStatus
-      ) => {
-        if (status !== google.maps.places.PlacesServiceStatus.OK) return;
-
-        setPlacesSuggestions(predictions);
-        setSelectedSuggestion(undefined);
-        setIsSuggestionListOpen(true);
-      }
-    );
-  }, [value]);
 
   const cleanSuggestions = () => {
     setPlacesSuggestions([]);
@@ -63,62 +42,56 @@ const AddressSearchInput: React.FC<Props> = props => {
   };
 
   const handleClickSuggestion = (suggestion: google.maps.places.AutocompletePrediction) => {
-    const suggestionDescription = hasStreetAddress(suggestion) ? '' : suggestion.description;
-
-    setSelectedSuggestion(suggestion);
+    onChange(suggestion);
     cleanSuggestions();
-    setValue(suggestionDescription);
   };
 
   const handleChangeInput = e => {
-    onChange ? onChange() : setValue(e.target.value);
-  };
+    setInitialValue(e.target.value);
+    if (autocompleteService) {
+      autocompleteService.getPlacePredictions(
+        { input: initialValue, sessionToken: sessionToken },
+        (
+          predictions: google.maps.places.AutocompletePrediction[],
+          status: google.maps.places.PlacesServiceStatus
+        ) => {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) return;
 
-  const handleClearInput = () => {
-    setValue('');
-    setSelectedSuggestion(undefined);
-    onChange && onChange();
-    cleanSuggestions();
+          setPlacesSuggestions(predictions);
+          setIsSuggestionListOpen(true);
+        }
+      );
+    }
   };
 
   const renderSuggestions = () => (
-    <div
-      ref={containerRef}
-      className={classnames(styles['suggestion-container'], {
-        [styles.hover]: isInputHovered
-      })}
-    >
-      {placesSuggestions?.map(suggestion => (
-        <div
-          key={suggestion.place_id}
-          className={styles['suggestion-item']}
-          onClick={() => handleClickSuggestion(suggestion)}
-        >
-          <div>{suggestion.structured_formatting.main_text}</div>
-          <div className={styles['secondary-text']}>
-            {suggestion.structured_formatting.secondary_text}
-          </div>
-        </div>
-      ))}
+    <div ref={containerRef}>
+      <List<google.maps.places.AutocompletePrediction>
+        size='large'
+        options={placesSuggestions}
+        onChange={item => {
+          item && handleClickSuggestion(item);
+        }}
+        getItemKey={item => item.place_id}
+        getItemLabel={item => item.description}
+        getItemValue={item => item.description}
+        variablesClassName={classnames(styles['suggestion-list'], {
+          [styles.hover]: isInputHovered
+        })}
+        listItemCategory='simple'
+        label=''
+        id='search-suggestion-list'
+      />
     </div>
   );
 
   return (
-    <div className={styles.container}>
-      {clearBtnVisible && (
-        <Button
-          size='medium'
-          onClick={handleClearInput}
-          category='neutral'
-          variablesClassName={classnames(styles['btn-clear'])}
-          label='x'
-        />
-      )}
+    <Container variablesClassName={classnames(styles.container)}>
       <Input
         id='search-address'
         size='large'
         placeholder='Enter Address'
-        value={value}
+        value={initialValue}
         onChange={handleChangeInput}
         onFocus={() => setIsSuggestionListOpen(hasSuggestions)}
         onMouseEnter={() => setIsInputHovered(true)}
@@ -128,20 +101,38 @@ const AddressSearchInput: React.FC<Props> = props => {
             setIsSuggestionListOpen(false);
           }, ON_BLUR_DELAY);
         }}
+        disabled={loading}
+        variablesClassName={classnames(styles['address-search-input'])}
       />
-      {isSuggestionListOpen && (
-        <div className={styles['separator-container']}>
-          <div className={styles.separator} />
-        </div>
-      )}
       {isSuggestionListOpen && renderSuggestions()}
-    </div>
+    </Container>
   );
 };
 
 AddressSearchInput.defaultProps = {
-  clearable: true,
-  value: ''
+  clearable: true
 };
 
+const MapsProviderContext = React.createContext<{
+  apiKey?: string;
+  loading: boolean;
+  service?: google.maps.places.AutocompleteService;
+  sessionToken?: google.maps.places.AutocompleteSessionToken;
+}>({
+  apiKey: undefined,
+  loading: true,
+  service: undefined,
+  sessionToken: undefined
+});
+
 export default AddressSearchInput;
+
+export const MapsProvider = ({ apiKey, ...props }) => {
+  const { loading, service, sessionToken } = useMapsAutoComplete(apiKey);
+
+  return (
+    <MapsProviderContext.Provider value={{ apiKey: apiKey, loading, service, sessionToken }}>
+      {props.children}
+    </MapsProviderContext.Provider>
+  );
+};

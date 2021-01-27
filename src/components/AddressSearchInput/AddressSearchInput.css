@@ -1,16 +1,28 @@
 @import '../../styles/theme/index.css';
 
 :root {
+  --address-search-input-border: none;
+
   --address-search-button-background-color: transparent;
   --address-search-button-height: 100%;
   --address-search-button-color: var(--structure-color-900);
 }
 
 .container {
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  /* position: relative; */
   width: 18.75rem;
 }
 
+.address-search-input {
+  width: 100%;
+  --input-border: var(--address-search-input-border);
+}
+
+.suggestion-list {
+  width: 100%;
+}
 .btn-clear {
   --button-neutral-background-color: var(--address-search-button-background-color);
   --button-neutral-background-color-active: var(--address-search-button-background-color);
@@ -20,8 +32,9 @@
   --button-neutral-color-hover: var(--address-search-button-color);
   --button-neutral-color-active: var(--address-search-button-color);
   opacity: 1;
-  right: 0.1rem;
-  position: absolute;
+  /* right: 0.1rem; */
+  /* position: absolute; */
+  width: 10%;
 }
 
 .btn-clear:focus {
@@ -35,23 +48,6 @@
 
 .clear-icon {
   fill: black;
-}
-
-.input {
-  background: var(--structure-color-white);
-  border-radius: 0.25rem;
-  color: var(--structure-color-700);
-  cursor: pointer;
-  font-size: 1rem;
-  height: 2.5rem;
-  line-height: 1.5rem;
-  padding: 0.5rem 1rem;
-  width: 100%;
-}
-
-.input:focus {
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 32, 91, 0.24);
-  outline: none;
 }
 
 #search-address .suggestion-list-hover {
