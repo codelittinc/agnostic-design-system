@@ -25,6 +25,8 @@ interface Props {
   validationRegex?: string;
   invalidMessage?: string;
   limit?: number;
+  prepend?: React.ReactNode;
+  withPrependSeparator?: boolean;
 }
 
 const VALID = 'valid';
@@ -57,16 +59,14 @@ const Input: React.FC<Props> = props => {
     validationRegex,
     invalidMessage,
     limit,
+    prepend,
+    withPrependSeparator,
     ...inputProps
   } = props;
   const [validationState, setValidationState] = useState('');
   const sizeClass = `input--${size}`;
-  const containerClass = 'input--container';
-  const messageClass = 'input--message';
-  const messageValidateClass = validationState ? `input--message-${validationState}` : '';
-  const statusClass = validationState ? `input--${validationState}` : '';
-  const descriptionClass = 'input--description';
-  const labelClass = 'input--label';
+  const messageValidateClass = `input--message-${validationState}`;
+  const statusClass = `input--${validationState}`;
 
   const handleBlur = event => {
     onBlur && onBlur();
@@ -74,42 +74,57 @@ const Input: React.FC<Props> = props => {
   };
 
   return (
-    <div className={classNames(variablesClassName, styles[containerClass])}>
+    <div className={classNames(variablesClassName, styles.container)}>
       {label ? (
-        <label className={classNames(styles[labelClass])} htmlFor={id}>
+        <label className={classNames(styles['input--label'])} htmlFor={id}>
           {label}
         </label>
       ) : (
         ''
       )}
       {description ? (
-        <span className={classNames(styles[descriptionClass])}>{description}</span>
+        <span className={classNames(styles['input--description'])}>{description}</span>
       ) : (
         ''
       )}
-      <input
-        {...inputProps}
-        className={classNames(styles.input, styles[sizeClass], styles[statusClass])}
-        disabled={disabled}
-        id={id}
-        onChange={onChange}
-        placeholder={placeholder}
-        value={value}
-        onFocus={() => {
-          setValidationState('');
-
-          if (onFocus) {
+      <div className={classNames(styles['input--container'])}>
+        <input
+          {...inputProps}
+          className={classNames(
+            styles.input,
+            styles[sizeClass],
+            styles[statusClass],
+            !!prepend && !withPrependSeparator ? styles['input-with-prepend'] : '',
+            withPrependSeparator ? styles['input-with-prepend-separator'] : ''
+          )}
+          disabled={disabled}
+          id={id}
+          onChange={onChange}
+          placeholder={placeholder}
+          value={value}
+          onFocus={() => {
+            setValidationState('');
             onFocus();
-          }
-        }}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        onKeyDown={onKeyDown}
-        onBlur={handleBlur}
-        maxLength={limit}
-      />
+          }}
+          onKeyDown={onKeyDown}
+          onBlur={handleBlur}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          maxLength={limit}
+        />
+        {!!prepend && (
+          <div
+            className={classNames(
+              styles['input--prepend'],
+              withPrependSeparator ? styles['input--prepend-with-separator'] : ''
+            )}
+          >
+            {prepend}
+          </div>
+        )}
+      </div>
       {message || invalidMessage ? (
-        <span className={classNames(styles[messageClass], styles[messageValidateClass])}>
+        <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
           {validationState === INVALID && invalidMessage ? invalidMessage : message}
         </span>
       ) : (
@@ -122,6 +137,7 @@ const Input: React.FC<Props> = props => {
 Input.defaultProps = {
   size: 'large',
   isValid: () => true,
+  onFocus: () => {},
   validationRegex: '.*'
 };
 

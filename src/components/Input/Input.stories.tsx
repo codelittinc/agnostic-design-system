@@ -15,28 +15,6 @@ Default.args = {
   placeholder: 'Enter text'
 };
 
-export const Positive = Template.bind({});
-Positive.args = {
-  size: 'large',
-  state: 'valid',
-  placeholder: 'Enter Text'
-};
-
-export const Negative = Template.bind({});
-Negative.args = {
-  size: 'large',
-  state: 'invalid',
-  placeholder: 'Enter Text'
-};
-
-export const WithEmailValidation = Template.bind({});
-WithEmailValidation.args = {
-  size: 'large',
-  validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
-  placeholder: 'Enter Text',
-  invalidMessage: 'Invalid email'
-};
-
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
   size: 'large',
@@ -45,20 +23,32 @@ DefaultWithLabel.args = {
   id: 'input-id'
 };
 
-export const PositiveWithLabel = Template.bind({});
-PositiveWithLabel.args = {
+export const WithValidation = Template.bind({});
+WithValidation.args = {
   size: 'large',
-  state: 'valid',
-  placeholder: 'Enter Text',
-  label: 'Input Label',
-  id: 'input-id'
+  label: 'Email',
+  validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
+  placeholder: 'Enter Email',
+  invalidMessage: 'Invalid email'
 };
 
-export const NegativeWithLabel = Template.bind({});
-NegativeWithLabel.args = {
+export const WithPrepend = Template.bind({});
+WithPrepend.args = {
   size: 'large',
-  state: 'invalid',
   placeholder: 'Enter Text',
-  label: 'Input Label',
-  id: 'input-id'
+  prepend: <div>$</div>,
+  label: 'Email',
+  validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
+  invalidMessage: 'Invalid email'
+};
+
+export const WithPrependSeparator = Template.bind({});
+WithPrependSeparator.args = {
+  size: 'large',
+  placeholder: 'Enter Text',
+  prepend: <div>$</div>,
+  withPrependSeparator: true,
+  label: 'Email',
+  validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
+  invalidMessage: 'Invalid email'
 };

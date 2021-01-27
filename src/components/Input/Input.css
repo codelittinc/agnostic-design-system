@@ -1,8 +1,14 @@
-@import "../../styles/theme/index.css";
-
+@import '../../styles/theme/index.css';
 
 :root {
   --input-background-color: var(--structure-color-100);
+  --prepend-background-color: var(--structure-color-100);
+
+  --prepend-background-active: var(--prepend-background-color);
+  --prepend-background-focus: var(--prepend-background-color);
+  --prepend-background-hover: var(--prepend-background-color);
+  --prepend-background-negative: var(--prepend-background-color);
+  --prepend-background-positive: var(--prepend-background-color);
 
   --input-display: flex;
   --input-flex-directon: column;
@@ -23,16 +29,16 @@
 
   --input-large-side-padding: var(--spacing-horizontal-m);
   --input-medium-side-padding: var(--spacing-horizontal-m);
+  --input-with-prepend-left-padding: 44px;
 
   --input-border: 1px solid var(--structure-color-300);
   --input-border-active: 1px solid var(--primary-color-500);
+  --input-border-focus: 2px solid var(--primary-color-500);
   --input-border-hover: 1px solid var(--primary-color-300);
   --input-border-negative: 1px solid var(--error-color);
   --input-border-positive: 1px solid var(--success-color);
 
   --input-color: var(--structure-color-900);
-
-  --input-outline-color-focus: var(--primary-color-500);
 
   --input-placeholder-color: var(--structure-color-700);
   --input-placeholder-font-size: var(--paragraph-xl);
@@ -52,9 +58,13 @@
 
   --input-message-negative-color: var(--error-color);
   --input-message-positive-color: var(--success-color);
+
+  --prepend-left-distance: 24px;
+  --prepend-height: 44px;
+  --prepend-padding: 0 18px;
 }
 
-.input--container {
+.container {
   display: var(--input-display);
   flex-direction: var(--input-flex-directon);
 }
@@ -67,21 +77,41 @@
   width: 100%;
 }
 
-.input:not([value=""]) {
+.input:not([value='']) {
   border: var(--input-border-hover, none);
+}
+
+.input:not([value='']) + .input--prepend.input--prepend-with-separator {
+  background-color: var(--prepend-background-hover);
+  border: var(--input-border-hover, none);
+  border-right: none;
+}
+
+.input:hover {
+  border: var(--input-border-hover, none);
+}
+
+.input:hover + .input--prepend.input--prepend-with-separator {
+  background-color: var(--prepend-background-hover);
+  border: var(--input-border-hover, none);
+  border-right: none;
 }
 
 .input:active,
 .input:focus {
   border: var(--input-border-active, none);
+  outline: none;
 }
 
 .input:focus {
-  outline-color: var(--input-outline-color-focus);
+  border: var(--input-border-focus);
 }
 
-.input:hover {
-  border: var(--input-border-hover, none);
+.input:focus + .input--prepend.input--prepend-with-separator {
+  background-color: var(--prepend-background-active);
+  border: var(--input-border-focus);
+  border-right: none;
+  height: 44px;
 }
 
 .input::placeholder {
@@ -117,7 +147,8 @@
   width: 100%;
 }
 
-.input--description, .input--message {
+.input--description,
+.input--message {
   font-size: var(--input-span-font-size);
   font-weight: var(--input-span-font-weight);
   line-height: var(--input-span-line-height);
@@ -138,6 +169,52 @@
   border: var(--input-border-positive);
 }
 
+.input.input--valid + .input--prepend.input--prepend-with-separator {
+  background-color: var(--prepend-background-positive);
+  border: var(--input-border-positive);
+  border-right: none;
+}
+
 .input.input--invalid {
   border: var(--input-border-negative);
+}
+
+.input.input--invalid + .input--prepend.input--prepend-with-separator {
+  background-color: var(--prepend-background-negative);
+  border: var(--input-border-negative);
+  border-right: none;
+}
+
+.input--container {
+  align-items: center;
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.input--prepend {
+  display: flex;
+  left: var(--prepend-left-distance);
+  justify-content: center;
+  position: relative;
+  width: 0;
+}
+
+.input--prepend.input--prepend-with-separator {
+  align-items: center;
+  background: var(--prepend-background-color);
+  border: var(--input-border, none);
+  border-radius: var(--input-medium-border-radius) 0 0 var(--input-medium-border-radius);
+  border-right: none;
+  height: var(--prepend-height);
+  left: 0;
+  padding: var(--prepend-padding);
+  width: auto;
+}
+
+.input.input--large.input-with-prepend {
+  padding-left: var(--input-with-prepend-left-padding);
+}
+
+.input.input-with-prepend-separator {
+  border-radius: 0 var(--input-large-border-radius) var(--input-large-border-radius) 0;
 }
