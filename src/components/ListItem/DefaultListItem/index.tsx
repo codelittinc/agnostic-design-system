@@ -17,22 +17,12 @@ export interface Props<T> {
 }
 
 const DefaultListItem = <T extends {}>(props: Props<T>) => {
-  const {
-    className,
-    size,
-    getLabel,
-    getIcon,
-    getSelectedMarker,
-    item,
-    variablesClassName,
-    ...listItemProps
-  } = props;
+  const { className, size, getLabel, getIcon, getSelectedMarker, item, variablesClassName } = props;
 
   const sizeSpanClass = `list-item--span-${size}`;
 
   return (
     <div
-      {...listItemProps}
       className={classNames(className, styles['list-item'], variablesClassName)}
       role='button'
       aria-pressed='false'
