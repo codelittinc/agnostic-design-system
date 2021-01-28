@@ -60,7 +60,8 @@
   --input-message-positive-color: var(--success-color);
 
   --prepend-left-distance: 24px;
-  --prepend-height: 44px;
+  --prepend-height: 46px;
+  --prepend-height-focus: 44px;
   --prepend-padding: 0 18px;
 }
 
@@ -111,7 +112,7 @@
   background-color: var(--prepend-background-active);
   border: var(--input-border-focus);
   border-right: none;
-  height: 44px;
+  height: var(--prepend-height-focus);
 }
 
 .input::placeholder {
