@@ -1,4 +1,4 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
   --list-item-background-color-hover: var(--structure-color-100);
@@ -97,12 +97,20 @@
   color: var(--list-item-span-color-hover);
 }
 
-.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=checkbox]:not(:checked) ~ span {
+.list-item:hover
+  > .list-item-selected-marker:last-child
+  > div:last-child
+  > input[type='checkbox']:not(:checked)
+  ~ span {
   background-color: var(--list-item-checkbox-background-color-hover);
   border: var(--list-item-checkbox-border-hover);
 }
 
-.list-item:hover > .list-item-selected-marker:last-child > div:last-child > input[type=radio]:not(:checked) ~ span {
+.list-item:hover
+  > .list-item-selected-marker:last-child
+  > div:last-child
+  > input[type='radio']:not(:checked)
+  ~ span {
   background-color: var(--list-item-radio-background-color-hover);
 }
 

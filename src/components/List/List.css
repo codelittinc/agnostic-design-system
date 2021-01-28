@@ -1,4 +1,4 @@
-@import "../../styles/theme/index.css";
+@import '../../styles/theme/index.css';
 
 :root {
   /* list div attributes */
@@ -7,6 +7,7 @@
   --list-min-width: var(--spacing-horizontal-xxxl);
   --list-style-type: none;
   --list-border: 1px solid transparent;
+  --list-margin: 0;
 
   --list-border-active: 1px solid var(--structure-color-200);
 
@@ -56,6 +57,7 @@
   min-width: var(--list-min-width);
   padding-inline-start: var(--list-padding-inline-start);
   width: 100%;
+  margin: var(--list-margin);
 }
 
 .list--medium {
@@ -106,7 +108,7 @@
   width: 100%;
 }
 
-.list-item--visit{
+.list-item--visit {
   border-bottom: var(--list-item-border-hover);
 }
 

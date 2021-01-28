@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './AddressSearchInput.css';
 import classnames from 'classnames';
 import useMapsAutoComplete from './hooks/useMapsAutoComplete';
 import Input from '../Input';
 import List from '../List';
-import { Container } from '../Grid';
 
 type Size = 'large' | 'medium';
 
@@ -20,7 +19,6 @@ const ON_BLUR_DELAY = 500;
 
 const AddressSearchInput: React.FC<Props> = props => {
   const { value, onChange } = props;
-
   const [initialValue, setInitialValue] = useState(props.value);
 
   useEffect(() => {
@@ -31,7 +29,6 @@ const AddressSearchInput: React.FC<Props> = props => {
   const [placesSuggestions, setPlacesSuggestions] = useState<
     google.maps.places.AutocompletePrediction[]
   >([]);
-  const containerRef = useRef<HTMLDivElement>(null);
   const { loading, service: autocompleteService, sessionToken } = useContext(MapsProviderContext);
   const [isInputHovered, setIsInputHovered] = useState(false);
   const hasSuggestions = placesSuggestions.length > 0;
@@ -50,7 +47,7 @@ const AddressSearchInput: React.FC<Props> = props => {
     setInitialValue(e.target.value);
     if (autocompleteService) {
       autocompleteService.getPlacePredictions(
-        { input: initialValue, sessionToken: sessionToken },
+        { input: e.target.value, sessionToken: sessionToken },
         (
           predictions: google.maps.places.AutocompletePrediction[],
           status: google.maps.places.PlacesServiceStatus
@@ -65,28 +62,26 @@ const AddressSearchInput: React.FC<Props> = props => {
   };
 
   const renderSuggestions = () => (
-    <div ref={containerRef}>
-      <List<google.maps.places.AutocompletePrediction>
-        size='large'
-        options={placesSuggestions}
-        onChange={item => {
-          item && handleClickSuggestion(item);
-        }}
-        getItemKey={item => item.place_id}
-        getItemLabel={item => item.description}
-        getItemValue={item => item.description}
-        variablesClassName={classnames(styles['suggestion-list'], {
-          [styles.hover]: isInputHovered
-        })}
-        listItemCategory='simple'
-        label=''
-        id='search-suggestion-list'
-      />
-    </div>
+    <List<google.maps.places.AutocompletePrediction>
+      size='large'
+      options={placesSuggestions}
+      onChange={item => {
+        item && handleClickSuggestion(item);
+      }}
+      getItemKey={item => item.place_id}
+      getItemLabel={item => item.description}
+      getItemValue={item => item.description}
+      variablesClassName={classnames(styles['suggestion-container'], {
+        [styles.hover]: isInputHovered
+      })}
+      listItemCategory='simple'
+      label=''
+      id='search-suggestion-list'
+    />
   );
 
   return (
-    <Container variablesClassName={classnames(styles.container)}>
+    <div className={classnames(styles.container)}>
       <Input
         id='search-address'
         size='large'
@@ -102,10 +97,12 @@ const AddressSearchInput: React.FC<Props> = props => {
           }, ON_BLUR_DELAY);
         }}
         disabled={loading}
-        variablesClassName={classnames(styles['address-search-input'])}
+        variablesClassName={classnames(styles['address-search-input'], {
+          [styles['address-search-input-list-opened']]: isSuggestionListOpen
+        })}
       />
       {isSuggestionListOpen && renderSuggestions()}
-    </Container>
+    </div>
   );
 };
 
