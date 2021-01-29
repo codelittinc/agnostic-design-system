@@ -3,7 +3,6 @@
 :root {
   --list-item-background-color-hover: var(--structure-color-100);
 
-  --list-item-border: 1px solid transparent;
   --list-item-border-radius: 0;
   --list-item-padding: var(--round-m);
   --list-item-outline-color: initial;
@@ -11,6 +10,10 @@
   --list-item-justify-content: space-between;
   --list-item-align-items: center;
   --list-item-min-height: 50px;
+  --list-item-border-bottom: 1px solid transparent;
+  --list-item-border-top: 1px solid transparent;
+  --list-item-border-right: 1px solid transparent;
+  --list-item-border-left: 1px solid transparent;
 
   --list-item-color: var(--structure-color-700);
   --list-item-color-hover: var(--structure-color-800);
@@ -37,6 +40,7 @@
   --list-item-span-width: 100%;
   --list-item-span-display: inline-block;
   --list-item-span-color-pressed: var(--structure-color-white);
+  --list-item-span-margin: 0;
 
   /* Icon div attributes */
   --list-item-icon-filter: brightness(0.2);
@@ -57,7 +61,6 @@
 
 .list-item {
   align-items: var(--list-item-align-items);
-  border: var(--list-item-border);
   border-radius: var(--list-item-border-radius);
   box-sizing: border-box;
   color: var(--list-item-color);
@@ -68,12 +71,17 @@
   padding: var(--list-item-padding);
   min-height: var(--list-item-min-height);
   width: 100%;
+  border-bottom: var(--list-item-border-bottom);
+  border-top: var(--list-item-border-top);
+  border-right: var(--list-item-border-right);
+  border-left: var(--list-item-border-left);
 }
 
 .list-item-span {
   text-align: var(--list-item-span-text-align);
   width: var(--list-item-span-width);
   display: var(--list-item-span-display);
+  margin: var(--list-item-span-margin);
 }
 
 .list-item-span--medium {

@@ -37,7 +37,10 @@
   --list-item-border-radius: 0;
   --list-item-box-sizing: border-box;
   --list-item-box-shadow: 0px 4px 10px rgba(232, 238, 252, 0.7);
-  --list-item-border: 1px solid transparent;
+  --list-item-border-bottom: 1px solid transparent;
+  --list-item-border-top: 1px solid transparent;
+  --list-item-border-right: 1px solid transparent;
+  --list-item-border-left: 1px solid transparent;
   --list-focus-outline: var(--structure-color-400) auto 1px;
   --list-item-border-hover: 1px solid var(--structure-color-600);
   --list-item-background-color: var(--structure-color-100);
@@ -90,12 +93,16 @@
 
 .list-item {
   background-color: var(--list-item-background-color);
-  border: var(--list-item-border);
   border-radius: var(--list-item-border-radius);
   box-shadow: var(--list-item-box-shadow);
   box-sizing: var(--list-item-box-sizing);
   margin: var(--list-item-margin);
   width: 100%;
+  border-bottom: var(--list-item-border-bottom);
+  border-right: var(--list-item-border-right);
+  border-top: var(--list-item-border-top);
+  border-left: var(--list-item-border-left);
+  --list-item-span-margin: 5px;
 }
 
 .list-item:hover {

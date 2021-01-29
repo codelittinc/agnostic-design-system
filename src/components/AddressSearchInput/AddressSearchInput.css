@@ -1,7 +1,7 @@
 @import '../../styles/theme/index.css';
 
 :root {
-  --address-search-container-width: 18.75rem;
+  --address-search-container-width: 100%;
   --address-search-container-display: flex;
   --address-search-container-flex-wrap: wrap;
   --address-search-container-border-radius: 4px;
@@ -15,11 +15,11 @@
   --address-search-input-border-positive: 1px solid var(--primary-color-300);
   --address-search-input-border-bottom: none;
   --address-search-input-padding: 10px;
-  --address-search-input-large-border-radius: 4px;
+  --address-search-input-border-radius: 4px;
   --address-search-input-font-size: var(--paragraph-l);
   --address-search-input-font-weight: var(--paragraph-font-weight-normal);
   --address-search-input-line-height: var(--paragraph-l-line-height);
-  --address-search-input-height: var(--height-s);
+  --address-search-input-height: 3.125rem;
   --address-search-input-color: var(--structure-color-800);
   --address-search-input-background-color: var(--structure-color-100);
 
@@ -43,13 +43,16 @@
   --address-search-list-item-cursor: pointer;
   --address-search-list-item-large-height: auto;
   --address-search-list-item-margin: 0;
-  --address-search-list-item-border: none;
-  --address-search-list-item-min-height: 50px;
+  --address-search-list-item-min-height: 3.125rem;
   --address-search-list-item-color: var(--structure-color-900);
   --address-search-list-item-box-shadow: none;
-  --address-search-list-item-border-bottom: 1px solid var(--structure-color-200);
+  --address-search-list-item-border-bottom-hover: 1px solid var(--structure-color-200);
   --address-search-list-item-justify-content: end;
   --address-search-list-item-color-pressed: var(--structure-color-900);
+  --address-search-list-item-border-top: none;
+  --address-search-list-item-border-right: none;
+  --address-search-list-item-border-bottom: 1px solid var(--structure-color-200);
+  --address-search-list-item-border-left: none;
 }
 
 .container {
@@ -59,6 +62,7 @@
   flex-wrap: var(--address-search-container-flex-wrap);
   padding: var(--address-search-container-padding);
   width: var(--address-search-container-width);
+  position: relative;
 }
 
 .address-search-input {
@@ -73,11 +77,11 @@
   --input-placeholder-font-size: var(--address-search-input-placeholder-font-size);
   --input-placeholder-font-weight: var(--address-search-input-placeholder-font-weight);
   --input-large-side-padding: var(--address-search-input-padding);
-  --input-large-border-radius: var(--address-search-input-large-border-radius);
-  --input-large-font-size: var(--address-search-input-large-font-size);
-  --input-large-font-weight: var(--address-search-input-large-font-weight);
-  --input-large-height: var(--address-search-input-large-height);
-  --input-large-line-height: var(--address-search-input-large-line-height);
+  --input-large-border-radius: var(--address-search-input-border-radius);
+  --input-large-font-size: var(--address-search-input-font-size);
+  --input-large-font-weight: var(--address-search-input-font-weight);
+  --input-large-height: var(--address-search-input-height);
+  --input-large-line-height: var(--address-search-input-line-height);
   --input-color: var(--address-search-input-color);
 }
 
@@ -97,17 +101,17 @@
   --list-item-cursor: var(--address-search-list-item-cursor);
   --list-item-large-height: var(--address-search-list-item-large-height);
   --list-item-margin: var(--address-search-list-item-margin);
-  --list-item-border: var(--address-search-list-item-border);
   --list-item-color: var(--address-search-list-item-color);
   --list-item-box-shadow: var(--address-search-list-item-box-shadow);
   --list-item-justify-content: var(--address-search-list-item-justify-content);
   --list-item-min-height: var(--address-search-list-item-min-height);
   --list-item-background-color-pressed: var(--address-search-list-item-background-color-pressed);
   --list-item-span-color-pressed: var(--address-search-list-item-color-pressed);
+  --list-item-border-hover: var(--address-search-list-item-border-bottom-hover);
+  --list-item-border-bottom: var(--address-search-list-item-border-bottom);
+  --list-item-border-left: var(--address-search-list-item-border-left);
+  --list-item-border-top: var(--address-search-list-item-border-top);
+  --list-item-border-right: var(--address-search-list-item-border-right);
   position: absolute;
   z-index: 999;
-}
-
-.address-search-list li {
-  border-bottom: var(--address-search-list-item-border-bottom);
 }

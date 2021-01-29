@@ -1,24 +1,26 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from './AddressSearchInput.css';
 import classnames from 'classnames';
-import useMapsAutoComplete from './hooks/useMapsAutoComplete';
 import Input from '../Input';
 import List from '../List';
-import useCurrentWindowSize from '@/utils/hooks/useWindowResize';
+import { MapsProviderContext } from '../MapsProvider';
 
 interface Props {
   apiKey: string;
-  value: string;
   onChange: (data?: google.maps.places.AutocompletePrediction) => void;
+  inputId: string;
+  dropdownId: string;
+  placeholder?: string;
+  value: string;
+  variablesClassName?: string;
 }
 
 const AddressSearchInput: React.FC<Props> = props => {
-  const { value, onChange } = props;
+  const { value, onChange, inputId, dropdownId, placeholder, variablesClassName } = props;
   const [initialValue, setInitialValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
-  const [{ y, height }, setInputPosition] = useState({ y: 0, height: 0 });
-  const { heightWindow, widthWindow } = useCurrentWindowSize();
+  const [{ height }, setInputPosition] = useState({ height: 0 });
   const [isSuggestionListOpen, setIsSuggestionListOpen] = useState(false);
   const [placesSuggestions, setPlacesSuggestions] = useState<
     google.maps.places.AutocompletePrediction[]
@@ -50,20 +52,14 @@ const AddressSearchInput: React.FC<Props> = props => {
   }, [inputRef, isSuggestionListOpen]);
 
   useEffect(() => {
-    if (inputRef && inputRef.current) {
-      setInputPosition(inputRef.current.getBoundingClientRect());
-    }
-  }, [heightWindow, widthWindow]);
-
-  useEffect(() => {
     setInitialValue(value);
   }, [value]);
 
   useEffect(() => {
     if (isSuggestionListOpen && listRef && listRef.current) {
-      listRef.current.style.top = y + height + 'px';
+      listRef.current.style.top = height + 'px';
     }
-  }, [y, height, isSuggestionListOpen]);
+  }, [height, isSuggestionListOpen]);
 
   const cleanSuggestions = () => {
     setPlacesSuggestions([]);
@@ -121,17 +117,17 @@ const AddressSearchInput: React.FC<Props> = props => {
       })}
       listItemCategory='simple'
       label=''
-      id='search-suggestion-list'
+      id={dropdownId}
     />
   );
 
   return (
-    <div className={classnames(styles.container)}>
+    <div className={classnames(variablesClassName, styles.container)}>
       <Input
         ref={inputRef}
-        id='search-address'
+        id={inputId}
         size='large'
-        placeholder='Enter Address'
+        placeholder={placeholder}
         value={initialValue}
         onChange={handleChangeInput}
         onFocus={() => setIsSuggestionListOpen(hasSuggestions)}
@@ -145,26 +141,4 @@ const AddressSearchInput: React.FC<Props> = props => {
   );
 };
 
-const MapsProviderContext = React.createContext<{
-  apiKey?: string;
-  loading: boolean;
-  service?: google.maps.places.AutocompleteService;
-  sessionToken?: google.maps.places.AutocompleteSessionToken;
-}>({
-  apiKey: undefined,
-  loading: true,
-  service: undefined,
-  sessionToken: undefined
-});
-
 export default AddressSearchInput;
-
-export const MapsProvider = ({ apiKey, ...props }) => {
-  const { loading, service, sessionToken } = useMapsAutoComplete(apiKey);
-
-  return (
-    <MapsProviderContext.Provider value={{ apiKey: apiKey, loading, service, sessionToken }}>
-      {props.children}
-    </MapsProviderContext.Provider>
-  );
-};

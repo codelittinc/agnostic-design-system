@@ -133,6 +133,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                   }
                   getValue={getItemValue}
                   getName={getItemName}
+                  variablesClassName={classNames(styles['list-item'])}
                 />
               </li>
             );

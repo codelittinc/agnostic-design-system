@@ -1,4 +1,4 @@
-import useScript from '../../../utils/hooks/useScript';
+import useScript from './useScript';
 
 const API_URL = 'https://maps.googleapis.com/maps/api/js';
 const API_LIBRARIES = ['places'];

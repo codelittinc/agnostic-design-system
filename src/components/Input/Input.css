@@ -68,6 +68,7 @@
 .container {
   display: var(--input-display);
   flex-direction: var(--input-flex-directon);
+  height: 100%;
 }
 
 .input {

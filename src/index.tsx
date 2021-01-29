@@ -5,5 +5,6 @@ export { default as SearchInput } from '@/components/SearchInput';
 export { default as Dropdown } from '@/components/Dropdown';
 export { default as List } from '@/components/List';
 export { default as Toast } from '@/components/Toast';
-export { default as AddressSearchInput, MapsProvider } from '@/components/AddressSearchInput';
+export { default as AddressSearchInput } from '@/components/AddressSearchInput';
+export { default as MapsProvider } from '@/components/MapsProvider';
 export * from '@/components/Grid';
