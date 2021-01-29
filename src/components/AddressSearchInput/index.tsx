@@ -1,37 +1,69 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from './AddressSearchInput.css';
 import classnames from 'classnames';
 import useMapsAutoComplete from './hooks/useMapsAutoComplete';
 import Input from '../Input';
 import List from '../List';
-
-type Size = 'large' | 'medium';
+import useCurrentWindowSize from '@/utils/hooks/useWindowResize';
 
 interface Props {
   apiKey: string;
-  clearable?: boolean;
   value: string;
   onChange: (data?: google.maps.places.AutocompletePrediction) => void;
-  size: Size;
 }
-
-const ON_BLUR_DELAY = 500;
 
 const AddressSearchInput: React.FC<Props> = props => {
   const { value, onChange } = props;
-  const [initialValue, setInitialValue] = useState(props.value);
-
-  useEffect(() => {
-    setInitialValue(value);
-  }, [value]);
-
+  const [initialValue, setInitialValue] = useState(value);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const [{ y, height }, setInputPosition] = useState({ y: 0, height: 0 });
+  const { heightWindow, widthWindow } = useCurrentWindowSize();
   const [isSuggestionListOpen, setIsSuggestionListOpen] = useState(false);
   const [placesSuggestions, setPlacesSuggestions] = useState<
     google.maps.places.AutocompletePrediction[]
   >([]);
   const { loading, service: autocompleteService, sessionToken } = useContext(MapsProviderContext);
+  const [
+    suggestionSelected,
+    setSuggestionSelected
+  ] = useState<google.maps.places.AutocompletePrediction>();
   const [isInputHovered, setIsInputHovered] = useState(false);
   const hasSuggestions = placesSuggestions.length > 0;
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target) &&
+        isSuggestionListOpen &&
+        listRef.current &&
+        !listRef.current.contains(event.target)
+      ) {
+        setIsSuggestionListOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [inputRef, isSuggestionListOpen]);
+
+  useEffect(() => {
+    if (inputRef && inputRef.current) {
+      setInputPosition(inputRef.current.getBoundingClientRect());
+    }
+  }, [heightWindow, widthWindow]);
+
+  useEffect(() => {
+    setInitialValue(value);
+  }, [value]);
+
+  useEffect(() => {
+    if (isSuggestionListOpen && listRef && listRef.current) {
+      listRef.current.style.top = y + height + 'px';
+    }
+  }, [y, height, isSuggestionListOpen]);
 
   const cleanSuggestions = () => {
     setPlacesSuggestions([]);
@@ -39,13 +71,25 @@ const AddressSearchInput: React.FC<Props> = props => {
   };
 
   const handleClickSuggestion = (suggestion: google.maps.places.AutocompletePrediction) => {
-    onChange(suggestion);
+    setSuggestionSelected(suggestion);
+    suggestionSelected?.description !== suggestion.description
+      ? onChange(suggestion)
+      : setInitialValue(suggestion.description);
+
     cleanSuggestions();
+  };
+
+  const displaySuggestionList = () => {
+    setIsSuggestionListOpen(true);
+    if (inputRef && inputRef.current) {
+      setInputPosition(inputRef.current.getBoundingClientRect());
+    }
   };
 
   const handleChangeInput = e => {
     setInitialValue(e.target.value);
-    if (autocompleteService) {
+
+    if (autocompleteService && e.target.value) {
       autocompleteService.getPlacePredictions(
         { input: e.target.value, sessionToken: sessionToken },
         (
@@ -55,7 +99,7 @@ const AddressSearchInput: React.FC<Props> = props => {
           if (status !== google.maps.places.PlacesServiceStatus.OK) return;
 
           setPlacesSuggestions(predictions);
-          setIsSuggestionListOpen(true);
+          displaySuggestionList();
         }
       );
     }
@@ -63,6 +107,7 @@ const AddressSearchInput: React.FC<Props> = props => {
 
   const renderSuggestions = () => (
     <List<google.maps.places.AutocompletePrediction>
+      ref={listRef}
       size='large'
       options={placesSuggestions}
       onChange={item => {
@@ -71,7 +116,7 @@ const AddressSearchInput: React.FC<Props> = props => {
       getItemKey={item => item.place_id}
       getItemLabel={item => item.description}
       getItemValue={item => item.description}
-      variablesClassName={classnames(styles['suggestion-container'], {
+      variablesClassName={classnames(styles['address-search-list'], {
         [styles.hover]: isInputHovered
       })}
       listItemCategory='simple'
@@ -83,6 +128,7 @@ const AddressSearchInput: React.FC<Props> = props => {
   return (
     <div className={classnames(styles.container)}>
       <Input
+        ref={inputRef}
         id='search-address'
         size='large'
         placeholder='Enter Address'
@@ -91,23 +137,12 @@ const AddressSearchInput: React.FC<Props> = props => {
         onFocus={() => setIsSuggestionListOpen(hasSuggestions)}
         onMouseEnter={() => setIsInputHovered(true)}
         onMouseLeave={() => setIsInputHovered(false)}
-        onBlur={() => {
-          setTimeout(() => {
-            setIsSuggestionListOpen(false);
-          }, ON_BLUR_DELAY);
-        }}
         disabled={loading}
-        variablesClassName={classnames(styles['address-search-input'], {
-          [styles['address-search-input-list-opened']]: isSuggestionListOpen
-        })}
+        variablesClassName={classnames(styles['address-search-input'])}
       />
       {isSuggestionListOpen && renderSuggestions()}
     </div>
   );
-};
-
-AddressSearchInput.defaultProps = {
-  clearable: true
 };
 
 const MapsProviderContext = React.createContext<{

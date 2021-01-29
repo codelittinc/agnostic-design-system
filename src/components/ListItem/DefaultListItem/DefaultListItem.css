@@ -6,8 +6,11 @@
   --list-item-border: 1px solid transparent;
   --list-item-border-radius: 0;
   --list-item-padding: var(--round-m);
-
+  --list-item-outline-color: initial;
   --list-item-cursor: pointer;
+  --list-item-justify-content: space-between;
+  --list-item-align-items: center;
+  --list-item-min-height: 50px;
 
   --list-item-color: var(--structure-color-700);
   --list-item-color-hover: var(--structure-color-800);
@@ -31,7 +34,8 @@
   /* Span attributes */
   --list-item-span-color-hover: var(--structure-color-800);
   --list-item-span-text-align: left;
-  --list-item-span-width: 80%;
+  --list-item-span-width: 100%;
+  --list-item-span-display: inline-block;
   --list-item-span-color-pressed: var(--structure-color-white);
 
   /* Icon div attributes */
@@ -52,7 +56,7 @@
 }
 
 .list-item {
-  align-items: center;
+  align-items: var(--list-item-align-items);
   border: var(--list-item-border);
   border-radius: var(--list-item-border-radius);
   box-sizing: border-box;
@@ -60,15 +64,16 @@
   cursor: var(--list-item-cursor);
   display: inline-flex;
   height: 100%;
-  justify-content: space-between;
-  outline: none;
+  justify-content: var(--list-item-justify-content);
   padding: var(--list-item-padding);
+  min-height: var(--list-item-min-height);
   width: 100%;
 }
 
 .list-item-span {
   text-align: var(--list-item-span-text-align);
   width: var(--list-item-span-width);
+  display: var(--list-item-span-display);
 }
 
 .list-item-span--medium {
@@ -91,6 +96,10 @@
 .list-item:hover {
   color: var(--list-item-color-hover);
   font-weight: var(--list-item-font-weight-hover);
+}
+
+.list-item:focus {
+  outline-color: var(--list-item-outline-color);
 }
 
 .list-item:hover > .list-item-span {
@@ -134,4 +143,8 @@
 
 .list-item:active > .list-item-selected-marker:last-child > div:last-child > svg {
   fill: var(--list-item-checkmark-fill-pressed);
+}
+
+.div-hidden {
+  display: none;
 }

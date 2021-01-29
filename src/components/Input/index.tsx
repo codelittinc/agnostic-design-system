@@ -38,7 +38,7 @@ const getValidationState = (value, validationRegex, isValid) => {
   return value.match(regex) && isValid(value) ? VALID : INVALID;
 };
 
-const Input: React.FC<Props> = props => {
+const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
     description,
     disabled,
@@ -90,6 +90,7 @@ const Input: React.FC<Props> = props => {
       <div className={classNames(styles['input--container'])}>
         <input
           {...inputProps}
+          ref={ref}
           className={classNames(
             styles.input,
             styles[sizeClass],
@@ -132,7 +133,7 @@ const Input: React.FC<Props> = props => {
       )}
     </div>
   );
-};
+});
 
 Input.defaultProps = {
   size: 'large',

@@ -28,11 +28,18 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
       aria-pressed='false'
       tabIndex={0}
     >
-      <div className={classNames(styles['list-item-div-icon'])}>{getIcon && getIcon(item)}</div>
+      <div className={classNames(styles['list-item-div-icon'], !getIcon && styles['div-hidden'])}>
+        {getIcon && getIcon(item)}
+      </div>
       <span className={classNames(styles['list-item-span'], styles[sizeSpanClass])}>
         {getLabel(item)}
       </span>
-      <div className={classNames(styles['list-item-selected-marker'])}>
+      <div
+        className={classNames(
+          styles['list-item-selected-marker'],
+          !getSelectedMarker && styles['div-hidden']
+        )}
+      >
         {getSelectedMarker && getSelectedMarker(item)}
       </div>
     </div>

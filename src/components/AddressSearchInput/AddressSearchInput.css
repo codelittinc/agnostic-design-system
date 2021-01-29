@@ -4,34 +4,52 @@
   --address-search-container-width: 18.75rem;
   --address-search-container-display: flex;
   --address-search-container-flex-wrap: wrap;
-  --address-search-container-position: absolute;
   --address-search-container-border-radius: 4px;
-  --address-search-container-border: 1px solid var(--primary-color-200);
+  --address-search-container-border: none;
   --address-search-container-padding: 0;
 
-  --address-search-input-border: none;
-  --address-search-input-border-hover: none;
-  --address-search-input-border-focus: none;
-  --address-search-input-border-active: none;
-  --address-search-input-border-positive: none;
-  --address-search-input-border-bottom: 1px solid var(--structure-color-600);
+  --address-search-input-border: 1px solid var(--structure-color-300);
+  --address-search-input-border-hover: 1px solid var(--primary-color-300);
+  --address-search-input-border-focus: 1px solid var(--primary-color-500);
+  --address-search-input-border-active: 1px solid var(--primary-color-500);
+  --address-search-input-border-positive: 1px solid var(--primary-color-300);
+  --address-search-input-border-bottom: none;
+  --address-search-input-padding: 10px;
+  --address-search-input-large-border-radius: 4px;
+  --address-search-input-font-size: var(--paragraph-l);
+  --address-search-input-font-weight: var(--paragraph-font-weight-normal);
+  --address-search-input-line-height: var(--paragraph-l-line-height);
+  --address-search-input-height: var(--height-s);
+  --address-search-input-color: var(--structure-color-800);
+  --address-search-input-background-color: var(--structure-color-100);
 
-  --address-search-list-border: none;
+  --address-search-input-placeholder-color: var(--primary-color-600);
+  --address-search-input-placeholder-font-size: 14px;
+  --address-search-input-placeholder-font-weight: var(--paragraph-font-weight-normal);
+
+  --address-search-list-border: 1px solid var(--primary-color-200);
   --address-search-list-min-width: calc(100% - 0.125rem);
   --address-search-large-height: auto;
   --address-search-list-margin: 0;
+  --address-search-list-border-radius: 4px;
+  --address-search-list-background-color: var(--structure-color-white);
+  --address-search-list-box-shadow: none;
 
-  --address-search-list-item-background-color: var(--structure-color-white);
+  --address-search-list-item-background-color: transparent;
   --address-search-list-item-background-color-hover: var(--structure-color-300);
+  --address-search-list-item-background-color-pressed: var(--structure-color-300);
   --address-search-list-item-large-font-size: 1rem;
-  --address-search-list-item-padding: 0.25rem 1rem;
+  --address-search-list-item-padding: 1rem 0.5rem;
   --address-search-list-item-cursor: pointer;
   --address-search-list-item-large-height: auto;
   --address-search-list-item-margin: 0;
   --address-search-list-item-border: none;
   --address-search-list-item-min-height: 50px;
   --address-search-list-item-color: var(--structure-color-900);
+  --address-search-list-item-box-shadow: none;
   --address-search-list-item-border-bottom: 1px solid var(--structure-color-200);
+  --address-search-list-item-justify-content: end;
+  --address-search-list-item-color-pressed: var(--structure-color-900);
 }
 
 .container {
@@ -40,29 +58,38 @@
   display: var(--address-search-container-display);
   flex-wrap: var(--address-search-container-flex-wrap);
   padding: var(--address-search-container-padding);
-  position: var(--address-search-container-position);
   width: var(--address-search-container-width);
 }
 
 .address-search-input {
   width: 100%;
+  --input-background-color: var(--address-search-input-background-color);
   --input-border: var(--address-search-input-border);
   --input-border-hover: var(--address-search-input-border-hover);
   --input-border-focus: var(--address-search-input-border-focus);
   --input-border-active: var(--address-search-input-border-active);
   --input-border-positive: var(--address-search-input-border-positive);
+  --input-placeholder-color: var(--address-search-input-placeholder-color);
+  --input-placeholder-font-size: var(--address-search-input-placeholder-font-size);
+  --input-placeholder-font-weight: var(--address-search-input-placeholder-font-weight);
+  --input-large-side-padding: var(--address-search-input-padding);
+  --input-large-border-radius: var(--address-search-input-large-border-radius);
+  --input-large-font-size: var(--address-search-input-large-font-size);
+  --input-large-font-weight: var(--address-search-input-large-font-weight);
+  --input-large-height: var(--address-search-input-large-height);
+  --input-large-line-height: var(--address-search-input-large-line-height);
+  --input-color: var(--address-search-input-color);
 }
 
-.address-search-input-list-opened {
-  border-bottom: var(--address-search-input-border-bottom);
-}
-
-.suggestion-container {
+.address-search-list {
   width: var(--address-search-container-width);
   --list-border: var(--address-search-list-border);
   --list-min-width: var(--address-search-list-min-width);
   --list-large-height: var(--address-search-list-large-height);
   --list-margin: var(--address-search-list-margin);
+  --list-box-shadow: var(--address-search-list-box-shadow);
+  --list-background-color: var(--address-search-list-background-color);
+  --list-large-border-radius: var(--address-search-list-border-radius);
   --list-item-background-color: var(--address-search-list-item-background-color);
   --list-item-large-font-size: var(--address-search-list-item-large-font-size);
   --list-item-padding: var(--address-search-list-item-padding);
@@ -72,19 +99,15 @@
   --list-item-margin: var(--address-search-list-item-margin);
   --list-item-border: var(--address-search-list-item-border);
   --list-item-color: var(--address-search-list-item-color);
+  --list-item-box-shadow: var(--address-search-list-item-box-shadow);
+  --list-item-justify-content: var(--address-search-list-item-justify-content);
+  --list-item-min-height: var(--address-search-list-item-min-height);
+  --list-item-background-color-pressed: var(--address-search-list-item-background-color-pressed);
+  --list-item-span-color-pressed: var(--address-search-list-item-color-pressed);
+  position: absolute;
   z-index: 999;
 }
 
-.suggestion-container li {
+.address-search-list li {
   border-bottom: var(--address-search-list-item-border-bottom);
-  min-height: var(--address-search-list-item-min-height);
-}
-
-.suggestion-container li > div {
-  justify-content: end;
-  min-height: var(--address-search-list-item-min-height);
-}
-
-.suggestion-container:hover {
-  border-color: var(--primary-color-200);
 }

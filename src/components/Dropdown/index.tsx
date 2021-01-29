@@ -137,16 +137,16 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
             {handleArrowIcon(isOpen)}
           </div>
         </button>
-        <ul
-          {...getMenuProps()}
-          className={classNames(
-            styles['dropdown-list'],
-            styles[listSizeClass],
-            !isOpen && styles['dropdown-list--hidden']
-          )}
-        >
-          {isOpen &&
-            options.map((item, index) => (
+        {isOpen && (
+          <ul
+            {...getMenuProps()}
+            className={classNames(
+              styles['dropdown-list'],
+              styles[listSizeClass],
+              !isOpen && styles['dropdown-list--hidden']
+            )}
+          >
+            {options.map((item, index) => (
               <li
                 key={`${item[valueKey]}-${index}`}
                 className={classNames(
@@ -169,7 +169,8 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
                 />
               </li>
             ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </div>
   );
