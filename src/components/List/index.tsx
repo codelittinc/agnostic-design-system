@@ -69,7 +69,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
   };
 
   const sizeClass = `list--${size}`;
-  const listItemSizeClass = `list-item--${size}`;
+  const listItemSizeClass = `list-item-container--${size}`;
 
   const handleKeyDown = (item, index) => event => {
     if (event.keyCode === ENTER_KEY || event.keyCode === SPACE_BAR_KEY) {
@@ -106,12 +106,12 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
               <li
                 key={`${getItemKey(item)}`}
                 className={classNames(
-                  styles['list-item'],
+                  styles['list-item-container'],
                   styles[listItemSizeClass],
                   isItemSelected ||
                     (Array.isArray(selectedItemsList) &&
                       selectedItemsList.find(s => isEqual(item, s)))
-                    ? styles['list-item--selected']
+                    ? styles['list-item-container--selected']
                     : ''
                 )}
                 onClick={() => onChange(getSelectedItems(item))}
