@@ -3,6 +3,8 @@ import classNames from 'classnames';
 
 import styles from '@/components/Input/Input.css';
 
+import DefaultActionIcon from '@/assets/images/icons/web/close-icon.svg';
+
 type Size = 'large' | 'medium';
 
 interface Props {
@@ -27,6 +29,8 @@ interface Props {
   limit?: number;
   prepend?: React.ReactNode;
   withPrependSeparator?: boolean;
+  actionIcon?: React.ReactNode;
+  onClickActionIcon: () => void;
 }
 
 const VALID = 'valid';
@@ -61,6 +65,8 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     limit,
     prepend,
     withPrependSeparator,
+    actionIcon,
+    onClickActionIcon,
     ...inputProps
   } = props;
   const [validationState, setValidationState] = useState('');
@@ -71,6 +77,18 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const handleBlur = event => {
     onBlur && onBlur();
     setValidationState(getValidationState(event.target.value, validationRegex, isValid));
+  };
+
+  const getActionIcon = actionIcon => {
+    return actionIcon ? (
+      <>{actionIcon}</>
+    ) : (
+      <DefaultActionIcon
+        className={classNames(styles['input--action-icon'])}
+        height='8'
+        width='8'
+      />
+    );
   };
 
   return (
@@ -121,6 +139,15 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
             )}
           >
             {prepend}
+          </div>
+        )}
+
+        {!!onClickActionIcon && (
+          <div
+            className={classNames(styles['input--action-icon-container'])}
+            onClick={onClickActionIcon}
+          >
+            {getActionIcon(actionIcon)}
           </div>
         )}
       </div>

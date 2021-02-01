@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Input from '@/components/Input';
+import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 
 export default {
   title: 'Input',
@@ -51,4 +52,19 @@ WithPrependSeparator.args = {
   label: 'Email',
   validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
   invalidMessage: 'Invalid email'
+};
+
+export const WithDefaultActionIcon = Template.bind({});
+WithDefaultActionIcon.args = {
+  size: 'large',
+  placeholder: 'Enter text',
+  onClickActionIcon: () => alert('default action icon was clicked')
+};
+
+export const WithCustomActionIcon = Template.bind({});
+WithCustomActionIcon.args = {
+  size: 'large',
+  placeholder: 'Enter text',
+  actionIcon: <TestSearchIcon height='10' width='10' />,
+  onClickActionIcon: () => alert('custom action icon was clicked')
 };

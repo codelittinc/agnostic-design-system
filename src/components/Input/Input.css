@@ -63,6 +63,13 @@
   --prepend-height: 46px;
   --prepend-height-focus: 44px;
   --prepend-padding: 0 18px;
+
+  --input-action-icon-container-background: transparent;
+  --input-action-icon-margin: 0 20px 0 0;
+  --input-action-icon-cursor: pointer;
+  --input-action-icon-fill: initial;
+  --input-action-icon-fill-hover: initial;
+  --input-action-icon-fill-active: initial;
 }
 
 .container {
@@ -219,4 +226,23 @@
 
 .input.input-with-prepend-separator {
   border-radius: 0 var(--input-large-border-radius) var(--input-large-border-radius) 0;
+}
+
+.input--action-icon-container {
+  background-color: var(--input-action-icon-container-background);
+  cursor: var(--input-action-icon-cursor);
+  margin: var(--input-action-icon-margin);
+  position: absolute;
+}
+
+.input--action-icon {
+  fill: var(--input-action-icon-fill);
+}
+
+.input--action-icon-container:hover > .input--action-icon {
+  fill: var(--input-action-icon-fill-hover);
+}
+
+.input--action-icon-container:active > .input--action-icon {
+  fill: var(--input-action-icon-fill-active);
 }
