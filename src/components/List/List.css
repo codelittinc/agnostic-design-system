@@ -39,8 +39,12 @@
   --list-item-container-border-right: 1px solid transparent;
   --list-item-container-border-left: 1px solid transparent;
   --list-focus-outline: var(--structure-color-400) auto 1px;
-  --list-item-container-border-hover: 1px solid var(--structure-color-600);
+  --list-item-container-border-bottom-hover: 1px solid var(--structure-color-600);
+  --list-item-container-border-top-hover: 1px solid var(--structure-color-600);
+  --list-item-container-border-right-hover: 1px solid var(--structure-color-600);
+  --list-item-container-border-left-hover: 1px solid var(--structure-color-600);
   --list-item-container-background-color: var(--structure-color-100);
+  --list-item-container-cursor: default;
 
   --list-item-container-background-color-selected: var(--structure-color-100);
   --list-item-container-border-bottom-selected: 1px solid var(success-color);
@@ -102,10 +106,14 @@
   border-right: var(--list-item-container-border-right);
   border-top: var(--list-item-container-border-top);
   border-left: var(--list-item-container-border-left);
+  cursor: var(--list-item-container-cursor);
 }
 
 .list-item-container:hover {
-  border-bottom: var(--list-item-container-border-hover);
+  border-bottom: var(--list-item-container-border-bottom-hover);
+  border-right: var(--list-item-container-border-right-hover);
+  border-left: var(--list-item-container-border-left-hover);
+  border-top: var(--list-item-container-border-top-hover);
 }
 
 .list-label {
@@ -118,7 +126,10 @@
 }
 
 .list-item-container--visit {
-  border-bottom: var(--list-item-container-border-hover);
+  border-bottom: var(--list-item-container-border-bottom-hover);
+  border-right: var(--list-item-container-border-right-hover);
+  border-left: var(--list-item-container-border-left-hover);
+  border-top: var(--list-item-container-border-top-hover);
 }
 
 .list-item-container--large,
@@ -133,5 +144,5 @@
 
 .list-item-container--selected {
   background-color: var(--list-item-container-background-color-selected);
-  border-bottom: var(--list-item-container-border-selected);
+  border: var(--list-item-container-border-selected);
 }
