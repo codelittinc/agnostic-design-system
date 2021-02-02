@@ -30,6 +30,7 @@ interface Props {
   prepend?: React.ReactNode;
   withPrependSeparator?: boolean;
   actionIcon?: React.ReactNode;
+  withActionIcon?: boolean;
   onClickActionIcon: () => void;
 }
 
@@ -66,6 +67,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     prepend,
     withPrependSeparator,
     actionIcon,
+    withActionIcon,
     onClickActionIcon,
     ...inputProps
   } = props;
@@ -142,7 +144,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           </div>
         )}
 
-        {!!onClickActionIcon && (
+        {withActionIcon && (
           <div
             className={classNames(styles['input--action-icon-container'])}
             onClick={onClickActionIcon}

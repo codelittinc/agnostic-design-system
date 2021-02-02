@@ -58,6 +58,7 @@ export const WithDefaultActionIcon = Template.bind({});
 WithDefaultActionIcon.args = {
   size: 'large',
   placeholder: 'Enter text',
+  withActionIcon: true,
   onClickActionIcon: () => alert('default action icon was clicked')
 };
 
@@ -66,5 +67,6 @@ WithCustomActionIcon.args = {
   size: 'large',
   placeholder: 'Enter text',
   actionIcon: <TestSearchIcon height='10' width='10' />,
+  withActionIcon: true,
   onClickActionIcon: () => alert('custom action icon was clicked')
 };
