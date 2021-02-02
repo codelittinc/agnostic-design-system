@@ -9,6 +9,8 @@
   --list-border: 1px solid transparent;
   --list-margin: 0;
   --list-box-shadow: none;
+  --list-max-height: 100%;
+  --list-overflow: initial;
 
   --list-border-active: 1px solid var(--structure-color-200);
 
@@ -68,6 +70,8 @@
   margin: var(--list-margin);
   box-shadow: var(--list-box-shadow);
   box-sizing: border-box;
+  max-height: var(--list-max-height);
+  overflow: var(--list-overflow);
 }
 
 .list--medium {

@@ -34,6 +34,8 @@
   --address-search-list-border-radius: 4px;
   --address-search-list-background-color: var(--structure-color-white);
   --address-search-list-box-shadow: none;
+  --address-search-list-max-height: 100%;
+  --address-search-list-overflow: initial;
 
   --address-search-list-item-background-color: transparent;
   --address-search-list-item-background-color-hover: var(--structure-color-300);
@@ -97,6 +99,8 @@
   --list-box-shadow: var(--address-search-list-box-shadow);
   --list-background-color: var(--address-search-list-background-color);
   --list-large-border-radius: var(--address-search-list-border-radius);
+  --list-max-height: var(--address-search-list-max-height);
+  --list-overflow: var(--address-search-list-overflow);
   --list-item-container-background-color: var(--address-search-list-item-background-color);
   --list-item-large-font-size: var(--address-search-list-item-large-font-size);
   --list-item-padding: var(--address-search-list-item-padding);
