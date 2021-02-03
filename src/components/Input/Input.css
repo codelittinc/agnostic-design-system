@@ -65,11 +65,11 @@
   --prepend-padding: 0 18px;
 
   --input-action-icon-container-background: transparent;
-  --input-action-icon-margin: 0 20px 0 0;
-  --input-action-icon-cursor: pointer;
-  --input-action-icon-fill: initial;
-  --input-action-icon-fill-hover: initial;
-  --input-action-icon-fill-active: initial;
+  --input-action-icon-container-margin: 0 20px 0 0;
+  --input-action-icon-container-cursor: pointer;
+  --input-action-icon-color: initial;
+  --input-action-icon-color-hover: initial;
+  --input-action-icon-color-active: initial;
 }
 
 .container {
@@ -230,19 +230,19 @@
 
 .input--action-icon-container {
   background-color: var(--input-action-icon-container-background);
-  cursor: var(--input-action-icon-cursor);
-  margin: var(--input-action-icon-margin);
+  cursor: var(--input-action-icon-container-cursor);
+  margin: var(--input-action-icon-container-margin);
   position: absolute;
 }
 
 .input--action-icon {
-  fill: var(--input-action-icon-fill);
+  color: var(--input-action-icon-color);
 }
 
 .input--action-icon-container:hover > .input--action-icon {
-  fill: var(--input-action-icon-fill-hover);
+  color: var(--input-action-icon-color-hover);
 }
 
 .input--action-icon-container:active > .input--action-icon {
-  fill: var(--input-action-icon-fill-active);
+  color: var(--input-action-icon-color-active);
 }
