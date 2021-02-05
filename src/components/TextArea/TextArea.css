@@ -57,6 +57,7 @@
   color: var(--textarea-color);
   width: 100%;
   display: flex;
+  resize: none;
 }
 
 .textarea:not(:empty) {
