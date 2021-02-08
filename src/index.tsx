@@ -7,4 +7,5 @@ export { default as List } from '@/components/List';
 export { default as Toast } from '@/components/Toast';
 export { default as AddressSearchInput } from '@/components/AddressSearchInput';
 export { default as MapsProvider } from '@/components/MapsProvider';
+export { default as NumericInput } from '@/components/NumericInput';
 export * from '@/components/Grid';
