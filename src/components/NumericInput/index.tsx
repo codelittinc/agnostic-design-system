@@ -20,7 +20,6 @@ interface Props {
   size: Size;
   value?: string;
   variablesClassName?: string;
-  validationRegex?: string;
   invalidMessage?: string;
   limit?: number;
   prepend?: React.ReactNode;
@@ -28,30 +27,35 @@ interface Props {
   actionIcon?: React.ReactNode;
   withActionIcon?: boolean;
   onClickActionIcon: () => void;
-  scale?: number;
+  scale: number;
   min: number;
   max?: number;
   radix?: string;
 }
 
 const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { value, onChange, scale, min, max, radix, validationRegex, ...inputProps } = props;
+  const { value, onChange, scale, min, max, radix, ...inputProps } = props;
   const MINUS_SIGNAL = '-';
   /* eslint-disable */
   const ONLY_NUMBERS_REGEX = /^-?[0-9,\.-]+$/;
-  const customRegex = `^\\d+\\${radix}\\d{${scale}}$`
+  const customRegex = `^\\d+(\\${radix}\\d{1,${scale}})?$`;
+  const SCALE_REGEX = new RegExp(`^.+${radix}\\d{${scale+1}}`);
   /* eslint-enable */
 
-  const limitValidation = value => {
-    if (value === MINUS_SIGNAL) {
+  const isNewValueValid = newValue => {
+    if (newValue === MINUS_SIGNAL) {
       return true;
     }
 
-    if (Number(value) && Number(value) < min) {
+    if (Number(newValue) && Number(newValue) < min) {
       return false;
     }
 
-    if (max && Number(value) > max) {
+    if (max && Number(newValue) > max) {
+      return false;
+    }
+
+    if (scale > 0 && SCALE_REGEX.test(newValue)) {
       return false;
     }
 
@@ -59,10 +63,8 @@ const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   };
 
   const handleOnChange = e => {
-    if (
-      (e.target.value === '' || ONLY_NUMBERS_REGEX.test(e.target.value)) &&
-      limitValidation(e.target.value)
-    ) {
+    const newValue = e.target.value;
+    if ((newValue === '' || ONLY_NUMBERS_REGEX.test(newValue)) && isNewValueValid(newValue)) {
       onChange(e);
     }
   };
@@ -73,7 +75,7 @@ const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
       ref={ref}
       value={value}
       onChange={handleOnChange}
-      validationRegex={validationRegex || (scale && scale > 0 ? customRegex : '.*')}
+      validationRegex={scale > 0 ? customRegex : '.*'}
     />
   );
 });
@@ -82,7 +84,8 @@ NumericInput.defaultProps = {
   size: 'large',
   isValid: () => true,
   onFocus: () => {},
-  min: 0
+  min: 0,
+  scale: 0
 };
 
 export default NumericInput;
