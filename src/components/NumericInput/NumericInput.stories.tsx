@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import NumericInput from '@/components/NumericInput';
 
 export default {
-  title: 'Numeric Input',
+  title: 'Components/Numeric Input',
   component: NumericInput
 } as Meta;
 

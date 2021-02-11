@@ -4,7 +4,7 @@ import Input from '@/components/Input';
 import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 
 export default {
-  title: 'Input',
+  title: 'Components/Input',
   component: Input
 } as Meta;
 

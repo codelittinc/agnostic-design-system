@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -19,8 +20,22 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader?modules=true']
       },
       {
-        test: /\.mdx?$/,
+        test: /\.stories\.mdx$/,
         use: ['babel-loader', '@mdx-js/loader']
+      },
+      {
+        test: /\.document\.mdx$/,
+        use: [
+          {
+            loader: 'babel-loader'
+          },
+          {
+            loader: '@mdx-js/loader',
+            options: {
+              compilers: [createCompiler({})]
+            }
+          }
+        ]
       },
       {
         test: /\.svg$/,

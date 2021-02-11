@@ -28,3 +28,22 @@ Inside the project folder:
 `import { Button, Row, Container, Col } from '@codelittinc/agnostic-design-system';`
 
 Made with ❤️ by [Codelitt](https://www.codelitt.com)
+
+### Creating a new document for the StoryBook Page
+
+Inside the `src/docs` folder:
+
+1. Create a new document using the extension `.document.mdx`. For example: `Welcome.document.mdx`
+2. Import `Meta` component from `@storybook/addon-docs/blocks`
+
+```
+import { Meta } from '@storybook/addon-docs/blocks';
+```
+
+3. It's good to define it inside a session so, you can do it if you configure the Meta title following the example below:
+
+```
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='{Session_name}/{Title_document}' />
+```

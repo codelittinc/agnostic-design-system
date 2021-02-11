@@ -4,7 +4,7 @@ import AddressSearchInput from '@/components/AddressSearchInput';
 import MapsProvider from '@/components/MapsProvider';
 
 export default {
-  title: 'Address Search Input',
+  title: 'Components/Address Search Input',
   component: AddressSearchInput
 } as Meta;
 
