@@ -1,4 +1,4 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
   --button-positive-background-color: var(--structure-color-200);
@@ -10,23 +10,6 @@
   --button-positive-color-hover: var(--structure-color-white);
   --button-positive-color-active: var(--structure-color-white);
   --button-positive-color-disabled: var(--structure-color-500);
-
-  --button-positive-large-border-radius: var(--round-m);
-  --button-positive-medium-border-radius: var(--round-m);
-
-  --button-positive-large-font-size: var(--paragraph-xl);
-  --button-positive-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-positive-large-line-height: var(--paragraph-xl-line-height);
-  
-  --button-positive-medium-font-size: var(--paragraph-l);
-  --button-positive-medium-font-weight: var(--paragraph-font-weight-bold);
-  --button-positive-medium-line-height: var(--paragraph-l-line-height);
-
-  --button-positive-large-height: var(--height-m);
-  --button-positive-medium-height: var(--height-m);
-
-  --button-positive-large-side-padding: var(--spacing-horizontal-m);
-  --button-positive-medium-side-padding: var(--spacing-horizontal-m);
 }
 
 .button--positive {
@@ -42,18 +25,4 @@
 
   --button-background-color-disabled: var(--button-positive-background-color-disabled);
   --button-color-disabled: var(--button-positive-color-disabled);
-
-  --button-large-border-radius: var(--button-positive-large-border-radius);
-  --button-large-font-size: var(--button-positive-large-font-size);
-  --button-large-font-weight: var(--button-positive-large-font-weight);
-  --button-large-height: var(--button-positive-large-height);
-  --button-large-line-height: var(--button-positive-large-line-height);
-  --button-large-side-padding: 0 var(--button-positive-large-side-padding);
-
-  --button-medium-border-radius: var(--button-positive-medium-border-radius);
-  --button-medium-font-size: var(--button-positive-medium-font-size);
-  --button-medium-font-weight: var(--button-positive-medium-font-weight);
-  --button-medium-height: var(--button-positive-medium-height);
-  --button-medium-line-height: var(--button-positive-medium-line-height);
-  --button-medium-side-padding: 0 var(--button-positive-medium-side-padding);
 }

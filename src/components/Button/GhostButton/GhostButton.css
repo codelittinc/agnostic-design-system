@@ -1,4 +1,4 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
   --button-ghost-background-color: transparent;
@@ -10,23 +10,6 @@
   --button-ghost-color-hover: var(--primary-color-500);
   --button-ghost-color-active: var(--structure-color-white);
   --button-ghost-color-disabled: var(--structure-color-400);
-
-  --button-ghost-large-border-radius: var(--round-m);
-  --button-ghost-medium-border-radius: var(--round-m);
-
-  --button-ghost-large-font-size: var(--paragraph-xl);
-  --button-ghost-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-ghost-large-line-height: var(--paragraph-xl-line-height);
-  
-  --button-ghost-medium-font-size: var(--paragraph-l);
-  --button-ghost-medium-font-weight: var(--paragraph-font-weight-bold);
-  --button-ghost-medium-line-height: var(--paragraph-l-line-height);
-
-  --button-ghost-large-height: var(--height-m);
-  --button-ghost-medium-height: var(--height-m);
-
-  --button-ghost-large-side-padding: var(--spacing-horizontal-m);
-  --button-ghost-medium-side-padding: var(--spacing-horizontal-m);
 }
 
 .button--ghost {
@@ -42,18 +25,4 @@
 
   --button-background-color-disabled: var(--button-ghost-background-color-disabled);
   --button-color-disabled: var(--button-ghost-color-disabled);
-
-  --button-large-border-radius: var(--button-ghost-large-border-radius);
-  --button-large-font-size: var(--button-ghost-large-font-size);
-  --button-large-font-weight: var(--button-ghost-large-font-weight);
-  --button-large-height: var(--button-ghost-large-height);
-  --button-large-line-height: var(--button-ghost-large-line-height);
-  --button-large-side-padding: 0 var(--button-ghost-large-side-padding);
-
-  --button-medium-border-radius: var(--button-ghost-medium-border-radius);
-  --button-medium-font-size: var(--button-ghost-medium-font-size);
-  --button-medium-font-weight: var(--button-ghost-medium-font-weight);
-  --button-medium-height: var(--button-ghost-medium-height);
-  --button-medium-line-height: var(--button-ghost-medium-line-height);
-  --button-medium-side-padding: 0 var(--button-ghost-medium-side-padding);
 }

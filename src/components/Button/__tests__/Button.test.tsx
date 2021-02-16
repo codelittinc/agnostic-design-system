@@ -13,7 +13,7 @@ describe('ExampleComponent', () => {
     const wrapper = mount(
       <Button variablesClassName={className} label='this is a test' onClick={jest.fn} />
     );
-    expect(wrapper.exists(`.${className}`)).toBeTruthy();
+    expect(wrapper.props().variablesClassName).toEqual(className);
   });
 
   it('is renders a fixed button', () => {

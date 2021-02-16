@@ -1,4 +1,4 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
   --button-neutral-background-color: var(--structure-color-200);
@@ -10,23 +10,6 @@
   --button-neutral-color-hover: var(--structure-color-white);
   --button-neutral-color-active: var(--structure-color-white);
   --button-neutral-color-disabled: var(--structure-color-500);
-
-  --button-neutral-large-border-radius: var(--round-m);
-  --button-neutral-medium-border-radius: var(--round-m);
-
-  --button-neutral-large-font-size: var(--paragraph-xl);
-  --button-neutral-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-neutral-large-line-height: var(--paragraph-xl-line-height);
-  
-  --button-neutral-medium-font-size: var(--paragraph-l);
-  --button-neutral-medium-font-weight: var(--paragraph-font-weight-bold);
-  --button-neutral-medium-line-height: var(--paragraph-l-line-height);
-
-  --button-neutral-large-height: var(--height-m);
-  --button-neutral-medium-height: var(--height-m);
-
-  --button-neutral-large-side-padding: var(--spacing-horizontal-m);
-  --button-neutral-medium-side-padding: var(--spacing-horizontal-m);
 }
 
 .button--neutral {
@@ -42,18 +25,4 @@
 
   --button-background-color-disabled: var(--button-neutral-background-color-disabled);
   --button-color-disabled: var(--button-neutral-color-disabled);
-
-  --button-large-border-radius: var(--button-neutral-large-border-radius);
-  --button-large-font-size: var(--button-neutral-large-font-size);
-  --button-large-font-weight: var(--button-neutral-large-font-weight);
-  --button-large-height: var(--button-neutral-large-height);
-  --button-large-line-height: var(--button-neutral-large-line-height);
-  --button-large-side-padding: 0 var(--button-neutral-large-side-padding);
-
-  --button-medium-border-radius: var(--button-neutral-medium-border-radius);
-  --button-medium-font-size: var(--button-neutral-medium-font-size);
-  --button-medium-font-weight: var(--button-neutral-medium-font-weight);
-  --button-medium-height: var(--button-neutral-medium-height);
-  --button-medium-line-height: var(--button-neutral-medium-line-height);
-  --button-medium-side-padding: 0 var(--button-neutral-medium-side-padding);
 }

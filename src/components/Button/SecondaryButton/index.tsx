@@ -1,7 +1,5 @@
 import React from 'react';
 import DefaultButton from '@/components/Button/DefaultButton';
-import classNames from 'classnames';
-
 import styles from '@/components/Button/SecondaryButton/SecondaryButton.css';
 
 interface Props {
@@ -9,7 +7,7 @@ interface Props {
 }
 
 const SecondaryButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--secondary'])} />
+  <DefaultButton {...props} variablesClassName={styles['button--secondary']} />
 );
 
 export default SecondaryButton;

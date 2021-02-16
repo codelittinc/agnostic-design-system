@@ -1,4 +1,4 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
   --button-primary-background-color: var(--primary-color-500);
@@ -6,27 +6,10 @@
   --button-primary-background-color-disabled: var(--structure-color-400);
   --button-primary-background-color-hover: var(--primary-color-400);
 
-  --button-primary-large-border-radius: var(--round-m);
-  --button-primary-medium-border-radius: var(--round-m);
-
   --button-primary-color: var(--structure-color-white);
   --button-primary-color-hover: var(--structure-color-white);
   --button-primary-color-active: var(--structure-color-white);
   --button-primary-color-disabled: var(--structure-color-white);
-
-  --button-primary-large-font-size: var(--paragraph-xl);
-  --button-primary-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-primary-large-line-height: var(--paragraph-xl-line-height);
-  
-  --button-primary-medium-font-size: var(--paragraph-l);
-  --button-primary-medium-font-weight: var(--paragraph-font-weight-bold);
-  --button-primary-medium-line-height: var(--paragraph-l-line-height);
-
-  --button-primary-large-height: var(--height-m);
-  --button-primary-medium-height: var(--height-m);
-
-  --button-primary-large-side-padding: var(--spacing-horizontal-m);
-  --button-primary-medium-side-padding: var(--spacing-horizontal-m);
 }
 
 .button--primary {
@@ -42,18 +25,4 @@
 
   --button-background-color-disabled: var(--button-primary-background-color-disabled);
   --button-color-disabled: var(--button-primary-color-disabled);
-
-  --button-large-border-radius: var(--button-primary-large-border-radius);
-  --button-large-font-size: var(--button-primary-large-font-size);
-  --button-large-font-weight: var(--button-primary-large-font-weight);
-  --button-large-height: var(--button-primary-large-height);
-  --button-large-line-height: var(--button-primary-large-line-height);
-  --button-large-side-padding: 0 var(--button-primary-large-side-padding);
-
-  --button-medium-border-radius: var(--button-primary-medium-border-radius);
-  --button-medium-font-size: var(--button-primary-medium-font-size);
-  --button-medium-font-weight: var(--button-primary-medium-font-weight);
-  --button-medium-height: var(--button-primary-medium-height);
-  --button-medium-line-height: var(--button-primary-medium-line-height);
-  --button-medium-side-padding: 0 var(--button-primary-medium-side-padding);
 }

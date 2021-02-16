@@ -1,7 +1,5 @@
 import React from 'react';
 import DefaultButton from '@/components/Button/DefaultButton';
-import classNames from 'classnames';
-
 import styles from '@/components/Button/NegativeButton/NegativeButton.css';
 
 interface Props {
@@ -9,7 +7,7 @@ interface Props {
 }
 
 const NegativeButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--negative'])} />
+  <DefaultButton {...props} variablesClassName={styles['button--negative']} />
 );
 
 export default NegativeButton;

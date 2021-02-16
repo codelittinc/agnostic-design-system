@@ -1,4 +1,4 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
   --button-secondary-color: var(--primary-color-500);
@@ -11,25 +11,7 @@
 
   --button-secondary-border-color: var(--primary-color-500);
   --button-secondary-border-color-disabled: var(--structure-color-500);
-
-  --button-secondary-large-border-radius: var(--round-m);
-  --button-secondary-medium-border-radius: var(--round-m);
-
-  --button-primary-large-font-size: var(--paragraph-xl);
-  --button-primary-large-font-weight: var(--paragraph-font-weight-bold);
-  --button-primary-large-line-height: var(--paragraph-xl-line-height);
-  
-  --button-primary-medium-font-size: var(--paragraph-l);
-  --button-primary-medium-font-weight: var(--paragraph-font-weight-bold);
-  --button-primary-medium-line-height: var(--paragraph-l-line-height);
-
-  --button-secondary-large-height: var(--height-m);
-  --button-secondary-medium-height: var(--height-m);
-
-  --button-secondary-large-side-padding: var(--spacing-horizontal-m);
-  --button-secondary-medium-side-padding: var(--spacing-horizontal-m);
 }
-
 
 .button--secondary {
   --button-border: 1px solid var(--button-secondary-border-color);
@@ -45,18 +27,4 @@
   --button-background-color-disabled: transparent;
   --button-border-disabled: 1px solid var(--button-secondary-border-color-disabled);
   --button-color-disabled: var(--button-secondary-color-disabled);
-
-  --button-large-border-radius: var(--button-secondary-large-border-radius);
-  --button-large-font-size: var(--button-secondary-large-font-size);
-  --button-large-font-weight: var(--button-secondary-large-font-weight);
-  --button-large-height: var(--button-secondary-large-height);
-  --button-large-line-height: var(--button-secondary-large-line-height);
-  --button-large-side-padding: 0 var(--button-secondary-large-side-padding);
-
-  --button-medium-border-radius: var(--button-secondary-medium-border-radius);
-  --button-medium-font-size: var(--button-secondary-medium-font-size);
-  --button-medium-font-weight: var(--button-secondary-medium-font-weight);
-  --button-medium-height: var(--button-secondary-medium-height);
-  --button-medium-line-height: var(--button-secondary-medium-line-height);
-  --button-medium-side-padding: 0 var(--button-secondary-medium-side-padding);
 }
