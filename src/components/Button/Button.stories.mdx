@@ -1,0 +1,79 @@
+# Button Component
+
+## Button Props
+
+|        Prop        |    Type    | Default | Optional |
+| :----------------: | :--------: | :-----: | :------: |
+|      disabled      |  boolean   |  false  |   true   |
+|       label        |   string   |   ''    |   true   |
+|      category      |  Category  | neutral |   true   |
+|       fixed        |  boolean   |  false  |   true   |
+|      onClick       | () => void |  null   |  false   |
+|        size        |    Size    |  large  |   true   |
+| variablesClassName |   string   |   ''    |   true   |
+
+## Getting Started
+
+```javascript
+import React, { Component } from 'react';
+import { Button } from '@codelittinc/agnostic-design-system';
+
+class SimpleButton extends Component {
+  const handleClick = () => {
+    console.log('Button clicked!');
+  }
+
+  render() {
+    return (
+      <Button onClick={handleClick} />
+    );
+  }
+}
+
+export default SimpleButton;
+
+```
+
+# Customazing styles
+
+For the Button component we use the following naming convention to configure the CSS variables:
+
+**--button-[attribute]-[state]?**
+
+- Attribute - background-color, border, font, etc (required)
+- State - hover, focus, active, disabled (optional)
+
+1. Create the css class using our variables
+
+```
+.my-button-css {
+  // Component + Attribute
+  --button-background-color: red; //Simplest variable
+
+  // Component + Attribute + State
+  --button-background-color-hover: blue; //Using state
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<Button variablesClassName={styles['my-button-css']} />`
+
+## Variables available
+
+|    Attribute     |             State              |
+| :--------------: | :----------------------------: |
+| background-color | hover, focus, active, disabled |
+|      border      | hover, focus, active, disabled |
+|  border-radius   |                                |
+|    box-shadow    | hover, focus, active, disabled |
+|      color       | hover, focus, active, disabled |
+|      cursor      | hover, focus, active, disabled |
+|     display      |                                |
+|   font-family    |                                |
+|    font-size     |                                |
+|   font-weight    |                                |
+|      height      |                                |
+|   line-height    |                                |
+|      margin      |                                |
+|     padding      |                                |

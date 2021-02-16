@@ -1,10 +1,16 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from '@/components/Button';
+import mdx from './Button.stories.mdx';
 
 export default {
   title: 'Components/Button',
-  component: Button
+  component: Button,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => <Button {...args} />;
