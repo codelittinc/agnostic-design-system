@@ -1,0 +1,123 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Welcome/Customizing Styles' />
+
+# Before Getting Started
+
+This documentation assumes you have an understanding of standards-based web technologies. Additionally, we recommend having a solid grasp of these concepts:
+
+- [CSS cascade, specificity, and inheritance](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance)
+- [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- [Web components (custom elements, shadow DOM, and HTML templates)](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+
+Understanding these topics beforehand is extremely beneficial when reading our documentation.
+
+# Naming Convention
+
+To customize out components we need to follow a specific naming convention to promote predictability and consistency. All of our CSS custom properties adhere to the following convention:
+
+**_--[COMPONENT]-[PROPERTY]?-[ATTRIBUTE]-[STATE]?_**
+
+- COMPONENT - Name of the component **(required)**
+- PROPERTY — Component property - Button icon as example **(optional)**
+- ATTRIBUTE - border, font, etc **(required)**
+- STATE - hover, focus, active **(optional)**
+
+## Usage Combinations and Examples
+
+```css
+.my-component-css {
+  /* Component + Attribute */
+  --component-background: red;
+
+  /* Component + Attribute + State */
+  --component-background-hover: blue;
+
+  /* Component + Property + Attribute */
+  --component-icon-fill: black;
+
+  /* Component + Property + Attribute + State */
+  --component-icon-fill-hover: red;
+}
+```
+
+### How to apply on our components
+
+All of our components have the property `variablesClassName` where it is possible to send your CSS customization.
+
+### Example
+
+1. Using the [Button](https://design-system.codelitt.dev/?path=/story/components-button--neutral) component
+
+```css
+.my-button-css {
+  /* Component + Attribute */
+  --button-background-color: #f2eff8;
+
+  /* Component(button) + Attribute(background-color) + State(hover) */
+  --button-background-color-hover: #898893;
+
+  /* Component(button) + Attribute(background-color) + State(hover) */
+  --button-color: #002c4c;
+
+  /* Component(button) + Attribute(background-color) + State(hover) */
+  --button-color-hover: #ffffff;
+}
+```
+
+```javascript
+import React, { Component } from 'react';
+import { Button } from '@codelittinc/agnostic-design-system';
+import styles from './my-button.css';
+
+class CustomizedButton extends Component {
+  render() {
+    return <Button variablesClassName={styles['my-button-css']} />;
+  }
+}
+
+export default CustomizedButton;
+```
+
+**CustomizedButton component renders:**
+
+![Simple Button](https://media.giphy.com/media/QSJfK16vqDjhzwLmp3/giphy.gif)
+
+2. Using the [Input](https://design-system.codelitt.dev/?path=/story/components-input--default) component where we could add **Input properties** to the CSS class
+
+```css
+.my-input-class {
+  /* Component(input) + Attribute(background-color) */
+  --input-background-color: #ffffff;
+
+  /* Component(input) + Attribute(border) + State(hover) */
+  --input-border-hover: 1px solid grey;
+
+  /* Component(input) + Property(description) + Attribute(color) */
+  --input-description-color: green;
+}
+```
+
+```javascript
+import React, { Component } from 'react';
+import { Input } from '@codelittinc/agnostic-design-system';
+import styles from './my-input.css';
+
+class CustomizedInput extends Component {
+  render() {
+    return (
+      <Input
+        variablesClassName={styles['my-input-class']}
+        label='Simple Input'
+        description='Simple description'
+      />
+    );
+  }
+}
+
+export default CustomizedInput;
+```
+
+**CustomizedInput component renders:**
+
+![Simple Input](https://media.giphy.com/media/MNwRa8T7i4jtt7wWNw/giphy.gif)

@@ -8,7 +8,7 @@ module.exports = {
       plugins: [ ...config.plugins, ...custom.plugins ],
     };
   },
-  stories: ['../src/docs/*.document.mdx','../src/**/*.stories.tsx'],
+  stories: ['../src/docs/Intro.document.mdx','../src/docs/*.document.mdx','../src/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-docs',
     "@storybook/addon-essentials"
