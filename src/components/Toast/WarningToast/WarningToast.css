@@ -1,40 +1,20 @@
 @import '../../../styles/theme/index.css';
 
-:root {
-  --toast-warning-background-color: var(--warning-color);
-  --toast-warning-border: none;
-
-  --toast-warning-background-color-hover: var(--warning-color);
-  --toast-warning-background-color-active: var(--warning-color);
-  --toast-warning-background-color-focus: var(--warning-color);
-  --toast-warning-border-hover: none;
-  --toast-warning-border-active: none;
-  --toast-warning-border-focus: none;
-
-  --toast-warning-body-padding: 0 0 0 19px;
-
-  --toast-warning-message-color: var(--structure-color-white);
-
-  --toast-warning-title-color: var(--structure-color-white);
-
-  --toast-warning-button-icon-fill: var(--structure-color-white);
-}
-
 .toast--warning {
-  --toast-background-color: var(--toast-warning-background-color);
-  --toast-border: var(--toast-warning-border);
-  --toast-title-color: var(--toast-warning-title-color);
-  --toast-message-color: var(--toast-warning-message-color);
-  --toast-background-color-hover: var(--toast-warning-background-color-hover);
-  --toast-background-color-active: var(--toast-warning-background-color-active);
-  --toast-background-color-focus: var(--toast-warning-background-color-focus);
-  --toast-border-hover: var(--toast-warning-border-hover);
-  --toast-border-active: var(--toast-warning-border-active);
-  --toast-border-focus: var(--toast-warning-border-focus);
-  --toast-button-icon-fill: var(--toast-warning-button-icon-fill);
-  --toast-body-padding: var(--toast-warning-body-padding);
+  --toast-background-color: var(--warning-color);
+  --toast-border: none;
+  --toast-title-color: var(--structure-color-white);
+  --toast-message-color: var(--structure-color-white);
+  --toast-background-color-hover: var(--warning-color);
+  --toast-background-color-active: var(--warning-color);
+  --toast-background-color-focus: var(--warning-color);
+  --toast-border-hover: none;
+  --toast-border-active: none;
+  --toast-border-focus: none;
+  --toast-button-icon-color: var(--structure-color-white);
+  --toast-body-padding: 0 0 0 19px;
 }
 
 .toast-warning-icon {
-  fill: var(--toast-warning-button-icon-fill);
+  fill: var(--toast-icon-color, var(--structure-color-white));
 }

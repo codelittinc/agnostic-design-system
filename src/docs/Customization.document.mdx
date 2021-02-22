@@ -45,6 +45,13 @@ To customize out components we need to follow a specific naming convention to pr
 
 All of our components have the property `variablesClassName` where it is possible to send your CSS customization.
 
+**Important**: `You will always need to import your CSS file after our CSS file`
+
+```javascript
+import '@codelittinc/agnostic-design-system/dist/main.css';
+import styles from 'your_css.css';
+```
+
 ### Example
 
 1. Using the [Button](https://design-system.codelitt.dev/?path=/story/components-button--neutral) component

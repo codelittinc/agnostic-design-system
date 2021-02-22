@@ -47,3 +47,17 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title='{Session_name}/{Title_document}' />
 ```
+
+### Testing ADS library locally
+
+Inside the ADS project folder:
+
+1. run: `npm run build-lib-for-local-testing`
+
+Inside the Test Project folder:
+
+1. run: `npm install {path_ads_library}/agnostic-design-system`
+2. run: `npm link react` - It will link the ADS's react with your example project's react
+3. run: `npm ls react` - Both reacts should have the same **version** and **be extraneous**
+
+After the steps above you will be able to use the ADS locally.

@@ -20,7 +20,8 @@
     "release": "release-it --ci",
     "start": "start-storybook -p 9009",
     "test": "jest -c jest.config.js",
-    "heroku-prebuild": "mv .npmrc.heroku .npmrc"
+    "heroku-prebuild": "mv .npmrc.heroku .npmrc",
+    "build-lib-for-local-testing": "npm run build-package && cd node_modules/react/ && npm link && cd ../../"
   },
   "peerDependencies": {
     "react": "^16.13.1",

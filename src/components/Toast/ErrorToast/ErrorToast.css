@@ -1,40 +1,20 @@
 @import '../../../styles/theme/index.css';
 
-:root {
-  --toast-error-background-color: var(--error-color);
-  --toast-error-border: none;
-
-  --toast-error-background-color-hover: var(--error-color);
-  --toast-error-background-color-active: var(--error-color);
-  --toast-error-background-color-focus: var(--error-color);
-  --toast-error-border-hover: none;
-  --toast-error-border-active: none;
-  --toast-error-border-focus: none;
-
-  --toast-error-body-padding: 0 0 0 19px;
-
-  --toast-error-message-color: var(--structure-color-white);
-
-  --toast-error-title-color: var(--structure-color-white);
-
-  --toast-error-button-icon-fill: var(--structure-color-white);
-}
-
 .toast--error {
-  --toast-background-color: var(--toast-error-background-color);
-  --toast-border: var(--toast-error-border);
-  --toast-title-color: var(--toast-error-title-color);
-  --toast-message-color: var(--toast-error-message-color);
-  --toast-background-color-hover: var(--toast-error-background-color-hover);
-  --toast-background-color-active: var(--toast-error-background-color-active);
-  --toast-background-color-focus: var(--toast-error-background-color-focus);
-  --toast-border-hover: var(--toast-error-border-hover);
-  --toast-border-active: var(--toast-error-border-active);
-  --toast-border-focus: var(--toast-error-border-focus);
-  --toast-button-icon-fill: var(--toast-error-button-icon-fill);
-  --toast-body-padding: var(--toast-error-body-padding);
+  --toast-background-color: var(--error-color);
+  --toast-border: none;
+  --toast-title-color: var(--structure-color-white);
+  --toast-message-color: var(--structure-color-white);
+  --toast-background-color-hover: var(--toast-background-color, var(--error-color));
+  --toast-background-color-active: var(--toast-background-color, var(--error-color));
+  --toast-background-color-focus: var(--toast-background-color, var(--error-color));
+  --toast-border-hover: var(--toast-border, none);
+  --toast-border-active: var(--toast-border, none);
+  --toast-border-focus: var(--toast-border, none);
+  --toast-button-icon-color: var(--structure-color-white);
+  --toast-body-padding: 0 0 0 19px;
 }
 
 .toast-error-icon {
-  fill: var(--toast-error-button-icon-fill);
+  fill: var(--toast-icon-color, var(--structure-color-white));
 }
