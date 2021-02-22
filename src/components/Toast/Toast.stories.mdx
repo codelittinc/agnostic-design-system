@@ -1,0 +1,158 @@
+# Toast Component
+
+## Toast Props
+
+|          Prop           |         Type          | Default | Optional |
+| :---------------------: | :-------------------: | :-----: | :------: |
+| autoCloseInMilliseconds |        number         |    -    |   true   |
+|        category         |       Category        |    -    |  false   |
+|         getBody         | () => React.ReactNode |    -    |   true   |
+|     getCloseButton      | () => React.ReactNode |    -    |   true   |
+|         getIcon         | () => React.ReactNode |    -    |   true   |
+|         message         |        string         |    -    |   true   |
+|         onClose         |      () => void       |    -    |  false   |
+|          size           |         Size          |  large  |   true   |
+|          title          |        string         |    -    |   true   |
+|   variablesClassName    |        string         |    -    |   true   |
+
+**Categories availables:**
+
+1.  [success](https://design-system.codelitt.dev/?path=/story/components-toast--success)
+2.  [error](https://design-system.codelitt.dev/?path=/story/components-toast--error)
+3.  [warning](https://design-system.codelitt.dev/?path=/story/components-toast--warning)
+
+**Sizes**
+
+1. large
+
+**ReactNode Props**
+
+These are properties where you can send your own component or HTML, for example:
+
+```javascript
+import React, { Component } from 'react';
+import { Toast } from '@codelittinc/agnostic-design-system';
+import CloseButton from './CloseButton';
+...
+  render() {
+    return (
+      <Toast getCloseButton={() => <CloseButton />} />
+    );
+  }
+...
+```
+
+or
+
+```javascript
+import React, { Component } from 'react';
+import { Toast } from '@codelittinc/agnostic-design-system';
+...
+  render() {
+    return (
+      <Toast getCloseButton={() => <button>X</button>} />
+    );
+  }
+...
+
+```
+
+**Note:** _We don't handle components styles sent by the developer_
+
+## Getting Started
+
+```javascript
+import React, { Component } from 'react';
+import { Toast } from '@codelittinc/agnostic-design-system';
+
+class SimpleToast extends Component {
+  const handleClose = () => {
+    console.log('Toast closed!');
+  }
+
+  render() {
+    return (
+      <Toast onClose={handleClose} category='success' title='Success' message='This is a success toast!' />
+    );
+  }
+}
+
+export default SimpleToast;
+
+```
+
+# Customazing styles
+
+For the Toast component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--toast-[property]?-[attribute]-[state]?**
+
+- Property - body, button, button-icon, icon, message, title (optional)
+- Attribute - background-color, border, font, etc (required)
+- State - hover, focus, active, disabled (optional)
+
+1. Create the css class using our variables
+
+```css
+.my-toast-css {
+  /* Component + Attribute */
+  --toast-background-color: blue;
+
+  /* Component + Property + Attribute + State */
+  --toast-icon-color: red;
+
+  /* Component + Property + Attribute */
+  --toast-button-icon-color: red;
+
+  /* Component + Property + Attribute + State */
+  --toast-button-icon-color-hover: black;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<Toast variablesClassName={styles['my-toast-css']} />`
+
+# Variables available
+
+|  Property   |    Attribute     |        State         |
+| :---------: | :--------------: | :------------------: |
+|             | background-color | hover, focus, active |
+|             |      border      | hover, focus, active |
+|             |  border-radius   |                      |
+|             |      height      |                      |
+|             |     padding      |                      |
+|             |    box-shadow    |                      |
+|             |      cursor      |        hover         |
+|             |      margin      |                      |
+|             |     position     |                      |
+|             |      width       |                      |
+|    body     |   align-items    |                      |
+|    body     |     display      |                      |
+|    body     |  flex-direction  |                      |
+|    body     |      height      |                      |
+|    body     | justify-content  |                      |
+|    body     |      margin      |                      |
+|    body     |     padding      |                      |
+|    body     |      width       |                      |
+|   button    | backgroung-color |    hover, active     |
+|   button    |     padding      |                      |
+|   button    |      border      |                      |
+|   button    |  border-radius   |                      |
+|   button    |      margin      |                      |
+| button-icon |      color       |    hover, active     |
+|    icon     |      color       |                      |
+|   message   |      color       |                      |
+|   message   |   font-family    |                      |
+|   message   |    font-style    |                      |
+|   message   |    font-size     |                      |
+|   message   |   font-weight    |                      |
+|   message   |      height      |                      |
+|   message   |   line-height    |                      |
+|    title    |      color       |                      |
+|    title    |   font-family    |                      |
+|    title    |    font-style    |                      |
+|    title    |    font-size     |                      |
+|    title    |   font-weight    |                      |
+|    title    |      height      |                      |
+|    title    |   line-height    |                      |

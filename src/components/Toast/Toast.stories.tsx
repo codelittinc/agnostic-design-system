@@ -1,10 +1,16 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Toast from '@/components/Toast';
+import mdx from './Toast.stories.mdx';
 
 export default {
   title: 'Components/Toast',
-  component: Toast
+  component: Toast,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => <Toast {...args} />;

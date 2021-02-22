@@ -16,6 +16,7 @@ interface Props {
   message?: string;
   onClose: () => void;
   size?: Size;
+  title?: string;
   variablesClassName?: string;
 }
 
