@@ -78,7 +78,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const handleBlur = event => {
     onBlur && onBlur();
-    setValidationState(getValidationState(event.target.value, validationRegex, isValid));
+    if (validationRegex) {
+      setValidationState(getValidationState(event.target.value, validationRegex, isValid));
+    }
   };
 
   const getActionIcon = actionIcon => {
@@ -167,8 +169,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 Input.defaultProps = {
   size: 'large',
   isValid: () => true,
-  onFocus: () => {},
-  validationRegex: '.*'
+  onFocus: () => {}
 };
 
 export default Input;

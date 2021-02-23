@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import styles from './AddressSearchInput.css';
+import styles from './AddressSearch.css';
 import classnames from 'classnames';
 import Input from '../Input';
 import List from '../List';
@@ -122,9 +122,13 @@ const AddressSearchInput: React.FC<Props> = props => {
       getItemKey={item => item.place_id}
       getItemLabel={item => item.description}
       getItemValue={item => item.description}
-      variablesClassName={classnames(styles['address-search-list'], {
-        [styles.hover]: isInputHovered
-      })}
+      variablesClassName={classnames(
+        styles['address-search-list'],
+        {
+          [styles.hover]: isInputHovered
+        },
+        variablesClassName
+      )}
       listItemCategory='simple'
       label=''
       id={dropdownId}
@@ -144,7 +148,7 @@ const AddressSearchInput: React.FC<Props> = props => {
         onMouseEnter={() => setIsInputHovered(true)}
         onMouseLeave={() => setIsInputHovered(false)}
         disabled={loading}
-        variablesClassName={classnames(styles['address-search-input'])}
+        variablesClassName={classnames(styles['address-search-input'], variablesClassName)}
         withActionIcon={clearable}
         onClickActionIcon={handleClearInput}
       />

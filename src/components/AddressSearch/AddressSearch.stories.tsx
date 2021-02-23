@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
-import AddressSearchInput from '@/components/AddressSearchInput';
+import AddressSearch from '@/components/AddressSearch';
 import MapsProvider from '@/components/MapsProvider';
 
 export default {
-  title: 'Components/Address Search Input',
-  component: AddressSearchInput
+  title: 'Components/Address Search',
+  component: AddressSearch
 } as Meta;
 
 const Template = args => {
@@ -13,7 +13,7 @@ const Template = args => {
 
   return (
     <MapsProvider apiKey={process.env.STORYBOOK_GOOGLE_API_KEY}>
-      <AddressSearchInput
+      <AddressSearch
         {...args}
         value={value}
         onChange={value => {

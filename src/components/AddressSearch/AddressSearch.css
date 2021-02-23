@@ -1,0 +1,67 @@
+@import '../../styles/theme/index.css';
+
+.container {
+  border: var(--address-search-border, none);
+  border-radius: var(--address-search-border-radius, 4px);
+  display: var(--address-search-display, flex);
+  flex-wrap: var(--address-search-flex-wrap, wrap);
+  padding: var(--address-search-padding, 0);
+  width: var(--address-search-width, 100%);
+  position: relative;
+}
+
+.address-search-input {
+  width: var(--address-search-width, 100%);
+  --input-background-color: var(--input-background-color, var(--structure-color-100));
+  --input-border: 1px solid var(--structure-color-300);
+  --input-border-hover: 1px solid var(--primary-color-300);
+  --input-border-focus: 1px solid var(--primary-color-500);
+  --input-border-active: 1px solid var(--primary-color-500);
+  --input-border-positive: 1px solid var(--primary-color-300);
+  --input-placeholder-color: var(--primary-color-600);
+  --input-placeholder-font-size: 14px;
+  --input-placeholder-font-weight: var(--paragraph-font-weight-normal);
+  --input-padding: 10px;
+  --input-border-radius: 4px;
+  --input-font-size: var(--paragraph-l);
+  --input-font-weight: var(--paragraph-font-weight-normal);
+  --input-height: 3.125rem;
+  --input-line-height: var(--paragraph-l-line-height);
+  --input-color: var(--structure-color-800);
+}
+
+.address-search-list {
+  width: var(--address-search-width, 100%);
+  --list-border: 1px solid var(--primary-color-200);
+  --list-min-width: calc(100% - 0.125rem);
+  --list-large-height: auto;
+  --list-margin: 0;
+  --list-box-shadow: none;
+  --list-background-color: var(--structure-color-white);
+  --list-large-border-radius: 4px;
+  --list-max-height: 100%;
+  --list-overflow: initial;
+  --list-item-container-background-color: transparent;
+  --list-item-background-color-hover: var(--structure-color-300);
+  --list-item-background-color-pressed: var(--structure-color-300);
+  --list-item-large-font-size: 1rem;
+  --list-item-padding: 1rem 0.5rem;
+  --list-item-container-cursor: pointer;
+  --list-item-container-large-height: auto;
+  --list-item-container-margin: 0;
+  --list-item-color: var(--structure-color-900);
+  --list-item-container-box-shadow: none;
+  --list-item-justify-content: end;
+  --list-item-min-height: 3.125rem;
+  --list-item-span-color-pressed: var(--structure-color-900);
+  --list-item-container-border-bottom-hover: 1px solid var(--structure-color-900);
+  --list-item-container-border-left-hover: none;
+  --list-item-container-border-right-hover: none;
+  --list-item-container-border-top-hover: none;
+  --list-item-container-border-bottom: v 1px solid var(--structure-color-200);
+  --list-item-container-border-left: none;
+  --list-item-container-border-top: none;
+  --list-item-container-border-right: none;
+  position: absolute;
+  z-index: 999;
+}

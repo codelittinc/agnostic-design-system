@@ -23,7 +23,7 @@
   background-color: var(--input-background-color);
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
-  width: 100%;
+  width: var(--input-width, 100%);
 }
 
 .input:not([value='']) {
@@ -31,7 +31,10 @@
 }
 
 .input:not([value='']) + .input--prepend.input--prepend-with-separator {
-  background-color: var(--input-prepend-background-color-hover, var(--input-prepend-background-color));
+  background-color: var(
+    --input-prepend-background-color-hover,
+    var(--input-prepend-background-color)
+  );
   border: var(--input-border-hover, none);
   border-right: none;
 }
@@ -41,7 +44,10 @@
 }
 
 .input:hover + .input--prepend.input--prepend-with-separator {
-  background-color: var(--input-prepend-background-color-hover, var(--input-prepend-background-color));
+  background-color: var(
+    --input-prepend-background-color-hover,
+    var(--input-prepend-background-color)
+  );
   border: var(--input-border-hover, var(--input-border));
   border-right: none;
 }
@@ -60,7 +66,10 @@
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator {
-  background-color: var(--input-prepend-background-color-focus, var(--input-prepend-background-color));
+  background-color: var(
+    --input-prepend-background-color-focus,
+    var(--input-prepend-background-color)
+  );
   border: var(--input-border-focus, var(--input-border));
   border-right: none;
   height: var(--input-prepend-height-focus, 44px);
@@ -130,7 +139,10 @@
 }
 
 .input.input--valid + .input--prepend.input--prepend-with-separator {
-  background-color: var(--input-prepend-background-color-positive, var(--input-prepend-background-color));
+  background-color: var(
+    --input-prepend-background-color-positive,
+    var(--input-prepend-background-color)
+  );
   border: var(--input-border-positive);
   border-right: none;
 }
@@ -140,7 +152,10 @@
 }
 
 .input.input--invalid + .input--prepend.input--prepend-with-separator {
-  background-color: var(--input-prepend-background-color-negative, var(--input-prepend-background-color));
+  background-color: var(
+    --input-prepend-background-color-negative,
+    var(--input-prepend-background-color)
+  );
   border: var(--input-border-negative);
   border-right: none;
 }
@@ -163,7 +178,8 @@
   align-items: center;
   background-color: var(--input-prepend-background-color, var(--input-background-color));
   border: var(--input-border);
-  border-radius: var(--input-border-radius, var(--round-m)) 0 0 var(--input-border-radius, var(--round-m));
+  border-radius: var(--input-border-radius, var(--round-m)) 0 0
+    var(--input-border-radius, var(--round-m));
   border-right: none;
   height: var(--input-prepend-height, 46px);
   left: 0;
@@ -176,7 +192,8 @@
 }
 
 .input.input-with-prepend-separator {
-  border-radius: 0 var(--input-border-radius, var(--round-m)) var(--input-border-radius, var(--round-m)) 0;
+  border-radius: 0 var(--input-border-radius, var(--round-m))
+    var(--input-border-radius, var(--round-m)) 0;
 }
 
 .input--action-icon-container {
