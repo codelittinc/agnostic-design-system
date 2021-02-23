@@ -10,9 +10,10 @@
   background-color: var(--textarea-background-color);
   box-sizing: border-box;
   color: var(--textarea-color, var(--structure-color-900));
-  width: 100%;
   display: flex;
+  margin: var(--textarea-margin, 0);
   resize: none;
+  width: var(--textarea-width, 100%);
 }
 
 .textarea:active {
@@ -93,17 +94,17 @@
 }
 
 .textarea--message-valid {
-  color: var(--textarea-message-positive-color, var(--success-color));
+  color: var(--textarea-message-color-valid, var(--success-color));
 }
 
 .textarea--message-invalid {
-  color: var(--textarea-message-negative-color, var(--error-color));
+  color: var(--textarea-message-color-invalid, var(--error-color));
 }
 
 .textarea.textarea--valid {
-  border: var(--textarea-border-positive, 1px solid var(--success-color));
+  border: var(--textarea-border-valid, 1px solid var(--success-color));
 }
 
 .textarea.textarea--invalid {
-  border: var(--textarea-border-negative, 1px solid var(--error-color));
+  border: var(--textarea-border-invalid, 1px solid var(--error-color));
 }

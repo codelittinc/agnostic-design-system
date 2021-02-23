@@ -1,0 +1,118 @@
+# TextArea Component
+
+## TextArea Props
+
+|        Prop        |    Type    | Default | Optional |
+| :----------------: | :--------: | :-----: | :------: |
+|    description     |   string   |    -    |   true   |
+|      disabled      |  boolean   |    -    |   true   |
+|         id         |   string   |    -    |  false   |
+|       label        |   string   |    -    |   true   |
+|      message       |   string   |    -    |   true   |
+|      onChange      | () => void |    -    |  false   |
+|    placeholder     |   string   |    -    |   true   |
+|        size        |    Size    |  large  |   true   |
+|       state        |   State    |    -    |   true   |
+|       value        |   string   |    -    |  false   |
+| variablesClassName |   string   |    -    |   true   |
+
+**States availables:**
+
+1. [default:('')](https://design-system.codelitt.dev/?path=/story/components-text-area--default)
+2. [valid](https://design-system.codelitt.dev/?path=/story/components-text-area--positive)
+3. [invalid](https://design-system.codelitt.dev/?path=/story/components-text-area--negative)
+
+**Sizes**
+
+1. large
+2. medium
+
+## Getting Started
+
+```javascript
+import React, { Component, useState } from 'react';
+import { TextArea } from '@codelittinc/agnostic-design-system';
+
+class SimpleTextArea extends Component {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  }
+
+  render() {
+    return (
+      <TextArea onChange={handleChange} value={value} label='Simple TextArea' placeholder='Enter Text' />
+    );
+  }
+}
+
+export default SimpleTextArea;
+
+```
+
+# Customazing styles
+
+For the [TextArea](https://design-system.codelitt.dev/?path=/story/components-text-area--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--textarea-[property]?-[attribute]-[state]?**
+
+- Property - description, label, message, placeholder (optional)
+- Attribute - background-color, border, font, etc (required)
+- State - hover, focus, active, disabled, valid, invalid (optional)
+
+1. Create the css class using our variables
+
+```css
+.my-textarea-css {
+  /* Component + Attribute */
+  --textarea-border-color: 1px solid grey;
+
+  /* Component + Property + Attribute */
+  --textarea-message-color: black;
+
+  /* Component + Property + Attribute */
+  --textarea-description-font-size: 20px;
+
+  /* Component + Property + Attribute + State */
+  --textarea-message-color-valid: green;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<TextArea variablesClassName={styles['my-textarea-css']} />`
+
+# Variables available
+
+|  Property   |    Attribute     |                     State                      |
+| :---------: | :--------------: | :--------------------------------------------: |
+|             | background-color |         hover, focus, active, disabled         |
+|             |      border      | hover, focus, active, disabled, valid, invalid |
+|             |  border-radius   |                                                |
+|             |      color       |                                                |
+|             |    font-size     |                                                |
+|             |   font-weight    |                                                |
+|             |      height      |                                                |
+|             |   line-height    |                                                |
+|             |      margin      |                                                |
+|             |     padding      |                                                |
+|             |      width       |                                                |
+| description |      color       |                                                |
+| description |    font-size     |                                                |
+| description |   font-weight    |                                                |
+| description |   line-height    |                                                |
+| description |      height      |                                                |
+|    label    |      color       |                                                |
+|    label    |    font-size     |                                                |
+|    label    |   font-weight    |                                                |
+|    label    |   line-height    |                                                |
+|    label    |      height      |                                                |
+|   message   |      color       |                 valid, invalid                 |
+|   message   |    font-size     |                                                |
+|   message   |   font-weight    |                                                |
+|   message   |   line-height    |                                                |
+|   message   |      height      |                                                |
+| placeholder |      color       |                                                |
+| placeholder |    font-size     |                                                |
+| placeholder |   font-weight    |                                                |

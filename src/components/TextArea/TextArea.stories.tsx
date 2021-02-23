@@ -1,10 +1,16 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import TextArea from '@/components/TextArea';
+import mdx from './TextArea.stories.mdx';
 
 export default {
-  title: 'Components/Text Area',
-  component: TextArea
+  title: 'Components/TextArea',
+  component: TextArea,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => <TextArea {...args} />;
