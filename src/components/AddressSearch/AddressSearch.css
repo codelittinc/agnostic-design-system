@@ -1,13 +1,14 @@
 @import '../../styles/theme/index.css';
 
-.container {
+.address-search-container {
   border: var(--address-search-border, none);
-  border-radius: var(--address-search-border-radius, 4px);
+  border-radius: var(--address-search-border-radius, var(--round-m));
   display: var(--address-search-display, flex);
   flex-wrap: var(--address-search-flex-wrap, wrap);
+  margin: var(--address-search-margin, 0);
   padding: var(--address-search-padding, 0);
-  width: var(--address-search-width, 100%);
   position: relative;
+  width: var(--address-search-width, 100%);
 }
 
 .address-search-input {
@@ -22,7 +23,7 @@
   --input-placeholder-font-size: 14px;
   --input-placeholder-font-weight: var(--paragraph-font-weight-normal);
   --input-padding: 10px;
-  --input-border-radius: 4px;
+  --input-border-radius: var(--round-m);
   --input-font-size: var(--paragraph-l);
   --input-font-weight: var(--paragraph-font-weight-normal);
   --input-height: 3.125rem;
@@ -38,7 +39,7 @@
   --list-margin: 0;
   --list-box-shadow: none;
   --list-background-color: var(--structure-color-white);
-  --list-large-border-radius: 4px;
+  --list-large-border-radius: var(--round-m);
   --list-max-height: 100%;
   --list-overflow: initial;
   --list-item-container-background-color: transparent;
@@ -58,7 +59,7 @@
   --list-item-container-border-left-hover: none;
   --list-item-container-border-right-hover: none;
   --list-item-container-border-top-hover: none;
-  --list-item-container-border-bottom: v 1px solid var(--structure-color-200);
+  --list-item-container-border-bottom: 1px solid var(--structure-color-200);
   --list-item-container-border-left: none;
   --list-item-container-border-top: none;
   --list-item-container-border-right: none;

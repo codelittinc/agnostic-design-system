@@ -1,0 +1,152 @@
+# Address Search Component
+
+## Address Search Props
+
+|        Prop        |                                                                       Type                                                                       | Default | Optional |
+| :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :------: |
+|     dropdownId     |                                                                      string                                                                      |    -    |  false   |
+|      inputId       |                                                                      string                                                                      |    -    |  false   |
+|      onChange      | ([suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)) => void |    -    |  false   |
+|    placeholder     |                                                                      string                                                                      |    -    |   true   |
+|       value        |                                                                      string                                                                      |    -    |  false   |
+| variablesClassName |                                                                      string                                                                      |    -    |   true   |
+
+**onChange**
+
+- The onChange event returns a [suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction) object, you will be able to do whatever you want with the selected address.
+
+## Getting Started
+
+We created a **MapsProvider** component to set up your _GOOGLE_API_KEY_ once only, it helps in case you need to use one or more AddressSearch component in your application, for it the MapsProvider has to wrapper your AddressSearch components.
+
+[Provider Concept](https://react-redux.js.org/api/provider)
+
+```javascript
+import React, { Component, useState } from 'react';
+import { AddressSearch, MapsProvider } from '@codelittinc/agnostic-design-system';
+
+class SimpleAddressSearch extends Component {
+  const [value, setValue] = useState('');
+
+  render() {
+    return (
+      <MapsProvider apiKey={GOOGLE_API_KEY}>
+        <AddressSearch
+          value={value}
+          onChange={value => {
+            setValue(value ? value.description : ''); //for this case I want to use the Description property
+          }}
+          placeholder='Enter Address'
+          inputId='address-input'
+          dropdownId='address-list'
+        />
+      </MapsProvider>
+    );
+  }
+}
+
+export default SimpleAddressSearch;
+```
+
+# Customazing styles
+
+For the [AddressSearch](https://design-system.codelitt.dev/?path=/story/components-address-search--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--address-search-[attribute]**
+
+- Attribute - background-color, border, font, etc (required)
+
+**Important:** The AddressSearch component is composed of 2 other components: [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list), you will be able to use their variables to customize this component.
+
+1. Create the css class using our variables
+
+```css
+.my-address-css {
+  /* Component + Attribute */
+  --address-search-border-radius: 1px solid grey;
+
+  /* Component + Attribute */
+  --input-background-color: white;
+
+  /* Component + Property + Attribute */
+  --input-placeholder-color: grey;
+
+  /* Component + Attribute */
+  --list-border: 1px solid #a2cee1;
+
+  /* Component + Attribute + State*/
+  --list-item-border-bottom-hover: 1px solid red;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<AddressSearch variablesClassName={styles['my-address-css']} />`
+
+# Variables available
+
+| Property |   Attribute   | State |
+| :------: | :-----------: | :---: |
+|          |    border     |       |
+|          | border-radius |       |
+|          |    display    |       |
+|          |   flex-wrap   |       |
+|          |    margin     |       |
+|          |    padding    |       |
+|          |     width     |       |
+
+## Variables from the Input initially set up in the Address component
+
+|  Property   |    Attribute     |  State   |
+| :---------: | :--------------: | :------: |
+|             | background-color |          |
+|             |      border      |          |
+|             |      border      |  hover   |
+|             |      border      |  focus   |
+|             |      border      |  active  |
+|             |      border      | positive |
+|             |   borde-radius   |          |
+|             |    font-size     |          |
+|             |   font-weight    |          |
+|             |      height      |          |
+|             |   line-height    |          |
+|             |     padding      |          |
+| placeholder |      color       |          |
+| placeholder |    font-size     |          |
+| placeholder |   font-weight    |          |
+
+## Variables from the List initially set up in the Address component
+
+| Property |    Attribute     |  State  |
+| :------: | :--------------: | :-----: |
+|          | background-color |         |
+|          |      border      |         |
+|          |  border-radius   |         |
+|          |    box-shadow    |         |
+|          |      height      |         |
+|          |      margin      |         |
+|          |    max-height    |         |
+|          |    min-width     |         |
+|          |     overflow     |         |
+|   item   | background-color |         |
+|   item   | background-color |  hover  |
+|   item   | background-color | pressed |
+|   item   |  border-bottom   |         |
+|   item   |   border-left    |         |
+|   item   |   border-right   |         |
+|   item   |    border-top    |         |
+|   item   |  border-bottom   |  hover  |
+|   item   |   border-left    |  hover  |
+|   item   |   border-right   |  hover  |
+|   item   |    border-top    |  hover  |
+|   item   |  border-radius   |         |
+|   item   |    box-shadow    |         |
+|   item   |      color       |         |
+|   item   |      cursor      |         |
+|   item   |    font-size     |         |
+|   item   |      height      |         |
+|   item   |      margin      |         |
+|   item   |    max-height    |         |
+|   item   |    min-width     |         |
+|   item   |     overflow     |         |
+|   item   |     padding      |         |

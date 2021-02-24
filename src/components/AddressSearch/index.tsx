@@ -6,7 +6,6 @@ import List from '../List';
 import { MapsProviderContext } from '../MapsProvider';
 
 interface Props {
-  apiKey: string;
   onChange: (data?: google.maps.places.AutocompletePrediction) => void;
   inputId: string;
   dropdownId: string;
@@ -136,7 +135,7 @@ const AddressSearchInput: React.FC<Props> = props => {
   );
 
   return (
-    <div className={classnames(variablesClassName, styles.container)}>
+    <div className={classnames(variablesClassName, styles['address-search-container'])}>
       <Input
         ref={inputRef}
         id={inputId}

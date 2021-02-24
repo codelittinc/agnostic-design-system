@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import AddressSearch from '@/components/AddressSearch';
 import MapsProvider from '@/components/MapsProvider';
+import mdx from './AddressSearch.stories.mdx';
 
 export default {
   title: 'Components/Address Search',
-  component: AddressSearch
+  component: AddressSearch,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => {
