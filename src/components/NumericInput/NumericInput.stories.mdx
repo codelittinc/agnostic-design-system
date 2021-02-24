@@ -1,0 +1,58 @@
+# Numeric Input Component
+
+The Numeric Input component is based on the [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) component
+
+## Numeric Input Props
+
+We use all the properties of the Input and more:
+
+| Prop  |  Type  | Default | Optional |
+| :---: | :----: | :-----: | :------: |
+|  max  | number |    -    |   true   |
+|  min  | number |    0    |  false   |
+| radix | string |    -    |   true   |
+| scale | number |    0    |  false   |
+
+**max**
+
+Maximum possible value for the Input
+
+**min**
+
+Minimum possible value for the Input
+
+**radix**
+
+Fractional delimiter. For example: `','`, in a NumericInput with `scale: 2` would be _1,00_
+
+**scale**
+
+Digits after point, `0` for integers
+
+## Getting Started
+
+```javascript
+import React, { Component } from 'react';
+import { NumericInput } from '@codelittinc/agnostic-design-system';
+
+class SimpleNumericInput extends Component {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  }
+
+  render() {
+    return (
+      <NumericInput onChange={handleOnChange} label='Simple Numeric Input' value={value} />
+    );
+  }
+}
+
+export default SimpleNumericInput;
+
+```
+
+# Customazing styles
+
+For this component we use the same naming convention of the [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) component and you will be able to use all of its variables

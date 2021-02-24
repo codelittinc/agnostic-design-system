@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import NumericInput from '@/components/NumericInput';
+import mdx from './NumericInput.stories.mdx';
 
 export default {
   title: 'Components/Numeric Input',
-  component: NumericInput
+  component: NumericInput,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => {
