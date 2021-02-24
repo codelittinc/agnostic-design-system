@@ -136,17 +136,7 @@
   border-top: var(--list-item-container-border-top-hover);
 }
 
-.list-item-container--large,
-.list--large {
-  height: var(--list-item-container-large-height);
-}
-
-.list-item-container--medium,
-.list--medium {
-  height: var(--list-item-container-medium-height);
-}
-
 .list-item-container--selected {
   background-color: var(--list-item-container-background-color-selected);
-  border: var(--list-item-container-border-selected);
+  border: var(--list-item-container-border-selected, 1px solid var(--success-color));
 }

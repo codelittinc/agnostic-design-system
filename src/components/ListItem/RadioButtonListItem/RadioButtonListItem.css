@@ -1,14 +1,6 @@
-@import "../../../styles/theme/index.css";
+@import '../../../styles/theme/index.css';
 
 :root {
-  --list-item-rb-flex-direction: row-reverse;
-
-  --list-item-rb-width--large: var(--heading-s);
-  --list-item-rb-height--large: var(--heading-s);
-
-  --list-item-rb-width--medium: var(--heading-xs);
-  --list-item-rb-height--medium: var(--heading-xs);
-
   --list-item-rb-span-background: var(--structure-color-white);
   --list-item-rb-span-background-color: var(--structure-color-300);
   --list-item-rb-span-background-color-checked: var(--primary-color-400);
@@ -30,7 +22,7 @@
 }
 
 .list-item-radio-reverse {
-  flex-direction: var(--list-item-rb-flex-direction);
+  flex-direction: var(--list-item-rb-flex-direction, row-reverse);
 }
 
 /* Create a custom radio button */
@@ -43,15 +35,15 @@
 }
 
 .list-item-radio--large ~ .radio-check {
-  height: var(--list-item-rb-height--large);
+  height: var(--list-item-rb-height, var(--heading-s));
   top: -8px;
-  width: var(--list-item-rb-width--large);
+  width: var(--list-item-rb-width, var(--heading-s));
 }
 
 .list-item-radio--medium ~ .radio-check {
-  height: var(--list-item-rb-height--medium);
+  height: var(--list-item-rb-height, var(--heading-xs));
   top: -5px;
-  width: var(--list-item-rb-width--medium);
+  width: var(--list-item-rb-width, var(--heading-xs));
 }
 
 /* When the radio button is checked, add a blue background */
@@ -62,7 +54,7 @@
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .radio-check:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
