@@ -16,18 +16,50 @@
   display: var(--input-display, flex);
   flex-direction: var(--input-flex-directon, column);
   height: 100%;
+  margin: var(--input-margin, 0);
 }
 
 .input {
-  border: var(--input-border);
   background-color: var(--input-background-color);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius, var(--round-m));
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
   width: var(--input-width, 100%);
+  font-family: var(--input-font-family, initial);
+}
+
+.input.input--medium {
+  font-size: var(--input-font-size, var(--paragraph-m));
+  font-weight: var(--input-font-weight, var(--paragraph-font-weight-bold));
+  height: var(--input-height, var(--height-m));
+  line-height: var(--input-line-height, var(--paragraph-m-line-height));
+  padding: var(--input-padding, 11px 16px);
+}
+
+.input.input--large {
+  font-size: var(--input-font-size, var(--paragraph-xl));
+  font-weight: var(--input-font-weight, var(--paragraph-font-weight-bold));
+  height: var(--input-height, var(--height-l));
+  line-height: var(--input-line-height, var(--paragraph-xl-line-height));
+  padding: var(--input-padding, 12px 16px);
 }
 
 .input:not([value='']) {
   border: var(--input-border-hover, none);
+}
+
+.input:hover {
+  border: var(--input-border-hover, var(--input-border));
+}
+
+.input:active {
+  border: var(--input-border-active, var(--input-border));
+}
+
+.input:focus {
+  outline: var(--input-outline-focus, none);
+  border: var(--input-border-focus, var(--input-border));
 }
 
 .input:not([value='']) + .input--prepend.input--prepend-with-separator {
@@ -39,10 +71,6 @@
   border-right: none;
 }
 
-.input:hover {
-  border: var(--input-border-hover, var(--input-border));
-}
-
 .input:hover + .input--prepend.input--prepend-with-separator {
   background-color: var(
     --input-prepend-background-color-hover,
@@ -50,19 +78,6 @@
   );
   border: var(--input-border-hover, var(--input-border));
   border-right: none;
-}
-
-.input:active {
-  border: var(--input-border-active, var(--input-border));
-}
-
-.input:active,
-.input:focus {
-  outline: none;
-}
-
-.input:focus {
-  border: var(--input-border-focus, var(--input-border));
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator {
@@ -77,29 +92,13 @@
 
 .input::placeholder {
   color: var(--input-placeholder-color, var(--structure-color-700));
+  font-family: var(--input-placeholder-font-family, initial);
   font-size: var(--input-placeholder-font-size, var(--paragraph-xl));
   font-weight: var(--input-placeholder-font-weight, var(--paragraph-font-weight-normal));
 }
 
-.input.input--medium {
-  border-radius: var(--input-border-radius, var(--round-m));
-  font-size: var(--input-font-size, var(--paragraph-m));
-  font-weight: var(--input-font-weight, var(--paragraph-font-weight-bold));
-  height: var(--input-height, var(--height-m));
-  line-height: var(--input-line-height, var(--paragraph-m-line-height));
-  padding: var(--input-padding, 11px 16px);
-}
-
-.input.input--large {
-  border-radius: var(--input-border-radius, var(--round-m));
-  font-size: var(--input-font-size, var(--paragraph-xl));
-  font-weight: var(--input-font-weight, var(--paragraph-font-weight-bold));
-  height: var(--input-height, var(--height-l));
-  line-height: var(--input-line-height, var(--paragraph-xl-line-height));
-  padding: var(--input-padding, 12px 16px);
-}
-
 .input--label {
+  font-family: var(--input-label-font-family, initial);
   font-size: var(--input-label-font-size, var(--paragraph-l));
   font-weight: var(--input-label-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-label-line-height, var(--paragraph-l-line-height));
@@ -111,6 +110,7 @@
 .input--description {
   color: var(--input-description-color, var(--structure-color-700));
   height: var(--input-description-height, var(--height-xs));
+  font-family: var(--input-description-font-family, initial);
   font-size: var(--input-description-font-size, var(--paragraph-m));
   font-weight: var(--input-description-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-description-line-height, var(--paragraph-m-line-height));
@@ -120,6 +120,7 @@
 .input--message {
   color: var(--input-message-color, var(--structure-color-700));
   height: var(--input-message-height, var(--height-xs));
+  font-family: var(--input-message-font-family, initial);
   font-size: var(--input-message-font-size, var(--paragraph-m));
   font-weight: var(--input-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-message-line-height, var(--paragraph-m-line-height));
@@ -138,6 +139,10 @@
   border: var(--input-border-positive);
 }
 
+.input.input--invalid {
+  border: var(--input-border-negative);
+}
+
 .input.input--valid + .input--prepend.input--prepend-with-separator {
   background-color: var(
     --input-prepend-background-color-positive,
@@ -145,10 +150,6 @@
   );
   border: var(--input-border-positive);
   border-right: none;
-}
-
-.input.input--invalid {
-  border: var(--input-border-negative);
 }
 
 .input.input--invalid + .input--prepend.input--prepend-with-separator {
@@ -189,6 +190,10 @@
 
 .input.input--large.input-with-prepend {
   padding-left: var(--input-prepend-padding-left, 44px);
+}
+
+.input.input--medium.input-with-prepend {
+  padding-left: var(--input-prepend-padding-left, 36px);
 }
 
 .input.input-with-prepend-separator {

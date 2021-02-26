@@ -1,0 +1,152 @@
+# Input Component
+
+## Input Props
+
+|         Prop         |        Type        | Default  | Optional |
+| :------------------: | :----------------: | :------: | :------: |
+|      actionIcon      |  React.ReactNode   |    -     |   true   |
+|     description      |       string       |    -     |   true   |
+|       disabled       |      boolean       |    -     |   true   |
+|          id          |       string       |    -     |  false   |
+|    invalidMessage    |       string       |    -     |   true   |
+|       isValid        | (value) => boolean |   true   |   true   |
+|        label         |       string       |    -     |   true   |
+|        limit         |       number       |    -     |   true   |
+|       message        |       string       |    -     |   true   |
+|        onBlur        |     () => void     |    -     |   true   |
+|       onChange       |  (e: any) => void  |    -     |  false   |
+|  onClickActionIcon   |     () => void     |    -     |   true   |
+|       onFocus        |     () => void     | () => {} |  false   |
+|      onKeyDown       |     () => void     |    -     |   true   |
+|     onMouseEnter     |     () => void     |    -     |   true   |
+|     onMouseLeave     |     () => void     |    -     |   true   |
+|     placeholder      |       string       |    -     |   true   |
+|       prepend        |  React.ReactNode   |    -     |   true   |
+|         size         |        Size        |  large   |  false   |
+|   validationRegex    |       string       |    -     |   true   |
+|        value         |       string       |    -     |   true   |
+|  variablesClassName  |       string       |    -     |   true   |
+|    withActionIcon    |      boolean       |    -     |   true   |
+| withPrependSeparator |      boolean       |    -     |   true   |
+
+---
+
+|          Props           | Description                                                                                                                                                                                                                                                                |
+| :----------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      **actionIcon**      | By default it receives a [Close button](https://design-system.codelitt.dev/?path=/story/components-input--with-default-action-icon) but it is possible to send your own [Icon](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-action-icon). |
+|   **validationRegex**    | It is possible to add a [Regex validation](https://design-system.codelitt.dev/?path=/story/components-input--with-validation) for your input value.                                                                                                                        |
+|       **prepend**        | It is possible to add a [prepend](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend) in your input field.                                                                                                                                     |
+| **withPrependSeparator** | It adds a [separator](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend-separator) between the prepend and input field.                                                                                                                       |
+|  **onClickActionIcon**   | Event required when there is an **actionIcon** property.                                                                                                                                                                                                                   |
+
+**Size options**
+
+1. large
+2. medium
+
+## Getting Started
+
+```javascript
+import React, { Component, useState } from 'react';
+import { Input } from '@codelittinc/agnostic-design-system';
+
+class SimpleInput extends Component {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  }
+
+  render() {
+    return (
+      <Input onChange={handleChange} value={value} label='Simple Input' placeholder='Enter Text' />
+    );
+  }
+}
+
+export default SimpleInput;
+
+```
+
+# Customazing styles
+
+For the [Input](https://design-system.codelitt.dev/?path=/story/components-input--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--input-[property]?-[attribute]-[state]?**
+
+- Property - description, label, message, placeholder, prepend (optional)
+- Attribute - background-color, border, font, etc (required)
+- State - hover, focus, active, disabled, positive, negative (optional)
+
+1. Create the css class using our variables
+
+```css
+.my-input-css {
+  /* Component + Attribute */
+  --input-border: 1px solid grey;
+
+  /* Component + Property + Attribute */
+  --input-message-color: black;
+
+  /* Component + Property + Attribute */
+  --input-description-font-size: 20px;
+
+  /* Component + Property + Attribute + State */
+  --input-message-color-positive: green;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<Input variablesClassName={styles['my-input-css']} />`
+
+# Variables available
+
+|  Property   |    Attribute     |                       State                        |
+| :---------: | :--------------: | :------------------------------------------------: |
+|             | background-color |           hover, focus, active, disabled           |
+|             |      border      | hover, focus, active, disabled, positive, negative |
+|             |  border-radius   |                                                    |
+|             |      color       |                                                    |
+|             |     display      |                                                    |
+|             |  flex-direction  |                                                    |
+|             |      width       |                                                    |
+|             |   font-family    |                                                    |
+|             |    font-size     |                                                    |
+|             |   font-weight    |                                                    |
+|             |      height      |                                                    |
+|             |   line-height    |                                                    |
+|             |      margin      |                                                    |
+|             |     padding      |                                                    |
+|             |     outline      |                      focus\*                       |
+| action-icon | background-color |                                                    |
+| action-icon |      color       |                   hover, active                    |
+| action-icon |      cursor      |                                                    |
+| action-icon |      margin      |                                                    |
+| description |      color       |                                                    |
+| description |   font-family    |                                                    |
+| description |    font-size     |                                                    |
+| description |   font-weight    |                                                    |
+| description |   line-height    |                                                    |
+| description |      height      |                                                    |
+|    label    |      color       |                                                    |
+|    label    |   font-family    |                                                    |
+|    label    |    font-size     |                                                    |
+|    label    |   font-weight    |                                                    |
+|    label    |   line-height    |                                                    |
+|    label    |      height      |                                                    |
+|   message   |      color       |                 positive, negative                 |
+|   message   |   font-family    |                                                    |
+|   message   |    font-size     |                                                    |
+|   message   |   font-weight    |                                                    |
+|   message   |   line-height    |                                                    |
+|   message   |      height      |                                                    |
+| placeholder |      color       |                                                    |
+| placeholder |   font-family    |                                                    |
+| placeholder |    font-size     |                                                    |
+| placeholder |   font-weight    |                                                    |
+|   prepend   | background-color |                       hover                        |
+|   prepend   |       left       |                                                    |
+|   prepend   |      height      |                                                    |
+|   prepend   |     padding      |                                                    |
+|   prepend   |   padding-left   |                                                    |

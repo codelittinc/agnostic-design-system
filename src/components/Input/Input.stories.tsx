@@ -2,10 +2,16 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import Input from '@/components/Input';
 import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
+import mdx from './Input.stories.mdx';
 
 export default {
   title: 'Components/Input',
-  component: Input
+  component: Input,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => <Input {...args} />;
