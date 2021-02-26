@@ -4,7 +4,11 @@ import classNames from 'classnames';
 
 import styles from '@/components/ListItem/CheckBoxListItem/CheckBoxListItem.css';
 
-const CheckBoxListItem = <T extends {}>({ getIsSelected, ...props }: Props<T>) => {
+const CheckBoxListItem = <T extends {}>({
+  getIsSelected,
+  variablesClassName,
+  ...props
+}: Props<T>) => {
   const sizeClass = `list-item-checkbox--${props.size}`;
   return (
     <DefaultListItem
@@ -17,10 +21,12 @@ const CheckBoxListItem = <T extends {}>({ getIsSelected, ...props }: Props<T>) =
             className={classNames(styles['list-item-checkbox'], styles[sizeClass])}
             checked={getIsSelected && getIsSelected(item)}
             onChange={() => {}}
+            tabIndex={-1}
           />
           <span className={styles['checkbox-check']} />
         </div>
       )}
+      variablesClassName={classNames(styles['checkbox-direction'], variablesClassName)}
     />
   );
 };

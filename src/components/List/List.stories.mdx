@@ -97,7 +97,7 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
   --list-item-border-bottom-hover: 1px solid black;
 
   /* Component + Property + Attribute + State */
-  --list-item-cb-background-color-checked: aquamarine;
+  --list-item-checkbox-background-color-checked: aquamarine;
 }
 ```
 
@@ -132,51 +132,52 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 
 ### ListItem variables available
 
-|  Property  |    Attribute     |          State          |
-| :--------: | :--------------: | :---------------------: |
-|    item    |   align-items    |                         |
-|    item    | background-color |                         |
-|    item    |  border-radius   |                         |
-|    item    |    border-top    | active, hover, selected |
-|    item    |   border-right   | active, hover, selected |
-|    item    |  border-bottom   | active, hover, selected |
-|    item    |   border-left    | active, hover, selected |
-|    item    |    box-shadow    |                         |
-|    item    |      cursor      |                         |
-|    item    |     display      |                         |
-|    item    |  flex-direction  |                         |
-|    item    |      height      |                         |
-|    item    | justify-content  |                         |
-|    item    |      margin      |                         |
-|    item    |    min-height    |                         |
-|    item    |     padding      |                         |
-|    item    |  outline-color   |         focus\*         |
-| item-label |      color       |      active, hover      |
-| item-label |    font-size     |                         |
-| item-label |   font-weight    |                         |
-| item-label |   line-height    |                         |
-| item-label |      margin      |                         |
-| item-label |    text-align    |                         |
+|  Property  |    Attribute     |             State              |
+| :--------: | :--------------: | :----------------------------: |
+|    item    |   align-items    |                                |
+|    item    | background-color |      active, focus, hover      |
+|    item    |  border-radius   |                                |
+|    item    |    border-top    | active, focus, hover, selected |
+|    item    |   border-right   | active, focus, hover, selected |
+|    item    |  border-bottom   | active, focus, hover, selected |
+|    item    |   border-left    | active, focus, hover, selected |
+|    item    |    box-shadow    |                                |
+|    item    |      cursor      |                                |
+|    item    |     display      |                                |
+|    item    |  flex-direction  |                                |
+|    item    |      height      |                                |
+|    item    | justify-content  |                                |
+|    item    |      margin      |                                |
+|    item    |    min-height    |                                |
+|    item    |     padding      |                                |
+|    item    |  outline-color   |            focus\*             |
+| item-label |      color       |         active, hover          |
+| item-label |   font-family    |                                |
+| item-label |    font-size     |                                |
+| item-label |   font-weight    |                                |
+| item-label |   line-height    |                                |
+| item-label |      margin      |                                |
+| item-label |    text-align    |                                |
 
 ### Variables availables for ListItemCategory [CheckBox](https://design-system.codelitt.dev/?path=/story/components-list--check-box-list)
 
-| Property |    Attribute     |     State      |
-| :------: | :--------------: | :------------: |
-| item-cb  | background-color | checked, hover |
-| item-cb  |      border      | checked, hover |
-| item-cb  |  border-radius   |                |
-| item-cb  |      height      |                |
-| item-cb  |      width       |                |
+|   Property    |    Attribute     |     State      |
+| :-----------: | :--------------: | :------------: |
+| item-checkbox | background-color | checked, hover |
+| item-checkbox |      border      | checked, hover |
+| item-checkbox |  border-radius   |                |
+| item-checkbox |      height      |                |
+| item-checkbox |      width       |                |
 
 ### Variables availables for ListItemCategory [CheckMark](https://design-system.codelitt.dev/?path=/story/components-list--check-mark-list)
 
-| Property |   Attribute   |         State          |
-| :------: | :-----------: | :--------------------: |
-| item-cm  | border-radius |                        |
-| item-cm  |     color     | active, hover, checked |
-| item-cm  |    height     |                        |
-| item-cm  |    margin     |                        |
-| item-cm  |     width     |                        |
+|    Property    |   Attribute   |         State          |
+| :------------: | :-----------: | :--------------------: |
+| item-checkmark | border-radius |                        |
+| item-checkmark |     color     | active, hover, checked |
+| item-checkmark |    height     |                        |
+| item-checkmark |    margin     |                        |
+| item-checkmark |     width     |                        |
 
 ### Variables availables for ListItemCategory [Icon](https://design-system.codelitt.dev/?path=/story/components-list--icon-list)
 
@@ -188,11 +189,11 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 
 ### Variables availables for ListItemCategory [RadioButton](https://design-system.codelitt.dev/?path=/story/components-list--radio-button-list)
 
-| Property |    Attribute     |         State          |
-| :------: | :--------------: | :--------------------: |
-| item-rb  | background-color | checked, hover, circle |
-| item-rb  |      border      |     checked, hover     |
-| item-rb  |      height      |         circle         |
-| item-rb  |       left       |        circle\*        |
-| item-rb  |       top        |        circle\*        |
-| item-rb  |      width       |         circle         |
+|  Property  |    Attribute     |         State          |
+| :--------: | :--------------: | :--------------------: |
+| item-radio | background-color | checked, hover, circle |
+| item-radio |      border      |     checked, hover     |
+| item-radio |      height      |         circle         |
+| item-radio |       left       |        circle\*        |
+| item-radio |       top        |        circle\*        |
+| item-radio |      width       |         circle         |

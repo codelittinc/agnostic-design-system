@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash.isequal';
 
@@ -52,6 +52,9 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     multiselect
   } = props;
 
+  const defaultRef = useRef<HTMLDivElement>(null);
+  const currentRef = ref || defaultRef;
+
   const selectedItemsList =
     !multiselect || (multiselect && !Array.isArray(selected)) ? [selected] : selected;
 
@@ -68,74 +71,60 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     return item;
   };
 
-  const sizeClass = `list--${size}`;
-  const listItemSizeClass = `list-item-container--${size}`;
-
-  const handleKeyDown = (item, index) => event => {
+  const handleKeyDown = (item, index, event) => {
     if (event.keyCode === ENTER_KEY || event.keyCode === SPACE_BAR_KEY) {
+      event.preventDefault();
       return onChange(getSelectedItems(item));
     }
-    // @ts-expect-error
-    const listItems = ref && ref.current ? ref.current.querySelectorAll('li') : [];
+
+    const listItems = // @ts-expect-error
+      currentRef && currentRef.current ? currentRef.current.querySelectorAll('li') : [];
 
     if (event.keyCode === ARROW_DOWN_KEY && index < listItems.length - 1) {
       const listItem = listItems[index + 1];
-      const itemToFocus = listItem.querySelector('[role="button"]');
-      itemToFocus && itemToFocus.focus();
+      listItem.focus();
     }
 
     if (event.keyCode === ARROW_UP_KEY && index >= 1) {
       const listItem = listItems[index - 1];
-      const itemToFocus = listItem.querySelector('[role="button"]');
-      itemToFocus && itemToFocus.focus();
+      listItem.focus();
     }
   };
 
   return (
-    <div className={classNames(variablesClassName)} ref={ref}>
+    <div className={classNames(variablesClassName)} ref={currentRef}>
       {label && <label className={classNames(styles['list-label'])}>{label}</label>}
-      <ul
-        id={id}
-        className={classNames(styles.list, styles[sizeClass])}
-        tabIndex={-1}
-        role='list-box'
-      >
+      <ul id={id} className={classNames(styles.list)} tabIndex={-1} role='list-box'>
         {options &&
           options.map((item, index) => {
             return (
-              <li
-                key={`${getItemKey(item)}`}
-                className={classNames(
-                  styles['list-item-container'],
-                  styles[listItemSizeClass],
+              <ListItem<T>
+                category={listItemCategory}
+                size={size}
+                item={item}
+                getLabel={getItemLabel}
+                getIcon={getItemIcon}
+                getIsSelected={
+                  isItemSelected ||
+                  (item =>
+                    Array.isArray(selectedItemsList)
+                      ? selectedItemsList?.find(s => isEqual(item, s))
+                      : isEqual(selectedItemsList, item))
+                }
+                getValue={getItemValue}
+                getName={getItemName}
+                variablesClassName={classNames(
                   isItemSelected ||
                     (Array.isArray(selectedItemsList) &&
                       selectedItemsList.find(s => isEqual(item, s)))
-                    ? styles['list-item-container--selected']
-                    : ''
+                    ? styles['list-item--selected']
+                    : '',
+                  variablesClassName
                 )}
+                key={`${getItemKey(item)}`}
                 onClick={() => onChange(getSelectedItems(item))}
-                onKeyDown={handleKeyDown(item, index)}
-                role='option'
-              >
-                <ListItem<T>
-                  category={listItemCategory}
-                  size={size}
-                  item={item}
-                  getLabel={getItemLabel}
-                  getIcon={getItemIcon}
-                  getIsSelected={
-                    isItemSelected ||
-                    (item =>
-                      Array.isArray(selectedItemsList)
-                        ? selectedItemsList?.find(s => isEqual(item, s))
-                        : isEqual(selectedItemsList, item))
-                  }
-                  getValue={getItemValue}
-                  getName={getItemName}
-                  variablesClassName={classNames(styles['list-item'])}
-                />
-              </li>
+                onKeyDown={e => handleKeyDown(item, index, e)}
+              />
             );
           })}
       </ul>

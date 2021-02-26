@@ -5,7 +5,11 @@ import classNames from 'classnames';
 import styles from '@/components/ListItem/CheckMarkListItem/CheckMarkListItem.css';
 import CheckMarkIcon from '@/assets/images/icons/web/checkmark.svg';
 
-const CheckMarkListItem = <T extends {}>({ getIsSelected, ...props }: Props<T>) => {
+const CheckMarkListItem = <T extends {}>({
+  getIsSelected,
+  variablesClassName,
+  ...props
+}: Props<T>) => {
   const largeIcon = props.size === 'large';
   const sizeWidthIcon = largeIcon ? 19 : 12;
   const sizeHeightIcon = largeIcon ? 14 : 9;
@@ -17,9 +21,7 @@ const CheckMarkListItem = <T extends {}>({ getIsSelected, ...props }: Props<T>) 
         <CheckMarkIcon
           className={classNames(
             styles['list-item-checkmark'],
-            getIsSelected && getIsSelected(item)
-              ? styles['list-item-checkmark--checked']
-              : styles['list-item-checkmark--unchecked']
+            getIsSelected && getIsSelected(item) ? styles['list-item-checkmark--checked'] : ''
           )}
           width={sizeWidthIcon}
           height={sizeHeightIcon}
@@ -31,7 +33,9 @@ const CheckMarkListItem = <T extends {}>({ getIsSelected, ...props }: Props<T>) 
   return (
     <DefaultListItem
       {...props}
-      variablesClassName={(styles['list-item-div-checkmark'], styles['list-item-checkmark'])}
+      variablesClassName={
+        (styles['list-item-div-checkmark'], styles['list-item-checkmark'], variablesClassName)
+      }
       getSelectedMarker={item => handleCheckMark(item)}
     />
   );

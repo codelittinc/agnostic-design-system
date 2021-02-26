@@ -1,142 +1,54 @@
 @import '../../styles/theme/index.css';
 
-:root {
-  /* list div attributes */
-  --list-background-color: var(--structure-color-100);
-  --list-border-radius: 0;
-  --list-min-width: var(--spacing-horizontal-xxxl);
-  --list-style-type: none;
-  --list-border: 1px solid transparent;
-  --list-margin: 0;
-  --list-box-shadow: none;
-  --list-max-height: 100%;
-  --list-overflow: initial;
-
-  --list-border-active: 1px solid var(--structure-color-200);
-
-  --list-large-height: var(--height-l);
-  --list-large-font-size: var(--paragraph-l);
-  --list-large-font-weight: var(--paragraph-font-weight-bold);
-  --list-large-line-height: var(--paragraph-l-line-height);
-  --list-large-border-radius: 0;
-
-  --list-medium-height: var(--height-m);
-  --list-medium-font-size: var(--paragraph-m);
-  --list-medium-font-weight: var(--paragraph-font-weight-bold);
-  --list-medium-line-height: var(--paragraph-m-line-height);
-  --list-medium-border-radius: 0;
-
-  --list-label-font-size: var(--paragraph-l);
-  --list-label-font-weight: var(--paragraph-font-weight-normal);
-  --list-label-line-height: var(--paragraph-l-line-height);
-  --list-label-color: var(--structure-color-800);
-
-  /* list */
-  --list-item-container-margin: 0 0 var(--round-l) 0;
-  --list-item-container-border-radius: 0;
-  --list-item-container-box-sizing: border-box;
-  --list-item-container-box-shadow: 0px 4px 10px rgba(232, 238, 252, 0.7);
-  --list-item-container-border-bottom: 1px solid transparent;
-  --list-item-container-border-top: 1px solid transparent;
-  --list-item-container-border-right: 1px solid transparent;
-  --list-item-container-border-left: 1px solid transparent;
-  --list-focus-outline: var(--structure-color-400) auto 1px;
-  --list-item-container-border-bottom-hover: 1px solid var(--structure-color-600);
-  --list-item-container-border-top-hover: 1px solid var(--structure-color-600);
-  --list-item-container-border-right-hover: 1px solid var(--structure-color-600);
-  --list-item-container-border-left-hover: 1px solid var(--structure-color-600);
-  --list-item-container-background-color: var(--structure-color-100);
-  --list-item-container-cursor: default;
-
-  --list-item-container-background-color-selected: var(--structure-color-100);
-  --list-item-container-border-bottom-selected: 1px solid var(success-color);
-
-  --list-item-container-medium-height: var(--height-m);
-  --list-item-container-large-height: var(--height-l);
-}
-
-/* list div */
 .list {
   align-items: center;
-  background: var(--list-background-color);
-  border: var(--list-border);
-  border-radius: var(--list-border-radius);
-  height: 100%;
-  justify-content: space-between;
-  list-style-type: var(--list-style-type);
-  min-width: var(--list-min-width);
-  padding-inline-start: var(--list-padding-inline-start);
-  width: 100%;
-  margin: var(--list-margin);
-  box-shadow: var(--list-box-shadow);
+  background-color: var(--list-background-color, var(--structure-color-100));
+  border: var(--list-border, 1px solid transparent);
+  border-radius: var(--list-border-radius, 0);
+  box-shadow: var(--list-box-shadow, none);
   box-sizing: border-box;
-  max-height: var(--list-max-height);
-  overflow: var(--list-overflow);
-}
-
-.list--medium {
-  border-radius: var(--list-medium-border-radius);
-  font-size: var(--list-medium-font-size);
-  font-weight: var(--list-medium-font-weight);
-  height: var(--list-medium-height);
-  line-height: var(--list-medium-line-height);
-}
-
-.list--large {
-  border-radius: var(--list-large-border-radius);
-  font-size: var(--list-large-font-size);
-  font-weight: var(--list-large-font-weight);
-  height: var(--list-large-height);
-  line-height: var(--list-large-line-height);
-}
-
-.list:active,
-.list:focus {
-  border: var(--list-border-active, none);
-}
-
-.list:focus {
-  outline: var(--list-focus-outline);
-}
-
-.list-item-container {
-  background-color: var(--list-item-container-background-color);
-  border-radius: var(--list-item-container-border-radius);
-  box-shadow: var(--list-item-container-box-shadow);
-  box-sizing: var(--list-item-container-box-sizing);
-  margin: var(--list-item-container-margin);
+  height: var(--list-height, var(--height-m));
+  justify-content: space-between;
+  list-style-type: var(--list-list-style-type, none);
+  margin: var(--list-margin, 0);
+  max-height: var(--list-max-height, 100%);
+  min-width: var(--list-min-width, var(--spacing-horizontal-xxxl));
+  overflow: var(--list-overflow, initial);
+  padding: var(--list-padding, 0);
+  padding-inline-start: var(--list-padding-inline-start, 0);
   width: 100%;
-  border-bottom: var(--list-item-container-border-bottom);
-  border-right: var(--list-item-container-border-right);
-  border-top: var(--list-item-container-border-top);
-  border-left: var(--list-item-container-border-left);
-  cursor: var(--list-item-container-cursor);
 }
 
-.list-item-container:hover {
-  border-bottom: var(--list-item-container-border-bottom-hover);
-  border-right: var(--list-item-container-border-right-hover);
-  border-left: var(--list-item-container-border-left-hover);
-  border-top: var(--list-item-container-border-top-hover);
+.list:active {
+  border: var(--list-border-active, 1px solid var(--structure-color-200));
+}
+
+.list:focus {
+  border: var(--list-border-focus, 1px solid var(--structure-color-200));
+  outline: var(--list-outline-focus, none);
 }
 
 .list-label {
-  color: var(--list-label-color);
+  color: var(--list-label-color, var(--structure-color-800));
   display: flex;
-  font-size: var(--list-label-font-size);
-  font-weight: var(--list-label-font-weight);
-  line-height: var(--list-label-line-height);
+  font-family: var(--list-label-font-family, 'Inter');
+  font-size: var(--list-label-font-size, var(--paragraph-l));
+  font-weight: var(--list-label-font-weight, var(--paragraph-font-weight-normal));
+  line-height: var(--list-label-line-height, var(--paragraph-l-line-height));
+  margin: var(--list-label-margin, 0);
   width: 100%;
 }
 
-.list-item-container--visit {
-  border-bottom: var(--list-item-container-border-bottom-hover);
-  border-right: var(--list-item-container-border-right-hover);
-  border-left: var(--list-item-container-border-left-hover);
-  border-top: var(--list-item-container-border-top-hover);
-}
-
-.list-item-container--selected {
-  background-color: var(--list-item-container-background-color-selected);
-  border: var(--list-item-container-border-selected, 1px solid var(--success-color));
+.list-item--selected {
+  --list-item-background-color: var(
+    --list-item-background-color-selected,
+    var(--structure-color-white)
+  );
+  --list-item-border-bottom: var(
+    --list-item-border-bottom-selected,
+    1px solid var(--success-color)
+  );
+  --list-item-border-top: var(--list-item-border-top-selected, 1px solid var(--success-color));
+  --list-item-border-right: var(--list-item-border-right-selected, 1px solid var(--success-color));
+  --list-item-border-left: var(--list-item-border-left-selected, 1px solid var(--success-color));
 }

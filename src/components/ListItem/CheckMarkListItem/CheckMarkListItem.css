@@ -1,27 +1,24 @@
 @import '../../../styles/theme/index.css';
 
 .list-item-checkmark {
-  border-radius: var(--list-item-cm-border-radius, 0);
+  border-radius: var(--list-item-checkmark-border-radius, 0);
+  fill: var(--list-item-checkmark-color-unchecked, var(--structure-color-100));
 }
 
 .list-item-checkmark--checked {
-  fill: var(--list-item-cm-color-checked, var(--success-color));
-}
-
-.list-item-checkmark--unchecked {
-  fill: var(--list-item-cm-color-unchecked, var(--structure-color-100));
+  fill: var(--list-item-checkmark-color-checked, var(--success-color));
 }
 
 .checkmark-container {
-  margin: var(--list-item-cm-margin, var(--round-m) 0 0 0);
+  margin: var(--list-item-checkmark-margin, var(--round-m) 0 0 0);
 }
 
 .checkmark-container--large {
-  height: var(--list-item-cm-height, var(--heading-s));
-  width: var(--list-item-cm-width, var(--heading-s));
+  height: var(--list-item-checkmark-height, var(--heading-s));
+  width: var(--list-item-checkmark-width, var(--heading-s));
 }
 
 .checkmark-container--medium {
-  height: var(--list-item-cm-height, var(--heading-xs));
-  width: var(--list-item-cm-width, var(--heading-xs));
+  height: var(--list-item-checkmark-height, var(--heading-xs));
+  width: var(--list-item-checkmark-width, var(--heading-xs));
 }
