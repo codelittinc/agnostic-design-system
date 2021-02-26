@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import List from '@/components/List';
+import mdx from './List.stories.mdx';
 
 export default {
   title: 'Components/List',
-  component: List
+  component: List,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => {

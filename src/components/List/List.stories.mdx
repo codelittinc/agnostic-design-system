@@ -1,0 +1,198 @@
+# List Component
+
+## List Props
+
+|        Prop        |                    Type                    | Default | Optional |
+| :----------------: | :----------------------------------------: | :-----: | :------: |
+|    getItemLabel    |        (item: T) => React.ReactNode        |    -    |  false   |
+|    getItemIcon     |       (item?: T) => React.ReactNode        |    -    |   true   |
+|     getItemKey     |       (item: T) => string \| number        |    -    |  false   |
+|    getItemName     |            (item?: T) => string            |    -    |   true   |
+|    getItemValue    | (item: T) => string \| number \| string[ ] |    -    |  false   |
+|         id         |                   string                   |    -    |  false   |
+|   isItemSelected   |       (item?: T \| T[ ]) => boolean        |    -    |   true   |
+|       label        |                   string                   |    -    |   true   |
+|  listItemCategory  |              ListItemCategory              | simple  |   true   |
+|      onChange      |             (item?: T) => void             |    -    |  false   |
+|      options       |                    T[ ]                    |    -    |   true   |
+|      selected      |                 T[ ] \| T                  |    -    |   true   |
+|    multiselect     |                  boolean                   |    -    |   true   |
+|        size        |                    Size                    |  large  |   true   |
+| variablesClassName |                   string                   |    -    |   true   |
+
+**List Item Category availables:**
+
+1.  [checkbox](https://design-system.codelitt.dev/?path=/story/components-list--check-box-list)
+2.  [checkmark](https://design-system.codelitt.dev/?path=/story/components-list--check-mark-list)
+3.  [icon](https://design-system.codelitt.dev/?path=/story/components-list--icon-list)
+4.  [radio](https://design-system.codelitt.dev/?path=/story/components-list--radio-button-list)
+5.  [simple](https://design-system.codelitt.dev/?path=/story/components-list--simple-list)
+
+**Sizes**
+
+1. large
+2. medium
+
+## Getting Started
+
+```javascript
+import React, { Component } from 'react';
+import { List } from '@codelittinc/agnostic-design-system';
+
+class SimpleList extends Component {
+  const list = [{
+    label: 'Label',
+    value: 'vlabel'
+  },
+  {
+    label: 'Label 1',
+    value: 'vlabel1'
+  }]
+
+  render() {
+    return (
+      <List
+        options={list}
+        id={'list'}
+        getItemValue={(item) => item.value}
+        getItemLabel={(item) => item.label}
+        getItemKey={(item) => item.value}
+        onChange={() => {}}
+      />
+    );
+  }
+}
+
+export default SimpleList;
+
+```
+
+# Customazing styles
+
+For the [List](https://design-system.codelitt.dev/?path=/story/components-list--simple-list) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--list-[property]?-[attribute]-[state]?**
+
+- Property - label, item, item-label, item-cb, item-cm, item-icon, item-rb (optional)
+- Attribute - background-color, border, font, etc (required)
+- State - hover, focus, active (optional)
+
+1. Create the css class using our variables
+
+```css
+.my-list-css {
+  /* Component + Attribute */
+  --list-border: 1px solid grey; /* Simplest variable */
+
+  /* Component + Attribute */
+  --list-height: auto;
+
+  /* Component + Property + Attribute */
+  --list-label-color: black;
+
+  /* Component + Property + Attribute */
+  --list-item-margin: blue;
+
+  /* Component + Property + Attribute + State */
+  --list-item-border-bottom-hover: 1px solid black;
+
+  /* Component + Property + Attribute + State */
+  --list-item-cb-background-color-checked: aquamarine;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<List variablesClassName={styles['my-list-css']} />`
+
+## List variables available
+
+**Note**: `State` with `*` means that the `Attribute` is only available for that state.
+
+| Property |      Attribute       |     State     |
+| :------: | :------------------: | :-----------: |
+|          |   background-color   |               |
+|          |        border        | active, focus |
+|          |    border-radius     |               |
+|          |      box-shadow      |               |
+|          |        height        |               |
+|          |   list-style-type    |               |
+|          |        margin        |               |
+|          |      max-height      |               |
+|          |      min-width       |               |
+|          |       outline        |    focus\*    |
+|          |       overflow       |               |
+|          |       padding        |               |
+|          | padding-inline-start |               |
+|  label   |        color         |               |
+|  label   |      font-size       |               |
+|  label   |     font-weight      |               |
+|  label   |     line-height      |               |
+|  label   |        margin        |               |
+
+### ListItem variables available
+
+|  Property  |    Attribute     |          State          |
+| :--------: | :--------------: | :---------------------: |
+|    item    |   align-items    |                         |
+|    item    | background-color |                         |
+|    item    |  border-radius   |                         |
+|    item    |    border-top    | active, hover, selected |
+|    item    |   border-right   | active, hover, selected |
+|    item    |  border-bottom   | active, hover, selected |
+|    item    |   border-left    | active, hover, selected |
+|    item    |    box-shadow    |                         |
+|    item    |      cursor      |                         |
+|    item    |     display      |                         |
+|    item    |  flex-direction  |                         |
+|    item    |      height      |                         |
+|    item    | justify-content  |                         |
+|    item    |      margin      |                         |
+|    item    |    min-height    |                         |
+|    item    |     padding      |                         |
+|    item    |  outline-color   |         focus\*         |
+| item-label |      color       |      active, hover      |
+| item-label |    font-size     |                         |
+| item-label |   font-weight    |                         |
+| item-label |   line-height    |                         |
+| item-label |      margin      |                         |
+| item-label |    text-align    |                         |
+
+### Variables availables for ListItemCategory [CheckBox](https://design-system.codelitt.dev/?path=/story/components-list--check-box-list)
+
+| Property |    Attribute     |     State      |
+| :------: | :--------------: | :------------: |
+| item-cb  | background-color | checked, hover |
+| item-cb  |      border      | checked, hover |
+| item-cb  |  border-radius   |                |
+| item-cb  |      height      |                |
+| item-cb  |      width       |                |
+
+### Variables availables for ListItemCategory [CheckMark](https://design-system.codelitt.dev/?path=/story/components-list--check-mark-list)
+
+| Property |   Attribute   |         State          |
+| :------: | :-----------: | :--------------------: |
+| item-cm  | border-radius |                        |
+| item-cm  |     color     | active, hover, checked |
+| item-cm  |    height     |                        |
+| item-cm  |    margin     |                        |
+| item-cm  |     width     |                        |
+
+### Variables availables for ListItemCategory [Icon](https://design-system.codelitt.dev/?path=/story/components-list--icon-list)
+
+| Property  | Attribute |     State     |
+| :-------: | :-------: | :-----------: |
+| item-icon |   color   | active, hover |
+| item-icon |   fill    | active, hover |
+| item-icon |  margin   |               |
+
+### Variables availables for ListItemCategory [RadioButton](https://design-system.codelitt.dev/?path=/story/components-list--radio-button-list)
+
+| Property |    Attribute     |         State          |
+| :------: | :--------------: | :--------------------: |
+| item-rb  | background-color | checked, hover, circle |
+| item-rb  |      border      |     checked, hover     |
+| item-rb  |      height      |         circle         |
+| item-rb  |       left       |        circle\*        |
+| item-rb  |       top        |        circle\*        |
+| item-rb  |      width       |         circle         |
