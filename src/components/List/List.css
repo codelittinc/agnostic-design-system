@@ -11,11 +11,11 @@
   justify-content: space-between;
   list-style-type: var(--list-list-style-type, none);
   margin: var(--list-margin, 0);
-  max-height: var(--list-max-height, 100%);
   min-width: var(--list-min-width, var(--spacing-horizontal-xxxl));
   overflow: var(--list-overflow, initial);
   padding: var(--list-padding, 0);
   padding-inline-start: var(--list-padding-inline-start, 0);
+  position: var(--list-position, initial);
   width: 100%;
 }
 

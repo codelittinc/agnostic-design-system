@@ -12,12 +12,20 @@ interface Props {
   placeholder?: string;
   value: string;
   variablesClassName?: string;
+  clearable?: boolean;
 }
 
-const AddressSearchInput: React.FC<Props> = props => {
-  const { value, onChange, inputId, dropdownId, placeholder, variablesClassName } = props;
+const AddressSearch: React.FC<Props> = props => {
+  const {
+    value,
+    onChange,
+    clearable,
+    inputId,
+    dropdownId,
+    placeholder,
+    variablesClassName
+  } = props;
   const [initialValue, setInitialValue] = useState(value);
-  const [clearable, setClearable] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const [{ height }, setInputPosition] = useState({ height: 0 });
@@ -54,10 +62,6 @@ const AddressSearchInput: React.FC<Props> = props => {
   useEffect(() => {
     setInitialValue(value);
   }, [value]);
-
-  useEffect(() => {
-    initialValue.length > 0 ? setClearable(true) : handleClearInput();
-  }, [initialValue]);
 
   useEffect(() => {
     if (isSuggestionListOpen && listRef && listRef.current) {
@@ -107,7 +111,6 @@ const AddressSearchInput: React.FC<Props> = props => {
 
   const handleClearInput = () => {
     setInitialValue('');
-    setClearable(false);
   };
 
   const renderSuggestions = () => (
@@ -156,4 +159,8 @@ const AddressSearchInput: React.FC<Props> = props => {
   );
 };
 
-export default AddressSearchInput;
+AddressSearch.defaultProps = {
+  clearable: false
+};
+
+export default AddressSearch;
