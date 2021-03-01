@@ -52,7 +52,7 @@
     --list-item-border-left-focus,
     var(--list-item-border-left, 1px solid transparent)
   );
-  outline-color: var(--list-item-outline-color-focus, transparent);
+  outline: var(--list-item-outline-focus, none);
 }
 
 .list-item-label {

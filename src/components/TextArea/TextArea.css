@@ -3,6 +3,7 @@
 :root {
   --textarea-background-color: var(--structure-color-100);
   --textarea-border: 1px solid var(--structure-color-300);
+  --textarea-font-family: 'Inter';
 }
 
 .textarea {
@@ -11,6 +12,7 @@
   box-sizing: border-box;
   color: var(--textarea-color, var(--structure-color-900));
   display: flex;
+  font-family: var(--textarea-font-family);
   margin: var(--textarea-margin, 0);
   resize: none;
   width: var(--textarea-width, 100%);
@@ -29,7 +31,7 @@
 .textarea:focus {
   background-color: var(--textarea-background-color-focus, var(--textarea-background-color));
   border: var(--textarea-border-focus, var(--textarea-border));
-  outline-color: var(--textarea-outline-color-focus, var(--primary-color-500));
+  outline: var(--textarea-outline-focus, none);
 }
 
 .textarea:hover {
@@ -39,6 +41,7 @@
 
 .textarea::placeholder {
   color: var(--textarea-placeholder-color, var(--structure-color-700));
+  font-family: var(--textarea-placeholder-font-family, var(--textarea-font-family));
   font-size: var(--textarea-placeholder-font-size, var(--paragraph-xl));
   font-weight: var(--textarea-placeholder-font-weight, var(--paragraph-font-weight-normal));
 }
@@ -66,6 +69,7 @@
 }
 
 .textarea--label {
+  font-family: var(--textarea-label-font-family, var(--textarea-font-family));
   font-size: var(--textarea-label-font-size, var(--paragraph-l));
   font-weight: var(--textarea-label-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--textarea-label-line-height, var(--paragraph-l-line-height));
@@ -76,6 +80,7 @@
 }
 
 .textarea--description {
+  font-family: var(--textarea-description-font-family, var(--textarea-font-family));
   font-size: var(--textarea-description-font-size, var(--paragraph-m));
   font-weight: var(--textarea-description-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--textarea-description-line-height, var(--paragraph-m-line-height));
@@ -85,6 +90,7 @@
 }
 
 .textarea--message {
+  font-family: var(--textarea-message-font-family, var(--textarea-font-family));
   font-size: var(--textarea-message-font-size, var(--paragraph-m));
   font-weight: var(--textarea-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--textarea-message-line-height, var(--paragraph-m-line-height));

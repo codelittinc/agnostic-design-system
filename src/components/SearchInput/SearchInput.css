@@ -31,8 +31,6 @@
   --search-input-medium-height: var(--height-m);
   --search-input-medium-border-radius: var(--round-m);
 
-  --search-input-outline-color-focus: var(--structure-color-600);
-
   --search-input-placeholder-color: var(--structure-color-700);
   --search-input-placeholder-color-focus: var(--structure-color-800);
   --search-input-placeholder-font-size: var(--paragraph-xl);
@@ -147,8 +145,8 @@
 }
 
 .search-input:focus {
-  outline-color: var(--search-input-outline-color-focus);
   border: var(--search-input-border-focus);
+  outline: var(--search-input-outline-focus, none);
 }
 
 .search-input--medium {

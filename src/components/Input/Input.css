@@ -2,14 +2,15 @@
 
 :root {
   --input-background-color: var(--structure-color-100);
-  --input-prepend-background-color: var(--structure-color-100);
-
+  --input-font-family: 'Inter';
   --input-border: 1px solid var(--structure-color-300);
   --input-border-active: 1px solid var(--primary-color-500);
   --input-border-focus: 2px solid var(--primary-color-500);
   --input-border-hover: 1px solid var(--primary-color-300);
   --input-border-negative: 1px solid var(--error-color);
   --input-border-positive: 1px solid var(--success-color);
+  --input-prepend-background-color: var(--structure-color-100);
+  --input-width: 100%;
 }
 
 .container {
@@ -17,16 +18,18 @@
   flex-direction: var(--input-flex-directon, column);
   height: 100%;
   margin: var(--input-margin, 0);
+  width: var(--input-width);
 }
 
 .input {
   background-color: var(--input-background-color);
   border: var(--input-border);
   border-radius: var(--input-border-radius, var(--round-m));
+  box-shadow: var(--input-box-shadow, none);
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
-  width: var(--input-width, 100%);
-  font-family: var(--input-font-family, initial);
+  font-family: var(--input-font-family);
+  width: var(--input-width);
 }
 
 .input.input--medium {
@@ -92,13 +95,13 @@
 
 .input::placeholder {
   color: var(--input-placeholder-color, var(--structure-color-700));
-  font-family: var(--input-placeholder-font-family, initial);
+  font-family: var(--input-placeholder-font-family, var(--input-font-family));
   font-size: var(--input-placeholder-font-size, var(--paragraph-xl));
   font-weight: var(--input-placeholder-font-weight, var(--paragraph-font-weight-normal));
 }
 
 .input--label {
-  font-family: var(--input-label-font-family, initial);
+  font-family: var(--input-label-font-family, var(--input-font-family));
   font-size: var(--input-label-font-size, var(--paragraph-l));
   font-weight: var(--input-label-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-label-line-height, var(--paragraph-l-line-height));
@@ -110,7 +113,7 @@
 .input--description {
   color: var(--input-description-color, var(--structure-color-700));
   height: var(--input-description-height, var(--height-xs));
-  font-family: var(--input-description-font-family, initial);
+  font-family: var(--input-description-font-family, var(--input-font-family));
   font-size: var(--input-description-font-size, var(--paragraph-m));
   font-weight: var(--input-description-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-description-line-height, var(--paragraph-m-line-height));
@@ -120,7 +123,7 @@
 .input--message {
   color: var(--input-message-color, var(--structure-color-700));
   height: var(--input-message-height, var(--height-xs));
-  font-family: var(--input-message-font-family, initial);
+  font-family: var(--input-message-font-family, var(--input-font-family));
   font-size: var(--input-message-font-size, var(--paragraph-m));
   font-weight: var(--input-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-message-line-height, var(--paragraph-m-line-height));
