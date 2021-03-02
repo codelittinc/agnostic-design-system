@@ -15,7 +15,6 @@ interface Props {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   onBlur?: () => void;
-  isValid?: (value) => boolean;
   placeholder?: string;
   size: Size;
   value?: string;
@@ -82,7 +81,6 @@ const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
 NumericInput.defaultProps = {
   size: 'large',
-  isValid: () => true,
   onFocus: () => {},
   min: 0,
   scale: 0

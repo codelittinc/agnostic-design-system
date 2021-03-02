@@ -19,7 +19,6 @@ interface Props {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   onBlur?: () => void;
-  isValid?: (value) => boolean;
   placeholder?: string;
   size: Size;
   value?: string;
@@ -32,16 +31,18 @@ interface Props {
   actionIcon?: React.ReactNode;
   withActionIcon?: boolean;
   onClickActionIcon: () => void;
-  onStateChange?: (state: boolean) => void;
+  onStateChange: (state: boolean) => void;
+  required?: boolean;
 }
 
 const VALID = 'valid';
 const INVALID = 'invalid';
 
-const getValidationState = (value, validationRegex, isValid) => {
-  const regex = new RegExp(validationRegex);
+const getValidationState = valid => (valid ? VALID : INVALID);
 
-  return value.match(regex) && isValid(value) ? VALID : INVALID;
+const matchesRegex = (value, validationRegex) => {
+  const regex = new RegExp(validationRegex);
+  return value.match(regex);
 };
 
 const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
@@ -57,7 +58,6 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     onMouseLeave,
     onBlur,
     onKeyDown,
-    isValid,
     placeholder,
     size,
     value,
@@ -71,6 +71,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     withActionIcon,
     onClickActionIcon,
     onStateChange,
+    required,
     ...inputProps
   } = props;
   const [validationState, setValidationState] = useState('');
@@ -78,11 +79,25 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const messageValidateClass = `input--message-${validationState}`;
   const statusClass = `input--${validationState}`;
 
+  const validate = (event, callback) => {
+    const newValue = event.target.value;
+    const hasValue = matchesRegex(newValue, '.+');
+    const matchesValidationRegex = matchesRegex(newValue, validationRegex || '.*');
+    if (required && validationRegex) {
+      const valid = hasValue && matchesValidationRegex;
+      callback(valid);
+    } else if (validationRegex) {
+      callback(matchesValidationRegex);
+    } else if (required) {
+      callback(hasValue);
+    }
+  };
+
   const handleBlur = event => {
     onBlur && onBlur();
-    if (validationRegex) {
-      setValidationState(getValidationState(event.target.value, validationRegex, isValid));
-    }
+    validate(event, valid => {
+      setValidationState(getValidationState(valid));
+    });
   };
 
   const getActionIcon = actionIcon => {
@@ -99,10 +114,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const handleChange = e => {
     onChange(e);
-    if (validationRegex) {
-      onStateChange &&
-        onStateChange(getValidationState(e.target.value, validationRegex, isValid) === VALID);
-    }
+    validate(e, valid => {
+      onStateChange(valid);
+    });
   };
 
   return (
@@ -178,8 +192,8 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
 Input.defaultProps = {
   size: 'large',
-  isValid: () => true,
-  onFocus: () => {}
+  onFocus: () => {},
+  onStateChange: state => state
 };
 
 export default Input;

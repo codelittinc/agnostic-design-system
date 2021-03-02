@@ -18,21 +18,26 @@ const Template = args => <Input {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  size: 'large',
   placeholder: 'Enter text'
 };
 
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
-  size: 'large',
   placeholder: 'Enter text',
   label: 'Input Label',
   id: 'input-id'
 };
 
+export const RequiredInput = Template.bind({});
+RequiredInput.args = {
+  placeholder: 'Enter text',
+  label: 'Required Input',
+  id: 'input-id',
+  required: true
+};
+
 export const WithValidation = Template.bind({});
 WithValidation.args = {
-  size: 'large',
   label: 'Email',
   validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
   placeholder: 'Enter Email',
@@ -41,7 +46,6 @@ WithValidation.args = {
 
 export const WithPrepend = Template.bind({});
 WithPrepend.args = {
-  size: 'large',
   placeholder: 'Enter Text',
   prepend: <div>$</div>,
   label: 'Email',
@@ -51,7 +55,6 @@ WithPrepend.args = {
 
 export const WithPrependSeparator = Template.bind({});
 WithPrependSeparator.args = {
-  size: 'large',
   placeholder: 'Enter Text',
   prepend: <div>$</div>,
   withPrependSeparator: true,
@@ -62,7 +65,6 @@ WithPrependSeparator.args = {
 
 export const WithDefaultActionIcon = Template.bind({});
 WithDefaultActionIcon.args = {
-  size: 'large',
   placeholder: 'Enter text',
   withActionIcon: true,
   onClickActionIcon: () => alert('default action icon was clicked')
@@ -70,7 +72,6 @@ WithDefaultActionIcon.args = {
 
 export const WithCustomActionIcon = Template.bind({});
 WithCustomActionIcon.args = {
-  size: 'large',
   placeholder: 'Enter text',
   actionIcon: <TestSearchIcon height='10' width='10' />,
   withActionIcon: true,
