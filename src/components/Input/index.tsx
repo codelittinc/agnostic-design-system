@@ -81,9 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const handleBlur = event => {
     onBlur && onBlur();
     if (validationRegex) {
-      const validField = getValidationState(event.target.value, validationRegex, isValid);
-      setValidationState(validField);
-      onStateChange && onStateChange(validField === VALID);
+      setValidationState(getValidationState(event.target.value, validationRegex, isValid));
     }
   };
 
@@ -97,6 +95,14 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
         width='8'
       />
     );
+  };
+
+  const handleChange = e => {
+    onChange(e);
+    if (validationRegex) {
+      onStateChange &&
+        onStateChange(getValidationState(e.target.value, validationRegex, isValid) === VALID);
+    }
   };
 
   return (
@@ -126,7 +132,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           )}
           disabled={disabled}
           id={id}
-          onChange={onChange}
+          onChange={handleChange}
           placeholder={placeholder}
           value={value}
           onFocus={() => {
