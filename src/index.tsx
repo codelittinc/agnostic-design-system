@@ -6,4 +6,5 @@ export { default as Toast } from '@/components/Toast';
 export { default as AddressSearch } from '@/components/AddressSearch';
 export { default as MapsProvider } from '@/components/MapsProvider';
 export { default as NumericInput } from '@/components/NumericInput';
+export { default as Dropdown } from '@/components/Dropdown';
 export * from '@/components/Grid';

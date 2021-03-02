@@ -92,7 +92,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
   };
 
   return (
-    <div className={classNames(variablesClassName)} ref={currentRef}>
+    <div className={classNames(styles['list-container'], variablesClassName)} ref={currentRef}>
       {label && <label className={classNames(styles['list-label'])}>{label}</label>}
       <ul id={id} className={classNames(styles.list)} tabIndex={-1} role='list-box'>
         {options &&

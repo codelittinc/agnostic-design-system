@@ -120,7 +120,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     if (category === iconCategory) {
       const iconSize = size === largeSize ? 20 : 3;
       return (
-        <div className={classnames(styles['dropdown-icon'])}>
+        <div className={classnames(styles['dropdown-prepend-icon'])}>
           <IconGear width={iconSize} height={iconSize} title='Gear Icon' aria-hidden='true' />
         </div>
       );
@@ -135,7 +135,14 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     const iconWidthSize = size === largeSize ? 15 : 9;
     const iconHeightSize = size === largeSize ? 9 : 5;
 
-    return <IconType width={iconWidthSize} height={iconHeightSize} title={iconTitle} />;
+    return (
+      <IconType
+        className={styles['dropdown-append-icon']}
+        width={iconWidthSize}
+        height={iconHeightSize}
+        title={iconTitle}
+      />
+    );
   };
 
   const displayOptionsList = () => {

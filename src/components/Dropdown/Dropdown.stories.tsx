@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import Dropdown from '@/components/Dropdown';
+import mdx from './Dropdown.stories.mdx';
 
 export default {
   title: 'Components/Dropdown',
-  component: Dropdown
+  component: Dropdown,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 const Template = args => {

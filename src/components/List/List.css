@@ -1,5 +1,9 @@
 @import '../../styles/theme/index.css';
 
+.list-container {
+  width: var(--list-width, 100%);
+}
+
 .list {
   align-items: center;
   background-color: var(--list-background-color, var(--structure-color-100));

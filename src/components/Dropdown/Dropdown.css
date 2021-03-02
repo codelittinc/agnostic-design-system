@@ -12,14 +12,9 @@
   width: var(--dropdown-width, 100%);
 }
 
-.dropdown-icon {
-  color: var(--dropdown-icon-color, var(--structure-color-900));
-  fill: var(--dropdown-icon-fill, var(--structure-color-white));
-}
-
 .dropdown-input {
-  width: var(--dropdown-width, 100%);
-  --input-background-color: var(--input-background-color, var(--structure-color-100));
+  --input-width: var(--dropdown-width, 100%);
+  --input-background-color: var(--structure-color-100);
   --input-border: 1px solid var(--structure-color-300);
   --input-border-hover: 1px solid var(--primary-color-300);
   --input-border-focus: 1px solid var(--primary-color-500);
@@ -35,10 +30,13 @@
   --input-height: 3.125rem;
   --input-line-height: var(--paragraph-l-line-height);
   --input-color: var(--structure-color-800);
+  --input-color-hover: var(--primary-color-600);
+  --input-color-active: var(--primary-color-600);
+  --input-background-color-active: var(--structure-color-300);
 }
 
 .dropdown-list {
-  width: var(--dropdown-width, 100%);
+  --list-width: var(--dropdown-width, 100%);
   --list-border: 1px solid var(--primary-color-200);
   --list-min-width: calc(100% - 0.125rem);
   --list-height: auto;
@@ -70,4 +68,22 @@
   --list-item-border-right: none;
   --list-position: absolute;
   z-index: 999;
+}
+
+.dropdown-prepend-icon {
+  color: var(--dropdown-icon-color, var(--structure-color-600));
+  fill: var(--dropdown-icon-fill, var(--structure-color-white));
+}
+
+.dropdown-input:hover .dropdown-prepend-icon {
+  color: var(--dropdown-prepend-icon-color, var(--primary-color-600));
+  fill: var(--dropdown-prepend-icon-fill, var(--structure-color-white));
+}
+
+.dropdown-append-icon {
+  fill: var(--dropdown-append-icon, var(--structure-color-600));
+}
+
+.dropdown-input:hover .dropdown-append-icon {
+  fill: var(--dropdown-append-icon-hover, var(--primary-color-600));
 }

@@ -53,16 +53,22 @@
 }
 
 .input:hover {
+  background-color: var(--input-background-color-hover, var(--input-background-color));
   border: var(--input-border-hover, var(--input-border));
+  color: var(--input-color-hover, var(--input-color));
 }
 
 .input:active {
+  background-color: var(--input-background-color-active, var(--input-background-color));
   border: var(--input-border-active, var(--input-border));
+  color: var(--input-color-active, var(--input-color));
 }
 
 .input:focus {
+  background-color: var(--input-background-color-focus, var(--input-background-color));
   outline: var(--input-outline-focus, none);
   border: var(--input-border-focus, var(--input-border));
+  color: var(--input-color-focus, var(--input-color));
 }
 
 .input:not([value='']) + .input--prepend.input--prepend-with-separator {
@@ -107,6 +113,7 @@
   line-height: var(--input-label-line-height, var(--paragraph-l-line-height));
   color: var(--input-label-color, var(--structure-color-800));
   display: flex;
+  margin: var(--list-label-margin, 0);
   width: 100%;
 }
 
@@ -117,6 +124,7 @@
   font-size: var(--input-description-font-size, var(--paragraph-m));
   font-weight: var(--input-description-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-description-line-height, var(--paragraph-m-line-height));
+  margin: var(--list-description-margin, 0);
   width: 100%;
 }
 
@@ -127,6 +135,7 @@
   font-size: var(--input-message-font-size, var(--paragraph-m));
   font-weight: var(--input-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-message-line-height, var(--paragraph-m-line-height));
+  margin: var(--list-description-margin, 0);
   width: 100%;
 }
 

@@ -1,0 +1,174 @@
+# Dropdown Component
+
+## Dropdown Props
+
+|        Prop        |                                              Type                                               | Default | Optional |
+| :----------------: | :---------------------------------------------------------------------------------------------: | :-----: | :------: |
+|      category      |                                            Category                                             |    -    |  false   |
+|    description     |                                             string                                              |    -    |  false   |
+|     getItemKey     |                                  (item: T) => string \| number                                  |    -    |  false   |
+|    getItemLabel    |                                       (item: T) => string                                       |    -    |  false   |
+|    getItemValue    |                            (item: T) => string \| number \| string[]                            |    -    |  false   |
+|         id         |                                             string                                              |    -    |  false   |
+|       label        |                                             string                                              |    -    |   true   |
+|  listItemCategory  | [ListItemCategory](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list) |    -    |   true   |
+|    multiselect     |                                             boolean                                             |    -    |   true   |
+|      onChange      |                                   (item?: T \| null) => void                                    |    -    |  false   |
+|      options       |                                               [T]                                               |   []    |  false   |
+|    placeholder     |                                             string                                              |    -    |   true   |
+|      selected      |                                            T[] \| T                                             |    -    |   true   |
+|        size        |                                              Size                                               |    -    |   true   |
+|       value        |                                             string                                              |    -    |  false   |
+| variablesClassName |                                             string                                              |    -    |   true   |
+
+**Category**
+
+1. [Simple](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown)
+2. [Icon](https://design-system.codelitt.dev/?path=/story/components-dropdown--icon-dropdown)
+
+## Getting Started
+
+```javascript
+import React, { Component, useState } from 'react';
+import { Dropdown } from '@codelittinc/agnostic-design-system';
+
+class SimpleDropdown extends Component {
+  const [value, setValue] = useState('');
+  const options = [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ];
+
+  render() {
+    return (
+      <Dropdown
+        id='ads-dropdown'
+        value={value}
+        options={options}
+        onChange={item => {
+          setValue(item ? item.value : '');
+        }}
+        getItemLabel={item => item.label}
+        getItemKey={item => item.value}
+        getItemValue={item => item.value}
+      />
+    );
+  }
+}
+
+export default SimpleDropdown;
+```
+
+# Customazing styles
+
+For the [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--dropdown-[property]?-[attribute]-[state]?**
+
+- Property - icon, arrow-icon
+- Attribute - background-color, border, font, etc (required)
+- State - hover
+
+**Important:** The Dropdown component is composed by 2 other components: [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list), you will be able to use their variables to customize this component.
+
+1. Create the css class using our variables
+
+```css
+.my-dropdown-css {
+  /* Component + Attribute */
+  --dropwdown-border-radius: 1px solid grey;
+
+  /* Component + Attribute */
+  --input-background-color: white;
+
+  /* Component + Property + Attribute */
+  --input-placeholder-color: grey;
+
+  /* Component + Attribute */
+  --list-border: 1px solid #a2cee1;
+
+  /* Component + Attribute + State*/
+  --list-item-border-bottom-hover: 1px solid red;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<Dropdown variablesClassName={styles['my-dropdown-css']} />`
+
+# Variables available
+
+|   Property   |   Attribute   | State |
+| :----------: | :-----------: | :---: |
+|              |    border     |       |
+|              | border-radius |       |
+|              |    display    |       |
+|              |   flex-wrap   |       |
+|              |    margin     |       |
+|              |    padding    |       |
+|              |     width     |       |
+| prepend-icon |     color     | hover |
+| prepend-icon |     fill      | hover |
+| append-icon  |     color     | hover |
+
+## Variables from the Input initially set up in the Dropdown component
+
+|  Property   |    Attribute     |  State   |
+| :---------: | :--------------: | :------: |
+|             | background-color |          |
+|             |      border      |          |
+|             |      border      |  hover   |
+|             |      border      |  focus   |
+|             |      border      |  active  |
+|             |      border      | positive |
+|             |   borde-radius   |          |
+|             |    font-size     |          |
+|             |   font-weight    |          |
+|             |      height      |          |
+|             |   line-height    |          |
+|             |     padding      |          |
+| placeholder |      color       |          |
+| placeholder |    font-size     |          |
+| placeholder |   font-weight    |          |
+
+## Variables from the List initially set up in the Dropdown component
+
+| Property |    Attribute     |  State  |
+| :------: | :--------------: | :-----: |
+|          | background-color |         |
+|          |      border      |         |
+|          |  border-radius   |         |
+|          |    box-shadow    |         |
+|          |      height      |         |
+|          |      margin      |         |
+|          |    max-height    |         |
+|          |    min-width     |         |
+|          |     overflow     |         |
+|   item   | background-color |         |
+|   item   | background-color |  hover  |
+|   item   | background-color | pressed |
+|   item   |  border-bottom   |         |
+|   item   |   border-left    |         |
+|   item   |   border-right   |         |
+|   item   |    border-top    |         |
+|   item   |  border-bottom   |  hover  |
+|   item   |   border-left    |  hover  |
+|   item   |   border-right   |  hover  |
+|   item   |    border-top    |  hover  |
+|   item   |  border-radius   |         |
+|   item   |    box-shadow    |         |
+|   item   |      color       |         |
+|   item   |      cursor      |         |
+|   item   |    font-size     |         |
+|   item   |      height      |         |
+|   item   |      margin      |         |
+|   item   |    max-height    |         |
+|   item   |    min-width     |         |
+|   item   |     overflow     |         |
+|   item   |     padding      |         |
