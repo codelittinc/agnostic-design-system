@@ -1,14 +1,11 @@
-import React from 'react';
-import { useSelect } from 'downshift';
-import classNames from 'classnames';
-import isEqual from 'lodash.isequal';
-
+import React, { useRef, useEffect, useState } from 'react';
+import classnames from 'classnames';
+import Input from '@/components/Input';
 import styles from '@/components/Dropdown/Dropdown.css';
-
 import IconGear from '@/assets/images/icons/web/gear.svg';
 import IconArrowUp from '@/assets/images/icons/web/arrow-up.svg';
 import IconArrowDown from '@/assets/images/icons/web/arrow-down.svg';
-import ListItem from '@/components/ListItem';
+import List from '@/components/List';
 
 type Category = 'simple' | 'icon';
 type ListItemCategory = 'simple' | 'checkbox';
@@ -20,66 +17,116 @@ const simpleCategory = 'simple';
 interface Props<T> {
   category: Category;
   description?: string;
-  disabled?: boolean;
-  getDropdownIcon?: (item?: T) => React.ReactNode;
-  getItemLabel: (item: T) => React.ReactNode;
+  getItemKey: (item: T) => string | number;
+  getItemLabel: (item: T) => string;
   getItemIcon?: (item?: T) => React.ReactNode;
+  getItemValue: (item: T) => string | number | string[];
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;
   onChange: (item?: T | null) => void;
   options: [T];
-  selected?: T;
+  placeholder?: string;
+  selected?: T[] | T;
+  multiselect?: boolean;
   size: Size;
-  valueKey: string;
+  value: string;
   variablesClassName?: string;
 }
 
 const Dropdown = <T extends {}>(props: Props<T>) => {
-  const onSelectedItemChange = ({ selectedItem }: { selectedItem?: T | null }) =>
-    onChange(selectedItem);
-
   const {
     selected,
-    disabled,
     label,
     size,
     category,
-    getDropdownIcon,
+    getItemKey,
     getItemLabel,
+    getItemValue,
     getItemIcon,
     id,
     onChange,
+    placeholder,
     options,
-    valueKey,
+    value,
+    multiselect,
     variablesClassName,
     listItemCategory
   } = props;
 
-  const {
-    getToggleButtonProps,
-    getLabelProps,
-    getMenuProps,
-    getItemProps,
-    highlightedIndex,
-    isOpen
-  } = useSelect<T>({
-    items: options,
-    selectedItem: selected,
-    onSelectedItemChange
-  });
-
+  const [initialValue, setInitialValue] = useState(value);
+  const [selectedItem, setSelectedItem] = useState(selected);
+  const listRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isListOpen, setIsListOpen] = useState(false);
+  const [{ height }, setInputPosition] = useState({ height: 0 });
+  const [optionsSuggestions, setOptionsSuggestions] = useState<T[]>(options);
+  const [isInputHovered, setIsInputHovered] = useState(false);
+  const hasSuggestions = optionsSuggestions.length > 0;
   const iconCategory = 'icon';
 
-  const sizeClass = `dropdown--${size}`;
-  const listSizeClass = `dropdown-list--${size}`;
-  const listItemSizeClass = `dropdown-list-item--${size}`;
-  const buttonSpanSizeClass = `dropdown-button-span--${size}`;
-  const buttonPressedClass = isOpen ? styles['dropdown-button-pressed'] : '';
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target) &&
+        isListOpen &&
+        listRef.current &&
+        !listRef.current.contains(event.target)
+      ) {
+        setIsListOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [inputRef, isListOpen]);
 
-  const getGearIcon = () => {
-    const iconSize = size === largeSize ? 20 : 13;
-    return <IconGear width={iconSize} height={iconSize} title='Gear Icon' aria-hidden='true' />;
+  const getItemSelected = item => {
+    if (multiselect && Array.isArray(item)) {
+      setInitialValue(
+        item
+          .map(item => getItemLabel(item))
+          .join(', ')
+          .replace(/^,|,$/g, '')
+      );
+    } else {
+      setInitialValue(getItemLabel(item));
+    }
+  };
+
+  useEffect(() => {
+    getItemSelected(selectedItem);
+  }, [selectedItem]);
+
+  useEffect(() => {
+    if (isListOpen && listRef && listRef.current) {
+      listRef.current.style.top = height + 'px';
+    }
+  }, [height, isListOpen]);
+
+  const cleanSuggestions = () => {
+    setIsListOpen(false);
+  };
+
+  const handleClick = (option: T) => {
+    onChange(option);
+    setSelectedItem(option);
+    cleanSuggestions();
+  };
+
+  const handleIconCategory = () => {
+    if (category === iconCategory) {
+      const iconSize = size === largeSize ? 20 : 3;
+      return (
+        <div className={classnames(styles['dropdown-icon'])}>
+          <IconGear width={iconSize} height={iconSize} title='Gear Icon' aria-hidden='true' />
+        </div>
+      );
+    } else {
+      return '';
+    }
   };
 
   const handleArrowIcon = isOpen => {
@@ -91,87 +138,70 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     return <IconType width={iconWidthSize} height={iconHeightSize} title={iconTitle} />;
   };
 
-  const handleCategoryIcon = item => {
-    if (category === iconCategory) {
-      return (
-        <div
-          className={classNames(
-            styles['dropdown-icon'],
-            styles['dropdown-icon-gear'],
-            buttonPressedClass
-          )}
-        >
-          {getDropdownIcon ? getDropdownIcon(item) : getGearIcon()}
-        </div>
-      );
-    } else {
-      return '';
+  const displayOptionsList = () => {
+    setIsListOpen(true);
+    if (inputRef && inputRef.current) {
+      setInputPosition(inputRef.current.getBoundingClientRect());
     }
   };
 
-  return (
-    <div className={classNames(variablesClassName)}>
-      {label && (
-        <label className={classNames(styles['dropdown-label'])} {...getLabelProps()}>
-          {label}
-        </label>
+  const handleChangeInput = e => {
+    const newValue = e.target.value;
+    setInitialValue(newValue);
+    setOptionsSuggestions(options.filter(item => getItemLabel(item).includes(newValue)));
+    displayOptionsList();
+  };
+
+  const handleListBehavior = () => {
+    setIsListOpen(!isListOpen);
+  };
+
+  const renderOptions = () => (
+    <List<T>
+      ref={listRef}
+      size={size}
+      options={optionsSuggestions}
+      onChange={item => {
+        item && handleClick(item);
+      }}
+      getItemKey={item => getItemKey(item)}
+      getItemLabel={item => getItemLabel(item)}
+      getItemValue={item => getItemValue(item)}
+      getItemIcon={item => getItemIcon && getItemIcon(item)}
+      variablesClassName={classnames(
+        styles['dropdown-list'],
+        {
+          [styles.hover]: isInputHovered
+        },
+        variablesClassName
       )}
-      <div id={id} className={classNames(styles.dropdown, styles[sizeClass])}>
-        <button
-          type='button'
-          {...getToggleButtonProps()}
-          className={classNames(styles['dropdown-button'], buttonPressedClass)}
-          disabled={disabled}
-        >
-          {handleCategoryIcon(selected)}
-          <span className={classNames(styles['dropdown-button-span'], styles[buttonSpanSizeClass])}>
-            {(selected && getItemLabel(selected)) || 'Choose an option'}
-          </span>
-          <div
-            className={classNames(
-              styles['dropdown-icon'],
-              styles['dropdown-icon-arrow'],
-              buttonPressedClass
-            )}
-          >
-            {handleArrowIcon(isOpen)}
-          </div>
-        </button>
-        {isOpen && (
-          <ul
-            {...getMenuProps()}
-            className={classNames(
-              styles['dropdown-list'],
-              styles[listSizeClass],
-              !isOpen && styles['dropdown-list--hidden']
-            )}
-          >
-            {options.map((item, index) => (
-              <li
-                key={`${item[valueKey]}-${index}`}
-                className={classNames(
-                  styles['dropdown-list-item'],
-                  styles[listItemSizeClass],
-                  highlightedIndex === index ? styles['dropdown-list-item--visit'] : '',
-                  isEqual(item, selected) ? styles['dropdown-list-item--selected'] : ''
-                )}
-                {...getItemProps({ item, index })}
-              >
-                <ListItem<T>
-                  category={listItemCategory}
-                  size={size}
-                  item={item}
-                  key={`${item[valueKey]}-${index}`}
-                  getLabel={getItemLabel}
-                  getIcon={getItemIcon}
-                  getIsSelected={item => isEqual(item, selected)}
-                  getValue={item[valueKey]}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      listItemCategory={listItemCategory}
+      selected={selectedItem}
+      multiselect={multiselect}
+      id={`${id}-list`}
+    />
+  );
+
+  return (
+    <div className={classnames(variablesClassName, styles['dropdown-container'])}>
+      <Input
+        ref={inputRef}
+        id={id}
+        size={size}
+        placeholder={placeholder}
+        label={label}
+        value={initialValue}
+        onChange={handleChangeInput}
+        onFocus={() => setIsListOpen(hasSuggestions)}
+        onMouseEnter={() => setIsInputHovered(true)}
+        onMouseLeave={() => setIsInputHovered(false)}
+        variablesClassName={classnames(styles['dropdown-input'], variablesClassName)}
+        actionIcon={handleArrowIcon(isListOpen)}
+        withActionIcon
+        onClickActionIcon={handleListBehavior}
+        prepend={handleIconCategory()}
+      />
+      {isListOpen && renderOptions()}
     </div>
   );
 };
@@ -179,9 +209,8 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
 Dropdown.defaultProps = {
   category: simpleCategory,
   size: largeSize,
-  options: [{ label: 'Option', value: 'Option' }],
+  options: [],
   onChange: () => {},
-  getItemLabel: () => {},
   listItemCategory: simpleCategory
 };
 
