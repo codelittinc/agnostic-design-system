@@ -32,6 +32,7 @@ interface Props {
   actionIcon?: React.ReactNode;
   withActionIcon?: boolean;
   onClickActionIcon: () => void;
+  onStateChange?: (state: boolean) => void;
 }
 
 const VALID = 'valid';
@@ -69,6 +70,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     actionIcon,
     withActionIcon,
     onClickActionIcon,
+    onStateChange,
     ...inputProps
   } = props;
   const [validationState, setValidationState] = useState('');
@@ -79,7 +81,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const handleBlur = event => {
     onBlur && onBlur();
     if (validationRegex) {
-      setValidationState(getValidationState(event.target.value, validationRegex, isValid));
+      const validField = getValidationState(event.target.value, validationRegex, isValid);
+      setValidationState(validField);
+      onStateChange && onStateChange(validField === VALID);
     }
   };
 

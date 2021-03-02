@@ -2,32 +2,33 @@
 
 ## Input Props
 
-|         Prop         |        Type        | Default  | Optional |
-| :------------------: | :----------------: | :------: | :------: |
-|      actionIcon      |  React.ReactNode   |    -     |   true   |
-|     description      |       string       |    -     |   true   |
-|       disabled       |      boolean       |    -     |   true   |
-|          id          |       string       |    -     |  false   |
-|    invalidMessage    |       string       |    -     |   true   |
-|       isValid        | (value) => boolean |   true   |   true   |
-|        label         |       string       |    -     |   true   |
-|        limit         |       number       |    -     |   true   |
-|       message        |       string       |    -     |   true   |
-|        onBlur        |     () => void     |    -     |   true   |
-|       onChange       |  (e: any) => void  |    -     |  false   |
-|  onClickActionIcon   |     () => void     |    -     |   true   |
-|       onFocus        |     () => void     | () => {} |  false   |
-|      onKeyDown       |     () => void     |    -     |   true   |
-|     onMouseEnter     |     () => void     |    -     |   true   |
-|     onMouseLeave     |     () => void     |    -     |   true   |
-|     placeholder      |       string       |    -     |   true   |
-|       prepend        |  React.ReactNode   |    -     |   true   |
-|         size         |        Size        |  large   |  false   |
-|   validationRegex    |       string       |    -     |   true   |
-|        value         |       string       |    -     |   true   |
-|  variablesClassName  |       string       |    -     |   true   |
-|    withActionIcon    |      boolean       |    -     |   true   |
-| withPrependSeparator |      boolean       |    -     |   true   |
+|         Prop         |           Type           | Default  | Optional |
+| :------------------: | :----------------------: | :------: | :------: |
+|      actionIcon      |     React.ReactNode      |    -     |   true   |
+|     description      |          string          |    -     |   true   |
+|       disabled       |         boolean          |    -     |   true   |
+|          id          |          string          |    -     |  false   |
+|    invalidMessage    |          string          |    -     |   true   |
+|       isValid        | (value: any) => boolean  |   true   |   true   |
+|        label         |          string          |    -     |   true   |
+|        limit         |          number          |    -     |   true   |
+|       message        |          string          |    -     |   true   |
+|        onBlur        |        () => void        |    -     |   true   |
+|       onChange       |     (e: any) => void     |    -     |  false   |
+|  onClickActionIcon   |        () => void        |    -     |   true   |
+|       onFocus        |        () => void        | () => {} |  false   |
+|      onKeyDown       |        () => void        |    -     |   true   |
+|     onMouseEnter     |        () => void        |    -     |   true   |
+|     onMouseLeave     |        () => void        |    -     |   true   |
+|    onStateChange     | (state: boolean) => void |    -     |   true   |
+|     placeholder      |          string          |    -     |   true   |
+|       prepend        |     React.ReactNode      |    -     |   true   |
+|         size         |           Size           |  large   |  false   |
+|   validationRegex    |          string          |    -     |   true   |
+|        value         |          string          |    -     |   true   |
+|  variablesClassName  |          string          |    -     |   true   |
+|    withActionIcon    |         boolean          |    -     |   true   |
+| withPrependSeparator |         boolean          |    -     |   true   |
 
 ---
 
@@ -38,6 +39,7 @@
 |       **prepend**        | It is possible to add a [prepend](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend) in your input field.                                                                                                                                     |
 | **withPrependSeparator** | It adds a [separator](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend-separator) between the prepend and input field.                                                                                                                       |
 |  **onClickActionIcon**   | Event required when there is an **actionIcon** property.                                                                                                                                                                                                                   |
+|    **onStateChange**     | It returns a boolean with the validation result when there is a **validationRegex** property                                                                                                                                                                               |
 
 **Size options**
 
