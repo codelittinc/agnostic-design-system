@@ -11,11 +11,13 @@
 }
 
 .button {
+  align-items: var(--button-align-items, center);
   background-color: var(--button-background-color);
   border: var(--button-border, none);
   box-shadow: var(--button-box-shadow, none);
   color: var(--button-color);
   cursor: var(--button-cursor, pointer);
+  display: var(--button-display, flex);
   font-family: var(--button-font-family, 'Inter');
   margin: var(--button-margin, none);
 }
@@ -28,12 +30,20 @@
   cursor: var(--button-cursor-hover, pointer);
 }
 
+.button:hover .button--append-icon {
+  fill: var(--button-append-icon-color-hover, var(--button-color-hover));
+}
+
 .button:focus {
   background-color: var(--button-background-color-focus, var(--button-background-color));
   border: var(--button-border-focus, none);
   box-shadow: var(--button-box-shadow-focus, none);
   color: var(--button-color-focus);
   cursor: var(--button-cursor-focus, pointer);
+}
+
+.button:focus .button--append-icon {
+  fill: var(--button-append-icon-color-focus, var(--button-color-focus));
 }
 
 .button:active {
@@ -44,12 +54,20 @@
   cursor: var(--button-cursor-active, pointer);
 }
 
+.button:active .button--append-icon {
+  fill: var(--button-append-icon-color-active, var(--button-color-active));
+}
+
 .button:disabled {
   background-color: var(--button-background-color-disabled, var(--button-background-color));
   border: var(--button-border-disabled, none);
   box-shadow: var(--button-box-shadow-disabled, none);
   color: var(--button-color-disabled);
   cursor: var(--button-cursor-disabled, pointer);
+}
+
+.button:disabled .button--append-icon {
+  fill: var(--button-append-icon-color-disabled, var(--button-color-disabled));
 }
 
 .button.button--large {
@@ -68,4 +86,12 @@
   height: var(--button-height, var(--paragraph-l-line-height));
   line-height: var(--button-line-height, var(--height-m));
   padding: var(--button-padding, 0 var(--spacing-horizontal-m));
+}
+
+.button .button--label + .button--append-icon-container {
+  margin: var(--button-append-icon-margin, 0 0 0 16px);
+}
+
+.button .button--append-icon {
+  fill: var(--button-append-icon-color, var(--button-color));
 }

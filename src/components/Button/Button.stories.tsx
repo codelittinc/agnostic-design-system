@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import Button from '@/components/Button';
+import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 import mdx from './Button.stories.mdx';
 
 export default {
@@ -49,4 +50,25 @@ export const Ghost = Template.bind({});
 Ghost.args = {
   label: 'Ghost Button',
   category: 'ghost'
+};
+
+export const WithAppendIcon = Template.bind({});
+WithAppendIcon.args = {
+  label: 'With Append Icon',
+  category: 'primary',
+  withAppendIcon: true
+};
+
+export const WithCustomAppendIcon = Template.bind({});
+WithCustomAppendIcon.args = {
+  label: 'With Custom Append Icon',
+  category: 'primary',
+  withAppendIcon: true,
+  appendIcon: <TestSearchIcon height='10' width='10' />
+};
+
+export const WithoutLabelWithAppendIcon = Template.bind({});
+WithoutLabelWithAppendIcon.args = {
+  category: 'primary',
+  withAppendIcon: true
 };

@@ -23,7 +23,11 @@ exports[`ExampleComponent is renders correctly 1`] = `
         onClick={[Function]}
         type="button"
       >
-        this is a test
+        <span
+          className="button--label"
+        >
+          this is a test
+        </span>
       </button>
     </DefaultButton>
   </NeutralButton>
