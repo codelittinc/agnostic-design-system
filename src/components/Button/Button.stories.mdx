@@ -2,15 +2,23 @@
 
 ## Button Props
 
-|        Prop        |    Type    | Default | Optional |
-| :----------------: | :--------: | :-----: | :------: |
-|      disabled      |  boolean   |  false  |   true   |
-|       label        |   string   |    -    |   true   |
-|      category      |  Category  | neutral |   true   |
-|       fixed        |  boolean   |  false  |   true   |
-|      onClick       | () => void |    -    |  false   |
-|        size        |    Size    |  large  |   true   |
-| variablesClassName |   string   |    -    |   true   |
+|        Prop        |      Type       | Default | Optional |
+| :----------------: | :-------------: | :-----: | :------: |
+|     appendIcon     | React.ReactNode |    -    |   true   |
+|      disabled      |     boolean     |  false  |   true   |
+|       label        |     string      |    -    |   true   |
+|      category      |    Category     | neutral |   true   |
+|       fixed        |     boolean     |  false  |   true   |
+|      onClick       |   () => void    |    -    |  false   |
+|        size        |      Size       |  large  |   true   |
+| variablesClassName |     string      |    -    |   true   |
+|   withAppendIcon   |     boolean     |  false  |   true   |
+
+---
+
+|     Props      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **appendIcon** | By default it receives an [Arrow Icon](https://design-system.codelitt.dev/?path=/story/components-button--with-append-icon), but it is possible to send your own [Icon](https://design-system.codelitt.dev/?path=/story/components-button--with-custom-append-icon). The Icon can also be the [only element inside the button](https://design-system.codelitt.dev/?path=/story/components-button--without-label-with-append-icon), if there isn't a value passed to the label. |
 
 **Categories availables:**
 
@@ -52,8 +60,9 @@ export default SimpleButton;
 
 For the Button component we use the following naming convention to configure the CSS variables:
 
-**--button-[attribute]-[state]?**
+**--button-[property]?-[attribute]-[state]?**
 
+- Property - append-icon (optional)
 - Attribute - background-color, border, font, etc (required)
 - State - hover, focus, active, disabled (optional)
 
@@ -66,6 +75,12 @@ For the Button component we use the following naming convention to configure the
 
   /* Component + Attribute + State */
   --button-background-color-hover: blue; /* Using state */
+
+  /* Component + Property + Attribute */
+  --button-append-icon-color: green;
+
+  /* Component + Property + Attribute + State */
+  --button-append-icon-color-active: red;
 }
 ```
 
@@ -75,19 +90,22 @@ For the Button component we use the following naming convention to configure the
 
 ## Variables available
 
-|    Attribute     |             State              |
-| :--------------: | :----------------------------: |
-| background-color | hover, focus, active, disabled |
-|      border      | hover, focus, active, disabled |
-|  border-radius   |                                |
-|    box-shadow    | hover, focus, active, disabled |
-|      color       | hover, focus, active, disabled |
-|      cursor      | hover, focus, active, disabled |
-|     display      |                                |
-|   font-family    |                                |
-|    font-size     |                                |
-|   font-weight    |                                |
-|      height      |                                |
-|   line-height    |                                |
-|      margin      |                                |
-|     padding      |                                |
+|  Property   |    Attribute     |             State              |
+| :---------: | :--------------: | :----------------------------: |
+|             |   align-items    |                                |
+|             | background-color | hover, focus, active, disabled |
+|             |      border      | hover, focus, active, disabled |
+|             |  border-radius   |                                |
+|             |    box-shadow    | hover, focus, active, disabled |
+|             |      color       | hover, focus, active, disabled |
+|             |      cursor      | hover, focus, active, disabled |
+|             |     display      |                                |
+|             |   font-family    |                                |
+|             |    font-size     |                                |
+|             |   font-weight    |                                |
+|             |      height      |                                |
+|             |   line-height    |                                |
+|             |      margin      |                                |
+|             |     padding      |                                |
+| append-icon |      color       | hover, focus, active, disabled |
+| append-icon |      margin      |                                |
