@@ -17,7 +17,19 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader?modules=true']
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+            modules: {
+              localIdentName: "ads-[name]__[local]--[hash:base64:5]",
+              localIdentContext: path.resolve(__dirname, "src"),
+              localIdentHashPrefix: "ads-",
+            }
+            }
+          },
+        ]
       },
       {
         test: /\.stories\.mdx$/,
