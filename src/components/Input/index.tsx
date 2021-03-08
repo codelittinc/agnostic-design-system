@@ -76,6 +76,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   } = props;
   const [validationState, setValidationState] = useState('');
   const sizeClass = `input--${size}`;
+  const prependSizeClass = `input--prepend-with-separator-${size}`;
   const messageValidateClass = `input--message-${validationState}`;
   const statusClass = `input--${validationState}`;
 
@@ -163,6 +164,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           <div
             className={classNames(
               styles['input--prepend'],
+              withPrependSeparator ? styles[prependSizeClass] : '',
               withPrependSeparator ? styles['input--prepend-with-separator'] : ''
             )}
           >

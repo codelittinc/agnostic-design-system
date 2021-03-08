@@ -96,7 +96,14 @@
   );
   border: var(--input-border-focus, var(--input-border));
   border-right: none;
-  height: var(--input-prepend-height-focus, 44px);
+}
+
+.input:focus + .input--prepend.input--prepend-with-separator-large {
+  height: calc(var(--input-height, var(--height-l)) - 4px);
+}
+
+.input:focus + .input--prepend.input--prepend-with-separator-medium {
+  height: calc(var(--input-height, var(--height-m)) - 4px);
 }
 
 .input::placeholder {
@@ -194,10 +201,17 @@
   border-radius: var(--input-border-radius, var(--round-m)) 0 0
     var(--input-border-radius, var(--round-m));
   border-right: none;
-  height: var(--input-prepend-height, 46px);
   left: 0;
   padding: var(--input-prepend-padding, 0 18px);
   width: auto;
+}
+
+.input--prepend.input--prepend-with-separator-large {
+  height: calc(var(--input-height, var(--height-l)) - 2px);
+}
+
+.input--prepend.input--prepend-with-separator-medium {
+  height: calc(var(--input-height, var(--height-m)) - 2px);
 }
 
 .input.input--large.input-with-prepend {
