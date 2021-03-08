@@ -18,3 +18,10 @@ Default.args = {
   placeholder: 'Enter email',
   label: 'Email Input'
 };
+
+export const RequiredEmail = Template.bind({});
+RequiredEmail.args = {
+  placeholder: 'Enter email',
+  label: 'Required Email Input',
+  required: true
+};

@@ -21,14 +21,19 @@ const Template = args => {
 
 export const Default = Template.bind({});
 Default.args = {
-  size: 'large',
   placeholder: 'Enter number',
   label: 'Numeric Input'
 };
 
+export const RequiredNumericInput = Template.bind({});
+RequiredNumericInput.args = {
+  placeholder: 'Enter number',
+  required: true,
+  label: 'Required Numeric Input'
+};
+
 export const CustomNumeric = Template.bind({});
 CustomNumeric.args = {
-  size: 'large',
   placeholder: 'Enter number',
   label: 'Custom Numeric Input',
   max: 10000,

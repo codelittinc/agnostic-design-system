@@ -26,6 +26,7 @@ interface Props {
   actionIcon?: React.ReactNode;
   withActionIcon?: boolean;
   onClickActionIcon: () => void;
+  required?: boolean;
   scale: number;
   min: number;
   max?: number;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import styles from '@/components/TextArea/TextArea.css';
@@ -12,12 +12,14 @@ interface Props {
   id: string;
   label?: string;
   message?: string;
-  onChange: () => void;
+  onBlur?: () => void;
+  onChange: (e: any) => void;
   placeholder?: string;
   size: Size;
   state?: State;
   value?: string;
   variablesClassName?: string;
+  required?: boolean;
 }
 
 const TextArea: React.FC<Props> = props => {
@@ -27,20 +29,42 @@ const TextArea: React.FC<Props> = props => {
     id,
     label,
     message,
+    onBlur,
     onChange,
     placeholder,
     size,
     state,
     value,
     variablesClassName,
+    required,
     ...textareaProps
   } = props;
+  const [stateTextArea, setStateTextArea] = useState(state);
   const sizeClass = `textarea--${size}`;
   const messageClass = 'textarea--message';
-  const messageValidateClass = state ? `textarea--message-${state}` : '';
-  const statusClass = state ? `textarea--${state}` : '';
+  const messageValidateClass = stateTextArea !== '' ? `textarea--message-${stateTextArea}` : '';
+  const statusClass = stateTextArea !== '' ? `textarea--${stateTextArea}` : '';
   const descriptionClass = 'textarea--description';
   const labelClass = 'textarea--label';
+
+  const validateRequired = value => {
+    const regex = new RegExp('.+');
+    return value.match(regex);
+  };
+
+  const handleRequired = value => {
+    validateRequired(value) ? setStateTextArea('valid') : setStateTextArea('invalid');
+  };
+
+  const handleOnChange = e => {
+    onChange(e);
+    required && handleRequired(e.target.value);
+  };
+
+  const handleOnBlur = e => {
+    onBlur && onBlur();
+    required && handleRequired(e.target.value);
+  };
 
   return (
     <div className={classNames(variablesClassName)}>
@@ -61,9 +85,10 @@ const TextArea: React.FC<Props> = props => {
         className={classNames(styles.textarea, styles[sizeClass], styles[statusClass])}
         disabled={disabled}
         id={id}
-        onChange={onChange}
+        onChange={handleOnChange}
         placeholder={placeholder}
         value={value}
+        onBlur={handleOnBlur}
       />
       {message ? (
         <span className={classNames(styles[messageClass], styles[messageValidateClass])}>
@@ -77,7 +102,8 @@ const TextArea: React.FC<Props> = props => {
 };
 
 TextArea.defaultProps = {
-  size: 'large'
+  size: 'large',
+  state: ''
 };
 
 export default TextArea;

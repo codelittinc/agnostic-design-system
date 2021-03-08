@@ -26,6 +26,7 @@ interface Props {
   withPrependSeparator?: boolean;
   actionIcon?: React.ReactNode;
   withActionIcon?: boolean;
+  required?: boolean;
   onClickActionIcon: () => void;
   onStateChange?: (state: boolean) => void;
 }
