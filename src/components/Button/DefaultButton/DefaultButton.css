@@ -41,6 +41,7 @@
   box-shadow: var(--button-box-shadow-focus, none);
   color: var(--button-color-focus);
   cursor: var(--button-cursor-focus, pointer);
+  outline: none;
 }
 
 .button:focus .button--append-icon {
