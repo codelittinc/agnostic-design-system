@@ -99,11 +99,11 @@
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator-large {
-  height: calc(var(--input-height, var(--height-l)) - 4px);
+  height: var(--input-height, var(--height-l));
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator-medium {
-  height: calc(var(--input-height, var(--height-m)) - 4px);
+  height: var(--input-height, var(--height-m));
 }
 
 .input::placeholder {
@@ -207,11 +207,11 @@
 }
 
 .input--prepend.input--prepend-with-separator-large {
-  height: calc(var(--input-height, var(--height-l)) - 2px);
+  height: var(--input-height, var(--height-l));
 }
 
 .input--prepend.input--prepend-with-separator-medium {
-  height: calc(var(--input-height, var(--height-m)) - 2px);
+  height: var(--input-height, var(--height-m));
 }
 
 .input.input--large.input-with-prepend {
