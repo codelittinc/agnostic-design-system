@@ -21,11 +21,22 @@ Default.args = {
   placeholder: 'Enter text'
 };
 
-export const DefaultWithLabel = Template.bind({});
-DefaultWithLabel.args = {
+export const DefaultWithLabelText = Template.bind({});
+DefaultWithLabelText.args = {
   placeholder: 'Enter text',
   label: 'Input Label',
   id: 'input-id'
+};
+
+export const WithCustomLabel = Template.bind({});
+WithCustomLabel.args = {
+  placeholder: 'Enter text',
+  label: (
+    <div style={{ marginBottom: 20 }}>
+      <span style={{ color: 'green', marginRight: 10 }}>1/2</span>
+      <label style={{ color: 'blue' }}>Test Custom Label</label>
+    </div>
+  )
 };
 
 export const RequiredInput = Template.bind({});

@@ -11,7 +11,7 @@ interface Props {
   description?: string;
   disabled?: boolean;
   id: string;
-  label?: string;
+  label?: string | React.ReactNode;
   message?: string;
   onChange: (e: any) => void;
   onFocus: () => void;
@@ -120,20 +120,40 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     });
   };
 
+  const getLabel = () => {
+    return React.isValidElement(label) ? (
+      label
+    ) : label ? (
+      <label className={classNames(styles['input--label'])} htmlFor={id}>
+        {label}
+      </label>
+    ) : (
+      ''
+    );
+  };
+
+  const getDescription = () => {
+    return description ? (
+      <span className={classNames(styles['input--description'])}>{description}</span>
+    ) : (
+      ''
+    );
+  };
+
+  const getMessage = () => {
+    return message || invalidMessage ? (
+      <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
+        {validationState === INVALID && invalidMessage ? invalidMessage : message}
+      </span>
+    ) : (
+      ''
+    );
+  };
+
   return (
     <div className={classNames(variablesClassName, styles.container)}>
-      {label ? (
-        <label className={classNames(styles['input--label'])} htmlFor={id}>
-          {label}
-        </label>
-      ) : (
-        ''
-      )}
-      {description ? (
-        <span className={classNames(styles['input--description'])}>{description}</span>
-      ) : (
-        ''
-      )}
+      {getLabel()}
+      {getDescription()}
       <div className={classNames(styles['input--container'])}>
         <input
           {...inputProps}
@@ -181,13 +201,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           </div>
         )}
       </div>
-      {message || invalidMessage ? (
-        <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
-          {validationState === INVALID && invalidMessage ? invalidMessage : message}
-        </span>
-      ) : (
-        ''
-      )}
+      {getMessage()}
     </div>
   );
 });
