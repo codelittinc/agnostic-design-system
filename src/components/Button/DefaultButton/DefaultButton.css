@@ -19,6 +19,7 @@
   cursor: var(--button-cursor, pointer);
   display: var(--button-display, flex);
   font-family: var(--button-font-family, 'Inter');
+  justify-content: var(--button-justify-content, initial);
   margin: var(--button-margin, none);
 }
 
@@ -74,8 +75,8 @@
   border-radius: var(--button-border-radius, var(--round-m));
   font-size: var(--button-font-size, var(--paragraph-xl));
   font-weight: var(--button-font-weight, var(--paragraph-font-weight-bold));
-  height: var(--button-height, var(--paragraph-xl-line-height));
-  line-height: var(--button-line-height, var(--height-m));
+  height: var(--button-height, var(--height-xl));
+  line-height: var(--button-line-height, var(--paragraph-xl-line-height));
   padding: var(--button-padding, 0 var(--spacing-horizontal-m));
 }
 
@@ -83,8 +84,8 @@
   border-radius: var(--button-border-radius, var(--round-m));
   font-size: var(--button-font-size, var(--paragraph-l));
   font-weight: var(--button-font-weight, var(--paragraph-font-weight-bold));
-  height: var(--button-height, var(--paragraph-l-line-height));
-  line-height: var(--button-line-height, var(--height-m));
+  height: var(--button-height, var(--height-l));
+  line-height: var(--button-line-height, var(--paragraph-l-line-height));
   padding: var(--button-padding, 0 var(--spacing-horizontal-m));
 }
 

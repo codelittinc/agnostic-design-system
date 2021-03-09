@@ -4,8 +4,10 @@
 
 |        Prop        |                                              Type                                               | Default | Optional |
 | :----------------: | :---------------------------------------------------------------------------------------------: | :-----: | :------: |
-|      category      |                                            Category                                             |    -    |  false   |
-|    description     |                                             string                                              |    -    |  false   |
+|      category      |                                            Category                                             |    -    |   true   |
+|    description     |                                             string                                              |    -    |   true   |
+|      editable      |                                             boolean                                             |    -    |   true   |
+|    getListTitle    |                                 (selected?: T \| T[]) => string                                 |    -    |  false   |
 |     getItemKey     |                                  (item: T) => string \| number                                  |    -    |  false   |
 |    getItemLabel    |                                       (item: T) => string                                       |    -    |  false   |
 |    getItemValue    |                            (item: T) => string \| number \| string[]                            |    -    |  false   |
@@ -13,13 +15,19 @@
 |       label        |                                             string                                              |    -    |   true   |
 |  listItemCategory  | [ListItemCategory](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list) |    -    |   true   |
 |    multiselect     |                                             boolean                                             |    -    |   true   |
-|      onChange      |                                   (item?: T \| null) => void                                    |    -    |  false   |
+|      onChange      |                                    (item?: T \| T[]) => void                                    |    -    |  false   |
+|   onStateChange    |                                    (state: boolean) => void                                     |    -    |   true   |
 |      options       |                                               [T]                                               |   []    |  false   |
 |    placeholder     |                                             string                                              |    -    |   true   |
 |      selected      |                                            T[] \| T                                             |    -    |   true   |
 |        size        |                                              Size                                               |    -    |   true   |
-|       value        |                                             string                                              |    -    |  false   |
 | variablesClassName |                                             string                                              |    -    |   true   |
+
+|      Props       | Description                                                                                                                                                                                                                                                                          |
+| :--------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   **editable**   | Used to give the engineer the possibility of creating a [dropdown input](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) instead of [dropdown button](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown) |
+| **getListTitle** | Used to give the engineer the opportunity to choose the dropdown title to be shown by the selected item(s)                                                                                                                                                                           |
+|   **selected**   | Item selected initially                                                                                                                                                                                                                                                              |
 
 **Category**
 
@@ -57,6 +65,7 @@ class SimpleDropdown extends Component {
         getItemLabel={item => item.label}
         getItemKey={item => item.value}
         getItemValue={item => item.value}
+        getListTitle={item => item.label}
       />
     );
   }
@@ -75,7 +84,7 @@ For the [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dr
 - Attribute - background-color, border, font, etc (required)
 - State - hover
 
-**Important:** The Dropdown component is composed by 2 other components: [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list), you will be able to use their variables to customize this component.
+**Important:** The Dropdown component is composed by 3 other components: [Button](https://design-system.codelitt.dev/?path=/docs/components-button--neutral), [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list), you will be able to use their variables to customize this component.
 
 1. Create the css class using our variables
 
@@ -85,10 +94,10 @@ For the [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dr
   --dropwdown-border-radius: 1px solid grey;
 
   /* Component + Attribute */
-  --input-background-color: white;
+  --button-background-color: white;
 
   /* Component + Property + Attribute */
-  --input-placeholder-color: grey;
+  --button-color: grey;
 
   /* Component + Attribute */
   --list-border: 1px solid #a2cee1;
@@ -116,6 +125,20 @@ For the [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dr
 | prepend-icon |     color     | hover |
 | prepend-icon |     fill      | hover |
 | append-icon  |     color     | hover |
+
+## Variables from the Button initially set up in the Dropdown component
+
+| Property |    Attribute     | State  |
+| :------: | :--------------: | :----: |
+|          | background-color |        |
+|          | background-color | active |
+|          | background-color | hover  |
+|          |      border      | hover  |
+|          |      color       |        |
+|          |      color       | hover  |
+|          |      color       | active |
+|          | justify-content  |        |
+|          |     padding      |        |
 
 ## Variables from the Input initially set up in the Dropdown component
 

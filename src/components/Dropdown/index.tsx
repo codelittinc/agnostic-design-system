@@ -6,6 +6,7 @@ import IconGear from '@/assets/images/icons/web/gear.svg';
 import IconArrowUp from '@/assets/images/icons/web/arrow-up.svg';
 import IconArrowDown from '@/assets/images/icons/web/arrow-down.svg';
 import List from '@/components/List';
+import Button from '../Button';
 
 type Category = 'simple' | 'icon';
 type ListItemCategory = 'simple' | 'checkbox';
@@ -17,6 +18,8 @@ const simpleCategory = 'simple';
 interface Props<T> {
   category: Category;
   description?: string;
+  editable?: boolean;
+  getListTitle: (selected?: T | T[]) => string;
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
   getItemIcon?: (item?: T) => React.ReactNode;
@@ -24,13 +27,13 @@ interface Props<T> {
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;
-  onChange: (item?: T | null) => void;
+  multiselect?: boolean;
+  onChange: (item?: T | T[]) => void;
+  onStateChange: (state: boolean) => void;
   options: [T];
   placeholder?: string;
   selected?: T[] | T;
-  multiselect?: boolean;
   size: Size;
-  value: string;
   variablesClassName?: string;
 }
 
@@ -40,22 +43,23 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     label,
     size,
     category,
+    editable,
     getItemKey,
     getItemLabel,
     getItemValue,
     getItemIcon,
+    getListTitle,
     id,
     onChange,
     placeholder,
     options,
-    value,
     multiselect,
     variablesClassName,
-    listItemCategory
+    listItemCategory,
+    onStateChange
   } = props;
 
-  const [initialValue, setInitialValue] = useState(value);
-  const [selectedItem, setSelectedItem] = useState(selected);
+  const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : label || '');
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
@@ -83,36 +87,26 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     };
   }, [inputRef, isListOpen]);
 
-  const getItemSelected = item => {
-    if (multiselect && Array.isArray(item)) {
-      setInitialValue(
-        item
-          .map(item => getItemLabel(item))
-          .join(', ')
-          .replace(/^,|,$/g, '')
-      );
-    } else {
-      setInitialValue(getItemLabel(item));
-    }
-  };
-
-  useEffect(() => {
-    getItemSelected(selectedItem);
-  }, [selectedItem]);
-
   useEffect(() => {
     if (isListOpen && listRef && listRef.current) {
       listRef.current.style.top = height + 'px';
     }
   }, [height, isListOpen]);
 
+  const displayOptionsList = () => {
+    editable ? setIsListOpen(true) : setIsListOpen(!isListOpen);
+    if (editable && inputRef && inputRef.current) {
+      setInputPosition(inputRef.current.getBoundingClientRect());
+    }
+  };
+
   const cleanSuggestions = () => {
     setIsListOpen(false);
   };
 
-  const handleClick = (option: T) => {
-    onChange(option);
-    setSelectedItem(option);
+  const handleClick = (options: T | T[]) => {
+    onChange(options);
+    setListTitle(getListTitle(options));
     cleanSuggestions();
   };
 
@@ -145,16 +139,9 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     );
   };
 
-  const displayOptionsList = () => {
-    setIsListOpen(true);
-    if (inputRef && inputRef.current) {
-      setInputPosition(inputRef.current.getBoundingClientRect());
-    }
-  };
-
   const handleChangeInput = e => {
     const newValue = e.target.value;
-    setInitialValue(newValue);
+    setListTitle(newValue);
     setOptionsSuggestions(options.filter(item => getItemLabel(item).includes(newValue)));
     displayOptionsList();
   };
@@ -183,7 +170,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
         variablesClassName
       )}
       listItemCategory={listItemCategory}
-      selected={selectedItem}
+      selected={selected}
       multiselect={multiselect}
       id={`${id}-list`}
     />
@@ -191,23 +178,37 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
 
   return (
     <div className={classnames(variablesClassName, styles['dropdown-container'])}>
-      <Input
-        ref={inputRef}
-        id={id}
-        size={size}
-        placeholder={placeholder}
-        label={label}
-        value={initialValue}
-        onChange={handleChangeInput}
-        onFocus={() => setIsListOpen(hasSuggestions)}
-        onMouseEnter={() => setIsInputHovered(true)}
-        onMouseLeave={() => setIsInputHovered(false)}
-        variablesClassName={classnames(styles['dropdown-input'], variablesClassName)}
-        actionIcon={handleArrowIcon(isListOpen)}
-        withActionIcon
-        onClickActionIcon={handleListBehavior}
-        prepend={handleIconCategory()}
-      />
+      {editable ? (
+        <Input
+          ref={inputRef}
+          id={id}
+          size={size}
+          placeholder={placeholder}
+          label={label}
+          value={listTitle}
+          onChange={handleChangeInput}
+          onFocus={() => setIsListOpen(hasSuggestions)}
+          onMouseEnter={() => setIsInputHovered(true)}
+          onMouseLeave={() => setIsInputHovered(false)}
+          variablesClassName={classnames(styles['dropdown-input'], variablesClassName)}
+          actionIcon={handleArrowIcon(isListOpen)}
+          withActionIcon
+          onClickActionIcon={handleListBehavior}
+          prepend={handleIconCategory()}
+          onStateChange={state => onStateChange(state)}
+        />
+      ) : (
+        <Button
+          label={listTitle}
+          onClick={displayOptionsList}
+          variablesClassName={classnames(styles['dropdown-button'], variablesClassName)}
+          category='neutral'
+          size={size}
+          appendIcon={handleArrowIcon(isListOpen)}
+          withAppendIcon
+        />
+      )}
+
       {isListOpen && renderOptions()}
     </div>
   );
@@ -218,7 +219,8 @@ Dropdown.defaultProps = {
   size: largeSize,
   options: [],
   onChange: () => {},
-  listItemCategory: simpleCategory
+  listItemCategory: simpleCategory,
+  onStateChange: state => state
 };
 
 export default Dropdown;

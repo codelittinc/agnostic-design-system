@@ -23,7 +23,28 @@ export const DefaultDropdown = Template.bind({});
 DefaultDropdown.args = {
   category: 'simple',
   id: 'ads-dropdown',
-  valueKey: 'value',
+  size: 'large',
+  label: 'Dropdown',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label
+};
+
+export const EditableDropdown = Template.bind({});
+EditableDropdown.args = {
+  category: 'simple',
+  id: 'ads-dropdown',
   size: 'large',
   selected: {
     label: 'Option 2',
@@ -41,38 +62,15 @@ DefaultDropdown.args = {
   ],
   getItemLabel: item => item.label,
   getItemKey: item => item.value,
-  getItemValue: item => item.value
-};
-
-export const MultipleSelect = Template.bind({});
-MultipleSelect.args = {
-  category: 'simple',
-  id: 'ads-dropdown',
-  valueKey: 'value',
-  size: 'large',
-  selected: {},
-  options: [
-    {
-      label: 'Option 1',
-      value: '1'
-    },
-    {
-      label: 'Option 2',
-      value: '2'
-    }
-  ],
-  getItemLabel: item => item.label,
-  getItemKey: item => item.value,
   getItemValue: item => item.value,
-  multiselect: true
+  getListTitle: item => item.label,
+  editable: true
 };
 
 export const IconDropdown = Template.bind({});
 IconDropdown.args = {
   id: 'ads-dropdown',
   category: 'icon',
-  label: 'Some Label',
-  valueKey: 'value',
   size: 'large',
   listItemCategory: 'simple',
   selected: {
@@ -91,17 +89,18 @@ IconDropdown.args = {
   ],
   getItemLabel: item => item.label,
   getItemKey: item => item.value,
-  getItemValue: item => item.value
+  getItemValue: item => item.value,
+  getListTitle: item => item.label,
+  editable: true
 };
 
 export const CheckBoxDropdown = Template.bind({});
 CheckBoxDropdown.args = {
   id: 'ads-dropdown',
   category: 'simple',
-  valueKey: 'value',
   size: 'large',
   listItemCategory: 'checkbox',
-  selected: {},
+  label: 'Dropdown',
   options: [
     {
       label: 'Option 1',
@@ -115,5 +114,6 @@ CheckBoxDropdown.args = {
   getItemLabel: item => item.label,
   getItemKey: item => item.value,
   getItemValue: item => item.value,
+  getListTitle: () => 'Dropdown',
   multiselect: true
 };

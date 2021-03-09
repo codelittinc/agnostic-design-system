@@ -18,6 +18,8 @@ interface Props {
   onClick: () => void;
   size?: Size;
   variablesClassName?: string;
+  appendIcon?: React.ReactNode;
+  withAppendIcon?: boolean;
 }
 
 const buttons = {

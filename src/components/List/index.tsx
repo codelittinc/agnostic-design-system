@@ -56,7 +56,9 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
   const currentRef = ref || defaultRef;
 
   const selectedItemsList =
-    !multiselect || (multiselect && !Array.isArray(selected)) ? [selected] : selected;
+    !multiselect || (multiselect && !Array.isArray(selected))
+      ? [selected].filter(v => v)
+      : selected;
 
   const getSelectedItems = item => {
     if (multiselect && Array.isArray(selectedItemsList)) {
