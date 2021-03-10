@@ -1,0 +1,77 @@
+@import '../../styles/theme/index.css';
+
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.lds-spinner {
+  display: inline-block;
+  height: 5rem;
+  position: relative;
+  width: 1rem;
+}
+
+.lds-spinner-segment {
+  animation: lds-spinner 1.2s linear infinite;
+  transform-origin: 0.5rem 2.5rem;
+}
+
+.lds-spinner-segment::after {
+  content: ' ';
+  display: block;
+  height: 0.5rem;
+  left: 0.4375rem;
+  position: absolute;
+  top: 1.625rem;
+  width: 0.125rem;
+}
+
+.lds-spinner div::after {
+  background: var(--spinner-background, var(--structure-color-white));
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(1) {
+  animation-delay: -0.98s;
+  transform: rotate(0deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(2) {
+  animation-delay: -0.84s;
+  transform: rotate(45deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(3) {
+  animation-delay: -0.7s;
+  transform: rotate(90deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(4) {
+  animation-delay: -0.56s;
+  transform: rotate(135deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(5) {
+  animation-delay: -0.42s;
+  transform: rotate(180deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(6) {
+  animation-delay: -0.28s;
+  transform: rotate(225deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(7) {
+  animation-delay: -0.14s;
+  transform: rotate(270deg);
+}
+
+.lds-spinner .lds-spinner-segment:nth-child(8) {
+  animation-delay: 0s;
+  transform: rotate(315deg);
+}

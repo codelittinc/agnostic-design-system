@@ -1,0 +1,93 @@
+# Upload Avatar Component
+
+## Upload Avatar Props
+
+|        Prop        |       Type       |                 Default                  | Optional |
+| :----------------: | :--------------: | :--------------------------------------: | :------: |
+|     imageTypes     |     string[]     | ['image/jpeg', 'image/jpg', 'image/png'] |   true   |
+|      imageUrl      |      string      |                    -                     |   true   |
+|      maxSize       |      number      |                    10                    |   true   |
+|      onChange      | (e: any) => void |                    -                     |  false   |
+| variablesClassName |      string      |                    -                     |   true   |
+
+## Getting Started
+
+```javascript
+import React, { Component, useState } from 'react';
+import { UploadAvatar } from '@codelittinc/agnostic-design-system';
+
+class SimpleUploadAvatar extends Component {
+  const [value, setValue] = useState();
+
+  const handleChange = (e) => {
+    setValue(e.target?.files?.[0]);
+  }
+
+  render() {
+    return (
+      <UploadAvatar onChange={handleChange} />
+    );
+  }
+}
+
+export default SimpleUploadAvatar;
+
+```
+
+# Customazing styles
+
+For the [Upload Avatar](https://design-system.codelitt.dev//?path=/story/components-uploadavatar--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+
+**--upload-avatar-[property]?-[attribute]-[state]?**
+
+- Property - icon, message, button (optional)
+- Attribute - background-color, border, font, etc (required)
+- State - hover, empty, uploading (optional)
+
+1. Create the css class using our variables
+
+```css
+.my-avatar-css {
+  /* Component + Attribute */
+  --upload-avatar-border: 1px solid grey;
+
+  /* Component + Property + Attribute */
+  --upload-avatar-icon-color: black;
+
+  /* Component + Property + Attribute */
+  --upload-avatar-message-font-size: 20px;
+
+  /* Component + Property + Attribute + State */
+  --upload-avatar-border-hover: 1px solid black;
+}
+```
+
+2. Pass the css class through its `variablesClassName` property
+
+`<UploadAvatar variablesClassName={styles['my-avatar-css']} />`
+
+# Variables available
+
+| Property |    Attribute     |         State          |
+| :------: | :--------------: | :--------------------: |
+|          | background-color | hover, empty,uploading |
+|          |      border      | hover, empty,uploading |
+|          |  border-radius   | hover, empty,uploading |
+|          |    box-shadow    |                        |
+|          |      color       |         hover          |
+|          |   font-family    |                        |
+|          |    font-size     |                        |
+|          |      height      |                        |
+|          |   line-height    |                        |
+|          |      margin      |                        |
+|          |     pointer      |                        |
+|          |      width       |                        |
+|  button  | background-color |                        |
+|  button  |      color       |                        |
+|  button  |      cursor      |                        |
+|   icon   |      color       |         hover          |
+|   icon   |      margin      |                        |
+| message  |      color       |                        |
+| message  |   font-family    |                        |
+| message  |    font-size     |                        |
+| message  |   font-weight    |                        |

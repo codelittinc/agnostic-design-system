@@ -8,4 +8,5 @@ export { default as MapsProvider } from '@/components/MapsProvider';
 export { default as NumericInput } from '@/components/NumericInput';
 export { default as TextArea } from '@/components/TextArea';
 export { default as Toast } from '@/components/Toast';
+export { default as UploadAvatar } from '@/components/UploadAvatar';
 export * from '@/components/Grid';
