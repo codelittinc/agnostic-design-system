@@ -33,6 +33,7 @@ interface Props {
   onClickActionIcon: () => void;
   onStateChange: (state: boolean) => void;
   required?: boolean;
+  allowedCharsRegex?: RegExp;
 }
 
 const VALID = 'valid';
@@ -40,10 +41,7 @@ const INVALID = 'invalid';
 
 const getValidationState = valid => (valid ? VALID : INVALID);
 
-const matchesRegex = (value, validationRegex) => {
-  const regex = new RegExp(validationRegex);
-  return value.match(regex);
-};
+const matchesRegex = (value, regex) => value.match(new RegExp(regex));
 
 const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
@@ -72,6 +70,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     onClickActionIcon,
     onStateChange,
     required,
+    allowedCharsRegex,
     ...inputProps
   } = props;
   const [validationState, setValidationState] = useState('');
@@ -94,6 +93,16 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     }
   };
 
+  const applyFilter = e => {
+    let value = e.target.value;
+
+    if (allowedCharsRegex) {
+      value = value.match(allowedCharsRegex)?.join('') || '';
+    }
+
+    e.target.value = value;
+  };
+
   const handleBlur = event => {
     onBlur && onBlur();
     validate(event, valid => {
@@ -114,6 +123,8 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   };
 
   const handleChange = e => {
+    applyFilter(e);
+
     onChange(e);
     validate(e, valid => {
       onStateChange(valid);
@@ -209,7 +220,8 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 Input.defaultProps = {
   size: 'large',
   onFocus: () => {},
-  onStateChange: state => state
+  onStateChange: state => state,
+  onChange: e => e
 };
 
 export default Input;

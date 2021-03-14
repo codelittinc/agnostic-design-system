@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   disabled?: boolean;
   id: string;
+  allowedCharsRegex: RegExp;
   label?: string;
   message?: string;
   onChange: (e: any) => void;

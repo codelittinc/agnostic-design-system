@@ -88,3 +88,10 @@ WithCustomActionIcon.args = {
   withActionIcon: true,
   onClickActionIcon: () => alert('custom action icon was clicked')
 };
+
+export const WithFilter = Template.bind({});
+WithFilter.args = {
+  placeholder: "You can't type a number.",
+  allowedCharsRegex: /[a-zA-Z]/g,
+  onClickActionIcon: () => alert('custom action icon was clicked')
+};
