@@ -120,7 +120,7 @@
   line-height: var(--input-label-line-height, var(--paragraph-l-line-height));
   color: var(--input-label-color, var(--structure-color-800));
   display: flex;
-  margin: var(--list-label-margin, 0);
+  margin: var(--input-label-margin, 0);
   width: 100%;
 }
 
@@ -131,7 +131,7 @@
   font-size: var(--input-description-font-size, var(--paragraph-m));
   font-weight: var(--input-description-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-description-line-height, var(--paragraph-m-line-height));
-  margin: var(--list-description-margin, 0);
+  margin: var(--input-description-margin, 0);
   width: 100%;
 }
 
@@ -142,7 +142,7 @@
   font-size: var(--input-message-font-size, var(--paragraph-m));
   font-weight: var(--input-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-message-line-height, var(--paragraph-m-line-height));
-  margin: var(--list-description-margin, 0);
+  margin: var(--input-description-margin, 0);
   width: 100%;
 }
 
