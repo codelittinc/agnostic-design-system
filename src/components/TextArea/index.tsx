@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import styles from '@/components/TextArea/TextArea.css';
 
 type Size = 'large' | 'medium';
-type State = '' | 'valid' | 'invalid';
 
 interface Props {
   description?: string;
@@ -14,13 +13,16 @@ interface Props {
   message?: string;
   onBlur?: () => void;
   onChange: (e: any) => void;
+  onStateChange: (state: boolean) => void;
   placeholder?: string;
   size: Size;
-  state?: State;
   value?: string;
   variablesClassName?: string;
   required?: boolean;
 }
+
+const VALID = 'valid';
+const INVALID = 'invalid';
 
 const TextArea: React.FC<Props> = props => {
   const {
@@ -31,15 +33,16 @@ const TextArea: React.FC<Props> = props => {
     message,
     onBlur,
     onChange,
+    onStateChange,
     placeholder,
     size,
-    state,
     value,
     variablesClassName,
     required,
     ...textareaProps
   } = props;
-  const [stateTextArea, setStateTextArea] = useState(state);
+  const [stateTextArea, setStateTextArea] = useState('');
+  const [stateChange, setStateChange] = useState(true);
   const sizeClass = `textarea--${size}`;
   const messageClass = 'textarea--message';
   const messageValidateClass = stateTextArea !== '' ? `textarea--message-${stateTextArea}` : '';
@@ -47,18 +50,20 @@ const TextArea: React.FC<Props> = props => {
   const descriptionClass = 'textarea--description';
   const labelClass = 'textarea--label';
 
-  const validateRequired = value => {
-    const regex = new RegExp('.+');
-    return value.match(regex);
-  };
+  const validateRequired = value => value.match(new RegExp('.+'));
 
   const handleRequired = value => {
-    validateRequired(value) ? setStateTextArea('valid') : setStateTextArea('invalid');
+    validateRequired(value) ? setStateTextArea(VALID) : setStateTextArea(INVALID);
   };
+
+  useEffect(() => {
+    required && setStateChange(stateTextArea === VALID);
+  }, [stateTextArea]);
 
   const handleOnChange = e => {
     onChange(e);
     required && handleRequired(e.target.value);
+    onStateChange(stateChange);
   };
 
   const handleOnBlur = e => {
@@ -103,7 +108,7 @@ const TextArea: React.FC<Props> = props => {
 
 TextArea.defaultProps = {
   size: 'large',
-  state: ''
+  onStateChange: state => state
 };
 
 export default TextArea;

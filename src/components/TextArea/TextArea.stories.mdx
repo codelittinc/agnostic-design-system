@@ -2,27 +2,27 @@
 
 ## TextArea Props
 
-|        Prop        |       Type       | Default | Optional |
-| :----------------: | :--------------: | :-----: | :------: |
-|    description     |      string      |    -    |   true   |
-|      disabled      |     boolean      |    -    |   true   |
-|         id         |      string      |    -    |  false   |
-|       label        |      string      |    -    |   true   |
-|      message       |      string      |    -    |   true   |
-|       onBlur       |    () => void    |    -    |   true   |
-|      onChange      | (e: any) => void |    -    |  false   |
-|    placeholder     |      string      |    -    |   true   |
-|      required      |     boolean      |    -    |   true   |
-|        size        |       Size       |  large  |   true   |
-|       state        |      State       |    -    |   true   |
-|       value        |      string      |    -    |  false   |
-| variablesClassName |      string      |    -    |   true   |
+|        Prop        |           Type           | Default | Optional |
+| :----------------: | :----------------------: | :-----: | :------: |
+|    description     |          string          |    -    |   true   |
+|      disabled      |         boolean          |    -    |   true   |
+|         id         |          string          |    -    |  false   |
+|       label        |          string          |    -    |   true   |
+|      message       |          string          |    -    |   true   |
+|       onBlur       |        () => void        |    -    |   true   |
+|      onChange      |     (e: any) => void     |    -    |  false   |
+|   onStateChange    | (state: boolean) => void |    -    |   true   |
+|    placeholder     |          string          |    -    |   true   |
+|      required      |         boolean          |    -    |   true   |
+|        size        |           Size           |  large  |   true   |
+|       value        |          string          |    -    |  false   |
+| variablesClassName |          string          |    -    |   true   |
 
-**States availables:**
+**Props**
 
-1. [default:('')](https://design-system.codelitt.dev/?path=/story/components-text-area--default)
-2. [valid](https://design-system.codelitt.dev/?path=/story/components-text-area--positive)
-3. [invalid](https://design-system.codelitt.dev/?path=/story/components-text-area--negative)
+|     Property      | Description                                                             |
+| :---------------: | :---------------------------------------------------------------------- |
+| **onStateChange** | It returns a boolean on **onChange** event when **required** be applied |
 
 **Sizes**
 
