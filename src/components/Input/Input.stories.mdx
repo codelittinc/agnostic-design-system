@@ -7,7 +7,7 @@
 |      actionIcon      |      React.ReactNode      |    -     |   true   |
 |     description      |          string           |    -     |   true   |
 |       disabled       |          boolean          |    -     |   true   |
-|  allowedCharsRegex   |          regex            |    -     |   true   |
+|  allowedCharsRegex   |           regex           |    -     |   true   |
 |          id          |          string           |    -     |  false   |
 |    invalidMessage    |          string           |    -     |   true   |
 |       isValid        |  (value: any) => boolean  |   true   |   true   |
@@ -81,7 +81,7 @@ For the [Input](https://design-system.codelitt.dev/?path=/story/components-input
 
 - Property - description, label, message, placeholder, prepend (optional)
 - Attribute - background-color, border, font, etc (required)
-- State - hover, focus, active, disabled, positive, negative (optional)
+- State - hover, focus, active, positive, negative (optional)
 
 1. Create the css class using our variables
 
@@ -107,54 +107,57 @@ For the [Input](https://design-system.codelitt.dev/?path=/story/components-input
 
 # Variables available
 
-|  Property   |    Attribute     |                       State                        |
-| :---------: | :--------------: | :------------------------------------------------: |
-|             | background-color |           hover, focus, active, disabled           |
-|             |      border      | hover, focus, active, disabled, positive, negative |
-|             |  border-radius   |                                                    |
-|             |    box-shadow    |                                                    |
-|             |      color       |                                                    |
-|             |     display      |                                                    |
-|             |  flex-direction  |                                                    |
-|             |   font-family    |                                                    |
-|             |    font-size     |                                                    |
-|             |   font-weight    |                                                    |
-|             |      height      |                                                    |
-|             |   line-height    |                                                    |
-|             |      margin      |                                                    |
-|             |     outline      |                      focus\*                       |
-|             |     padding      |                                                    |
-|             |      width       |                                                    |
-| action-icon | background-color |                                                    |
-| action-icon |      color       |                   hover, active                    |
-| action-icon |      cursor      |                                                    |
-| action-icon |      margin      |                                                    |
-| description |      color       |                                                    |
-| description |   font-family    |                                                    |
-| description |    font-size     |                                                    |
-| description |   font-weight    |                                                    |
-| description |   line-height    |                                                    |
-| description |      height      |                                                    |
-| description |      margin      |                                                    |
-|    label    |      color       |                                                    |
-|    label    |   font-family    |                                                    |
-|    label    |    font-size     |                                                    |
-|    label    |   font-weight    |                                                    |
-|    label    |   line-height    |                                                    |
-|    label    |      height      |                                                    |
-|    label    |      margin      |                                                    |
-|   message   |      color       |                 positive, negative                 |
-|   message   |   font-family    |                                                    |
-|   message   |    font-size     |                                                    |
-|   message   |   font-weight    |                                                    |
-|   message   |   line-height    |                                                    |
-|   message   |      height      |                                                    |
-|   message   |      margin      |                                                    |
-| placeholder |      color       |                                                    |
-| placeholder |   font-family    |                                                    |
-| placeholder |    font-size     |                                                    |
-| placeholder |   font-weight    |                                                    |
-|   prepend   | background-color |             hover, positive, negative              |
-|   prepend   |       left       |                                                    |
-|   prepend   |     padding      |                                                    |
-|   prepend   |   padding-left   |                                                    |
+|  Property   |    Attribute     |                  State                   |
+| :---------: | :--------------: | :--------------------------------------: |
+|             | background-color |           hover, focus, active           |
+|             |  border-bottom   | hover, focus, active, positive, negative |
+|             |   border-left    | hover, focus, active, positive, negative |
+|             |   border-right   | hover, focus, active, positive, negative |
+|             |    border-top    | hover, focus, active, positive, negative |
+|             |  border-radius   |                                          |
+|             |    box-shadow    |                                          |
+|             |      color       |                                          |
+|             |     display      |                                          |
+|             |  flex-direction  |                                          |
+|             |   font-family    |                                          |
+|             |    font-size     |                                          |
+|             |   font-weight    |                                          |
+|             |      height      |                                          |
+|             |   line-height    |                                          |
+|             |      margin      |                                          |
+|             |     outline      |                 focus\*                  |
+|             |     padding      |                                          |
+|             |      width       |                                          |
+| action-icon | background-color |                                          |
+| action-icon |      color       |              hover, active               |
+| action-icon |      cursor      |                                          |
+| action-icon |      margin      |                                          |
+| description |      color       |                                          |
+| description |   font-family    |                                          |
+| description |    font-size     |                                          |
+| description |   font-weight    |                                          |
+| description |   line-height    |                                          |
+| description |      height      |                                          |
+| description |      margin      |                                          |
+|    label    |      color       |                                          |
+|    label    |   font-family    |                                          |
+|    label    |    font-size     |                                          |
+|    label    |   font-weight    |                                          |
+|    label    |   line-height    |                                          |
+|    label    |      height      |                                          |
+|    label    |      margin      |                                          |
+|   message   |      color       |            positive, negative            |
+|   message   |   font-family    |                                          |
+|   message   |    font-size     |                                          |
+|   message   |   font-weight    |                                          |
+|   message   |   line-height    |                                          |
+|   message   |      height      |                                          |
+|   message   |      margin      |                                          |
+| placeholder |      color       |                                          |
+| placeholder |   font-family    |                                          |
+| placeholder |    font-size     |                                          |
+| placeholder |   font-weight    |                                          |
+|   prepend   | background-color |        hover, positive, negative         |
+|   prepend   |       left       |                                          |
+|   prepend   |     padding      |                                          |
+|   prepend   |   padding-left   |                                          |

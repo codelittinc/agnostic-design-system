@@ -5,7 +5,7 @@
   --input-font-family: 'Inter';
   --input-border: 1px solid var(--structure-color-300);
   --input-border-active: 1px solid var(--primary-color-500);
-  --input-border-focus: 2px solid var(--primary-color-500);
+  --input-border-focus: 1px solid var(--primary-color-500);
   --input-border-hover: 1px solid var(--primary-color-300);
   --input-border-negative: 1px solid var(--error-color);
   --input-border-positive: 1px solid var(--success-color);
@@ -23,8 +23,11 @@
 
 .input {
   background-color: var(--input-background-color);
-  border: var(--input-border);
+  border-bottom: var(--input-border-bottom, var(--input-border));
+  border-left: var(--input-border-left, var(--input-border));
   border-radius: var(--input-border-radius, var(--round-m));
+  border-right: var(--input-border-right, var(--input-border));
+  border-top: var(--input-border-top, var(--input-border));
   box-shadow: var(--input-box-shadow, none);
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
@@ -54,20 +57,29 @@
 
 .input:hover {
   background-color: var(--input-background-color-hover, var(--input-background-color));
-  border: var(--input-border-hover, var(--input-border));
+  border-bottom: var(--input-border-bottom-hover, var(--input-border-hover, var(--input-border)));
+  border-left: var(--input-border-left-hover, var(--input-border-hover, var(--input-border)));
+  border-right: var(--input-border-right-hover, var(--input-border-hover, var(--input-border)));
+  border-top: var(--input-border-top-hover, var(--input-border-hover, var(--input-border)));
   color: var(--input-color-hover, var(--input-color));
 }
 
 .input:active {
   background-color: var(--input-background-color-active, var(--input-background-color));
-  border: var(--input-border-active, var(--input-border));
+  border-bottom: var(--input-border-bottom-active, var(--input-border-active, var(--input-border)));
+  border-left: var(--input-border-left-active, var(--input-border-active, var(--input-border)));
+  border-right: var(--input-border-right-active, var(--input-border-active, var(--input-border)));
+  border-top: var(--input-border-top-active, var(--input-border-active, var(--input-border)));
   color: var(--input-color-active, var(--input-color));
 }
 
 .input:focus {
   background-color: var(--input-background-color-focus, var(--input-background-color));
   outline: var(--input-outline-focus, none);
-  border: var(--input-border-focus, var(--input-border));
+  border-bottom: var(--input-border-bottom-focus, var(--input-border-focus, var(--input-border)));
+  border-left: var(--input-border-left-focus, var(--input-border-focus, var(--input-border)));
+  border-right: var(--input-border-right-focus, var(--input-border-focus, var(--input-border)));
+  border-top: var(--input-border-top-focus, var(--input-border-focus, var(--input-border)));
   color: var(--input-color-focus, var(--input-color));
 }
 
@@ -76,8 +88,10 @@
     --input-prepend-background-color-hover,
     var(--input-prepend-background-color)
   );
-  border: var(--input-border-hover, none);
+  border-bottom: var(--input-border-bottom-hover, var(--input-border-hover, none));
+  border-left: var(--input-border-left-hover, var(--input-border-hover, none));
   border-right: none;
+  border-top: var(--input-border-top-hover, var(--input-border-hover, none));
 }
 
 .input:hover + .input--prepend.input--prepend-with-separator {
@@ -85,8 +99,10 @@
     --input-prepend-background-color-hover,
     var(--input-prepend-background-color)
   );
-  border: var(--input-border-hover, var(--input-border));
+  border-bottom: var(--input-border-bottom-hover, var(--input-border-hover, var(--input-border)));
+  border-left: var(--input-border-left-hover, var(--input-border-hover, var(--input-border)));
   border-right: none;
+  border-top: var(--input-border-top-hover, var(--input-border-hover, var(--input-border)));
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator {
@@ -94,8 +110,10 @@
     --input-prepend-background-color-focus,
     var(--input-prepend-background-color)
   );
-  border: var(--input-border-focus, var(--input-border));
+  border-bottom: var(--input-border-bottom-focus, var(--input-border-focus, var(--input-border)));
+  border-left: var(--input-border-left-focus, var(--input-border-focus, var(--input-border)));
   border-right: none;
+  border-top: var(--input-border-top-focus, var(--input-border-focus, var(--input-border)));
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator-large {
@@ -155,11 +173,17 @@
 }
 
 .input.input--valid {
-  border: var(--input-border-positive);
+  border-bottom: var(--input-border-bottom-positive, var(--input-border-positive));
+  border-left: var(--input-border-left-positive, var(--input-border-positive));
+  border-right: var(--input-border-right-positive, var(--input-border-positive));
+  border-top: var(--input-border-top-positive, var(--input-border-positive));
 }
 
 .input.input--invalid {
-  border: var(--input-border-negative);
+  border-bottom: var(--input-border-bottom-negative, var(--input-border-negative));
+  border-left: var(--input-border-left-negative, var(--input-border-negative));
+  border-right: var(--input-border-right-negative, var(--input-border-negative));
+  border-top: var(--input-border-top-negative, var(--input-border-negative));
 }
 
 .input.input--valid + .input--prepend.input--prepend-with-separator {
@@ -167,8 +191,10 @@
     --input-prepend-background-color-positive,
     var(--input-prepend-background-color)
   );
-  border: var(--input-border-positive);
+  border-bottom: var(--input-border-bottom-positive, var(--input-border-positive));
+  border-left: var(--input-border-left-positive, var(--input-border-positive));
   border-right: none;
+  border-top: var(--input-border-top-positive, var(--input-border-positive));
 }
 
 .input.input--invalid + .input--prepend.input--prepend-with-separator {
@@ -176,8 +202,10 @@
     --input-prepend-background-color-negative,
     var(--input-prepend-background-color)
   );
-  border: var(--input-border-negative);
+  border-bottom: var(--input-border-bottom-negative, var(--input-border-negative));
+  border-left: var(--input-border-left-negative, var(--input-border-negative));
   border-right: none;
+  border-top: var(--input-border-top-negative, var(--input-border-negative));
 }
 
 .input--container {
@@ -197,10 +225,12 @@
 .input--prepend.input--prepend-with-separator {
   align-items: center;
   background-color: var(--input-prepend-background-color, var(--input-background-color));
-  border: var(--input-border);
+  border-bottom: var(--input-border-bottom, var(--input-border));
+  border-left: var(--input-border-left, var(--input-border));
   border-radius: var(--input-border-radius, var(--round-m)) 0 0
-    var(--input-border-radius, var(--round-m));
+  var(--input-border-radius, var(--round-m));
   border-right: none;
+  border-top: var(--input-border-top, var(--input-border));
   left: 0;
   padding: var(--input-prepend-padding, 0 18px);
   width: auto;
