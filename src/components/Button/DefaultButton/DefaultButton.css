@@ -19,8 +19,10 @@
   cursor: var(--button-cursor, pointer);
   display: var(--button-display, flex);
   font-family: var(--button-font-family, 'Inter');
+  height: var(--button-height);
   justify-content: var(--button-justify-content, initial);
   margin: var(--button-margin, none);
+  width: var(--button-width);
 }
 
 .button:hover {

@@ -1,0 +1,18 @@
+@import '../../styles/theme/index.css';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  --button-margin: 10px;
+}
+
+.selected {
+  --button-color: var(--button-color-selected, var(--structure-color-white));
+  --button-color-focus: var(--button-color-selected, var(--structure-color-white));
+  --button-background-color: var(--button-background-color-selected, var(--secondary-color-500));
+  --button-border: var(--button-border-selected, var(--secondary-color-500));
+}

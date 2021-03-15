@@ -1,0 +1,49 @@
+# ButtonsList Component
+The ButtonsList component is based on the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component
+
+## ButtonsList Props
+
+|        Prop        |                    Type                    | Default | Optional |
+| :----------------: | :----------------------------------------: | :-----: | :------: |
+|         id         |                   string                   |    -    |  false   |
+|       getItem      |        (item: T) => React.ReactNode        |    -    |  false   |
+|      getItemKey    |             (item: T) => string            |    -    |  false   |
+|      onChange      |                (e: T) => void              |    -    |  false   |
+|       options      |                    T[]                     |    -    |  false   |
+|       selected     |                     T                      |    -    |   true   |
+| variablesClassName |                   string                   |    -    |   true   |
+
+## Getting Started
+
+```javascript
+import React, { Component, useState } from 'react';
+import { ButtonsList } from '@codelittinc/agnostic-design-system';
+
+const MyButtonsList = () =>{
+  const [selectedItem, setSelectedItem] = useState();
+
+  const options = [
+    { name: 'Software', id: 'Software' },
+    { name: 'Financing', id: 'Financing' },
+    { name: 'Retail', id: 'Retail' },
+    { name: 'Pet', id: 'Pet' },
+    { name: 'Law', id: 'Law' }
+  ];
+
+  render() {
+    return (
+      <ButtonsList
+        onChange={setSelectedItem}
+        selected={selectedItem}
+        options={options}
+      />
+    );
+  }
+}
+
+export default MyButtonsList;
+```
+
+# Customazing styles
+
+We are basing this component in the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component. We use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page). Please check the docs to see the variables you can customize.
