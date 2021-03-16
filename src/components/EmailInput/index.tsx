@@ -32,7 +32,7 @@ interface Props {
   onStateChange?: (state: boolean) => void;
 }
 
-const EMAIL_REGEX = '([a-zA-Z0-9.-]+@[a-zA-Z0-9.]+)';
+const EMAIL_REGEX = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
 
 const EmailInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { ...inputProps } = props;
