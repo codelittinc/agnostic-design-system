@@ -15,6 +15,38 @@ interface Props {
   withAppendIcon?: boolean;
 }
 
+const getAppendIcon = (appendIcon, size) => {
+  const largeIcon = size === 'large';
+  const sizeWidthIcon = largeIcon ? 8 : 6;
+  const sizeHeightIcon = largeIcon ? 14 : 10;
+
+  return (
+    appendIcon ? (
+      <>{appendIcon}</>
+    ) : (
+        <DefaultAppendIcon
+          className={classNames(styles['button--append-icon'])}
+          height={sizeHeightIcon}
+          width={sizeWidthIcon}
+        />
+      )
+  )
+};
+
+const getButtonContent = (label, withAppendIcon, appendIcon, size) => {
+  return (
+    <>
+      {label ? <span className={classNames(styles['button--label'])}>{label}</span> : ''}
+
+      {withAppendIcon && (
+        <div className={classNames(styles['button--append-icon-container'])}>
+          {getAppendIcon(appendIcon, size)}
+        </div>
+      )}
+    </>
+  )
+}
+
 const DefaultButton: React.FC<Props> = props => {
   const {
     className,
@@ -29,22 +61,6 @@ const DefaultButton: React.FC<Props> = props => {
   } = props;
 
   const sizeClass = `button--${size}`;
-
-  const largeIcon = props.size === 'large';
-  const sizeWidthIcon = largeIcon ? 8 : 6;
-  const sizeHeightIcon = largeIcon ? 14 : 10;
-
-  const getAppendIcon = appendIcon => {
-    return appendIcon ? (
-      <>{appendIcon}</>
-    ) : (
-      <DefaultAppendIcon
-        className={classNames(styles['button--append-icon'])}
-        height={sizeHeightIcon}
-        width={sizeWidthIcon}
-      />
-    );
-  };
 
   return (
     <button
@@ -61,13 +77,7 @@ const DefaultButton: React.FC<Props> = props => {
         variablesClassName
       )}
     >
-      {label ? <span className={classNames(styles['button--label'])}>{label}</span> : ''}
-
-      {withAppendIcon && (
-        <div className={classNames(styles['button--append-icon-container'])}>
-          {getAppendIcon(appendIcon)}
-        </div>
-      )}
+      {getButtonContent(label, withAppendIcon, appendIcon, size)}
     </button>
   );
 };
