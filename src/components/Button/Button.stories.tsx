@@ -72,3 +72,14 @@ WithoutLabelWithAppendIcon.args = {
   category: 'primary',
   withAppendIcon: true
 };
+
+export const WithCustomContent = Template.bind({});
+WithCustomContent.args = {
+  category: 'secondary',
+  content: (
+    <div>
+      <TestSearchIcon />
+      <div>Text</div>
+    </div>
+  )
+};

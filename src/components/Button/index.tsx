@@ -11,14 +11,15 @@ type Category = 'ghost' | 'negative' | 'neutral' | 'positive' | 'primary' | 'sec
 type Size = 'large' | 'medium';
 
 interface Props {
-  disabled?: boolean;
-  label?: string;
+  appendIcon?: React.ReactNode;
   category?: Category;
+  content?: React.ReactNode;
+  disabled?: boolean;
   fixed?: boolean;
+  label?: string;
   onClick: () => void;
   size?: Size;
   variablesClassName?: string;
-  appendIcon?: React.ReactNode;
   withAppendIcon?: boolean;
 }
 
