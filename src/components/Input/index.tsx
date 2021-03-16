@@ -41,7 +41,7 @@ const INVALID = 'invalid';
 
 const getValidationState = valid => (valid ? VALID : INVALID);
 
-const matchesRegex = (value, regex) => value.match(new RegExp(regex));
+const testsRegex = (value, regex) => new RegExp(regex).test(value);
 
 const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
@@ -81,8 +81,8 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const validate = (event, callback) => {
     const newValue = event.target.value;
-    const hasValue = matchesRegex(newValue, '.+');
-    const matchesValidationRegex = matchesRegex(newValue, validationRegex || '.*');
+    const hasValue = testsRegex(newValue, '.+');
+    const matchesValidationRegex = testsRegex(newValue, validationRegex || '.*');
     if (required && validationRegex) {
       const valid = hasValue && matchesValidationRegex;
       callback(valid);
