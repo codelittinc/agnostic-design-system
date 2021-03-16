@@ -4,11 +4,11 @@
 
 |        Prop        |                                                                       Type                                                                       | Default | Optional |
 | :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :------: |
-|     dropdownId     |                                                                      string                                                                      |    -    |  false   |
-|      inputId       |                                                                      string                                                                      |    -    |  false   |
+|    getListTitle    |                                         (selected: google.maps.places.AutocompletePrediction) => string                                          |    -    |  false   |
+|         id         |                                                                      string                                                                      |    -    |  false   |
 |      onChange      | ([suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)) => void |    -    |  false   |
 |    placeholder     |                                                                      string                                                                      |    -    |   true   |
-|       value        |                                                                      string                                                                      |    -    |  false   |
+|      selected      |                                                    google.maps.places.AutocompletePrediction                                                     |    -    |  false   |
 | variablesClassName |                                                                      string                                                                      |    -    |   true   |
 
 **onChange**
@@ -26,19 +26,18 @@ import React, { Component, useState } from 'react';
 import { AddressSearch, MapsProvider } from '@codelittinc/agnostic-design-system';
 
 class SimpleAddressSearch extends Component {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState();
 
   render() {
     return (
       <MapsProvider apiKey={GOOGLE_API_KEY}>
         <AddressSearch
-          value={value}
+          selected={value}
           onChange={value => {
-            setValue(value ? value.description : ''); //for this case I want to use the Description property
+            setValue(value);
           }}
           placeholder='Enter Address'
-          inputId='address-input'
-          dropdownId='address-list'
+          id='ads-address-search'
         />
       </MapsProvider>
     );
@@ -56,7 +55,7 @@ For the [AddressSearch](https://design-system.codelitt.dev/?path=/story/componen
 
 - Attribute - background-color, border, font, etc (required)
 
-**Important:** The AddressSearch component is composed of 2 other components: [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list), you will be able to use their variables to customize this component.
+**Important:** The AddressSearch component is based on the editable [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) component and you will be able to use its variables to customize this component.
 
 1. Create the css class using our variables
 
@@ -83,7 +82,7 @@ For the [AddressSearch](https://design-system.codelitt.dev/?path=/story/componen
 
 `<AddressSearch variablesClassName={styles['my-address-css']} />`
 
-# Variables available
+# Variables from the Dropdown initially set up in the Address component
 
 | Property |   Attribute   | State |
 | :------: | :-----------: | :---: |

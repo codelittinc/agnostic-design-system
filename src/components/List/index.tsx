@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
-import isEqual from 'lodash.isequal';
+import { isEqual } from 'lodash';
 
 import styles from '@/components/List/List.css';
 

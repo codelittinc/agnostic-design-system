@@ -15,19 +15,18 @@ export default {
 } as Meta;
 
 const Template = args => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<google.maps.places.AutocompletePrediction>();
 
   return (
     <MapsProvider apiKey={process.env.STORYBOOK_GOOGLE_API_KEY}>
       <AddressSearch
         {...args}
-        value={value}
+        selected={value}
         onChange={value => {
-          setValue(value ? value.description : '');
+          setValue(value);
         }}
         placeholder='Enter Address'
-        inputId='search-address'
-        dropdownId='search-suggestion-list'
+        id='ads-address-search'
       />
     </MapsProvider>
   );

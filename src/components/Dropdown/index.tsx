@@ -18,8 +18,10 @@ const simpleCategory = 'simple';
 interface Props<T> {
   category: Category;
   description?: string;
+  disabled?: boolean;
   editable?: boolean;
-  getListTitle: (selected?: T | T[]) => string;
+  filterOptions?: (options: T | T[]) => T | T[];
+  getListTitle: (selected: T | T[]) => string;
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
   getItemIcon?: (item?: T) => React.ReactNode;
@@ -29,8 +31,9 @@ interface Props<T> {
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
   onChange: (item?: T | T[]) => void;
+  onInputChange?: (e: any) => void;
   onStateChange: (state: boolean) => void;
-  options: [T];
+  options: T[];
   placeholder?: string;
   selected?: T[] | T;
   size: Size;
@@ -41,8 +44,10 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
   const {
     selected,
     label,
+    disabled,
     size,
     category,
+    filterOptions,
     editable,
     getItemKey,
     getItemLabel,
@@ -51,6 +56,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     getListTitle,
     id,
     onChange,
+    onInputChange,
     placeholder,
     options,
     multiselect,
@@ -59,14 +65,16 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     onStateChange
   } = props;
 
+  const defaultFilter = options => options.filter(item => getItemLabel(item).includes(listTitle));
+
   const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : label || '');
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
   const [{ height }, setInputPosition] = useState({ height: 0 });
-  const [optionsSuggestions, setOptionsSuggestions] = useState<T[]>(options);
   const [isInputHovered, setIsInputHovered] = useState(false);
-  const hasSuggestions = optionsSuggestions.length > 0;
+  const filteredOptions = editable ? (filterOptions || defaultFilter)(options) : options;
+  const hasSuggestions = filteredOptions.length > 0;
   const iconCategory = 'icon';
 
   useEffect(() => {
@@ -140,9 +148,9 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
   };
 
   const handleChangeInput = e => {
+    onInputChange && onInputChange(e);
     const newValue = e.target.value;
     setListTitle(newValue);
-    setOptionsSuggestions(options.filter(item => getItemLabel(item).includes(newValue)));
     displayOptionsList();
   };
 
@@ -154,7 +162,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     <List<T>
       ref={listRef}
       size={size}
-      options={optionsSuggestions}
+      options={filteredOptions}
       onChange={item => {
         item && handleClick(item);
       }}
@@ -184,6 +192,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
           id={id}
           size={size}
           placeholder={placeholder}
+          disabled={disabled}
           label={label}
           value={listTitle}
           onChange={handleChangeInput}
@@ -200,6 +209,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
       ) : (
         <Button
           label={listTitle}
+          disabled={disabled}
           onClick={displayOptionsList}
           variablesClassName={classnames(styles['dropdown-button'], variablesClassName)}
           category='neutral'
