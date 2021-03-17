@@ -95,3 +95,11 @@ WithFilter.args = {
   allowedCharsRegex: /[a-zA-Z]/g,
   onClickActionIcon: () => alert('custom action icon was clicked')
 };
+
+export const WithCustomValidation = Template.bind({});
+WithCustomValidation.args = {
+  placeholder: 'Place your codelitt email',
+  invalidMessage: 'It needs to be a Codelitt email',
+  validationRegex: '([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+)',
+  customValidation: value => value.match(/.*codelitt.*/)
+};

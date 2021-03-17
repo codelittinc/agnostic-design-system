@@ -8,32 +8,33 @@ import DefaultActionIcon from '@/assets/images/icons/web/close-icon.svg';
 type Size = 'large' | 'medium';
 
 interface Props {
+  actionIcon?: React.ReactNode;
+  allowedCharsRegex?: RegExp;
+  customValidation?: (value: string) => boolean;
   description?: string;
   disabled?: boolean;
   id: string;
+  invalidMessage?: string;
   label?: string | React.ReactNode;
+  limit?: number;
   message?: string;
+  onBlur?: () => void;
   onChange: (e: any) => void;
+  onClickActionIcon: () => void;
   onFocus: () => void;
   onKeyDown?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
-  onBlur?: () => void;
+  onStateChange: (state: boolean) => void;
   placeholder?: string;
+  prepend?: React.ReactNode;
+  required?: boolean;
   size: Size;
   value?: string;
-  variablesClassName?: string;
   validationRegex?: string;
-  invalidMessage?: string;
-  limit?: number;
-  prepend?: React.ReactNode;
-  withPrependSeparator?: boolean;
-  actionIcon?: React.ReactNode;
+  variablesClassName?: string;
   withActionIcon?: boolean;
-  onClickActionIcon: () => void;
-  onStateChange: (state: boolean) => void;
-  required?: boolean;
-  allowedCharsRegex?: RegExp;
+  withPrependSeparator?: boolean;
 }
 
 const VALID = 'valid';
@@ -71,6 +72,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     onStateChange,
     required,
     allowedCharsRegex,
+    customValidation,
     ...inputProps
   } = props;
   const [validationState, setValidationState] = useState('');
@@ -79,18 +81,20 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const messageValidateClass = `input--message-${validationState}`;
   const statusClass = `input--${validationState}`;
 
-  const validate = (event, callback) => {
+  const validate = (event, isValueValid, callback) => {
     const newValue = event.target.value;
     const hasValue = testsRegex(newValue, '.+');
     const matchesValidationRegex = testsRegex(newValue, validationRegex || '.*');
-    if (required && validationRegex) {
-      const valid = hasValue && matchesValidationRegex;
-      callback(valid);
-    } else if (validationRegex) {
-      callback(matchesValidationRegex);
-    } else if (required) {
-      callback(hasValue);
+    const customValid = isValueValid(newValue);
+
+    const valid = matchesValidationRegex && customValid;
+
+    if (required) {
+      callback(hasValue && valid);
+      return;
     }
+
+    callback(valid);
   };
 
   const applyFilter = e => {
@@ -105,7 +109,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const handleBlur = event => {
     onBlur && onBlur();
-    validate(event, valid => {
+    validate(event, customValidation, valid => {
       setValidationState(getValidationState(valid));
     });
   };
@@ -126,7 +130,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     applyFilter(e);
 
     onChange(e);
-    validate(e, valid => {
+    validate(e, customValidation, valid => {
       onStateChange(valid);
     });
   };
@@ -221,7 +225,8 @@ Input.defaultProps = {
   size: 'large',
   onFocus: () => {},
   onStateChange: state => state,
-  onChange: e => e
+  onChange: e => e,
+  customValidation: () => true
 };
 
 export default Input;
