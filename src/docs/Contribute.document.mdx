@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Welcome/How to Contribute' />
+
+# Before Getting Started
+
+This section covers the standard to be followed whenever creating the documentation for any of the three different types of components
+used in the Agnostic Design System:
+
+| Component Type |                        Description                        |         Example          |
+| :------------: | :-------------------------------------------------------: | :----------------------: |
+|     Simple     |                    a single component                     |      Button, Input       |
+|   Decorator    |   adds aditional functionalities to a Simple component    | NumericInput, EmailInput |
+|   Composite    | composed of multiple Simple/Decorators in its composition |           List           |
+
+As an **IMPORTANT OBSERVATION**: whenever a component is updated, whether by adding an additional property, updating a CSS
+variable or any other alteration, it is imperative to also update the respective documentation of that component.
+
+# Standard Convention
+
+The objective of each documentation file is to clarify the functionality of the component in question. The key goal is
+to be as clear as possible as to avoid directly referencing the code. As such, each documentation file should contain
+at least the following subsections: **Component** and **Variables Available**. <br /><br />
+If additional subsections are required to accurately relay the requirements or more important information, you should feel
+free to do so. However, please keep in mind the maintenance of the present template.
+
+## Component
+
+This subsection should contain a table that comprises information on the properties of the component, as well as
+general information of the component itself.<br />
+The table should be comprised of five columns, each with the respective title indicating: the property name,
+the type of the property, the description of the component, the default value of the property (if is has one)
+and whether or not it is a mandatory property.
+
+#### Decorator component cases:
+
+Given the nature of the decorator component, be sure to also reference the component which it also draws other properties from through a simple observation with a link to that component.
+
+### Example
+
+|    Prop    |      Type       |                                                                                     Description                                                                                      | Default | Mandatory |
+| :--------: | :-------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+| appendIcon | React.ReactNode | By default it receives an Arrow Icon, but it is possible to send your own Icon. The Icon can also be the only element inside the button, if there isn't a value passed to the label. |    -    |   false   |
+|  onClick   |   () => void    |                                                                                          -                                                                                           |  true   |   true    |
+
+Additionally, this subsection should also contain a **Getting Started** space demonstrating the import and utilization of the component in a project.<br />
+Be sure to also include any other information pertinent to the composition of the component, such as **differing categories** and/or **sizes**, as is the case with
+the Button Component's [documentation](https://design-system.codelitt.dev/?path=/docs/components-button--neutral).
+
+#### Decorator component cases:
+
+Given the nature of the decorator component, in addition to displaying its own properties, be sure to also reference the
+component which it also draws other properties from through a simple observation with a link to that component.
+For instance, this is being reflected in the [NumericInput's documentation](https://design-system.codelitt.dev/?path=/docs/components-numeric-input--default).
+
+## CSS Variables Available
+
+Before moving forward, please be sure to refer the [general convention documentation](https://design-system.codelitt.dev/?path=/docs/welcome-customizing-styles--page) in the Welcome Section.
+This documentation showcases the naming format currently being employed in the project to configure our CSS variables. <br />
+
+This subsection should contain a table that comprises information on all the CSS variables currently being employed in the component. <br />
+The table should be comprised of three columns, each with the respective title indicating: the property, the attribute and the available states.
+
+As an important observation, be sure to coordinate with the Agnostic Design System team on the necessary amount of CSS variables
+a component should have. Although flexibility and freedom in customization is an important aspect in development, too much can
+be an issue. We would like to avoid polluting CSS files with excessive variables.
+
+### Example - Button Component
+
+|  Property   |    Attribute     |                  State                   |
+| :---------: | :--------------: | :--------------------------------------: |
+|             | background-color |           hover, focus, active           |
+|             |  border-bottom   | hover, focus, active, positive, negative |
+| action-icon | background-color |                                          |
+| action-icon |      color       |              hover, active               |
+
+This relays that a developer with the intent of changing the button component's background color would do
+
+#### Composite component cases:
+
+Given the nature of the composite component, be sure to also add a table for the variables utilized in the child component being drawn into
+the parent component. For example, the [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list) component utilizes
+the ListItem component in its architecture as well. Therefore, its own variables should be listed out.
