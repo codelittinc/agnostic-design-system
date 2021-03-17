@@ -1,47 +1,46 @@
 # Input Component
 
+## Type: Simple
+
 ## Input Props
 
-|         Prop         |           Type            | Default  | Optional |
-| :------------------: | :-----------------------: | :------: | :------: |
-|      actionIcon      |      React.ReactNode      |    -     |   true   |
-|  allowedCharsRegex   |           regex           |    -     |   true   |
-|     description      |          string           |    -     |   true   |
-|       disabled       |          boolean          |    -     |   true   |
-|          id          |          string           |    -     |  false   |
-|    invalidMessage    |          string           |    -     |   true   |
-|       isValid        |  (value: any) => boolean  |   true   |   true   |
-|        label         | string \| React.ReactNode |    -     |   true   |
-|        limit         |          number           |    -     |   true   |
-|       message        |          string           |    -     |   true   |
-|        onBlur        |        () => void         |    -     |   true   |
-|       onChange       |     (e: any) => void      |    -     |  false   |
-|  onClickActionIcon   |        () => void         |    -     |   true   |
-|       onFocus        |        () => void         | () => {} |  false   |
-|      onKeyDown       |        () => void         |    -     |   true   |
-|     onMouseEnter     |        () => void         |    -     |   true   |
-|     onMouseLeave     |        () => void         |    -     |   true   |
-|    onStateChange     | (state: boolean) => void  |    -     |   true   |
-|     placeholder      |          string           |    -     |   true   |
-|       prepend        |      React.ReactNode      |    -     |   true   |
-|       required       |          boolean          |    -     |   true   |
-|         size         |           Size            |  large   |  false   |
-|        value         |          string           |    -     |   true   |
-|  variablesClassName  |          string           |    -     |   true   |
-|    withActionIcon    |          boolean          |    -     |   true   |
-| withPrependSeparator |          boolean          |    -     |   true   |
+OBS: An asterisk (\*) denotes that the property will have additional info below the table.
+
+|         Prop         |           Type            |                                                                                                                                      Description                                                                                                                                      |                                                                 Default                                                                  | Mandatory |
+| :------------------: | :-----------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: | :-------: |
+|      actionIcon      |      React.ReactNode      |                                                        An icon image appended to the input. It is possible to send your own [Icon](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-action-icon).                                                        | By default it receives a [Close button icon](https://design-system.codelitt.dev/?path=/story/components-input--with-default-action-icon) |   false   |
+|     description      |          string           |                                                                                                                            Text displayed above the input.                                                                                                                            |                                                                    -                                                                     |   false   |
+|       disabled       |          boolean          |                                                                                                              Specifies whether or not an input valid should be disabled.                                                                                                              |                                                                    -                                                                     |   false   |
+|          id          |          string           |                                                                                                                                      Unique id.                                                                                                                                       |                                                                    -                                                                     |   true    |
+|        label         | string \| React.ReactNode | Can be used as a [string](https://design-system.codelitt.dev/?path=/story/components-input--default-with-label-text) and allow the engineer to build a [custom label](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-label) and pass it as a parameter |                                                                    -                                                                     |   false   |
+|        limit         |          number           |                                                                                              Value passed to maxLength. Specifies the maximum number of characters allowed in the input.                                                                                              |                                                                    -                                                                     |   false   |
+|       message        |          string           |                                                                                                                         Text to be displayed below the input.                                                                                                                         |                                                                    -                                                                     |   false   |
+|        onBlur        |        () => void         |                                                                                                         Calls a function whenever the user clicks outside of a focused input.                                                                                                         |                                                                    -                                                                     |   false   |
+|       onChange       |     (e: any) => void      |                                                                                                       Calls a function whenever a change in an event of the input is detected.                                                                                                        |                                                                    -                                                                     |   true    |
+|  onClickActionIcon   |        () => void         |                                                                                                               Event required when there is an **actionIcon** property.                                                                                                                |                                                                    -                                                                     |   false   |
+|       onFocus        |        () => void         |                                                                                                               Calls a function whenever the input field is focused on.                                                                                                                |                                                                    -                                                                     |   true    |
+|      onKeyDown       |        () => void         |                                                                                                             Call a function whenever a key (on the keyboard) is pressed.                                                                                                              |                                                                    -                                                                     |   false   |
+|     onMouseEnter     |        () => void         |                                                                                                         Calls a function whenever the mouse pointer is moved onto the input.                                                                                                          |                                                                    -                                                                     |   false   |
+|     onMouseLeave     |        () => void         |                                                                                                       Calls a function whenever the mouse pointer is moved away from the input.                                                                                                       |                                                                    -                                                                     |   false   |
+|    onStateChange     | (state: boolean) => void  |                                                                                             It returns a boolean with the validation result when there is a **validationRegex** property                                                                                              |                                                                    -                                                                     |   false   |
+|     placeholder      |          string           |                                                                                                                          The input field's placeholder text.                                                                                                                          |                                                                    -                                                                     |   false   |
+|       prepend        |      React.ReactNode      |                                                                        It is possible to add a [prepend](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend) in your input field.                                                                         |                                                                    -                                                                     |   false   |
+|       required       |          boolean          |                                                                                                                  Specifies that the input field must be filled out.                                                                                                                   |                                                                    -                                                                     |   false   |
+|         size         |           Size            |                                                                                                             Size of the component. The change is reflected on the height.                                                                                                             |                                                                  large                                                                   |   true    |
+|        value         |          string           |                                                                                                                             The value of the input field.                                                                                                                             |                                                                    -                                                                     |   false   |
+|    validations\*     |       Validation[]        |                                                         Expects an array of one or more Object(s) each with 3 keys (type, test and invalidMessage). The array can be passed in-line or through a function returning the same.                                                         |                                                                    -                                                                     |   false   |
+|  variablesClassName  |          string           |                                                                                                                            Accepts custom CSS class names.                                                                                                                            |                                                                    -                                                                     |   false   |
+|    withActionIcon    |          boolean          |                                                                                                                Specifies whether or not to display the **actionIcon**.                                                                                                                |                                                                    -                                                                     |   false   |
+| withPrependSeparator |          boolean          |                                                                 It adds a [separator](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend-separator) between the prepend and input field.                                                                  |                                                                    -                                                                     |   false   |
+
+Regarding the **validations** property and the keys of each object: **type** can either be defined with a value of 'RegExp' or 'function' (both as strings). With each case:
+
+- 'RegExp' - the **test** key will expect a Regular Expression as a value;
+- 'function' = the **test** key will expect a function call with a single parameter (represented as the input's value) as a value;
+
+Lastly, **invalidMessage** should be a string.
 
 ---
-
-|          Props           | Description                                                                                                                                                                                                                                                                           |
-| :----------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|      **actionIcon**      | By default it receives a [Close button](https://design-system.codelitt.dev/?path=/story/components-input--with-default-action-icon) but it is possible to send your own [Icon](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-action-icon).            |
-|   **validationRegex**    | It is possible to add a [Regex validation](https://design-system.codelitt.dev/?path=/story/components-input--with-validation) for your input value.                                                                                                                                   |
-|       **prepend**        | It is possible to add a [prepend](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend) in your input field.                                                                                                                                                |
-| **withPrependSeparator** | It adds a [separator](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend-separator) between the prepend and input field.                                                                                                                                  |
-|  **onClickActionIcon**   | Event required when there is an **actionIcon** property.                                                                                                                                                                                                                              |
-|    **onStateChange**     | It returns a boolean with the validation result when there is a **validationRegex** property                                                                                                                                                                                          |
-|        **label**         | Can be used as a [string](https://design-system.codelitt.dev/?path=/story/components-input--default-with-label-text) and allow the engineer to build a [custom label](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-label) and pass it as a parameter |
 
 **Size options**
 
@@ -71,38 +70,6 @@ class SimpleInput extends Component {
 export default SimpleInput;
 
 ```
-
-# Customazing styles
-
-For the [Input](https://design-system.codelitt.dev/?path=/story/components-input--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
-
-**--input-[property]?-[attribute]-[state]?**
-
-- Property - description, label, message, placeholder, prepend (optional)
-- Attribute - background-color, border, font, etc (required)
-- State - hover, focus, active, positive, negative (optional)
-
-1. Create the css class using our variables
-
-```css
-.my-input-css {
-  /* Component + Attribute */
-  --input-border: 1px solid grey;
-
-  /* Component + Property + Attribute */
-  --input-message-color: black;
-
-  /* Component + Property + Attribute */
-  --input-description-font-size: 20px;
-
-  /* Component + Property + Attribute + State */
-  --input-message-color-positive: green;
-}
-```
-
-2. Pass the css class through its `variablesClassName` property
-
-`<Input variablesClassName={styles['my-input-css']} />`
 
 # Variables available
 
