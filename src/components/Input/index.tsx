@@ -9,13 +9,13 @@ import { matchesFilter } from './filters';
 
 type Size = 'large' | 'medium';
 
-type Validation = {
+export type Validation = {
   type: 'RegExp' | 'function';
   test: RegExp | Function;
   invalidMessage?: string;
 };
 
-type Filter = {
+export type Filter = {
   type: 'RegExp' | 'function';
   test: RegExp | Function;
 };

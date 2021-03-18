@@ -1,43 +1,58 @@
 import React from 'react';
-import Input from '../Input';
+// @TODO: Discover how to disable the no-unused-vars verification for ts interfaces
+/* eslint-disable */
+import Input, { Validation, Filter } from '../Input';
+  /* eslint-enable */
 
 type Size = 'large' | 'medium';
 
 interface Props {
+  actionIcon?: React.ReactNode;
   description?: string;
   disabled?: boolean;
+  filters?: Filter[];
   id: string;
-  allowedCharsRegex: RegExp;
-  label?: string;
+  label?: string | React.ReactNode;
+  limit?: number;
   message?: string;
+  onBlur?: () => void;
   onChange: (e: any) => void;
+  onClickActionIcon: () => void;
   onFocus: () => void;
   onKeyDown?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
-  onBlur?: () => void;
+  onStateChange: (state: boolean) => void;
   placeholder?: string;
+  prepend?: React.ReactNode;
+  required?: boolean;
   size: Size;
   value?: string;
+  validations: Validation[];
   variablesClassName?: string;
-  validationRegex?: string;
-  invalidMessage?: string;
-  limit?: number;
-  prepend?: React.ReactNode;
-  withPrependSeparator?: boolean;
-  actionIcon?: React.ReactNode;
   withActionIcon?: boolean;
-  required?: boolean;
-  onClickActionIcon: () => void;
-  onStateChange?: (state: boolean) => void;
+  withPrependSeparator?: boolean;
 }
 
-const EMAIL_REGEX = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
+const EMAIL_REGEX = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/;
 
 const EmailInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { ...inputProps } = props;
+  const { validations, ...inputProps } = props;
 
-  return <Input {...inputProps} ref={ref} validationRegex={EMAIL_REGEX} />;
+  return (
+    <Input
+      {...inputProps}
+      ref={ref}
+      validations={[
+        {
+          type: 'RegExp',
+          test: EMAIL_REGEX,
+          invalidMessage: 'It needs to be a valid email.'
+        },
+        ...(validations || [])
+      ]}
+    />
+  );
 });
 
 export default EmailInput;

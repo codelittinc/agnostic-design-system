@@ -19,9 +19,14 @@ Default.args = {
   label: 'Email Input'
 };
 
-export const RequiredEmail = Template.bind({});
-RequiredEmail.args = {
-  placeholder: 'Enter email',
-  label: 'Required Email Input',
-  required: true
+export const WithExtraValidations = Template.bind({});
+WithExtraValidations.args = {
+  label: 'Only a codelitt email is valid here',
+  validations: [
+    {
+      type: 'function',
+      test: value => !!value.match(/.*codelitt.*/),
+      invalidMessage: 'It needs to be a Codelitt email'
+    }
+  ]
 };
