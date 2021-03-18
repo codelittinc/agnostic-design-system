@@ -18,10 +18,10 @@ jobs:
     - run: git config --global user.email ${{ secrets.RELEASE_EMAIL }}
 
     - name: installing npm
-      run: npm install
+      run: yarn install
 
     - name: lint
-      run: npm run lint
+      run: yarn run lint
 
     - name: test
-      run: npm test
+      run: yarn test
