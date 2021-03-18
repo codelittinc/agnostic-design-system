@@ -5,7 +5,7 @@ export const matchesFilter = (value, filters) => {
   if (!filters) {
     return false;
   }
-  return filters.every(filter => {
+  return filters.some(filter => {
     const { type, test } = filter;
     return validate(type, test, value);
   });

@@ -1,89 +1,72 @@
 import React from 'react';
-import Input from '../Input';
-
-type Size = 'large' | 'medium';
+// @TODO: Discover how to disable the no-unused-vars verification for ts interfaces
+/* eslint-disable */
+import Input, { Filter, Size, Validation } from '../Input';
+  /* eslint-enable */
 
 interface Props {
+  actionIcon?: React.ReactNode;
   description?: string;
   disabled?: boolean;
+  filters?: Filter[];
   id: string;
-  label?: string;
+  label?: string | React.ReactNode;
+  limit?: number;
+  max?: number;
   message?: string;
+  onBlur?: () => void;
   onChange: (e: any) => void;
+  onClickActionIcon: () => void;
   onFocus: () => void;
   onKeyDown?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
-  onBlur?: () => void;
+  onStateChange: (state: boolean) => void;
   placeholder?: string;
-  size: Size;
-  value?: string;
-  variablesClassName?: string;
-  invalidMessage?: string;
-  limit?: number;
   prepend?: React.ReactNode;
-  withPrependSeparator?: boolean;
-  actionIcon?: React.ReactNode;
-  withActionIcon?: boolean;
-  onClickActionIcon: () => void;
+  positive?: boolean;
+  radix?: string;
   required?: boolean;
   scale: number;
-  min: number;
-  max?: number;
-  radix?: string;
+  size: Size;
+  value?: string;
+  validations: Validation[];
+  variablesClassName?: string;
+  withActionIcon?: boolean;
+  withPrependSeparator?: boolean;
 }
 
 const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { value, onChange, scale, min, max, radix, ...inputProps } = props;
-  const MINUS_SIGNAL = '-';
-  /* eslint-disable */
-  const ONLY_NUMBERS_REGEX = /^-?[0-9,\.-]+$/;
-  const customRegex = `^\\d+(\\${radix}\\d{1,${scale}})?$`;
-  const SCALE_REGEX = new RegExp(`^.+${radix}\\d{${scale+1}}`);
-  /* eslint-enable */
+  const { value, scale, max, radix, positive, ...inputProps } = props;
+  const SCALE_REGEX = new RegExp(`^.+${radix}\\d{${scale + 1}}`);
 
-  const isNewValueValid = newValue => {
-    if (newValue === MINUS_SIGNAL) {
-      return true;
+  const isNumeric = num => !isNaN(num);
+
+  const filters = [
+    {
+      type: 'RegExp',
+      test: /[^\d.,-]/
+    },
+    {
+      type: 'function',
+      test: value => isNumeric(max) && value > max!
+    },
+    {
+      type: 'function',
+      test: value => scale && SCALE_REGEX.test(value)
+    },
+    {
+      type: 'function',
+      test: value => positive && value.lastIndexOf('-') !== -1
     }
+  ];
 
-    if (Number(newValue) && Number(newValue) < min) {
-      return false;
-    }
-
-    if (max && Number(newValue) > max) {
-      return false;
-    }
-
-    if (scale > 0 && SCALE_REGEX.test(newValue)) {
-      return false;
-    }
-
-    return true;
-  };
-
-  const handleOnChange = e => {
-    const newValue = e.target.value;
-    if ((newValue === '' || ONLY_NUMBERS_REGEX.test(newValue)) && isNewValueValid(newValue)) {
-      onChange(e);
-    }
-  };
-
-  return (
-    <Input
-      {...inputProps}
-      ref={ref}
-      value={value}
-      onChange={handleOnChange}
-      validationRegex={scale > 0 ? customRegex : '.*'}
-    />
-  );
+  return <Input {...inputProps} ref={ref} value={value} filters={filters} />;
 });
 
 NumericInput.defaultProps = {
   size: 'large',
   onFocus: () => {},
-  min: 0,
   scale: 0
 };
 

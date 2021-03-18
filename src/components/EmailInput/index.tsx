@@ -1,10 +1,8 @@
 import React from 'react';
 // @TODO: Discover how to disable the no-unused-vars verification for ts interfaces
 /* eslint-disable */
-import Input, { Validation, Filter } from '../Input';
+import Input, { Filter, Size, Validation } from '../Input';
   /* eslint-enable */
-
-type Size = 'large' | 'medium';
 
 interface Props {
   actionIcon?: React.ReactNode;

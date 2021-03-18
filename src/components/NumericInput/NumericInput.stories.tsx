@@ -16,27 +16,37 @@ export default {
 const Template = args => {
   const [value, setValue] = useState('');
 
-  return <NumericInput {...args} value={value} onChange={e => setValue(e.target.value)} />;
+  return (
+    <NumericInput
+      id='numeric-input'
+      {...args}
+      value={value}
+      onChange={e => setValue(e.target.value)}
+    />
+  );
 };
 
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Enter number',
-  label: 'Numeric Input'
+  label: "You can only type ',', '.' and numbers"
 };
 
-export const RequiredNumericInput = Template.bind({});
-RequiredNumericInput.args = {
-  placeholder: 'Enter number',
-  required: true,
-  label: 'Required Numeric Input'
+export const WithMax = Template.bind({});
+WithMax.args = {
+  label: 'The max here is 1000',
+  max: 1000
 };
 
-export const CustomNumeric = Template.bind({});
-CustomNumeric.args = {
-  placeholder: 'Enter number',
-  label: 'Custom Numeric Input',
-  max: 10000,
+export const WithPositive = Template.bind({});
+WithPositive.args = {
+  label: 'You can not type negative numbers here',
+  positive: true
+};
+
+export const withRadixAndScale = Template.bind({});
+withRadixAndScale.args = {
+  label: 'The radix here is , and the scale is 2',
   radix: ',',
   scale: 2
 };

@@ -7,7 +7,7 @@ import DefaultActionIcon from '@/assets/images/icons/web/close-icon.svg';
 import { isValid, getInvalidMessage } from './validations';
 import { matchesFilter } from './filters';
 
-type Size = 'large' | 'medium';
+export type Size = 'large' | 'medium';
 
 export type Validation = {
   type: 'RegExp' | 'function';
