@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import styles from '@/components/TextArea/TextArea.css';
@@ -9,9 +9,10 @@ interface Props {
   description?: string;
   disabled?: boolean;
   id: string;
-  label?: string;
+  invalidMessage?: string;
+  label?: string | React.ReactNode;
   message?: string;
-  onBlur?: () => void;
+  onBlur?: (e: any) => void;
   onChange: (e: any) => void;
   onStateChange: (state: boolean) => void;
   placeholder?: string;
@@ -29,6 +30,7 @@ const TextArea: React.FC<Props> = props => {
     description,
     disabled,
     id,
+    invalidMessage,
     label,
     message,
     onBlur,
@@ -41,50 +43,77 @@ const TextArea: React.FC<Props> = props => {
     required,
     ...textareaProps
   } = props;
-  const [stateTextArea, setStateTextArea] = useState('');
-  const [stateChange, setStateChange] = useState(true);
+  const [validationState, setValidationState] = useState('');
+  const [valid, setValid] = useState(!required);
   const sizeClass = `textarea--${size}`;
   const messageClass = 'textarea--message';
-  const messageValidateClass = stateTextArea !== '' ? `textarea--message-${stateTextArea}` : '';
-  const statusClass = stateTextArea !== '' ? `textarea--${stateTextArea}` : '';
+  const hasStateTextArea = validationState !== '';
+  const messageValidationClass = hasStateTextArea ? `textarea--message-${validationState}` : '';
+  const statusClass = hasStateTextArea ? `textarea--${validationState}` : '';
   const descriptionClass = 'textarea--description';
   const labelClass = 'textarea--label';
 
-  const validateRequired = value => value.match(new RegExp('.+'));
-
-  const handleRequired = value => {
-    validateRequired(value) ? setStateTextArea(VALID) : setStateTextArea(INVALID);
-  };
-
-  useEffect(() => {
-    required && setStateChange(stateTextArea === VALID);
-  }, [stateTextArea]);
+  const hasValue = value => /\S/.test(value);
 
   const handleOnChange = e => {
     onChange(e);
-    required && handleRequired(e.target.value);
-    onStateChange(stateChange);
+    const value = e.target.value;
+    const validField = hasValue(value);
+
+    if (required) {
+      setValid(validField);
+      onStateChange(validField);
+    } else {
+      onStateChange(validField);
+    }
   };
 
   const handleOnBlur = e => {
-    onBlur && onBlur();
-    required && handleRequired(e.target.value);
+    onBlur && onBlur(e);
+    if (required) {
+      const state = valid ? VALID : INVALID;
+      setValidationState(state);
+    }
+  };
+
+  const handleOnFocus = () => {
+    hasStateTextArea && setValidationState('');
+  };
+
+  const getMessage = () => {
+    return message || invalidMessage ? (
+      <span className={classNames(styles[messageClass], styles[messageValidationClass])}>
+        {validationState === INVALID && invalidMessage ? invalidMessage : message}
+      </span>
+    ) : (
+      ''
+    );
+  };
+
+  const getDescription = () => {
+    return description ? (
+      <span className={classNames(styles[descriptionClass])}>{description}</span>
+    ) : (
+      ''
+    );
+  };
+
+  const getLabel = () => {
+    return React.isValidElement(label) ? (
+      label
+    ) : label ? (
+      <label htmlFor={id} className={classNames(styles[labelClass])}>
+        {label}
+      </label>
+    ) : (
+      ''
+    );
   };
 
   return (
     <div className={classNames(variablesClassName)}>
-      {label ? (
-        <label htmlFor={id} className={classNames(styles[labelClass])}>
-          {label}
-        </label>
-      ) : (
-        ''
-      )}
-      {description ? (
-        <span className={classNames(styles[descriptionClass])}>{description}</span>
-      ) : (
-        ''
-      )}
+      {getLabel()}
+      {getDescription()}
       <textarea
         {...textareaProps}
         className={classNames(styles.textarea, styles[sizeClass], styles[statusClass])}
@@ -94,14 +123,9 @@ const TextArea: React.FC<Props> = props => {
         placeholder={placeholder}
         value={value}
         onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
       />
-      {message ? (
-        <span className={classNames(styles[messageClass], styles[messageValidateClass])}>
-          {message}
-        </span>
-      ) : (
-        ''
-      )}
+      {getMessage()}
     </div>
   );
 };

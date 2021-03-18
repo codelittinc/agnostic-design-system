@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import TextArea from '@/components/TextArea';
 import mdx from './TextArea.stories.mdx';
@@ -13,27 +13,44 @@ export default {
   }
 } as Meta;
 
-const Template = args => <TextArea {...args} />;
+const Template = args => {
+  const [value, setValue] = useState('');
+  return <TextArea {...args} value={value} onChange={e => setValue(e.target.value)} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {
   placeholder: 'Enter Text'
 };
 
-export const RequiredTextArea = Template.bind({});
-RequiredTextArea.args = {
+export const WithStringLabel = Template.bind({});
+WithStringLabel.args = {
+  label: 'TextArea Label',
+  placeholder: 'Enter text'
+};
+
+export const WithReactNodeLabel = Template.bind({});
+WithReactNodeLabel.args = {
+  placeholder: 'Enter text',
+  label: (
+    <div style={{ marginBottom: 20 }}>
+      <span style={{ color: 'green', marginRight: 10 }}>1/2</span>
+      <label style={{ color: 'blue' }}>Check my nice node label</label>
+    </div>
+  )
+};
+
+export const WithRequired = Template.bind({});
+WithRequired.args = {
+  label: 'This is a required TextArea',
+  placeholder: 'Required TextArea',
+  required: true
+};
+
+export const WithInvalidMessage = Template.bind({});
+WithInvalidMessage.args = {
+  label: 'This is a required TextArea with invalid message',
   required: true,
-  placeholder: 'Enter Text'
-};
-
-export const DefaultWithLabel = Template.bind({});
-DefaultWithLabel.args = {
-  placeholder: 'Enter text',
-  label: 'TextArea Label'
-};
-
-export const DefaultWithMessage = Template.bind({});
-DefaultWithMessage.args = {
-  placeholder: 'Enter text',
-  message: 'TextArea Message'
+  invalidMessage: 'This is a invalid Message',
+  placeholder: 'Required TextArea'
 };
