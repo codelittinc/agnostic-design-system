@@ -4,17 +4,28 @@ import classNames from 'classnames';
 import styles from '@/components/Input/Input.css';
 
 import DefaultActionIcon from '@/assets/images/icons/web/close-icon.svg';
+import { isValid, getInvalidMessage } from './validations';
+import { matchesFilter } from './filters';
 
 type Size = 'large' | 'medium';
 
+type Validation = {
+  type: 'RegExp' | 'function';
+  test: RegExp | Function;
+  invalidMessage?: string;
+};
+
+type Filter = {
+  type: 'RegExp' | 'function';
+  test: RegExp | Function;
+};
+
 interface Props {
   actionIcon?: React.ReactNode;
-  allowedCharsRegex?: RegExp;
-  customValidation?: (value: string) => boolean;
   description?: string;
   disabled?: boolean;
+  filters?: Filter[];
   id: string;
-  invalidMessage?: string;
   label?: string | React.ReactNode;
   limit?: number;
   message?: string;
@@ -31,7 +42,7 @@ interface Props {
   required?: boolean;
   size: Size;
   value?: string;
-  validationRegex?: string;
+  validations: Validation[];
   variablesClassName?: string;
   withActionIcon?: boolean;
   withPrependSeparator?: boolean;
@@ -39,10 +50,6 @@ interface Props {
 
 const VALID = 'valid';
 const INVALID = 'invalid';
-
-const getValidationState = valid => (valid ? VALID : INVALID);
-
-const testsRegex = (value, regex) => new RegExp(regex).test(value);
 
 const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
@@ -61,8 +68,6 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     size,
     value,
     variablesClassName,
-    validationRegex,
-    invalidMessage,
     limit,
     prepend,
     withPrependSeparator,
@@ -71,47 +76,27 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     onClickActionIcon,
     onStateChange,
     required,
-    allowedCharsRegex,
-    customValidation,
+    validations,
+    filters,
     ...inputProps
   } = props;
+
   const [validationState, setValidationState] = useState('');
+  const [invalidMessage, setInvalidMessage] = useState('');
+  const [valid, setValid] = useState(null);
+
   const sizeClass = `input--${size}`;
   const prependSizeClass = `input--prepend-with-separator-${size}`;
   const messageValidateClass = `input--message-${validationState}`;
   const statusClass = `input--${validationState}`;
 
-  const validate = (event, isValueValid, callback) => {
-    const newValue = event.target.value;
-    const hasValue = testsRegex(newValue, '.+');
-    const matchesValidationRegex = testsRegex(newValue, validationRegex || '.*');
-    const customValid = isValueValid(newValue);
-
-    const valid = matchesValidationRegex && customValid;
-
-    if (required) {
-      callback(hasValue && valid);
-      return;
-    }
-
-    callback(valid);
-  };
-
-  const applyFilter = e => {
-    let value = e.target.value;
-
-    if (allowedCharsRegex) {
-      value = value.match(allowedCharsRegex)?.join('') || '';
-    }
-
-    e.target.value = value;
-  };
-
   const handleBlur = event => {
     onBlur && onBlur();
-    validate(event, customValidation, valid => {
-      setValidationState(getValidationState(valid));
-    });
+    if (typeof valid === 'boolean') {
+      setValidationState(valid ? VALID : INVALID);
+    }
+    const invalidMessage = getInvalidMessage(event.target.value, validations, required);
+    setInvalidMessage(invalidMessage);
   };
 
   const getActionIcon = actionIcon => {
@@ -127,12 +112,13 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   };
 
   const handleChange = e => {
-    applyFilter(e);
-
-    onChange(e);
-    validate(e, customValidation, valid => {
+    const v = e.target.value;
+    if (!matchesFilter(v, filters)) {
+      onChange(e);
+      const valid = isValid(e.target.value, validations, required);
+      setValid(valid);
       onStateChange(valid);
-    });
+    }
   };
 
   const getLabel = () => {
@@ -226,7 +212,7 @@ Input.defaultProps = {
   onFocus: () => {},
   onStateChange: state => state,
   onChange: e => e,
-  customValidation: () => true
+  validations: []
 };
 
 export default Input;
