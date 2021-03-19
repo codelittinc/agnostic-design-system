@@ -15,7 +15,7 @@ interface Props<T> {
 
 const getDefaultItem = item => <span>{item.name}</span>;
 
-const getItems = (options, getItem, getItemKey, onClick, selected) =>
+const getItems = (options, getItem, getItemKey, onClick, selected, variablesClassName) =>
   options.map(option => {
     const currentKey = getItemKey(option);
     const isSelected = selected && getItemKey(selected) === currentKey;
@@ -24,7 +24,11 @@ const getItems = (options, getItem, getItemKey, onClick, selected) =>
       <Button
         key={currentKey}
         onClick={() => onClick(option)}
-        variablesClassName={classNames(styles.button, { [styles.selected]: isSelected })}
+        variablesClassName={classNames(
+          styles.button,
+          { [styles.selected]: isSelected },
+          variablesClassName
+        )}
         content={getItem(option, selected)}
       />
     );
@@ -33,9 +37,16 @@ const getItems = (options, getItem, getItemKey, onClick, selected) =>
 const ButtonsList = <T extends {}>(props: Props<T>) => {
   const { onChange, selected, variablesClassName, getItem, getItemKey, options } = props;
 
-  const items = getItems(options, getItem || getDefaultItem, getItemKey, onChange, selected);
+  const items = getItems(
+    options,
+    getItem || getDefaultItem,
+    getItemKey,
+    onChange,
+    selected,
+    variablesClassName
+  );
 
-  return <div className={classNames(variablesClassName, styles.container)}>{items}</div>;
+  return <div className={classNames(styles.container, variablesClassName)}>{items}</div>;
 };
 
 ButtonsList.defaultProps = {
