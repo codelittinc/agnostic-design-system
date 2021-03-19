@@ -83,18 +83,17 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const [validationState, setValidationState] = useState('');
   const [invalidMessage, setInvalidMessage] = useState('');
-  const [valid, setValid] = useState(null);
-
+  const initialValidState = required ? false : !(validations.length > 0);
+  const [valid, setValid] = useState(initialValidState);
   const sizeClass = `input--${size}`;
+  const hasValidationState = validationState !== '';
   const prependSizeClass = `input--prepend-with-separator-${size}`;
-  const messageValidateClass = `input--message-${validationState}`;
-  const statusClass = `input--${validationState}`;
+  const messageValidateClass = hasValidationState ? `input--message-${validationState}` : '';
+  const statusClass = hasValidationState ? `input--${validationState}` : '';
 
   const handleBlur = event => {
     onBlur && onBlur();
-    if (typeof valid === 'boolean') {
-      setValidationState(valid ? VALID : INVALID);
-    }
+    (required || validations.length > 0) && setValidationState(valid ? VALID : INVALID);
     const invalidMessage = getInvalidMessage(event.target.value, validations, required);
     setInvalidMessage(invalidMessage);
   };
@@ -142,13 +141,10 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   };
 
   const getMessage = () => {
-    return message || invalidMessage ? (
-      <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
-        {validationState === INVALID && invalidMessage ? invalidMessage : message}
-      </span>
-    ) : (
-      ''
-    );
+    if (message || invalidMessage) {
+      return validationState === INVALID && invalidMessage ? invalidMessage : message;
+    }
+    return '';
   };
 
   return (
@@ -202,7 +198,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           </div>
         )}
       </div>
-      {getMessage()}
+      <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
+        {getMessage()}
+      </span>
     </div>
   );
 });
