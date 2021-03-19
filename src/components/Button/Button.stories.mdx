@@ -1,25 +1,25 @@
 # Button Component
 
+## Type: Simple
+
 ## Button Props
 
-|        Prop        |      Type       | Default | Optional |
-| :----------------: | :-------------: | :-----: | :------: |
-|     appendIcon     | React.ReactNode |    -    |   true   |
-|      content       | React.ReactNode |    -    |   true   |
-|      disabled      |     boolean     |  false  |   true   |
-|       label        |     string      |    -    |   true   |
-|      category      |    Category     | neutral |   true   |
-|       fixed        |     boolean     |  false  |   true   |
-|      onClick       |   () => void    |    -    |  false   |
-|        size        |      Size       |  large  |   true   |
-| variablesClassName |     string      |    -    |   true   |
-|   withAppendIcon   |     boolean     |  false  |   true   |
+OBS: An asterisk (\*) denotes that the property will have additional info below the table.
+
+|        Prop        |      Type       |                                                                                                                                                                  Description                                                                                                                                                                  |                                                           Default                                                           | Mandatory |
+| :----------------: | :-------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-------: |
+|     appendIcon     | React.ReactNode | It is possible to send your own [Icon](https://design-system.codelitt.dev/?path=/story/components-button--with-custom-append-icon). The Icon can also be the [only element inside the button](https://design-system.codelitt.dev/?path=/story/components-button--without-label-with-append-icon), if there isn't a value passed to the label. | By default it receives an [Arrow Icon](https://design-system.codelitt.dev/?path=/story/components-button--with-append-icon) |   false   |
+|     category\*     |    Category     |                                                                                                                     A button can have one of any six categories (neutral, primary, secondary, positive, negative, ghost).                                                                                                                     |                                                           neutral                                                           |   false   |
+|      content       | React.ReactNode |                                                                                                                                 Expects a JSX block that is implicitly return and rendered inside the button.                                                                                                                                 |                                                              -                                                              |   false   |
+|      disabled      |     boolean     |                                                                                                                                           Specifies whether or not a button is disabled/actionable.                                                                                                                                           |                                                            false                                                            |   false   |
+|       fixed        |     boolean     |                                                                                                                Passes the following styling, if set to **true**, to the button: max-width: 100%; min-width: 100%; width: 100%;                                                                                                                |                                                            false                                                            |   false   |
+|       label        |     string      |                                                                                                                                                     Text that displays inside the button.                                                                                                                                                     |                                                              -                                                              |   false   |
+|      onClick       |   () => void    |                                                                                                                                               Calls a function whenever the button is clicked.                                                                                                                                                |                                                              -                                                              |   true    |
+|       size\*       |      Size       |                                                                                                                    Size of the component. The change is reflected on the height and width. Can be either large or medium.                                                                                                                     |                                                            large                                                            |   false   |
+| variablesClassName |     string      |                                                                                                                                                        Accepts custom CSS class names.                                                                                                                                                        |                                                              -                                                              |   false   |
+|   withAppendIcon   |     boolean     |                                                                                                                                       Specifies whether or not a button should display its appendIcon.                                                                                                                                        |                                                            false                                                            |   false   |
 
 ---
-
-|     Props      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| :------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **appendIcon** | By default it receives an [Arrow Icon](https://design-system.codelitt.dev/?path=/story/components-button--with-append-icon), but it is possible to send your own [Icon](https://design-system.codelitt.dev/?path=/story/components-button--with-custom-append-icon). The Icon can also be the [only element inside the button](https://design-system.codelitt.dev/?path=/story/components-button--without-label-with-append-icon), if there isn't a value passed to the label. |
 
 **Categories availables:**
 
@@ -56,38 +56,6 @@ class SimpleButton extends Component {
 export default SimpleButton;
 
 ```
-
-# Customazing styles
-
-For the Button component we use the following naming convention to configure the CSS variables:
-
-**--button-[property]?-[attribute]-[state]?**
-
-- Property - append-icon (optional)
-- Attribute - background-color, border, font, etc (required)
-- State - hover, focus, active, disabled (optional)
-
-1. Create the css class using our variables
-
-```css
-.my-button-css {
-  /* Component + Attribute */
-  --button-background-color: red; /* Simplest variable */
-
-  /* Component + Attribute + State */
-  --button-background-color-hover: blue; /* Using state */
-
-  /* Component + Property + Attribute */
-  --button-append-icon-color: green;
-
-  /* Component + Property + Attribute + State */
-  --button-append-icon-color-active: red;
-}
-```
-
-2. Pass the css class through its `variablesClassName` property
-
-`<Button variablesClassName={styles['my-button-css']} />`
 
 ## Variables available
 
