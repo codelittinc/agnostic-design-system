@@ -1,29 +1,25 @@
 # TextArea Component
 
+## Type: Simple
+
 ## TextArea Props
 
-|        Prop        |           Type           | Default | Optional |
-| :----------------: | :----------------------: | :-----: | :------: |
-|    description     |          string          |    -    |   true   |
-|      disabled      |         boolean          |    -    |   true   |
-|         id         |          string          |    -    |  false   |
-|   invalidMessage   |          string          |    -    |   true   |
-|       label        | string \|React.ReactNode |    -    |   true   |
-|      message       |          string          |    -    |   true   |
-|       onBlur       |     (e: any) => void     |    -    |   true   |
-|      onChange      |     (e: any) => void     |    -    |  false   |
-|   onStateChange    | (state: boolean) => void |    -    |   true   |
-|    placeholder     |          string          |    -    |   true   |
-|      required      |         boolean          |    -    |   true   |
-|        size        |           Size           |  large  |   true   |
-|       value        |          string          |    -    |  false   |
-| variablesClassName |          string          |    -    |   true   |
-
-**Props**
-
-|     Property      | Description                                                             |
-| :---------------: | :---------------------------------------------------------------------- |
-| **onStateChange** | It returns a boolean on **onChange** event when **required** be applied |
+|        Prop        |           Type            |                                                               Description                                                                | Default | Mandatory |
+| :----------------: | :-----------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|    description     |          string           |                                                  Text that displays above the textarea.                                                  |    -    |   false   |
+|      disabled      |          boolean          |                                       Specifies whether or not a textarea is disabled/actionable.                                        |  false  |   false   |
+|         id         |          string           |                                                                Unique id.                                                                |    -    |   true    |
+|   invalidMessage   |          string           | Text that displays when validation fails for the Textarea's value. The **required** property needs to be set to true for this to appear. |    -    |   false   |
+|       label        | string \| React.ReactNode |                                                  Text that displays above the Textarea.                                                  |    -    |   false   |
+|      message       |          string           |                                                  Text that displays below the Textarea.                                                  |    -    |   false   |
+|       onBlur       |     (e: any) => void      |                                 Calls a function whenever the user clicks outside of a focused Textarea.                                 |    -    |   false   |
+|      onChange      |     (e: any) => void      |                               Calls a function whenever a change in an event of the textarea is detected.                                |    -    |   true    |
+|   onStateChange    | (state: boolean) => void  |                                 It returns a boolean on **onChange** event when **required** is applied                                  |    -    |   false   |
+|    placeholder     |          string           |                                                     The Textarea's placeholder text.                                                     |    -    |   false   |
+|      required      |          boolean          |                                    Specifies whether or not a Textarea is required to be filled out.                                     |  false  |   false   |
+|       size\*       |           Size            |                                      Size of the component. The change is reflected on the height.                                       |  large  |   false   |
+|       value        |          string           |                                                        The value of the Textarea.                                                        |    -    |   true    |
+| variablesClassName |          string           |                                                     Accepts custom CSS class names.                                                      |    -    |   false   |
 
 **Sizes**
 
@@ -53,38 +49,6 @@ class SimpleTextArea extends Component {
 export default SimpleTextArea;
 
 ```
-
-# Customazing styles
-
-For the [TextArea](https://design-system.codelitt.dev/?path=/story/components-text-area--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
-
-**--textarea-[property]?-[attribute]-[state]?**
-
-- Property - description, label, message, placeholder (optional)
-- Attribute - background-color, border, font, etc (required)
-- State - hover, focus, active, disabled, valid, invalid (optional)
-
-1. Create the css class using our variables
-
-```css
-.my-textarea-css {
-  /* Component + Attribute */
-  --textarea-border: 1px solid grey;
-
-  /* Component + Property + Attribute */
-  --textarea-message-color: black;
-
-  /* Component + Property + Attribute */
-  --textarea-description-font-size: 20px;
-
-  /* Component + Property + Attribute + State */
-  --textarea-message-color-valid: green;
-}
-```
-
-2. Pass the css class through its `variablesClassName` property
-
-`<TextArea variablesClassName={styles['my-textarea-css']} />`
 
 # Variables available
 
