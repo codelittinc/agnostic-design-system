@@ -24,11 +24,7 @@ const getItems = (options, getItem, getItemKey, onClick, selected, variablesClas
       <Button
         key={currentKey}
         onClick={() => onClick(option)}
-        variablesClassName={classNames(
-          styles.button,
-          { [styles.selected]: isSelected },
-          variablesClassName
-        )}
+        variablesClassName={classNames({ [styles.selected]: isSelected }, variablesClassName)}
         content={getItem(option, selected)}
       />
     );
