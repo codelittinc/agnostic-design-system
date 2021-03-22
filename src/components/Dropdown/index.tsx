@@ -17,7 +17,6 @@ const simpleCategory = 'simple';
 
 interface Props<T> {
   category: Category;
-  description?: string;
   disabled?: boolean;
   editable?: boolean;
   filterOptions?: (options: T | T[]) => T | T[];
@@ -32,7 +31,6 @@ interface Props<T> {
   multiselect?: boolean;
   onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;
-  onStateChange: (state: boolean) => void;
   options: T[];
   placeholder?: string;
   selected?: T[] | T;
@@ -61,8 +59,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     options,
     multiselect,
     variablesClassName,
-    listItemCategory,
-    onStateChange
+    listItemCategory
   } = props;
 
   const defaultFilter = options => options.filter(item => getItemLabel(item).includes(listTitle));
@@ -204,7 +201,6 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
           withActionIcon
           onClickActionIcon={handleListBehavior}
           prepend={handleIconCategory()}
-          onStateChange={state => onStateChange(state)}
         />
       ) : (
         <Button
@@ -229,8 +225,7 @@ Dropdown.defaultProps = {
   size: largeSize,
   options: [],
   onChange: () => {},
-  listItemCategory: simpleCategory,
-  onStateChange: state => state
+  listItemCategory: simpleCategory
 };
 
 export default Dropdown;

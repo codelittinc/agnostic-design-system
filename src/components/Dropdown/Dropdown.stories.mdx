@@ -1,38 +1,39 @@
 # Dropdown Component
 
+## Type: Composite
+
+The Dropdown contains the following components: [Button](https://design-system.codelitt.dev/?path=/docs/components-button--neutral), [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list).
+
 ## Dropdown Props
 
-|        Prop        |                                              Type                                               | Default | Optional |
-| :----------------: | :---------------------------------------------------------------------------------------------: | :-----: | :------: |
-|      category      |                                            Category                                             |    -    |   true   |
-|    description     |                                             string                                              |    -    |   true   |
-|      editable      |                                             boolean                                             |    -    |   true   |
-|    getListTitle    |                                 (selected?: T \| T[]) => string                                 |    -    |  false   |
-|     getItemKey     |                                  (item: T) => string \| number                                  |    -    |  false   |
-|    getItemLabel    |                                       (item: T) => string                                       |    -    |  false   |
-|    getItemValue    |                            (item: T) => string \| number \| string[]                            |    -    |  false   |
-|         id         |                                             string                                              |    -    |  false   |
-|       label        |                                             string                                              |    -    |   true   |
-|  listItemCategory  | [ListItemCategory](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list) |    -    |   true   |
-|    multiselect     |                                             boolean                                             |    -    |   true   |
-|      onChange      |                                    (item?: T \| T[]) => void                                    |    -    |  false   |
-|   onStateChange    |                                    (state: boolean) => void                                     |    -    |   true   |
-|      options       |                                               [T]                                               |   []    |  false   |
-|    placeholder     |                                             string                                              |    -    |   true   |
-|      selected      |                                            T[] \| T                                             |    -    |   true   |
-|        size        |                                              Size                                               |    -    |   true   |
-| variablesClassName |                                             string                                              |    -    |   true   |
+Given the nature of a composite component, in addition to its own, the Dropdown utilizes properties from the Button, Input and List components.
+They are listed in the table below.
 
-|      Props       | Description                                                                                                                                                                                                                                                                          |
-| :--------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   **editable**   | Used to give the engineer the possibility of creating a [dropdown input](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) instead of [dropdown button](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown) |
-| **getListTitle** | Used to give the engineer the opportunity to choose the dropdown title to be shown by the selected item(s)                                                                                                                                                                           |
-|   **selected**   | Item selected initially                                                                                                                                                                                                                                                              |
+OBS: An asterisk (\*) denotes that the property will have additional info below the table.
+
+|        Prop        |                                              Type                                               |                                                                                                                              Description                                                                                                                              | Default | Mandatory |
+| :----------------: | :---------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|     category\*     |                                            Category                                             |                                                                                                      A Dropdown can have one of two categories (Simple or Icon).                                                                                                      |    -    |   false   |
+|      editable      |                                             boolean                                             |  Allows the possibility of creating a [dropdown input](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) instead of [dropdown button](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown).   |    -    |   false   |
+|    getListTitle    |                                 (selected?: T \| T[]) => string                                 | Allows the opportunity to choose a text that will be shown in the Dropdown. This text will not be covered/replaced if one or more options are selected. Example seen [here](https://design-system.codelitt.dev/?path=/story/components-dropdown--check-box-dropdown). |    -    |   true    |
+|     getItemKey     |                                  (item: T) => string \| number                                  |                                                                                                        Unique key to be passed to each option in the Dropdown.                                                                                                        |    -    |   true    |
+|    getItemLabel    |                                       (item: T) => string                                       |                                                                                                          Displays the text for each option in the Dropdown.                                                                                                           |    -    |   true    |
+|    getItemValue    |                            (item: T) => string \| number \| string[]                            |                                                                                                       Unique value to be passed to each option in the Dropdown.                                                                                                       |    -    |   true    |
+|         id         |                                             string                                              |                                                                                                                              Unique id.                                                                                                                               |    -    |   true    |
+|       label        |                                             string                                              |                                                                                                         Displays the text of the option inside the Dropdown.                                                                                                          |    -    |   false   |
+|  listItemCategory  | [ListItemCategory](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list) |                                                                                              The Dropdown's options can have one of two categories (Simple or Checkbox).                                                                                              | simple  |   false   |
+|    multiselect     |                                             boolean                                             |                                                                                           Specifies whether or not multiple options in a Dropdown are able to be selected.                                                                                            |    -    |   false   |
+|      onChange      |                                    (item?: T \| T[]) => void                                    |                                                                                           Calls a function whenever a change in an event of a dropdown's item is detected.                                                                                            |    -    |   true    |
+|      options       |                                               [T]                                               |                                                   Expects an array of an object with two keys (label and value). Each are respectively reflected as the option's text and value sent to the server upon submission.                                                   |   []    |   true    |
+|    placeholder     |                                             string                                              |                                                                                             Placeholder text of the Dropdown with the **editable** property set to true.                                                                                              |    -    |   false   |
+|      selected      |                                            T[] \| T                                             |                                                                                                                       Item selected initially.                                                                                                                        |    -    |   false   |
+|        size        |                                              Size                                               |                                                                                                Size of the component. The change is reflected on the height and width.                                                                                                |    -    |   false   |
+| variablesClassName |                                             string                                              |                                                                                                                    Accepts custom CSS class names.                                                                                                                    |    -    |   false   |
 
 **Category**
 
-1. [Simple](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown)
-2. [Icon](https://design-system.codelitt.dev/?path=/story/components-dropdown--icon-dropdown)
+1. [Simple](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown) - default appearance of the Dropdown.
+2. [Icon](https://design-system.codelitt.dev/?path=/story/components-dropdown--icon-dropdown) - displays an image icon in the Dropdown field.
 
 ## Getting Started
 
@@ -74,44 +75,12 @@ class SimpleDropdown extends Component {
 export default SimpleDropdown;
 ```
 
-# Customazing styles
+## CSS Variables available
 
-For the [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dropdown--default-dropdown) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+Given the nature of a composite component, in addition to its own, the Dropdown utilizes CSS variables from the Button, Input and List components.
+They are listed in the table below.
 
-**--dropdown-[property]?-[attribute]-[state]?**
-
-- Property - icon, arrow-icon
-- Attribute - background-color, border, font, etc (required)
-- State - hover
-
-**Important:** The Dropdown component is composed by 3 other components: [Button](https://design-system.codelitt.dev/?path=/docs/components-button--neutral), [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) and [List](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list), you will be able to use their variables to customize this component.
-
-1. Create the css class using our variables
-
-```css
-.my-dropdown-css {
-  /* Component + Attribute */
-  --dropwdown-border-radius: 1px solid grey;
-
-  /* Component + Attribute */
-  --button-background-color: white;
-
-  /* Component + Property + Attribute */
-  --button-color: grey;
-
-  /* Component + Attribute */
-  --list-border: 1px solid #a2cee1;
-
-  /* Component + Attribute + State*/
-  --list-item-border-bottom-hover: 1px solid red;
-}
-```
-
-2. Pass the css class through its `variablesClassName` property
-
-`<Dropdown variablesClassName={styles['my-dropdown-css']} />`
-
-# Variables available
+### Variables of the Dropdown component
 
 |   Property   |   Attribute   | State |
 | :----------: | :-----------: | :---: |
@@ -126,72 +95,60 @@ For the [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dr
 | prepend-icon |     fill      | hover |
 | append-icon  |     color     | hover |
 
-## Variables from the Button initially set up in the Dropdown component
+### Variables from the Button initially set up in the Dropdown component
 
-| Property |    Attribute     | State  |
-| :------: | :--------------: | :----: |
-|          | background-color |        |
-|          | background-color | active |
-|          | background-color | hover  |
-|          |      border      | hover  |
-|          |      color       |        |
-|          |      color       | hover  |
-|          |      color       | active |
-|          | justify-content  |        |
-|          |     padding      |        |
+| Property |    Attribute     |     State     |
+| :------: | :--------------: | :-----------: |
+|          | background-color | active, hover |
+|          |      border      |     hover     |
+|          |      color       | hover, active |
+|          | justify-content  |               |
+|          |     padding      |               |
 
-## Variables from the Input initially set up in the Dropdown component
+### Variables from the Input initially set up in the Dropdown component
 
-|  Property   |    Attribute     |  State   |
-| :---------: | :--------------: | :------: |
-|             | background-color |          |
-|             |      border      |          |
-|             |      border      |  hover   |
-|             |      border      |  focus   |
-|             |      border      |  active  |
-|             |      border      | positive |
-|             |   borde-radius   |          |
-|             |    font-size     |          |
-|             |   font-weight    |          |
-|             |      height      |          |
-|             |   line-height    |          |
-|             |     padding      |          |
-| placeholder |      color       |          |
-| placeholder |    font-size     |          |
-| placeholder |   font-weight    |          |
+|  Property   |    Attribute     |             State              |
+| :---------: | :--------------: | :----------------------------: |
+|             | background-color |             active             |
+|             |      border      | hover, active, focus, positive |
+|             |   borde-radius   |                                |
+|             |    font-size     |                                |
+|             |   font-weight    |                                |
+|             |      height      |                                |
+|             |   line-height    |                                |
+|             |     padding      |                                |
+|             |      width       |                                |
+| placeholder |      color       |                                |
+| placeholder |    font-size     |                                |
+| placeholder |   font-weight    |                                |
 
-## Variables from the List initially set up in the Dropdown component
+### Variables from the List initially set up in the Dropdown component
 
-| Property |    Attribute     |  State  |
-| :------: | :--------------: | :-----: |
-|          | background-color |         |
-|          |      border      |         |
-|          |  border-radius   |         |
-|          |    box-shadow    |         |
-|          |      height      |         |
-|          |      margin      |         |
-|          |    max-height    |         |
-|          |    min-width     |         |
-|          |     overflow     |         |
-|   item   | background-color |         |
-|   item   | background-color |  hover  |
-|   item   | background-color | pressed |
-|   item   |  border-bottom   |         |
-|   item   |   border-left    |         |
-|   item   |   border-right   |         |
-|   item   |    border-top    |         |
-|   item   |  border-bottom   |  hover  |
-|   item   |   border-left    |  hover  |
-|   item   |   border-right   |  hover  |
-|   item   |    border-top    |  hover  |
-|   item   |  border-radius   |         |
-|   item   |    box-shadow    |         |
-|   item   |      color       |         |
-|   item   |      cursor      |         |
-|   item   |    font-size     |         |
-|   item   |      height      |         |
-|   item   |      margin      |         |
-|   item   |    max-height    |         |
-|   item   |    min-width     |         |
-|   item   |     overflow     |         |
-|   item   |     padding      |         |
+| Property |    Attribute     |     State     |
+| :------: | :--------------: | :-----------: |
+|          | background-color |               |
+|          |      border      |               |
+|          |  border-radius   |               |
+|          |    box-shadow    |               |
+|          |      height      |               |
+|          |      margin      |               |
+|          |    max-height    |               |
+|          |    min-width     |               |
+|          |     overflow     |               |
+|          |      width       |               |
+|   item   | background-color | hover, active |
+|   item   |  border-bottom   |     hover     |
+|   item   |   border-left    |     hover     |
+|   item   |   border-right   |     hover     |
+|   item   |    border-top    |     hover     |
+|   item   |  border-radius   |               |
+|   item   |    box-shadow    |               |
+|   item   |      color       |    active     |
+|   item   |      cursor      |               |
+|   item   |    font-size     |               |
+|   item   |      height      |               |
+|   item   |      margin      |               |
+|   item   |    min-height    |               |
+|   item   |     overflow     |               |
+|   item   |     padding      |               |
+|   item   |     position     |               |

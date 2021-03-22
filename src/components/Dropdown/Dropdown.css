@@ -13,52 +13,43 @@
 }
 
 .dropdown-input {
-  --input-width: var(--dropdown-width, 100%);
   --input-background-color: var(--structure-color-100);
+  --input-background-color-active: var(--structure-color-300);
   --input-border: 1px solid var(--structure-color-300);
   --input-border-hover: 1px solid var(--primary-color-300);
   --input-border-focus: 1px solid var(--primary-color-500);
   --input-border-active: 1px solid var(--primary-color-500);
   --input-border-positive: 1px solid var(--primary-color-300);
-  --input-placeholder-color: var(--primary-color-600);
-  --input-placeholder-font-size: 14px;
-  --input-placeholder-font-weight: var(--paragraph-font-weight-normal);
-  --input-padding: 10px;
   --input-border-radius: var(--round-m);
+  --input-color: var(--structure-color-800);
+  --input-color-hover: var(--primary-color-600);
+  --input-color-active: var(--primary-color-600);
   --input-font-size: var(--paragraph-l);
   --input-font-weight: var(--paragraph-font-weight-normal);
   --input-height: 3.125rem;
   --input-line-height: var(--paragraph-l-line-height);
-  --input-color: var(--structure-color-800);
-  --input-color-hover: var(--primary-color-600);
-  --input-color-active: var(--primary-color-600);
-  --input-background-color-active: var(--structure-color-300);
+  --input-padding: 10px;
+  --input-placeholder-color: var(--primary-color-600);
+  --input-placeholder-font-size: 14px;
+  --input-placeholder-font-weight: var(--paragraph-font-weight-normal);
   --input-message-height: 0;
+  --input-width: var(--dropdown-width, 100%);
 }
 
 .dropdown-list {
-  --list-width: var(--dropdown-width, 100%);
+  --list-background-color: var(--structure-color-white);
   --list-border: 1px solid var(--primary-color-200);
-  --list-min-width: calc(100% - 0.125rem);
+  --list-border-radius: var(--round-m);
+  --list-box-shadow: none;
   --list-height: auto;
   --list-margin: 0;
-  --list-box-shadow: none;
-  --list-background-color: var(--structure-color-white);
-  --list-border-radius: var(--round-m);
+  --list-min-width: calc(100% - 0.125rem);
   --list-overflow: initial;
+  --list-width: var(--dropdown-width, 100%);
+
   --list-item-background-color: var(--structure-color-white);
   --list-item-background-color-hover: var(--structure-color-300);
   --list-item-background-color-active: var(--structure-color-300);
-  --list-item-font-size: 0.75rem;
-  --list-item-padding: 1rem 0.5rem;
-  --list-item-cursor: pointer;
-  --list-item-height: auto;
-  --list-item-margin: 0;
-  --list-item-color: var(--structure-color-900);
-  --list-item-box-shadow: none;
-  --list-item-justify-content: end;
-  --list-item-min-height: 3.125rem;
-  --list-item-color-active: var(--structure-color-900);
   --list-item-border-bottom-hover: 1px solid var(--structure-color-900);
   --list-item-border-left-hover: none;
   --list-item-border-right-hover: none;
@@ -67,21 +58,31 @@
   --list-item-border-left: none;
   --list-item-border-top: none;
   --list-item-border-right: none;
+  --list-item-box-shadow: none;
+  --list-item-color: var(--structure-color-900);
+  --list-item-color-active: var(--structure-color-900);
+  --list-item-cursor: pointer;
+  --list-item-font-size: 0.75rem;
+  --list-item-height: auto;
+  --list-item-justify-content: end;
+  --list-item-margin: 0;
+  --list-item-min-height: 3.125rem;
+  --list-item-padding: 1rem 0.5rem;
   --list-position: absolute;
   z-index: 999;
 }
 
 .dropdown-button {
-  width: var(--dropdown-width, 100%);
-  --button-padding: 5px 10px;
-  --button-justify-content: space-between;
-  --button-color: var(--structure-color-800);
-  --button-color-hover: var(--primary-color-600);
-  --button-color-active: var(--primary-color-600);
-  --button-border-hover: 1px solid var(--structure-color-400);
   --button-background-color: var(--structure-color-100);
   --button-background-color-active: var(--structure-color-300);
   --button-background-color-hover: var(--structure-color-100);
+  --button-border-hover: 1px solid var(--structure-color-400);
+  --button-color: var(--structure-color-800);
+  --button-color-hover: var(--primary-color-600);
+  --button-color-active: var(--primary-color-600);
+  --button-justify-content: space-between;
+  --button-padding: 5px 10px;
+  width: var(--dropdown-width, 100%);
 }
 
 .dropdown-prepend-icon {
