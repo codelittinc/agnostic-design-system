@@ -1,0 +1,77 @@
+# Email Input Component
+
+## Type: Decorator
+
+The Email Input component is based off of the [Input](https://design-system.codelitt.dev/?path=/docs/components-input--default) component.
+
+## Email Input Props
+
+Given the nature of a decorator component, we use all the properties of the **Input**. Please refer to link above for more details.<br />
+It should be noted, however, that the Email Input component by default uses a Regular Expression for verifying email format values.
+You can easily use your own RegEx in its place through the **_Input's_** validations property.<br />
+
+## Getting Started
+
+#### Example - Simple Email Input
+
+```javascript
+import React, { Component } from 'react';
+import { EmailInput } from '@codelittinc/agnostic-design-system';
+
+class EmailInput extends Component {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  }
+
+  render() {
+    return (
+      <EmailInput onChange={handleOnChange} label='Email Input' value={value} />
+    );
+  }
+}
+
+export default EmailInput;
+```
+
+#### Example - Custom Regex in Email Input
+
+```javascript
+import React, { Component } from 'react';
+import { EmailInput } from '@codelittinc/agnostic-design-system';
+
+class EmailInput extends Component {
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  }
+
+  const validations = () => (
+    [
+      {
+        type: 'function',
+        test: value => !!value.match(/.codelitt./),
+        invalidMessage: 'It needs to be a Codelitt email'
+      }
+    ]
+  )
+
+  render() {
+    return (
+      <EmailInput
+        onChange={handleOnChange}
+        label='Email Input'
+        value={value}
+        validations={validations} />
+    );
+  }
+}
+
+export default EmailInput;
+```
+
+## CSS Variables Available
+
+Given the nature of a decorator component, we use all the css variables of the **Input** component. Please refer to link above for more details.
