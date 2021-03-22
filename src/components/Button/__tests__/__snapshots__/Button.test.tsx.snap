@@ -2,20 +2,20 @@
 
 exports[`ExampleComponent is renders correctly 1`] = `
 <Button
-  label="this is a test"
   onClick={[Function]}
+  text="this is a test"
 >
   <NeutralButton
-    label="this is a test"
     onClick={[Function]}
+    text="this is a test"
   >
     <DefaultButton
       className="button button--neutral"
       disabled={false}
       fixed={false}
-      label="this is a test"
       onClick={[Function]}
       size="large"
+      text="this is a test"
     >
       <button
         className="button button--neutral button button--large"
@@ -24,7 +24,7 @@ exports[`ExampleComponent is renders correctly 1`] = `
         type="button"
       >
         <span
-          className="button--label"
+          className="button--text"
         >
           this is a test
         </span>

@@ -16,7 +16,7 @@ interface Props {
   content?: React.ReactNode;
   disabled?: boolean;
   fixed?: boolean;
-  label?: string;
+  text?: string;
   onClick: () => void;
   size?: Size;
   variablesClassName?: string;

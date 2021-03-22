@@ -18,50 +18,50 @@ const Template = args => <Button {...args} />;
 
 export const Neutral = Template.bind({});
 Neutral.args = {
-  label: 'Neutral Button',
+  text: 'Neutral Button',
   category: 'neutral'
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Primary Button',
+  text: 'Primary Button',
   category: 'primary'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Secondary Button',
+  text: 'Secondary Button',
   category: 'secondary'
 };
 
 export const Positive = Template.bind({});
 Positive.args = {
-  label: 'Positive Button',
+  text: 'Positive Button',
   category: 'positive'
 };
 
 export const Negative = Template.bind({});
 Negative.args = {
-  label: 'Negative Button',
+  text: 'Negative Button',
   category: 'negative'
 };
 
 export const Ghost = Template.bind({});
 Ghost.args = {
-  label: 'Ghost Button',
+  text: 'Ghost Button',
   category: 'ghost'
 };
 
 export const WithAppendIcon = Template.bind({});
 WithAppendIcon.args = {
-  label: 'With Append Icon',
+  text: 'With Append Icon',
   category: 'primary',
   withAppendIcon: true
 };
 
 export const WithCustomAppendIcon = Template.bind({});
 WithCustomAppendIcon.args = {
-  label: 'With Custom Append Icon',
+  text: 'With Custom Append Icon',
   category: 'primary',
   withAppendIcon: true,
   appendIcon: <TestSearchIcon height='10' width='10' />

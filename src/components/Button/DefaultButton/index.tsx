@@ -9,7 +9,7 @@ interface Props {
   content?: React.ReactNode;
   disabled?: boolean;
   fixed?: boolean;
-  label?: string;
+  text?: string;
   onClick: () => void;
   size?: string;
   variablesClassName?: string;
@@ -32,10 +32,10 @@ const getAppendIcon = (appendIcon, size) => {
   );
 };
 
-const getButtonContent = (label, withAppendIcon, appendIcon, size) => {
+const getButtonContent = (text, withAppendIcon, appendIcon, size) => {
   return (
     <>
-      {label ? <span className={classNames(styles['button--label'])}>{label}</span> : ''}
+      {text ? <span className={classNames(styles['button--text'])}>{text}</span> : ''}
 
       {withAppendIcon && (
         <div className={classNames(styles['button--append-icon-container'])}>
@@ -50,7 +50,7 @@ const DefaultButton: React.FC<Props> = props => {
   const {
     className,
     fixed,
-    label,
+    text,
     onClick,
     size,
     variablesClassName,
@@ -62,7 +62,7 @@ const DefaultButton: React.FC<Props> = props => {
 
   const sizeClass = `button--${size}`;
 
-  const buttonContent = content || getButtonContent(label, withAppendIcon, appendIcon, size);
+  const buttonContent = content || getButtonContent(text, withAppendIcon, appendIcon, size);
   return (
     <button
       {...buttonProps}

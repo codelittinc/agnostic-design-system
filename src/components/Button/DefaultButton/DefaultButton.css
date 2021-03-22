@@ -92,7 +92,7 @@
   padding: var(--button-padding, 0 var(--spacing-horizontal-m));
 }
 
-.button .button--label + .button--append-icon-container {
+.button .button--text + .button--append-icon-container {
   margin: var(--button-append-icon-margin, 0 0 0 16px);
 }
 
