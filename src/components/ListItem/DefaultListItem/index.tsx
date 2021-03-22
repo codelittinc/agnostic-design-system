@@ -41,7 +41,7 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
       onClick={e => onClick(e)}
       onKeyDown={e => onKeyDown(e)}
       role='option'
-      className={classNames(className, variablesClassName, styles['list-item'])}
+      className={classNames(className, styles['list-item'], variablesClassName)}
       tabIndex={0}
     >
       <div className={classNames(styles['list-item-icon'], !getIcon && styles['div-hidden'])}>

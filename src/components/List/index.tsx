@@ -95,8 +95,15 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
 
   return (
     <div className={classNames(styles['list-container'], variablesClassName)} ref={currentRef}>
-      {label && <label className={classNames(styles['list-label'])}>{label}</label>}
-      <ul id={id} className={classNames(styles.list)} tabIndex={-1} role='list-box'>
+      {label && (
+        <label className={classNames(styles['list-label'], variablesClassName)}>{label}</label>
+      )}
+      <ul
+        id={id}
+        className={classNames(styles.list, variablesClassName)}
+        tabIndex={-1}
+        role='list-box'
+      >
         {options &&
           options.map((item, index) => {
             return (
@@ -116,12 +123,12 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                 getValue={getItemValue}
                 getName={getItemName}
                 variablesClassName={classNames(
+                  variablesClassName,
                   isItemSelected ||
                     (Array.isArray(selectedItemsList) &&
                       selectedItemsList.find(s => isEqual(item, s)))
                     ? styles['list-item--selected']
-                    : '',
-                  variablesClassName
+                    : ''
                 )}
                 key={`${getItemKey(item)}`}
                 onClick={() => onChange(getSelectedItems(item))}

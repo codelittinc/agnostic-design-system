@@ -208,7 +208,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
         />
       ) : (
         <Button
-          label={listTitle}
+          text={listTitle}
           disabled={disabled}
           onClick={displayOptionsList}
           variablesClassName={classnames(styles['dropdown-button'], variablesClassName)}
