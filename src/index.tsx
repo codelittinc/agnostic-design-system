@@ -2,6 +2,7 @@ export { default as AddressSearch } from '@/components/AddressSearch';
 export { default as Button } from '@/components/Button';
 export { default as ButtonsList } from '@/components/ButtonsList';
 export { default as EmailInput } from '@/components/EmailInput';
+export { default as Form } from '@/components/Form';
 export { default as Input } from '@/components/Input';
 export { default as Dropdown } from '@/components/Dropdown';
 export { default as List } from '@/components/List';

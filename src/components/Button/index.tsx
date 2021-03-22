@@ -10,6 +10,8 @@ import SecondaryButton from '@/components/Button/SecondaryButton';
 type Category = 'ghost' | 'negative' | 'neutral' | 'positive' | 'primary' | 'secondary';
 type Size = 'large' | 'medium';
 
+export const SUBMIT_TYPE = 'submit';
+
 interface Props {
   appendIcon?: React.ReactNode;
   category?: Category;
@@ -19,6 +21,7 @@ interface Props {
   label?: string;
   onClick: () => void;
   size?: Size;
+  type?: string;
   variablesClassName?: string;
   withAppendIcon?: boolean;
 }
