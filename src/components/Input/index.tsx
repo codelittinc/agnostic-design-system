@@ -93,7 +93,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const handleBlur = event => {
     onBlur && onBlur();
-    (required || validations.length > 0) && setValidationState(valid ? VALID : INVALID);
+    if (required || (validations.length > 0 && value !== '')) {
+      setValidationState(valid ? VALID : INVALID);
+    }
     const invalidMessage = getInvalidMessage(event.target.value, validations, required);
     setInvalidMessage(invalidMessage);
   };

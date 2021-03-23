@@ -37,20 +37,16 @@ const EMAIL_REGEX = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/;
 const EmailInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { validations, ...inputProps } = props;
 
-  return (
-    <Input
-      {...inputProps}
-      ref={ref}
-      validations={[
-        {
-          type: 'RegExp',
-          test: EMAIL_REGEX,
-          invalidMessage: 'It needs to be a valid email.'
-        },
-        ...(validations || [])
-      ]}
-    />
-  );
+  const emailValidations: Validation[] = [
+    {
+      type: 'RegExp',
+      test: EMAIL_REGEX,
+      invalidMessage: 'It needs to be a valid email.'
+    },
+    ...(validations || [])
+  ];
+
+  return <Input {...inputProps} ref={ref} validations={emailValidations} />;
 });
 
 export default EmailInput;
