@@ -33,6 +33,7 @@
   --input-color-hover: var(--primary-color-600);
   --input-color-active: var(--primary-color-600);
   --input-background-color-active: var(--structure-color-300);
+  --input-message-height: 0;
 }
 
 .dropdown-list {
