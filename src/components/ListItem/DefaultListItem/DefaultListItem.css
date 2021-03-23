@@ -1,5 +1,14 @@
 @import '../../../styles/theme/index.css';
 
+:root {
+  --list-item-selected-background-color: var(--structure-color-white);
+  --list-item-selected-border: 1px solid var(--success-color);
+  --list-item-selected-border-bottom: var(--list-item-selected-border);
+  --list-item-selected-border-top: var(--list-item-selected-border);
+  --list-item-selected-border-right: var(--list-item-selected-border);
+  --list-item-selected-border-left: var(--list-item-selected-border);
+}
+
 .list-item {
   align-items: var(--list-item-align-items, center);
   background-color: var(--list-item-background-color, var(--structure-color-white));
@@ -127,4 +136,54 @@
 
 .div-hidden {
   display: none;
+}
+
+.list-item-selected {
+  background-color: var(--list-item-selected-background-color);
+  border-bottom: var(--list-item-selected-border-bottom);
+  border-top: var(--list-item-selected-border-top);
+  border-right: var(--list-item-selected-border-right);
+  border-left: var(--list-item-selected-border-left);
+}
+
+.list-item-selected:hover {
+  background-color: var(
+    --list-item-selected-background-color-hover,
+    var(--list-item-selected-background-color)
+  );
+  border-bottom: var(
+    --list-item-selected-border-bottom-hover,
+    var(--list-item-selected-border-bottom)
+  );
+  border-top: var(--list-item-selected-border-top-hover, var(--list-item-selected-border-top));
+  border-right: var(--list-item-selected-border-right-hover, var(--list-item-selected-border-right));
+  border-left: var(--list-item-selected-border-left-hover, var(--list-item-selected-border-left));
+}
+
+.list-item-selected:focus {
+  background-color: var(
+    --list-item-selected-background-color-focus,
+    var(--list-item-selected-background-color)
+  );
+  border-bottom: var(
+    --list-item-selected-border-bottom-focus,
+    var(--list-item-selected-border-bottom)
+  );
+  border-top: var(--list-item-selected-border-top-focus, var(--list-item-selected-border-top));
+  border-right: var(--list-item-selected-border-right-focus, var(--list-item-selected-border-right));
+  border-left: var(--list-item-selected-border-left-focus, var(--list-item-selected-border-left));
+}
+
+.list-item-selected:active {
+  background-color: var(
+    --list-item-selected-background-color-active,
+    var(--list-item-selected-background-color)
+  );
+  border-bottom: var(
+    --list-item-selected-border-bottom-active,
+    var(--list-item-selected-border-bottom)
+  );
+  border-top: var(--list-item-selected-border-top-active, var(--list-item-selected-border-top));
+  border-right: var(--list-item-selected-border-right-active, var(--list-item-selected-border-right));
+  border-left: var(--list-item-selected-border-left-active, var(--list-item-selected-border-left));
 }

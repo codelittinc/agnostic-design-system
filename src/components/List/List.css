@@ -1,9 +1,5 @@
 @import '../../styles/theme/index.css';
 
-:root {
-  --list-item-selected-border: 1px solid var(--success-color);
-}
-
 .list-container {
   width: var(--list-width, 100%);
 }
@@ -45,60 +41,4 @@
   line-height: var(--list-label-line-height, var(--paragraph-l-line-height));
   margin: var(--list-label-margin, 0);
   width: 100%;
-}
-
-.list-item--selected {
-  --list-item-background-color: var(
-    --list-item-selected-background-color,
-    var(--structure-color-white)
-  ) !important; /*@TODO: Refactor List component to accept selected without this important*/
-  --list-item-border-bottom: var(
-    --list-item-selected-border-bottom,
-    var(--list-item-selected-border)
-  );
-  --list-item-border-top: var(--list-item-selected-border-top, var(--list-item-selected-border));
-  --list-item-border-right: var(--list-item-selected-border-right, var(--list-item-selected-border));
-  --list-item-border-left: var(--list-item-selected-border-left, var(--list-item-selected-border));
-}
-
-.list-item--selected:hover {
-  --list-item-background-color-hover: var(
-    --list-item-selected-background-color-hover,
-    var(--list-item-selected-background-color)
-  );
-  --list-item-border-bottom-hover: var(
-    --list-item-selected-border-bottom-hover,
-    var(--list-item-selected-border-bottom)
-  );
-  --list-item-border-top-hover: var(--list-item-selected-border-top-hover, var(--list-item-selected-border-top));
-  --list-item-border-right-hover: var(--list-item-selected-border-right-hover, var(--list-item-selected-border-right));
-  --list-item-border-left-hover: var(--list-item-selected-border-left-hover, var(--list-item-selected-border-bottom));
-}
-
-.list-item--selected:focus {
-  --list-item-background-color-focus: var(
-    --list-item-selected-background-color-focus,
-    var(--list-item-selected-background-color)
-  );
-  --list-item-border-bottom-focus: var(
-    --list-item-selected-border-bottom-focus,
-    var(--list-item-selected-border-bottom)
-  );
-  --list-item-border-top-focus: var(--list-item-selected-border-top-focus, var(--list-item-selected-border-top));
-  --list-item-border-right-focus: var(--list-item-selected-border-right-focus, var(--list-item-selected-border-right));
-  --list-item-border-left-focus: var(--list-item-selected-border-left-focus, var(--list-item-selected-border-bottom));
-}
-
-.list-item--selected:active {
-  --list-item-background-color-active: var(
-    --list-item-selected-background-color-active,
-    var(--list-item-selected-background-color)
-  );
-  --list-item-border-bottom-active: var(
-    --list-item-selected-border-bottom-active,
-    var(--list-item-selected-border-bottom)
-  );
-  --list-item-border-top-active: var(--list-item-selected-border-top-active, var(--list-item-selected-border-top));
-  --list-item-border-right-active: var(--list-item-selected-border-right-active, var(--list-item-selected-border-right));
-  --list-item-border-left-active: var(--list-item-selected-border-left-active, var(--list-item-selected-border-bottom));
 }

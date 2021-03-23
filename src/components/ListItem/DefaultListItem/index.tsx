@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import styles from '@/components/ListItem/DefaultListItem/DefaultListItem.css';
 
 export interface Props<T> {
@@ -11,12 +10,13 @@ export interface Props<T> {
   getName?: (item?: T) => string;
   getSelectedMarker?: (item: T) => React.ReactNode;
   getValue: (item: T) => string | number | string[];
+  item: T;
+  key: number | string;
   onClick?: (event: React.MouseEvent) => void;
   onKeyDown: (event: React.KeyboardEvent) => void;
-  item: T;
+  selected: (item: T) => boolean;
   size: string;
   variablesClassName?: string;
-  key: number | string;
 }
 
 const DefaultListItem = <T extends {}>(props: Props<T>) => {
@@ -30,6 +30,7 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
     onKeyDown,
     key,
     item,
+    selected,
     variablesClassName
   } = props;
 
@@ -41,7 +42,12 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
       onClick={e => onClick(e)}
       onKeyDown={e => onKeyDown(e)}
       role='option'
-      className={classNames(className, styles['list-item'], variablesClassName)}
+      className={classNames(
+        className,
+        styles['list-item'],
+        selected(item) && styles['list-item-selected'],
+        variablesClassName
+      )}
       tabIndex={0}
     >
       <div className={classNames(styles['list-item-icon'], !getIcon && styles['div-hidden'])}>

@@ -122,17 +122,17 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                 }
                 getValue={getItemValue}
                 getName={getItemName}
-                variablesClassName={classNames(
-                  variablesClassName,
-                  isItemSelected ||
-                    (Array.isArray(selectedItemsList) &&
-                      selectedItemsList.find(s => isEqual(item, s)))
-                    ? styles['list-item--selected']
-                    : ''
-                )}
+                variablesClassName={variablesClassName}
                 key={`${getItemKey(item)}`}
                 onClick={() => onChange(getSelectedItems(item))}
                 onKeyDown={e => handleKeyDown(item, index, e)}
+                selected={item =>
+                  !!(
+                    isItemSelected ||
+                    (Array.isArray(selectedItemsList) &&
+                      selectedItemsList.find(s => isEqual(item, s)))
+                  )
+                }
               />
             );
           })}
