@@ -99,10 +99,6 @@
   width: 100%;
 }
 
-.textarea--message-valid {
-  color: var(--textarea-message-color-valid, var(--success-color));
-}
-
 .textarea--message-invalid {
   color: var(--textarea-message-color-invalid, var(--error-color));
 }

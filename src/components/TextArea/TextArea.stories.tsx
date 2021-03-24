@@ -52,5 +52,6 @@ WithInvalidMessage.args = {
   label: 'This is a required TextArea with invalid message',
   required: true,
   invalidMessage: 'This is a invalid Message',
-  placeholder: 'Required TextArea'
+  placeholder: 'Required TextArea',
+  message: 'TextArea'
 };

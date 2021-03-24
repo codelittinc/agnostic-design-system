@@ -48,10 +48,11 @@ const TextArea: React.FC<Props> = props => {
   const sizeClass = `textarea--${size}`;
   const messageClass = 'textarea--message';
   const hasStateTextArea = validationState !== '';
-  const messageValidationClass = hasStateTextArea ? `textarea--message-${validationState}` : '';
+  const invalidMessageClass = 'textarea--message-invalid';
   const statusClass = hasStateTextArea ? `textarea--${validationState}` : '';
   const descriptionClass = 'textarea--description';
   const labelClass = 'textarea--label';
+  const hasStateInvalid = validationState === INVALID;
 
   const hasValue = value => /\S/.test(value);
 
@@ -82,8 +83,13 @@ const TextArea: React.FC<Props> = props => {
 
   const getMessage = () => {
     return message || invalidMessage ? (
-      <span className={classNames(styles[messageClass], styles[messageValidationClass])}>
-        {validationState === INVALID && invalidMessage ? invalidMessage : message}
+      <span
+        className={classNames(
+          styles[messageClass],
+          hasStateInvalid && invalidMessage && styles[invalidMessageClass]
+        )}
+      >
+        {hasStateInvalid && invalidMessage ? invalidMessage : message}
       </span>
     ) : (
       ''
