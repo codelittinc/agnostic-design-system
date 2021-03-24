@@ -37,4 +37,6 @@ Form.defaultProps = {
   validate: false
 };
 
+Form.displayName = 'Form';
+
 export default Form;

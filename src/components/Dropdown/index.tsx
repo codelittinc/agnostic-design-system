@@ -233,4 +233,6 @@ Dropdown.defaultProps = {
   onStateChange: state => state
 };
 
+Dropdown.displayName = 'Dropdown';
+
 export default Dropdown;

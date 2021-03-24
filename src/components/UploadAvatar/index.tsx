@@ -168,4 +168,6 @@ UploadAvatar.defaultProps = {
   maxSize: 10
 };
 
+UploadAvatar.displayName = 'UploadAvatar';
+
 export default UploadAvatar;

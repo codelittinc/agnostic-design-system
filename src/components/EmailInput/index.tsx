@@ -49,4 +49,6 @@ const EmailInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   return <Input {...inputProps} ref={ref} validations={emailValidations} />;
 });
 
+EmailInput.displayName = 'EmailInput';
+
 export default EmailInput;

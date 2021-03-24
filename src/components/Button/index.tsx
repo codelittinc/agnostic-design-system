@@ -41,4 +41,6 @@ const Button: React.FC<Props> = props => {
   return <ButtonType {...props} />;
 };
 
+Button.displayName = 'Button';
+
 export default Button;

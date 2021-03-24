@@ -30,7 +30,7 @@ interface Props {
   limit?: number;
   message?: string;
   onBlur?: () => void;
-  onChange: (e: any) => void;
+  onChange?: (e: any) => void;
   onClickActionIcon: () => void;
   onFocus: () => void;
   onKeyDown?: () => void;
@@ -214,5 +214,7 @@ Input.defaultProps = {
   onChange: e => e,
   validations: []
 };
+
+Input.displayName = 'Input';
 
 export default Input;

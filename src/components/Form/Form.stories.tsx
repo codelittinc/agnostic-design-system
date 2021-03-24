@@ -17,8 +17,8 @@ const Template = () => {
       <Email id='email' name='email' placeholder='Email' label='Email' />
 
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Button id='back-button' label='back' onClick={() => alert('You clicked back!')} />
-        <Button id='submit' label='Submit' type='submit' />
+        <Button id='back-button' text='back' onClick={() => alert('You clicked back!')} />
+        <Button id='submit' text='Submit' type='submit' />
       </div>
     </Form>
   );

@@ -70,4 +70,6 @@ NumericInput.defaultProps = {
   scale: 0
 };
 
+NumericInput.displayName = 'NumericInput';
+
 export default NumericInput;
