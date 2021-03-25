@@ -46,7 +46,6 @@
   --list-min-width: calc(100% - 0.125rem);
   --list-overflow: initial;
   --list-width: var(--dropdown-width, 100%);
-
   --list-item-background-color: var(--structure-color-white);
   --list-item-background-color-hover: var(--structure-color-300);
   --list-item-background-color-active: var(--structure-color-300);
@@ -82,7 +81,7 @@
   --button-color-active: var(--primary-color-600);
   --button-justify-content: space-between;
   --button-padding: 5px 10px;
-  width: var(--dropdown-width, 100%);
+  --button-width: var(--dropdown-width, 100%);
 }
 
 .dropdown-prepend-icon {
