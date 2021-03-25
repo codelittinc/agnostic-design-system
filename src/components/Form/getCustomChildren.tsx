@@ -25,6 +25,13 @@ const getCustomComponent = customChildremProps => {
     setFieldsValidationState
   } = customChildremProps;
 
+  if (
+    !(isInput(child) || isButton(child)) &&
+    (!child.props.children || typeof child.props.children === 'string')
+  ) {
+    return child;
+  }
+
   const { id } = child.props;
   const key = `${id}-${idx}`;
 
