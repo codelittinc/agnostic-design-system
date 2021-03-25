@@ -1,25 +1,30 @@
 # Address Search Component
 
+## Type: Decorator
+
+The Address Search is based off the [Dropdown](https://design-system.codelitt.dev/?path=/docs/components-dropdown--default-dropdown) component.
+
 ## Address Search Props
 
-|        Prop        |                                                                       Type                                                                       | Default | Optional |
-| :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :------: |
-|    getListTitle    |                                         (selected: google.maps.places.AutocompletePrediction) => string                                          |    -    |  false   |
-|         id         |                                                                      string                                                                      |    -    |  false   |
-|      onChange      | ([suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)) => void |    -    |  false   |
-|    placeholder     |                                                                      string                                                                      |    -    |   true   |
-|      selected      |                                                    google.maps.places.AutocompletePrediction                                                     |    -    |  false   |
-| variablesClassName |                                                                      string                                                                      |    -    |   true   |
+Although having the nature of a decorator component, the Address Search's usable properties are the ones listed below.
 
-**onChange**
-
-- The onChange event returns a [suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction) object, you will be able to do whatever you want with the selected address.
+|        Prop        |                                                                       Type                                                                       |                                                                                                                                     Description                                                                                                                                      | Default | Mandatory |
+| :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|    getListTitle    |                                         (selected: google.maps.places.AutocompletePrediction) => string                                          |                                                                                       Used to get the description of the selected item that should be displayed as the value of the component.                                                                                       |    -    |   true    |
+|         id         |                                                                      string                                                                      |                                                                                                                                      Unique id.                                                                                                                                      |    -    |   true    |
+|      onChange      | ([suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)) => void | Returns a [suggestion](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction) object. Through it, you should be able to access a list of properties listed in the link mentioned provided by the Google Maps API. |    -    |   true    |
+|    placeholder     |                                                                      string                                                                      |                                                                                                                         Placeholder text for the component.                                                                                                                          |    -    |   false   |
+|      selected      |                                                    google.maps.places.AutocompletePrediction                                                     |                                                                      The selected item from the dropdown list. The list provides predicted autocompleted addresses based on the initial results from the text.                                                                       |    -    |   true    |
+| variablesClassName |                                                                      string                                                                      |                                                                                                                           Accepts custom CSS class names.                                                                                                                            |    -    |   false   |
 
 ## Getting Started
 
-We created a **MapsProvider** component to set up your _GOOGLE_API_KEY_ once only, it helps in case you need to use one or more AddressSearch component in your application, for it the MapsProvider has to wrapper your AddressSearch components.
+In order for the Address Search to function, it is necessary to wrap it with the MapsProvider component and provide
+it with the google api key through the **apiKey** property. This is evident in the example below.<br />
+The objective is to set the **_GOOGLE_API_KEY_** only once, in order to assist in the case the use of multiple Address
+Search components is required.
 
-[Provider Concept](https://react-redux.js.org/api/provider)
+Please refer to the following link for additional clarity: [Provider Concept](https://react-redux.js.org/api/provider)
 
 ```javascript
 import React, { Component, useState } from 'react';
@@ -47,42 +52,12 @@ class SimpleAddressSearch extends Component {
 export default SimpleAddressSearch;
 ```
 
-# Customazing styles
+## CSS Variables Available
 
-For the [AddressSearch](https://design-system.codelitt.dev/?path=/story/components-address-search--default) component we use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page) to configure the CSS variables:
+In addition to its own, the Address Search uses CSS variables from the **List**, **Dropdown**, and through the Dropdown, the **Input**, components.
+They are listed in the table below.
 
-**--address-search-[attribute]**
-
-- Attribute - background-color, border, font, etc (required)
-
-**Important:** The AddressSearch component is based on the editable [Dropdown](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) component and you will be able to use its variables to customize this component.
-
-1. Create the css class using our variables
-
-```css
-.my-address-css {
-  /* Component + Attribute */
-  --address-search-border-radius: 1px solid grey;
-
-  /* Component + Attribute */
-  --input-background-color: white;
-
-  /* Component + Property + Attribute */
-  --input-placeholder-color: grey;
-
-  /* Component + Attribute */
-  --list-border: 1px solid #a2cee1;
-
-  /* Component + Attribute + State*/
-  --list-item-border-bottom-hover: 1px solid red;
-}
-```
-
-2. Pass the css class through its `variablesClassName` property
-
-`<AddressSearch variablesClassName={styles['my-address-css']} />`
-
-# Variables from the Dropdown initially set up in the Address component
+## Variables from the Dropdown initially set up in the Address component
 
 | Property |   Attribute   | State |
 | :------: | :-----------: | :---: |
@@ -96,56 +71,48 @@ For the [AddressSearch](https://design-system.codelitt.dev/?path=/story/componen
 
 ## Variables from the Input initially set up in the Address component
 
-|  Property   |    Attribute     |  State   |
-| :---------: | :--------------: | :------: |
-|             | background-color |          |
-|             |      border      |          |
-|             |      border      |  hover   |
-|             |      border      |  focus   |
-|             |      border      |  active  |
-|             |      border      | positive |
-|             |   borde-radius   |          |
-|             |    font-size     |          |
-|             |   font-weight    |          |
-|             |      height      |          |
-|             |   line-height    |          |
-|             |     padding      |          |
-| placeholder |      color       |          |
-| placeholder |    font-size     |          |
-| placeholder |   font-weight    |          |
+|  Property   |    Attribute     |             State              |
+| :---------: | :--------------: | :----------------------------: |
+|             | background-color |             active             |
+|             |      border      | hover, active, focus, positive |
+|             |   borde-radius   |                                |
+|             |    font-size     |                                |
+|             |   font-weight    |                                |
+|             |      height      |                                |
+|             |   line-height    |                                |
+|             |     padding      |                                |
+|             |      width       |                                |
+| placeholder |      color       |                                |
+| placeholder |    font-size     |                                |
+| placeholder |   font-weight    |                                |
 
 ## Variables from the List initially set up in the Address component
 
-| Property |    Attribute     |  State  |
-| :------: | :--------------: | :-----: |
-|          | background-color |         |
-|          |      border      |         |
-|          |  border-radius   |         |
-|          |    box-shadow    |         |
-|          |      height      |         |
-|          |      margin      |         |
-|          |    max-height    |         |
-|          |    min-width     |         |
-|          |     overflow     |         |
-|   item   | background-color |         |
-|   item   | background-color |  hover  |
-|   item   | background-color | pressed |
-|   item   |  border-bottom   |         |
-|   item   |   border-left    |         |
-|   item   |   border-right   |         |
-|   item   |    border-top    |         |
-|   item   |  border-bottom   |  hover  |
-|   item   |   border-left    |  hover  |
-|   item   |   border-right   |  hover  |
-|   item   |    border-top    |  hover  |
-|   item   |  border-radius   |         |
-|   item   |    box-shadow    |         |
-|   item   |      color       |         |
-|   item   |      cursor      |         |
-|   item   |    font-size     |         |
-|   item   |      height      |         |
-|   item   |      margin      |         |
-|   item   |    max-height    |         |
-|   item   |    min-width     |         |
-|   item   |     overflow     |         |
-|   item   |     padding      |         |
+| Property |    Attribute     |     State     |
+| :------: | :--------------: | :-----------: |
+|          | background-color |               |
+|          |      border      |               |
+|          |  border-radius   |               |
+|          |    box-shadow    |               |
+|          |      height      |               |
+|          |      margin      |               |
+|          |    max-height    |               |
+|          |    min-width     |               |
+|          |     overflow     |               |
+|          |      width       |               |
+|   item   | background-color | hover, active |
+|   item   |  border-bottom   |     hover     |
+|   item   |   border-left    |     hover     |
+|   item   |   border-right   |     hover     |
+|   item   |    border-top    |     hover     |
+|   item   |  border-radius   |               |
+|   item   |    box-shadow    |               |
+|   item   |      color       |    active     |
+|   item   |      cursor      |               |
+|   item   |    font-size     |               |
+|   item   |      height      |               |
+|   item   |      margin      |               |
+|   item   |    min-height    |               |
+|   item   |     overflow     |               |
+|   item   |     padding      |               |
+|   item   |     position     |               |
