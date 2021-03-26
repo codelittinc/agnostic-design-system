@@ -4,7 +4,7 @@ import styles from '@/components/Button/SecondaryButton/SecondaryButton.css';
 import classNames from 'classnames';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const SecondaryButton: React.FC<Props> = props => (

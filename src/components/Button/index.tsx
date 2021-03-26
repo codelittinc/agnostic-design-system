@@ -18,8 +18,9 @@ interface Props {
   content?: React.ReactNode;
   disabled?: boolean;
   fixed?: boolean;
+  id?: string;
   text?: string;
-  onClick: () => void;
+  onClick?: () => void;
   size?: Size;
   type?: string;
   variablesClassName?: string;
@@ -40,7 +41,5 @@ const Button: React.FC<Props> = props => {
 
   return <ButtonType {...props} />;
 };
-
-Button.displayName = 'Button';
 
 export default Button;

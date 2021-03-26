@@ -49,6 +49,4 @@ ButtonsList.defaultProps = {
   onChange: () => null
 };
 
-ButtonsList.displayName = 'ButtonsList';
-
 export default ButtonsList;

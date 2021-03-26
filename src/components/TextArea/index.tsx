@@ -141,6 +141,4 @@ TextArea.defaultProps = {
   onStateChange: state => state
 };
 
-TextArea.displayName = 'TextArea';
-
 export default TextArea;

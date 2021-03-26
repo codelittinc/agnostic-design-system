@@ -2,7 +2,7 @@ import React from 'react';
 // @TODO: Discover how to disable the no-unused-vars verification for ts interfaces
 /* eslint-disable */
 import Input, { Filter, Size, Validation } from '../Input';
-  /* eslint-enable */
+/* eslint-enable */
 
 interface Props {
   actionIcon?: React.ReactNode;
@@ -13,6 +13,7 @@ interface Props {
   label?: string | React.ReactNode;
   limit?: number;
   message?: string;
+  name?: string;
   onBlur?: () => void;
   onChange: (e: any) => void;
   onClickActionIcon: () => void;
@@ -48,7 +49,5 @@ const EmailInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   return <Input {...inputProps} ref={ref} validations={emailValidations} />;
 });
-
-EmailInput.displayName = 'EmailInput';
 
 export default EmailInput;

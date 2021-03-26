@@ -87,6 +87,4 @@ AddressSearch.defaultProps = {
   getListTitle: suggestion => suggestion.description
 };
 
-AddressSearch.displayName = 'AddressSearch';
-
 export default AddressSearch;

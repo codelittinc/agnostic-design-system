@@ -4,7 +4,7 @@ import styles from '@/components/Button/NeutralButton/NeutralButton.css';
 import classNames from 'classnames';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const NeutralButton: React.FC<Props> = props => (

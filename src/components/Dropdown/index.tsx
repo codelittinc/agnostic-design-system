@@ -228,6 +228,4 @@ Dropdown.defaultProps = {
   listItemCategory: simpleCategory
 };
 
-Dropdown.displayName = 'Dropdown';
-
 export default Dropdown;

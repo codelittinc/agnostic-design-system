@@ -4,7 +4,7 @@ import styles from '@/components/Button/NegativeButton/NegativeButton.css';
 import classNames from 'classnames';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const NegativeButton: React.FC<Props> = props => (

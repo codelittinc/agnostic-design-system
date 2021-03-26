@@ -10,7 +10,7 @@ interface Props {
   disabled?: boolean;
   fixed?: boolean;
   text?: string;
-  onClick: () => void;
+  onClick?: () => void;
   size?: string;
   variablesClassName?: string;
   withAppendIcon?: boolean;

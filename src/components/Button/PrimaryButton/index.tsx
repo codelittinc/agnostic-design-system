@@ -4,7 +4,7 @@ import styles from '@/components/Button/PrimaryButton/PrimaryButton.css';
 import classNames from 'classnames';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const PrimaryButton: React.FC<Props> = props => (

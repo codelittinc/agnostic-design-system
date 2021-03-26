@@ -4,7 +4,7 @@ import styles from '@/components/Button/GhostButton/GhostButton.css';
 import classNames from 'classnames';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const GhostButton: React.FC<Props> = props => (

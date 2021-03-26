@@ -3,7 +3,7 @@ import getCustomChildren from './getCustomChildren';
 import getRerenderKeys from './getRerenderKeys';
 
 interface Props {
-  children: React.ReactElement[];
+  children: React.ReactElement[] | React.ReactElement;
   initialValues?: object;
   onSubmit: (values) => void;
   validate?: boolean;

@@ -29,6 +29,7 @@ interface Props {
   label?: string | React.ReactNode;
   limit?: number;
   message?: string;
+  name?: string;
   onBlur?: () => void;
   onChange?: (e: any) => void;
   onClickActionIcon: () => void;
@@ -61,6 +62,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     label,
     limit,
     message,
+    name,
     onBlur,
     onChange,
     onClickActionIcon,
@@ -166,6 +168,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           )}
           disabled={disabled}
           id={id}
+          name={name}
           onChange={handleChange}
           placeholder={placeholder}
           value={value}
@@ -214,7 +217,5 @@ Input.defaultProps = {
   onChange: e => e,
   validations: []
 };
-
-Input.displayName = 'Input';
 
 export default Input;

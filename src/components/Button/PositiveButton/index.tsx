@@ -4,7 +4,7 @@ import styles from '@/components/Button/PositiveButton/PositiveButton.css';
 import classNames from 'classnames';
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const PositiveButton: React.FC<Props> = props => (

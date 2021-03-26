@@ -1,18 +1,7 @@
 import React from 'react';
 import getInput from './getInput';
 import getButton from './getButton';
-
-const BUTTON_TYPE = 'Button';
-
-// @TODO: Improve this validation to allow other components
-const isInput = component => {
-  const { type } = component;
-  const name = type.displayName || type.name;
-  return /.*[iI]nput.*/.test(name) || name === 'TextArea';
-};
-const isButton = component => {
-  return BUTTON_TYPE === component.type.displayName || BUTTON_TYPE === component.type.name;
-};
+import { isEditable, isButton } from './componentVerification';
 
 const getCustomComponent = customChildremProps => {
   const {
@@ -26,7 +15,7 @@ const getCustomComponent = customChildremProps => {
   } = customChildremProps;
 
   if (
-    !(isInput(child) || isButton(child)) &&
+    !(isEditable(child) || isButton(child)) &&
     (!child.props.children || typeof child.props.children === 'string')
   ) {
     return child;
@@ -41,7 +30,7 @@ const getCustomComponent = customChildremProps => {
 
   const isFormValid = Object.values(fieldsValidationState).every(v => v);
 
-  if (isInput(child)) {
+  if (isEditable(child)) {
     const { name, required } = child.props;
 
     if (!Object.keys(fieldsValidationState).includes(name) && required) {
@@ -67,5 +56,5 @@ const getCustomComponent = customChildremProps => {
 
 export default customChildremProps => {
   const { children, ...props } = customChildremProps;
-  return children.map((child, idx) => getCustomComponent({ ...props, child, idx }));
+  return [children].flat().map((child, idx) => getCustomComponent({ ...props, child, idx }));
 };
