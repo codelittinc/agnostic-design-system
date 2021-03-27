@@ -40,3 +40,24 @@ export const WithHTMLTagsInside = () => {
     </Form>
   );
 };
+
+export const WithInitialValues = () => {
+  const initialValues = {
+    username: 'Batman',
+    email: 'bat@man.com'
+  };
+  return (
+    <Form initialValues={initialValues} onSubmit={values => alert(JSON.stringify(values))}>
+      <div>
+        <h1>This is my form!</h1>
+        <Input required id='username' name='username' placeholder='Username' label='Username' />
+        <Email id='email' name='email' placeholder='Email' label='Email' />
+
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Button id='back-button' text='back' onClick={() => alert('You clicked back!')} />
+          <Button id='submit' text='Submit' type='submit' />
+        </div>
+      </div>
+    </Form>
+  );
+};

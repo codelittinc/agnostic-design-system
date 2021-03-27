@@ -1,7 +1,4 @@
-import getValuesKeys from './getValuesKeys';
-
-export default (children, values, fieldsValidationState) => {
-  const names = getValuesKeys(children);
+export default (values, fieldsValidationState, names) => {
   const v = {};
   names.forEach(c => {
     v[c] = values[c] || '';

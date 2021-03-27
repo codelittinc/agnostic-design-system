@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import getCustomChildren from './getCustomChildren';
 import getRerenderKeys from './getRerenderKeys';
+import getInitialValidationState from './getInitialValidationState';
+import getEditableComponents from './getEditableComponents';
 
 interface Props {
   children: React.ReactElement[] | React.ReactElement;
@@ -11,8 +13,11 @@ interface Props {
 
 const Form = (props: Props) => {
   const { children, onSubmit, initialValues } = props;
+  const editables = getEditableComponents(children);
+  const names = editables.map(e => e.props.name);
 
   const [values, setValues] = useState(initialValues);
+
   const [customChildren, setCustomChildren] = useState([]);
   const [fieldsValidationState, setFieldsValidationState] = useState({});
 
@@ -26,8 +31,13 @@ const Form = (props: Props) => {
   };
 
   useEffect(() => {
+    const v = getInitialValidationState(editables, values);
+    setFieldsValidationState(v);
+  }, []);
+
+  useEffect(() => {
     setCustomChildren(getCustomChildren(customChildremProps));
-  }, getRerenderKeys(children, values, fieldsValidationState));
+  }, getRerenderKeys(values, fieldsValidationState, names));
 
   return customChildren;
 };

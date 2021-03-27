@@ -31,12 +31,6 @@ const getCustomComponent = customChildremProps => {
   const isFormValid = Object.values(fieldsValidationState).every(v => v);
 
   if (isEditable(child)) {
-    const { name, required } = child.props;
-
-    if (!Object.keys(fieldsValidationState).includes(name) && required) {
-      updateValidationState(name, false);
-    }
-
     return getInput(child, key, values, setValues, updateValidationState);
   } else if (isButton(child)) {
     return getButton(child, key, values, onSubmit, isFormValid);
