@@ -22,7 +22,7 @@ interface Props {
   text?: string;
   onClick?: () => void;
   size?: Size;
-  type?: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   variablesClassName?: string;
   withAppendIcon?: boolean;
 }

@@ -9,9 +9,10 @@ interface Props {
   content?: React.ReactNode;
   disabled?: boolean;
   fixed?: boolean;
-  text?: string;
   onClick?: () => void;
   size?: string;
+  text?: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   variablesClassName?: string;
   withAppendIcon?: boolean;
 }
@@ -48,15 +49,16 @@ const getButtonContent = (text, withAppendIcon, appendIcon, size) => {
 
 const DefaultButton: React.FC<Props> = props => {
   const {
+    appendIcon,
     className,
+    content,
     fixed,
-    text,
     onClick,
     size,
+    text,
+    type,
     variablesClassName,
-    appendIcon,
     withAppendIcon,
-    content,
     ...buttonProps
   } = props;
 
@@ -67,7 +69,7 @@ const DefaultButton: React.FC<Props> = props => {
     <button
       {...buttonProps}
       onClick={onClick}
-      type='button'
+      type={type || 'button'}
       className={classNames(
         className,
         styles.button,
