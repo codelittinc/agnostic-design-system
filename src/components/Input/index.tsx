@@ -25,6 +25,7 @@ interface Props {
   description?: string;
   disabled?: boolean;
   filters?: Filter[];
+  hideLabel?: boolean;
   id: string;
   label?: string | React.ReactNode;
   limit?: number;
@@ -58,6 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     description,
     disabled,
     filters,
+    hideLabel,
     id,
     label,
     limit,
@@ -128,7 +130,10 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     return React.isValidElement(label) ? (
       label
     ) : label ? (
-      <label className={classNames(styles['input--label'])} htmlFor={id}>
+      <label
+        className={classNames(styles['input--label'], hideLabel && styles['input--label-hidden'])}
+        htmlFor={id}
+      >
         {label}
       </label>
     ) : (

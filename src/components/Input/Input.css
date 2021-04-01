@@ -142,6 +142,15 @@
   width: 100%;
 }
 
+.input--label-hidden {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .input--description {
   color: var(--input-description-color, var(--structure-color-700));
   height: var(--input-description-height, var(--height-xs));
