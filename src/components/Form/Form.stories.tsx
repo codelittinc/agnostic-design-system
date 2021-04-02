@@ -4,10 +4,16 @@ import Form from '@/components/Form';
 import Input from '@/components/Input';
 import Email from '@/components/EmailInput';
 import Button from '@/components/Button';
+import mdx from './Form.stories.mdx';
 
 export default {
   title: 'Components/Form',
-  component: Form
+  component: Form,
+  parameters: {
+    docs: {
+      page: mdx
+    }
+  }
 } as Meta;
 
 export const Default = () => {

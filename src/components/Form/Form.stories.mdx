@@ -1,0 +1,41 @@
+# Form Component
+
+## Type: Simple
+
+OBS: although it is a simple component, the Form acts as a "wrapper" to other components or elements nested within it.
+
+## Form Props
+
+|     Prop      |                    Type                    |                                                                                                                                      Description                                                                                                                                       | Default | Mandatory |
+| :-----------: | :----------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|   children    | React.ReactElement[] \| React.ReactElement |                                                         This property represents the children nested within the Form component. It is an implied property that does not need to be defined directly in the component brackets.                                                         |    -    |   false   |
+| initialValues |                   Object                   | Pre-set values defined in each field. Accepts an object with keys matching the name of each individual field. The values of the keys are then rendered in the field as its value. See [example](https://design-system.codelitt.dev/?path=/story/components-form--with-initial-values). |    -    |   false   |
+|   onSubmit    |             (values) => void;              |                                                                                                             Accepts a function that is called when the form is submitted.                                                                                                              |    -    |   true    |
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import Form from '@/components/Form';
+import Input from '@/components/Input';
+import Email from '@/components/EmailInput';
+import Button from '@/components/Button';
+
+class SimpleForm extends Component {
+  render() {
+    return (
+      <Form onSubmit={values => alert(JSON.stringify(values))}>
+        <Input required id='username' name='username' placeholder='Username' label='Username' />
+        <Email id='email' name='email' placeholder='Email' label='Email' />
+        <Button id='submit' text='Submit' type='submit' />
+      </Form>
+    );
+  }
+}
+
+export default SimpleForm;
+```
+
+## CSS Variables available
+
+Currently, the Form component does not have CSS variables for customization.
