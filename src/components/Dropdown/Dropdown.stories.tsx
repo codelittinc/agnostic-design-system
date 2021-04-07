@@ -41,11 +41,35 @@ DefaultDropdown.args = {
   getListTitle: item => item.label
 };
 
+export const DisabledDropdown = Template.bind({});
+DisabledDropdown.args = {
+  category: 'simple',
+  id: 'ads-dropdown',
+  size: 'large',
+  label: 'Dropdown',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label,
+  disabled: true
+};
+
 export const EditableDropdown = Template.bind({});
 EditableDropdown.args = {
   category: 'simple',
   id: 'ads-dropdown',
   size: 'large',
+  label: "Editable Dropdown with 'Option 2' initially selected",
   selected: {
     label: 'Option 2',
     value: '2'
@@ -73,6 +97,7 @@ IconDropdown.args = {
   category: 'icon',
   size: 'large',
   listItemCategory: 'simple',
+  label: "Editable Icon Dropdown with 'Option 2' initially selected",
   selected: {
     label: 'Option 2',
     value: '2'
@@ -116,4 +141,41 @@ CheckBoxDropdown.args = {
   getItemValue: item => item.value,
   getListTitle: () => 'Dropdown',
   multiselect: true
+};
+
+export const FilteredOptionsDropdown = Template.bind({});
+FilteredOptionsDropdown.args = {
+  id: 'ads-dropdown',
+  category: 'simple',
+  size: 'large',
+  listItemCategory: 'simple',
+  label: "Dropdown filtered to only render options containing the string 'Foo'",
+  placeholder: 'Select an option',
+  options: [
+    {
+      label: 'Foo',
+      value: '1'
+    },
+    {
+      label: 'Bar',
+      value: '2'
+    },
+    {
+      label: 'Foo Bar',
+      value: '3'
+    },
+    {
+      label: 'Foo Foo',
+      value: '4'
+    },
+    {
+      label: 'Bar Bar',
+      value: '5'
+    }
+  ],
+  editable: true,
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  filterOptions: options => options.filter(option => option.label.includes('Foo'))
 };
