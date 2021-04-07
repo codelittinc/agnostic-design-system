@@ -36,10 +36,10 @@ const buttons = {
   secondary: SecondaryButton
 };
 
-const Button: React.FC<Props> = props => {
+const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const ButtonType = buttons[props.category || 'neutral'];
 
-  return <ButtonType {...props} />;
-};
+  return <ButtonType {...props} ref={ref} />;
+});
 
 export default Button;

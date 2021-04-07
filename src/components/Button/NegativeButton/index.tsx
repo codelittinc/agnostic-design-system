@@ -7,8 +7,12 @@ interface Props {
   onClick?: () => void;
 }
 
-const NegativeButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--negative'])} />
-);
+const NegativeButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => (
+  <DefaultButton
+    {...props}
+    className={classNames(styles.button, styles['button--negative'])}
+    ref={ref}
+  />
+));
 
 export default NegativeButton;

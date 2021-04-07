@@ -47,11 +47,12 @@ const getButtonContent = (text, withAppendIcon, appendIcon, size) => {
   );
 };
 
-const DefaultButton: React.FC<Props> = props => {
+const DefaultButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const {
     appendIcon,
     className,
     content,
+    disabled,
     fixed,
     onClick,
     size,
@@ -68,6 +69,7 @@ const DefaultButton: React.FC<Props> = props => {
   return (
     <button
       {...buttonProps}
+      disabled={disabled}
       onClick={onClick}
       type={type || 'button'}
       className={classNames(
@@ -79,11 +81,12 @@ const DefaultButton: React.FC<Props> = props => {
         },
         variablesClassName
       )}
+      ref={ref}
     >
       {buttonContent}
     </button>
   );
-};
+});
 
 DefaultButton.defaultProps = {
   disabled: false,

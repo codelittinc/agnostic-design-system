@@ -7,8 +7,12 @@ interface Props {
   onClick?: () => void;
 }
 
-const NeutralButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--neutral'])} />
-);
+const NeutralButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => (
+  <DefaultButton
+    {...props}
+    className={classNames(styles.button, styles['button--neutral'])}
+    ref={ref}
+  />
+));
 
 export default NeutralButton;

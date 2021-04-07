@@ -7,8 +7,12 @@ interface Props {
   onClick?: () => void;
 }
 
-const PositiveButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--positive'])} />
-);
+const PositiveButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => (
+  <DefaultButton
+    {...props}
+    className={classNames(styles.button, styles['button--positive'])}
+    ref={ref}
+  />
+));
 
 export default PositiveButton;

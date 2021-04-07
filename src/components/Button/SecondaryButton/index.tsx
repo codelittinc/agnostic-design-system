@@ -7,8 +7,12 @@ interface Props {
   onClick?: () => void;
 }
 
-const SecondaryButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--secondary'])} />
-);
+const SecondaryButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => (
+  <DefaultButton
+    {...props}
+    className={classNames(styles.button, styles['button--secondary'])}
+    ref={ref}
+  />
+));
 
 export default SecondaryButton;

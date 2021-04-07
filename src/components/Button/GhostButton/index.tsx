@@ -7,8 +7,12 @@ interface Props {
   onClick?: () => void;
 }
 
-const GhostButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--ghost'])} />
-);
+const GhostButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => (
+  <DefaultButton
+    {...props}
+    className={classNames(styles.button, styles['button--ghost'])}
+    ref={ref}
+  />
+));
 
 export default GhostButton;

@@ -7,8 +7,12 @@ interface Props {
   onClick?: () => void;
 }
 
-const PrimaryButton: React.FC<Props> = props => (
-  <DefaultButton {...props} className={classNames(styles.button, styles['button--primary'])} />
-);
+const PrimaryButton = React.forwardRef<HTMLButtonElement, Props>((props, ref) => (
+  <DefaultButton
+    {...props}
+    className={classNames(styles.button, styles['button--primary'])}
+    ref={ref}
+  />
+));
 
 export default PrimaryButton;

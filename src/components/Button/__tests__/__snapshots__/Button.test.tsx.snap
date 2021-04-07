@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExampleComponent is renders correctly 1`] = `
-<Button
+<ForwardRef
   onClick={[Function]}
   text="this is a test"
 >
-  <NeutralButton
+  <ForwardRef
     onClick={[Function]}
     text="this is a test"
   >
-    <DefaultButton
+    <ForwardRef
       className="button button--neutral"
       disabled={false}
       fixed={false}
@@ -29,7 +29,7 @@ exports[`ExampleComponent is renders correctly 1`] = `
           this is a test
         </span>
       </button>
-    </DefaultButton>
-  </NeutralButton>
-</Button>
+    </ForwardRef>
+  </ForwardRef>
+</ForwardRef>
 `;
