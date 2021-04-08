@@ -169,7 +169,7 @@
   font-size: var(--input-message-font-size, var(--paragraph-m));
   font-weight: var(--input-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-message-line-height, var(--paragraph-m-line-height));
-  margin: var(--input-description-margin, 0);
+  margin: var(--input-message-margin, 0);
   width: 100%;
 }
 

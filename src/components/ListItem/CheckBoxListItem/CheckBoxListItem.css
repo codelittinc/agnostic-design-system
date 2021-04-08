@@ -39,7 +39,7 @@
   width: var(--list-item-checkbox-width, var(--heading-xs));
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a green background */
 .checkbox-container .list-item-checkbox:checked ~ .checkbox-check {
   background-color: var(--list-item-checkbox-background-color-checked, var(--success-color));
   border: var(--list-item-checkbox-border-checked, 1px solid transparent);

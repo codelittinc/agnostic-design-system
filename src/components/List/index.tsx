@@ -113,12 +113,10 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                 item={item}
                 getLabel={getItemLabel}
                 getIcon={getItemIcon}
-                getIsSelected={
-                  isItemSelected ||
-                  (item =>
-                    Array.isArray(selectedItemsList)
-                      ? selectedItemsList?.find(s => isEqual(item, s))
-                      : isEqual(selectedItemsList, item))
+                getIsSelected={item =>
+                  Array.isArray(selectedItemsList)
+                    ? !!selectedItemsList?.find(s => isEqual(item, s))
+                    : isEqual(selectedItemsList, item)
                 }
                 getValue={getItemValue}
                 getName={getItemName}

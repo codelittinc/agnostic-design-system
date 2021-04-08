@@ -55,6 +55,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     onStateChange,
     placeholder,
     options,
+    multiselect,
     variablesClassName,
     required
   } = props;
@@ -105,7 +106,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
   const handleClick = (options: T | T[]) => {
     onChange(options);
     setListTitle(getListTitle(options));
-    setIsListOpen(false);
+    setIsListOpen(!!multiselect);
   };
 
   const handleIconCategory = () => {
