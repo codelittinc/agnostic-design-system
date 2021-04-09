@@ -13,6 +13,7 @@ exports[`ExampleComponent is renders correctly 1`] = `
       className="button button--neutral"
       disabled={false}
       fixed={false}
+      iconPosition="right"
       onClick={[Function]}
       size="large"
       text="this is a test"

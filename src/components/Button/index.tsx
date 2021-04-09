@@ -7,8 +7,9 @@ import PositiveButton from '@/components/Button/PositiveButton';
 import PrimaryButton from '@/components/Button/PrimaryButton';
 import SecondaryButton from '@/components/Button/SecondaryButton';
 
-type Category = 'ghost' | 'negative' | 'neutral' | 'positive' | 'primary' | 'secondary';
-type Size = 'large' | 'medium';
+export type Category = 'ghost' | 'negative' | 'neutral' | 'positive' | 'primary' | 'secondary';
+export type Position = 'left' | 'right';
+export type Size = 'large' | 'medium';
 
 export const SUBMIT_TYPE = 'submit';
 
@@ -18,6 +19,7 @@ interface Props {
   content?: React.ReactNode;
   disabled?: boolean;
   fixed?: boolean;
+  iconPosition?: Position;
   id?: string;
   text?: string;
   onClick?: () => void;

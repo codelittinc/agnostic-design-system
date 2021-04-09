@@ -59,6 +59,22 @@ WithAppendIcon.args = {
   withAppendIcon: true
 };
 
+export const WithLeftAppendIcon = Template.bind({});
+WithLeftAppendIcon.args = {
+  text: 'With Left Append Icon',
+  category: 'primary',
+  iconPosition: 'left',
+  withAppendIcon: true
+};
+
+export const WithRightAppendIcon = Template.bind({});
+WithRightAppendIcon.args = {
+  text: 'With Right Append Icon',
+  category: 'primary',
+  iconPosition: 'right',
+  withAppendIcon: true
+};
+
 export const WithCustomAppendIcon = Template.bind({});
 WithCustomAppendIcon.args = {
   text: 'With Custom Append Icon',

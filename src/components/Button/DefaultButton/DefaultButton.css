@@ -95,10 +95,15 @@
   padding: var(--button-padding, 0 var(--spacing-horizontal-m));
 }
 
-.button .button--text + .button--append-icon-container {
+.append-icon-left {
+  margin: var(--button-append-icon-margin, 0 16px 0 0);
+}
+
+.button--text + .append-icon-right  {
   margin: var(--button-append-icon-margin, 0 0 0 16px);
 }
 
 .button .button--append-icon {
   fill: var(--button-append-icon-color, var(--button-color));
 }
+
