@@ -36,10 +36,14 @@
   --input-width: var(--dropdown-width, 100%);
 }
 
+.dropdown-input:not(:only-child) {
+  --input-border-radius: var(--round-m) var(--round-m) 0 0;
+}
+
 .dropdown-list {
   --list-background-color: var(--structure-color-white);
   --list-border: 1px solid var(--primary-color-200);
-  --list-border-radius: var(--round-m);
+  --list-border-radius: 0 0 var(--round-m) var(--round-m);
   --list-box-shadow: none;
   --list-height: auto;
   --list-margin: 0;
@@ -82,6 +86,10 @@
   --button-justify-content: space-between;
   --button-padding: 5px 10px;
   --button-width: var(--dropdown-width, 100%);
+}
+
+.dropdown-button:not(:only-child) {
+  --button-border-radius: var(--round-m) var(--round-m) 0 0;
 }
 
 .dropdown-prepend-icon {
