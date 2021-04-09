@@ -75,7 +75,7 @@ const AddressSearch: React.FC<Props> = props => {
       options={placesSuggestions}
       id={id}
       selected={suggestionSelected}
-      placeholder={placeholder}
+      selectorText={placeholder}
       listItemCategory='simple'
       disabled={loading}
       variablesClassName={variablesClassName}

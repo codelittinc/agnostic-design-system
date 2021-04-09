@@ -25,6 +25,7 @@ DefaultDropdown.args = {
   id: 'ads-dropdown',
   size: 'large',
   label: 'Dropdown',
+  selectorText: 'Selector Text',
   options: [
     {
       label: 'Option 1',
@@ -47,6 +48,7 @@ DisabledDropdown.args = {
   id: 'ads-dropdown',
   size: 'large',
   label: 'Dropdown',
+  selectorText: 'Selector Text',
   options: [
     {
       label: 'Option 1',
@@ -70,6 +72,7 @@ EditableDropdown.args = {
   id: 'ads-dropdown',
   size: 'large',
   label: "Editable Dropdown with 'Option 2' initially selected",
+  selectorText: 'Selector Text',
   selected: {
     label: 'Option 2',
     value: '2'
@@ -126,6 +129,7 @@ CheckBoxDropdown.args = {
   size: 'large',
   listItemCategory: 'checkbox',
   label: 'Dropdown',
+  selectorText: 'Selector Text',
   options: [
     {
       label: 'Option 1',
@@ -150,7 +154,7 @@ FilteredOptionsDropdown.args = {
   size: 'large',
   listItemCategory: 'simple',
   label: "Dropdown filtered to only render options containing the string 'Foo'",
-  placeholder: 'Select an option',
+  selectorText: 'Select an option',
   options: [
     {
       label: 'Foo',
@@ -177,5 +181,6 @@ FilteredOptionsDropdown.args = {
   getItemLabel: item => item.label,
   getItemKey: item => item.value,
   getItemValue: item => item.value,
+  getListTitle: item => item.label,
   filterOptions: options => options.filter(option => option.label.includes('Foo'))
 };

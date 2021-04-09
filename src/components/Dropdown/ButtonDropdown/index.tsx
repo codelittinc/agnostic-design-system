@@ -16,12 +16,12 @@ interface Props<T> {
   getItemIcon?: (item?: T) => React.ReactNode;
   getItemValue: (item: T) => string | number | string[];
   id: string;
-  label?: string;
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
   onChange: (item?: T | T[]) => void;
   options: T[];
   selected?: T[] | T;
+  selectorText?: string;
   size: Size;
   variablesClassName?: string;
 }
@@ -29,16 +29,18 @@ interface Props<T> {
 const ButtonDropdown = <T extends {}>(props: Props<T>) => {
   const {
     selected,
-    label,
     disabled,
     size,
     getListTitle,
     onChange,
     multiselect,
+    selectorText,
     variablesClassName
   } = props;
 
-  const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : label || '');
+  const [listTitle, setListTitle] = useState(
+    selected ? getListTitle(selected) : selectorText || ''
+  );
   const [isListOpen, setIsListOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -72,7 +74,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
         ? getListTitle(options)
         : !multiselect && options
         ? getListTitle(options)
-        : label || ''
+        : selectorText || ''
     );
     setIsListOpen(!!multiselect);
   };

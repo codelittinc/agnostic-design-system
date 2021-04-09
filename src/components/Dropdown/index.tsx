@@ -25,12 +25,12 @@ export interface Props<T> {
   onChange: (item?: T | T[]) => void;
   options: T[];
   selected?: T[] | T;
+  selectorText?: string;
   size: Size;
   variablesClassName?: string;
   filterOptions?: (options: T | T[]) => T | T[];
   onInputChange?: (e: any) => void;
   onStateChange: (state: boolean) => void;
-  placeholder?: string;
   required?: boolean;
 }
 

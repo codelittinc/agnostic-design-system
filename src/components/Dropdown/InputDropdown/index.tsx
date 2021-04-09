@@ -32,9 +32,9 @@ export interface Props<T> {
   onInputChange?: (e: any) => void;
   onStateChange: (state: boolean) => void;
   options: T[];
-  placeholder?: string;
   required?: boolean;
   selected?: T[] | T;
+  selectorText?: string;
   size: Size;
   variablesClassName?: string;
 }
@@ -53,9 +53,9 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     onChange,
     onInputChange,
     onStateChange,
-    placeholder,
     options,
     multiselect,
+    selectorText,
     variablesClassName,
     required
   } = props;
@@ -134,7 +134,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
         ref={inputRef}
         id={id}
         size={size}
-        placeholder={placeholder}
+        placeholder={selectorText}
         disabled={disabled}
         label={label}
         value={listTitle}
