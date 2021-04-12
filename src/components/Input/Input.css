@@ -11,6 +11,7 @@
   --input-border-positive: 1px solid var(--success-color);
   --input-prepend-background-color: var(--structure-color-100);
   --input-width: 100%;
+  --height-prepend-difference: 2px;
 }
 
 .container {
@@ -52,7 +53,10 @@
 }
 
 .input:not([value='']) {
-  border: var(--input-border-hover, none);
+  border-bottom: var(--input-border-bottom-hover, none);
+  border-left: var(--input-border-left-hover, none);
+  border-right: var(--input-border-right-hover, none);
+  border-top: var(--input-border-top-hover, none);
 }
 
 .input:hover {
@@ -117,11 +121,11 @@
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator-large {
-  height: var(--input-height, var(--height-l));
+  height: var(--input-height, calc(var(--height-l) - var(--height-prepend-difference)));
 }
 
 .input:focus + .input--prepend.input--prepend-with-separator-medium {
-  height: var(--input-height, var(--height-m));
+  height: var(--input-height, calc(var(--height-m) - var(--height-prepend-difference)));
 }
 
 .input::placeholder {
@@ -246,11 +250,11 @@
 }
 
 .input--prepend.input--prepend-with-separator-large {
-  height: var(--input-height, var(--height-l));
+  height: var(--input-height, calc(var(--height-l) - var(--height-prepend-difference)));
 }
 
 .input--prepend.input--prepend-with-separator-medium {
-  height: var(--input-height, var(--height-m));
+  height: var(--input-height, calc(var(--height-m) - var(--height-prepend-difference)));
 }
 
 .input.input--large.input-with-prepend {
