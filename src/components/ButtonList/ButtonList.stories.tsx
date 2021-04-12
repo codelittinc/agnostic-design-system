@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
-import ButtonsList from '@/components/ButtonsList';
-import mdx from './ButtonsList.stories.mdx';
+import ButtonList from '@/components/ButtonList';
+import mdx from './ButtonList.stories.mdx';
 import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 
 export default {
-  title: 'Components/ButtonsList',
-  component: ButtonsList,
+  title: 'Components/ButtonList',
+  component: ButtonList,
   parameters: {
     docs: {
       page: mdx
@@ -17,7 +17,7 @@ export default {
 const Template = args => {
   const [selectedItem, setSelectedItem] = useState(args.selected);
 
-  return <ButtonsList {...args} selected={selectedItem} onChange={setSelectedItem} />;
+  return <ButtonList {...args} selected={selectedItem} onChange={setSelectedItem} />;
 };
 
 const options = [

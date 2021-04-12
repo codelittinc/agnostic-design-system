@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './ButtonsList.css';
+import styles from './ButtonList.css';
 import Button from '../Button';
 
 interface Props<T> {
@@ -30,7 +30,7 @@ const getItems = (options, getItem, getItemKey, onClick, selected, variablesClas
     );
   });
 
-const ButtonsList = <T extends {}>(props: Props<T>) => {
+const ButtonList = <T extends {}>(props: Props<T>) => {
   const { onChange, selected, variablesClassName, getItem, getItemKey, options } = props;
 
   const items = getItems(
@@ -45,8 +45,8 @@ const ButtonsList = <T extends {}>(props: Props<T>) => {
   return <div className={classNames(styles.container, variablesClassName)}>{items}</div>;
 };
 
-ButtonsList.defaultProps = {
+ButtonList.defaultProps = {
   onChange: () => null
 };
 
-export default ButtonsList;
+export default ButtonList;

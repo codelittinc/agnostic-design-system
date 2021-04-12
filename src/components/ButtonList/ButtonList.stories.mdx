@@ -1,7 +1,7 @@
-# ButtonsList Component
-The ButtonsList component is based on the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component
+# ButtonList Component
+The ButtonList component is based on the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component
 
-## ButtonsList Props
+## ButtonList Props
 
 |        Prop        |                    Type                    | Default | Optional |
 | :----------------: | :----------------------------------------: | :-----: | :------: |
@@ -17,9 +17,9 @@ The ButtonsList component is based on the [Button](https://design-system.codelit
 
 ```javascript
 import React, { Component, useState } from 'react';
-import { ButtonsList } from '@codelittinc/agnostic-design-system';
+import { ButtonList } from '@codelittinc/agnostic-design-system';
 
-const MyButtonsList = () =>{
+const MyButtonList = () =>{
   const [selectedItem, setSelectedItem] = useState();
 
   const options = [
@@ -32,7 +32,7 @@ const MyButtonsList = () =>{
 
   render() {
     return (
-      <ButtonsList
+      <ButtonList
         onChange={setSelectedItem}
         selected={selectedItem}
         options={options}
@@ -41,7 +41,7 @@ const MyButtonsList = () =>{
   }
 }
 
-export default MyButtonsList;
+export default MyButtonList;
 ```
 
 # Customazing styles
