@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-
 import styles from '@/components/Input/Input.css';
-
 import DefaultActionIcon from '@/assets/images/icons/web/close-icon.svg';
 import { isValid, getInvalidMessage } from './validations';
 import { matchesFilter } from './filters';
@@ -94,10 +92,24 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const prependSizeClass = `input--prepend-with-separator-${size}`;
   const messageValidateClass = hasValidationState ? `input--message-${validationState}` : '';
   const statusClass = hasValidationState ? `input--${validationState}` : '';
+  const enableInitialValidation = value && (required || validations.length > 0);
+
+  const enableValueValidation = value => {
+    return required || (validations.length > 0 && value);
+  };
+
+  useEffect(() => {
+    if (enableInitialValidation) {
+      const valid = isValid(value, validations, required);
+      setValid(valid);
+      onStateChange(valid);
+      setValidationState(valid ? VALID : INVALID);
+    }
+  }, []);
 
   const handleBlur = event => {
     onBlur && onBlur();
-    if (required || (validations.length > 0 && value !== '')) {
+    if (enableValueValidation(value)) {
       setValidationState(valid ? VALID : INVALID);
     }
     const invalidMessage = getInvalidMessage(event.target.value, validations, required);
@@ -117,12 +129,15 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   };
 
   const handleChange = e => {
-    const v = e.target.value;
-    if (!matchesFilter(v, filters)) {
+    const newValue = e.target.value;
+    if (!matchesFilter(newValue, filters)) {
       onChange(e);
-      const valid = isValid(e.target.value, validations, required);
+      const valid = isValid(newValue, validations, required);
       setValid(valid);
       onStateChange(valid);
+      if (enableValueValidation(newValue)) {
+        setValidationState(valid ? VALID : INVALID);
+      }
     }
   };
 
