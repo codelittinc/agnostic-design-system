@@ -53,10 +53,10 @@
 }
 
 .input:not([value='']) {
-  border-bottom: var(--input-border-bottom-hover, none);
-  border-left: var(--input-border-left-hover, none);
-  border-right: var(--input-border-right-hover, none);
-  border-top: var(--input-border-top-hover, none);
+  border-bottom: var(--input-border-bottom-hover, var(--input-border-hover, none));
+  border-left: var(--input-border-left-hover, var(--input-border-hover, none));
+  border-right: var(--input-border-right-hover, var(--input-border-hover, none));
+  border-top: var(--input-border-top-hover, var(--input-border-hover, none));
 }
 
 .input:hover {
