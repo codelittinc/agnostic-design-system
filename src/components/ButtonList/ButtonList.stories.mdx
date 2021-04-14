@@ -1,17 +1,22 @@
 # ButtonList Component
-The ButtonList component is based on the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component
 
-## ButtonList Props
+## Type: Decorator
 
-|        Prop        |                    Type                    | Default | Optional |
-| :----------------: | :----------------------------------------: | :-----: | :------: |
-|         id         |                   string                   |    -    |  false   |
-|       getItem      |        (item: T) => React.ReactNode        |    -    |  false   |
-|      getItemKey    |             (item: T) => string            |    -    |  false   |
-|      onChange      |                (e: T) => void              |    -    |  false   |
-|       options      |                    T[]                     |    -    |  false   |
-|       selected     |                     T                      |    -    |   true   |
-| variablesClassName |                   string                   |    -    |   true   |
+The Button List is based on the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component
+
+## Button List Props
+
+|        Prop        |                                         Type                                          |                                              Description                                              |        Default         | Mandatory |
+| :----------------: | :-----------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :--------------------: | :-------: |
+|      category      | [Category](https://design-system.codelitt.dev/?path=/docs/components-button--neutral) | A button can have one of any six categories (neutral, primary, secondary, positive, negative, ghost). |       'neutral'        |   false   |
+|         id         |                                        string                                         |                                              Unique id.                                               |           -            |   true    |
+|      getItem       |                             (item: T) => React.ReactNode                              |                                         Accepts custom items                                          |           -            |   false   |
+|     getItemKey     |                                  (item: T) => string                                  |                                              Item's key                                               |           -            |   true    |
+|    getItemLabel    |                                  (item: T) => string                                  |     Text to be displayed in the Button, by default it expects an item with the property **name**      | (item: T) => item.name |   false   |
+|      onChange      |                                    (e: T) => void                                     |                           Calls a function whenever the button is clicked.                            |           -            |   true    |
+|      options       |                                          T[]                                          |                                            List of options                                            |           -            |   true    |
+|      selected      |                                           T                                           |                                        Initially selected item                                        |           -            |   false   |
+| variablesClassName |                                        string                                         |                                    Accepts custom CSS class names.                                    |           -            |   false   |
 
 ## Getting Started
 
@@ -33,6 +38,7 @@ const MyButtonList = () =>{
   render() {
     return (
       <ButtonList
+        id={'button-list'}
         onChange={setSelectedItem}
         selected={selectedItem}
         options={options}
@@ -44,6 +50,19 @@ const MyButtonList = () =>{
 export default MyButtonList;
 ```
 
-# Customazing styles
+## CSS Variables Available
 
-We are basing this component in the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component. We use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page). Please check the docs to see the variables you can customize.
+In addition to its own, you will be able to use the CSS variables from the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component. We use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page). Please check the docs to see the variables you can customize.
+
+## Button List variables available
+
+| Property |    Attribute     |        State         |
+| :------: | :--------------: | :------------------: |
+|          |      cursor      |                      |
+|          |     display      |                      |
+|          |    flex-wrap     |                      |
+|          | justify-content  |                      |
+|          |      width       |                      |
+| selected | background-color | active, focus, hover |
+| selected |      border      | active, focus, hover |
+| selected |      color       | active, focus, hover |

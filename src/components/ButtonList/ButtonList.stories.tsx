@@ -34,20 +34,23 @@ Default.args = {
   getItemKey: item => item.id
 };
 
-export const WithDifferentSelectedNode = Template.bind({});
-WithDifferentSelectedNode.args = {
+export const WithCustomItem = Template.bind({});
+WithCustomItem.args = {
   options,
   getItemKey: item => item.id,
-  getItem: (item, selected) => {
-    if (item.id === selected?.id) {
-      return (
-        <div>
-          <TestSearchIcon />
-          <span style={{ marginLeft: '10px' }}>{item.name}</span>
-        </div>
-      );
-    } else {
-      return <span>{item.name}</span>;
-    }
+  getItem: item => {
+    return (
+      <div>
+        <TestSearchIcon />
+        <span style={{ marginLeft: '10px' }}>{item.name}</span>
+      </div>
+    );
   }
+};
+
+export const WithPrimaryCategory = Template.bind({});
+WithPrimaryCategory.args = {
+  options,
+  category: 'primary',
+  getItemKey: item => item.id
 };

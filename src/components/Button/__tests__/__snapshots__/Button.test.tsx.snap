@@ -25,7 +25,7 @@ exports[`ExampleComponent is renders correctly 1`] = `
         type="button"
       >
         <span
-          className="button--text"
+          className="button-text"
         >
           this is a test
         </span>

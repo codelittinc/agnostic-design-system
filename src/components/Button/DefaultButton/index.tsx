@@ -47,7 +47,7 @@ const getButtonContent = (text, withAppendIcon, appendIcon, size, iconPosition) 
   return (
     <>
       {iconPosition === 'left' && withAppendIcon && getIconContainer()}
-      {text ? <span className={classNames(styles['button--text'])}>{text}</span> : ''}
+      {text ? <span className={classNames(styles['button-text'])}>{text}</span> : ''}
       {iconPosition === 'right' && withAppendIcon && getIconContainer()}
     </>
   );

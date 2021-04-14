@@ -32,7 +32,7 @@
   background-color: var(--button-background-color-hover, var(--button-background-color));
   border: var(--button-border-hover, none);
   box-shadow: var(--button-box-shadow-hover, none);
-  color: var(--button-color-hover);
+  color: var(--button-color-hover, var(--button-color));
   cursor: var(--button-cursor-hover, pointer);
 }
 
@@ -44,7 +44,7 @@
   background-color: var(--button-background-color-focus, var(--button-background-color));
   border: var(--button-border-focus, none);
   box-shadow: var(--button-box-shadow-focus, none);
-  color: var(--button-color-focus);
+  color: var(--button-color-focus, var(--button-color));
   cursor: var(--button-cursor-focus, pointer);
   outline: none;
 }
@@ -57,7 +57,7 @@
   background-color: var(--button-background-color-active, var(--button-background-color));
   border: var(--button-border-active, none);
   box-shadow: var(--button-box-shadow-active, none);
-  color: var(--button-color-active);
+  color: var(--button-color-active, var(--button-color));
   cursor: var(--button-cursor-active, pointer);
 }
 
@@ -69,7 +69,7 @@
   background-color: var(--button-background-color-disabled, var(--button-background-color));
   border: var(--button-border-disabled, none);
   box-shadow: var(--button-box-shadow-disabled, none);
-  color: var(--button-color-disabled);
+  color: var(--button-color-disabled, var(--button-color));
   cursor: var(--button-cursor-disabled, pointer);
 }
 
@@ -99,11 +99,10 @@
   margin: var(--button-append-icon-margin, 0 16px 0 0);
 }
 
-.button--text + .append-icon-right  {
+.button-text + .append-icon-right  {
   margin: var(--button-append-icon-margin, 0 0 0 16px);
 }
 
 .button .button--append-icon {
   fill: var(--button-append-icon-color, var(--button-color));
 }
-
