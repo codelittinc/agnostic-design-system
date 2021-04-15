@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback } from 'react';
+import React, { useContext, useState, useCallback, useLayoutEffect } from 'react';
 import { MapsProviderContext } from '../MapsProvider';
 import Dropdown from '../Dropdown';
 import { debounce } from 'lodash';
@@ -6,7 +6,10 @@ import { debounce } from 'lodash';
 interface Props {
   getListTitle: (selected: google.maps.places.AutocompletePrediction) => string;
   id: string;
-  onChange: (data?: google.maps.places.AutocompletePrediction) => void;
+  onChange: (
+    suggestion?: google.maps.places.AutocompletePrediction,
+    fullDataSuggestion?: google.maps.places.PlaceResult
+  ) => void;
   placeholder?: string;
   selected: google.maps.places.AutocompletePrediction;
   variablesClassName?: string;
@@ -22,15 +25,35 @@ const AddressSearch: React.FC<Props> = props => {
     suggestionSelected,
     setSuggestionSelected
   ] = useState<google.maps.places.AutocompletePrediction>(selected);
+  const [placeService, setPlaceService] = useState<google.maps.places.PlacesService>();
 
   const cleanSuggestions = () => {
     setPlacesSuggestions([]);
   };
 
+  useLayoutEffect(() => {
+    if (window.google) {
+      const element = document.createElement('div');
+      element.id = 'maps' + Math.random().toString();
+      element.style.display = 'none';
+      setPlaceService(new google.maps.places.PlacesService(element as any));
+    }
+  }, [window.google]);
+
   const handleClickSuggestion = suggestion => {
     setSuggestionSelected(suggestion);
-    onChange(suggestion);
+    placeService &&
+      placeService.getDetails(
+        {
+          placeId: suggestion.place_id,
+          sessionToken: sessionToken
+        },
+        (place: google.maps.places.PlaceResult, status: google.maps.places.PlacesServiceStatus) => {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) return;
 
+          onChange(suggestion, place);
+        }
+      );
     cleanSuggestions();
   };
 

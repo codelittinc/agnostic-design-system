@@ -15,15 +15,15 @@ export default {
 } as Meta;
 
 const Template = args => {
-  const [value, setValue] = useState<google.maps.places.AutocompletePrediction>();
+  const [selected, setSelected] = useState<google.maps.places.AutocompletePrediction>();
 
   return (
     <MapsProvider apiKey={process.env.STORYBOOK_GOOGLE_API_KEY}>
       <AddressSearch
         {...args}
-        selected={value}
+        selected={selected}
         onChange={value => {
-          setValue(value);
+          setSelected(value);
         }}
         placeholder='Enter Address'
         id='ads-address-search'

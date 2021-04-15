@@ -191,7 +191,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           name={name}
           onChange={handleChange}
           placeholder={placeholder}
-          value={value}
+          value={value || ''}
           onFocus={() => {
             setValidationState('');
             onFocus();
