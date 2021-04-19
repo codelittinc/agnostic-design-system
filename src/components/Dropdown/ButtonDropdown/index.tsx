@@ -5,6 +5,7 @@ import Button from '@/components/Button';
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
 import { Category, ListItemCategory, Size } from '@/components/Dropdown'; // eslint-disable-line no-unused-vars
 import RenderOptions from '../renderOptions';
+import { isEmpty } from 'lodash';
 
 interface Props<T> {
   category: Category;
@@ -73,7 +74,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     setListTitle(
       Array.isArray(options) && options.length > 0
         ? getListTitle(options)
-        : !multiselect && options
+        : !multiselect && !isEmpty(options)
         ? getListTitle(options)
         : selectorText || ''
     );

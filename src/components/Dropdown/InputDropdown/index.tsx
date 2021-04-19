@@ -13,6 +13,7 @@ import {
 } from '@/components/Dropdown';
  /* eslint-enable */
 import RenderOptions from '../renderOptions';
+import { isEmpty } from 'lodash';
 
 export interface Props<T> {
   category: Category;
@@ -106,7 +107,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
 
   const handleClick = (options: T | T[]) => {
     onChange(options);
-    setListTitle(getListTitle(options));
+    setListTitle(isEmpty(options) ? '' : getListTitle(options));
     setIsListOpen(!!multiselect);
   };
 

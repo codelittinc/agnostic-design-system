@@ -14,6 +14,8 @@ const ENTER_KEY = 13;
 const SPACE_BAR_KEY = 32;
 const ARROW_DOWN_KEY = 40;
 const ARROW_UP_KEY = 38;
+const SIMPLE_CATEGORY = 'simple';
+const RADIO_CATEGORY = 'radio';
 
 interface Props<T> {
   getItemLabel: (item: T) => React.ReactNode;
@@ -48,7 +50,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     selected,
     getItemValue,
     variablesClassName,
-    listItemCategory = 'simple',
+    listItemCategory = SIMPLE_CATEGORY,
     multiselect
   } = props;
 
@@ -68,6 +70,10 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
       )
         ? selectedItemsList?.filter(s => !isEqual(s, item))
         : [...selectedItemsList, item];
+    }
+
+    if (listItemCategory !== RADIO_CATEGORY) {
+      return isEqual(item, selected) ? {} : item;
     }
 
     return item;
