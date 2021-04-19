@@ -36,6 +36,7 @@ export interface Props<T> {
   selected?: T[] | T;
   selectorText?: string;
   size: Size;
+  sort?: (a: T, b: T) => number;
   variablesClassName?: string;
 }
 

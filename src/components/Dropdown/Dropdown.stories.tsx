@@ -184,3 +184,52 @@ FilteredOptionsDropdown.args = {
   getListTitle: item => item.label,
   filterOptions: options => options.filter(option => option.label.includes('Foo'))
 };
+
+const sortArrayByLabel = (a, b) => {
+  var nameA = a.label.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.label.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  return 0;
+};
+
+export const SortedOptionsDropdown = Template.bind({});
+SortedOptionsDropdown.args = {
+  id: 'ads-dropdown',
+  category: 'simple',
+  size: 'large',
+  listItemCategory: 'simple',
+  selectorText: 'Alphabetically sorted options',
+  options: [
+    {
+      label: 'F',
+      value: '1'
+    },
+    {
+      label: 'B',
+      value: '2'
+    },
+    {
+      label: 'A',
+      value: '3'
+    },
+    {
+      label: 'D',
+      value: '4'
+    },
+    {
+      label: 'X',
+      value: '5'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label,
+  sort: sortArrayByLabel
+};

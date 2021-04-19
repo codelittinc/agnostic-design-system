@@ -17,15 +17,21 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     options,
     multiselect,
     variablesClassName,
-    listItemCategory
+    listItemCategory,
+    sort
   } = props;
   const listRef = useRef<HTMLDivElement>(null);
+  const customSort = sort;
+
+  const getOptions = () => {
+    return customSort ? options.sort(customSort) : options;
+  };
 
   return (
     <List<T>
       ref={ref || listRef}
       size={size}
-      options={options}
+      options={getOptions()}
       onChange={onChange}
       getItemKey={item => getItemKey(item)}
       getItemLabel={item => getItemLabel(item)}
