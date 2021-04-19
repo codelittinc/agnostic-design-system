@@ -233,3 +233,33 @@ SortedOptionsDropdown.args = {
   getListTitle: item => item.label,
   sort: sortArrayByLabel
 };
+
+export const WithMultiselectAndShowSelectAll = Template.bind({});
+WithMultiselectAndShowSelectAll.args = {
+  id: 'ads-dropdown',
+  category: 'simple',
+  size: 'large',
+  listItemCategory: 'checkbox',
+  label: 'Dropdown',
+  selectorText: 'Selector Text',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    },
+    {
+      label: 'Option 3',
+      value: '3'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: list => list.map(x => x.label).join(', '),
+  multiselect: true,
+  showSelectAll: true
+};

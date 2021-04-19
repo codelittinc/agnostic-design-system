@@ -25,12 +25,13 @@ interface Props<T> {
   isItemSelected?: (item?: T | T[]) => boolean;
   label?: string;
   listItemCategory?: ListItemCategory;
-  onChange?: (item?: T) => void;
+  multiselect?: boolean;
+  onChange?: (item?: T | T[]) => void;
   options?: T[];
   selected?: T[] | T;
-  multiselect?: boolean;
   size?: Size;
   variablesClassName?: string;
+  appendList?: React.ReactNode;
 }
 
 const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) => {
@@ -49,7 +50,8 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     getItemValue,
     variablesClassName,
     listItemCategory = 'simple',
-    multiselect
+    multiselect,
+    appendList
   } = props;
 
   const defaultRef = useRef<HTMLDivElement>(null);
@@ -104,6 +106,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
         tabIndex={-1}
         role='list-box'
       >
+        {appendList}
         {options &&
           options.map((item, index) => {
             return (

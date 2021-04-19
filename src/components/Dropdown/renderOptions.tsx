@@ -18,6 +18,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     multiselect,
     variablesClassName,
     listItemCategory,
+    showSelectAll,
     sort
   } = props;
   const listRef = useRef<HTMLDivElement>(null);
@@ -25,6 +26,30 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
 
   const getOptions = () => {
     return customSort ? options.sort(customSort) : options;
+  };
+
+  const getSelectOptions = select => {
+    return select ? options : [];
+  };
+
+  const selectAllContainer = () => {
+    return (
+      multiselect &&
+      showSelectAll && (
+        <div className={styles['select-all-container']}>
+          <a className={styles['select-all-link']} onClick={() => onChange(getSelectOptions(true))}>
+            Select All
+          </a>{' '}
+          -{' '}
+          <a
+            className={styles['select-all-link']}
+            onClick={() => onChange(getSelectOptions(false))}
+          >
+            Deselect All
+          </a>
+        </div>
+      )
+    );
   };
 
   return (
@@ -42,6 +67,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
       selected={selected}
       multiselect={multiselect}
       id={`${id}-list`}
+      appendList={selectAllContainer()}
     />
   );
 };
