@@ -263,3 +263,41 @@ WithMultiselectAndShowSelectAll.args = {
   multiselect: true,
   showSelectAll: true
 };
+
+export const WithGroupBy = Template.bind({});
+WithGroupBy.args = {
+  id: 'ads-dropdown',
+  category: 'simple',
+  size: 'large',
+  listItemCategory: 'checkbox',
+  label: 'Dropdown',
+  selectorText: 'Selector Text',
+  options: [
+    {
+      label: 'B Option 1',
+      value: '1'
+    },
+    {
+      label: 'A Option 2',
+      value: '2'
+    },
+    {
+      label: 'B Option 3',
+      value: '3'
+    },
+    {
+      label: 'A  Option 4',
+      value: '4'
+    },
+    {
+      label: 'C Option 5',
+      value: '5'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: list => list.map(x => x.label).join(', '),
+  multiselect: true,
+  groupBy: item => item.label[0]
+};

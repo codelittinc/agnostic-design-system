@@ -18,6 +18,7 @@ export interface Props<T> {
   getItemLabel: (item: T) => string;
   getItemIcon?: (item?: T) => React.ReactNode;
   getItemValue: (item: T) => string | number | string[];
+  groupBy?: ((item: T) => any) | string;
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;

@@ -7,7 +7,10 @@
 .list {
   align-items: center;
   background-color: var(--list-background-color, var(--structure-color-100));
-  border: var(--list-border, 1px solid transparent);
+  border-right: var(--list-border-right, var(--list-border, 1px solid transparent));
+  border-left: var(--list-border-left, var(--list-border, 1px solid transparent));
+  border-bottom: var(--list-border-bottom, var(--list-border, 1px solid transparent));
+  border-top: var(--list-border-top, var(--list-border, 1px solid transparent));
   border-radius: var(--list-border-radius, 0);
   box-shadow: var(--list-box-shadow, none);
   box-sizing: border-box;
@@ -24,11 +27,17 @@
 }
 
 .list:active {
-  border: var(--list-border-active, 1px solid var(--structure-color-200));
+  border-right: var(--list-border-right-active, var(--list-border-active, 1px solid var(--structure-color-200)));
+  border-left: var(--list-border-left-active, var(--list-border-active, 1px solid var(--structure-color-200)));
+  border-bottom: var(--list-border-bottom-active, var(--list-border-active, 1px solid var(--structure-color-200)));
+  border-top: var(--list-border-top-active, var(--list-border-active, 1px solid var(--structure-color-200)));
 }
 
 .list:focus {
-  border: var(--list-border-focus, 1px solid var(--structure-color-200));
+  border-right: var(--list-border-right-focus, var(--list-border-focus, 1px solid var(--structure-color-200)));
+  border-left: var(--list-border-left-focus, var(--list-border-focus, 1px solid var(--structure-color-200)));
+  border-bottom: var(--list-border-bottom-focus, var(--list-border-focus, 1px solid var(--structure-color-200)));
+  border-top: var(--list-border-top-focus, var(--list-border-focus, 1px solid var(--structure-color-200)));
   outline: var(--list-outline-focus, none);
 }
 
