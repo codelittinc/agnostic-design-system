@@ -29,6 +29,7 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 |      options       |                                               T[]                                               |                                                                                                                            Options array.                                                                                                                             |   []    |   true    |
 |      selected      |                                            T[] \| T                                             |                                                                                                                       Item selected initially.                                                                                                                        |    -    |   false   |
 |    selectorText    |                                             string                                              |                                       Initial text displayed to the Dropdown, for the [dropdown input](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) it's equivalent to a placeholder                                       |    -    |   false   |
+|   showSelectAll    |                                             boolean                                             |                                                                                      Allows you to display an option to Select/Deselect all options. Works only with multiselect                                                                                      |  false  |   false   |
 |        size        |                                              Size                                               |                                                                                                Size of the component. The change is reflected on the height and width.                                                                                                |    -    |   false   |
 |        sort        |                                     (a: T, b: T) => number                                      |                                                                                                             Sorts the elements of the **options** array.                                                                                                              |    -    |   false   |
 | variablesClassName |                                             string                                              |                                                                                                                    Accepts custom CSS class names.                                                                                                                    |    -    |   false   |
@@ -85,18 +86,33 @@ They are listed in the table below.
 
 ### Variables of the Dropdown component
 
-|   Property   |   Attribute   | State |
-| :----------: | :-----------: | :---: |
-|              |    border     |       |
-|              | border-radius |       |
-|              |    display    |       |
-|              |   flex-wrap   |       |
-|              |    margin     |       |
-|              |    padding    |       |
-|              |     width     |       |
-| prepend-icon |     color     | hover |
-| prepend-icon |     fill      | hover |
-| append-icon  |     color     | hover |
+|   Property   |    Attribute     | State |
+| :----------: | :--------------: | :---: |
+|              |      border      |       |
+|              |  border-radius   |       |
+|              |     display      |       |
+|              |    flex-wrap     |       |
+|              |      margin      |       |
+|              |     padding      |       |
+|              |      width       |       |
+| append-icon  |      color       | hover |
+| prepend-icon |      color       | hover |
+| prepend-icon |       fill       | hover |
+|  select-all  | background-color |       |
+|  select-all  |  border-bottom   |       |
+|  select-all  |   border-left    |       |
+|  select-all  |   border-right   |       |
+|  select-all  |    border-top    |       |
+|  select-all  |      color       |       |
+|  select-all  |     display      |       |
+|  select-all  |    flex-wrap     |       |
+|  select-all  |   font-family    |       |
+|  select-all  |    font-size     |       |
+|  select-all  |   font-weight    |       |
+|  select-all  | justify-content  |       |
+|  select-all  |      margin      |       |
+|  select-all  |     padding      |       |
+|  select-all  |      width       |       |
 
 ### Variables from the Button initially set up in the Dropdown component
 

@@ -18,6 +18,7 @@ const SIMPLE_CATEGORY = 'simple';
 const RADIO_CATEGORY = 'radio';
 
 interface Props<T> {
+  appendList?: React.ReactNode;
   getItemLabel: (item: T) => React.ReactNode;
   getItemIcon?: (item?: T) => React.ReactNode;
   getItemKey: (item: T) => string | number;
@@ -27,10 +28,10 @@ interface Props<T> {
   isItemSelected?: (item?: T | T[]) => boolean;
   label?: string;
   listItemCategory?: ListItemCategory;
-  onChange?: (item?: T) => void;
+  multiselect?: boolean;
+  onChange?: (item?: T | T[]) => void;
   options?: T[];
   selected?: T[] | T;
-  multiselect?: boolean;
   size?: Size;
   variablesClassName?: string;
 }
@@ -51,7 +52,8 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     getItemValue,
     variablesClassName,
     listItemCategory = SIMPLE_CATEGORY,
-    multiselect
+    multiselect,
+    appendList
   } = props;
 
   const defaultRef = useRef<HTMLDivElement>(null);
@@ -110,6 +112,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
         tabIndex={-1}
         role='list-box'
       >
+        {appendList}
         {options &&
           options.map((item, index) => {
             return (

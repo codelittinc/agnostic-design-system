@@ -26,6 +26,7 @@ export interface Props<T> {
   options: T[];
   selected?: T[] | T;
   selectorText?: string;
+  showSelectAll?: boolean;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
