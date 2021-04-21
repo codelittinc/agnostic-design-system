@@ -1,13 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './ButtonList.css';
-import Button, { Category } from '../Button'; // eslint-disable-line no-unused-vars
+import styles from './SelectItemsList.css';
 
 interface Props<T> {
-  category: Category;
   getItem?: (item: T) => React.ReactNode;
   getItemKey: (item: T) => string;
   getItemLabel: (item: T) => string;
+  getItemValue: (item: T) => string;
   id: string;
   onChange: (item?: T) => void;
   options: T[];
@@ -17,60 +16,70 @@ interface Props<T> {
 
 const getItems = (
   options,
-  category,
   getItem,
   getItemKey,
-  onClick,
+  getItemValue,
+  onChange,
   selected,
-  variablesClassName,
-  custom
+  variablesClassName
 ) =>
   options.map(option => {
     const currentKey = getItemKey(option);
     const isSelected = selected && getItemKey(selected) === currentKey;
 
     return (
-      <Button
-        key={currentKey}
-        onClick={() => onClick(option)}
-        variablesClassName={classNames({ [styles.selected]: isSelected }, variablesClassName)}
-        content={custom && getItem(option)}
-        text={getItem(option)}
-        category={category}
-      />
+      <>
+        <input
+          key={currentKey}
+          id={currentKey}
+          onChange={() => onChange(option)}
+          type='radio'
+          className={classNames(styles['input-container'])}
+          checked={option === selected}
+          value={getItemValue(option)}
+        />
+        <label
+          className={classNames(
+            styles['input-container-label'],
+            isSelected && styles.selected,
+            variablesClassName
+          )}
+          htmlFor={currentKey}
+        >
+          {getItem(option)}
+        </label>
+      </>
     );
   });
 
-const ButtonList = <T extends {}>(props: Props<T>) => {
+const SelectItemsList = <T extends {}>(props: Props<T>) => {
   const {
     onChange,
-    category,
     selected,
     variablesClassName,
     getItem,
     getItemKey,
     getItemLabel,
+    getItemValue,
     options
   } = props;
 
   const items = getItems(
     options,
-    category,
     getItem || getItemLabel,
     getItemKey,
+    getItemValue,
     onChange,
     selected,
-    variablesClassName,
-    !!getItem
+    variablesClassName
   );
 
   return <div className={classNames(styles.container, variablesClassName)}>{items}</div>;
 };
 
-ButtonList.defaultProps = {
+SelectItemsList.defaultProps = {
   onChange: () => null,
-  getItemLabel: item => item.name,
-  category: 'neutral'
+  getItemLabel: item => item.name
 };
 
-export default ButtonList;
+export default SelectItemsList;

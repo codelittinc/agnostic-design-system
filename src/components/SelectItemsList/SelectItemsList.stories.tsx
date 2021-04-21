@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
-import ButtonList from '@/components/ButtonList';
-import mdx from './ButtonList.stories.mdx';
+import SelectItemsList from '@/components/SelectItemsList';
+import mdx from './SelectItemsList.stories.mdx';
 import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 
 export default {
-  title: 'Components/ButtonList',
-  component: ButtonList,
+  title: 'Components/Select Items List',
+  component: SelectItemsList,
   parameters: {
     docs: {
       page: mdx
@@ -17,7 +17,7 @@ export default {
 const Template = args => {
   const [selectedItem, setSelectedItem] = useState(args.selected);
 
-  return <ButtonList {...args} selected={selectedItem} onChange={setSelectedItem} />;
+  return <SelectItemsList {...args} selected={selectedItem} onChange={setSelectedItem} />;
 };
 
 const options = [
@@ -31,26 +31,23 @@ const options = [
 export const Default = Template.bind({});
 Default.args = {
   options,
-  getItemKey: item => item.id
+  getItemKey: item => item.id,
+  getItemValue: item => item.id
 };
 
 export const WithCustomItem = Template.bind({});
 WithCustomItem.args = {
   options,
   getItemKey: item => item.id,
+  getItemValue: item => item.id,
   getItem: item => {
     return (
       <div>
-        <TestSearchIcon />
-        <span style={{ marginLeft: '10px' }}>{item.name}</span>
+        <p>
+          <TestSearchIcon />
+        </p>
+        <span>{item.name}</span>
       </div>
     );
   }
-};
-
-export const WithPrimaryCategory = Template.bind({});
-WithPrimaryCategory.args = {
-  options,
-  category: 'primary',
-  getItemKey: item => item.id
 };

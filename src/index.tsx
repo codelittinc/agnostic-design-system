@@ -1,6 +1,6 @@
 export { default as AddressSearch } from '@/components/AddressSearch';
 export { default as Button } from '@/components/Button';
-export { default as ButtonList } from '@/components/ButtonList';
+export { default as SelectItemsList } from '@/components/SelectItemsList';
 export { default as EmailInput } from '@/components/EmailInput';
 export { default as Form } from '@/components/Form';
 export { default as Input } from '@/components/Input';

@@ -1,10 +1,8 @@
-# ButtonList Component
+# Select Items List Component
 
-## Type: Decorator
+## Type: Simple
 
-The Button List is based on the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component
-
-## Button List Props
+## Select Items List Props
 
 |        Prop        |                                         Type                                          |                                              Description                                              |        Default         | Mandatory |
 | :----------------: | :-----------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :--------------------: | :-------: |
@@ -12,6 +10,7 @@ The Button List is based on the [Button](https://design-system.codelitt.dev/?pat
 |         id         |                                        string                                         |                                              Unique id.                                               |           -            |   true    |
 |      getItem       |                             (item: T) => React.ReactNode                              |                                         Accepts custom items                                          |           -            |   false   |
 |     getItemKey     |                                  (item: T) => string                                  |                                              Item's key                                               |           -            |   true    |
+|    getItemValue    |                                  (item: T) => string                                  |                                             Item's value                                              |           -            |   true    |
 |    getItemLabel    |                                  (item: T) => string                                  |     Text to be displayed in the Button, by default it expects an item with the property **name**      | (item: T) => item.name |   false   |
 |      onChange      |                                    (e: T) => void                                     |                           Calls a function whenever the button is clicked.                            |           -            |   true    |
 |      options       |                                          T[]                                          |                                            List of options                                            |           -            |   true    |
@@ -22,9 +21,9 @@ The Button List is based on the [Button](https://design-system.codelitt.dev/?pat
 
 ```javascript
 import React, { Component, useState } from 'react';
-import { ButtonList } from '@codelittinc/agnostic-design-system';
+import { SelectItemsList } from '@codelittinc/agnostic-design-system';
 
-const MyButtonList = () =>{
+const MySelectItemsList = () =>{
   const [selectedItem, setSelectedItem] = useState();
 
   const options = [
@@ -37,8 +36,8 @@ const MyButtonList = () =>{
 
   render() {
     return (
-      <ButtonList
-        id={'button-list'}
+      <SelectItemsList
+        id={'select-items-list'}
         onChange={setSelectedItem}
         selected={selectedItem}
         options={options}
@@ -47,22 +46,39 @@ const MyButtonList = () =>{
   }
 }
 
-export default MyButtonList;
+export default MySelectItemsList;
 ```
 
 ## CSS Variables Available
 
 In addition to its own, you will be able to use the CSS variables from the [Button](https://design-system.codelitt.dev/?path=/story/components-button) component. We use the following [naming convention](https://design-system.codelitt.dev/?path=/story/welcome-customizing-styles--page). Please check the docs to see the variables you can customize.
 
-## Button List variables available
+## Select Items List variables available
 
-| Property |    Attribute     |        State         |
-| :------: | :--------------: | :------------------: |
-|          |      cursor      |                      |
-|          |     display      |                      |
-|          |    flex-wrap     |                      |
-|          | justify-content  |                      |
-|          |      width       |                      |
-| selected | background-color | active, focus, hover |
-| selected |      border      | active, focus, hover |
-| selected |      color       | active, focus, hover |
+|  Property   |    Attribute     |        State         |
+| :---------: | :--------------: | :------------------: |
+|             |   align-items    |                      |
+|             | background-color |        hover         |
+|             |      border      |                      |
+|             |  border-radius   |                      |
+|             |    box-shadow    |        hover         |
+|             |    box-sizing    |                      |
+|             |     display      |                      |
+|             |    flex-flow:    |                      |
+|             |   font-weight    |                      |
+|             |      height      |                      |
+|             | justify-content  |                      |
+|             |      margin      |                      |
+|             |     padding      |                      |
+|             |    text-align    |                      |
+|             |      width       |                      |
+|             |      cursor      |        hover         |
+| select-list |     display      |                      |
+| select-list |    flex-wrap     |                      |
+| select-list | justify-content  |                      |
+| select-list |      margin      |                      |
+| select-list |     padding      |                      |
+| select-list |      width       |                      |
+|  selected   | background-color | active, focus, hover |
+|  selected   |      border      | active, focus, hover |
+|  selected   |      color       | active, focus, hover |
