@@ -9,6 +9,91 @@ export default {
   parameters: {
     docs: {
       page: mdx
+    },
+    controls: {
+      sort: 'alpha'
+    }
+  },
+  argTypes: {
+    category: {
+      description: 'A Dropdown can have one of two categories (Simple or Icon)'
+    },
+    disabled: {
+      description: 'Specifies whether or the component should be disabled'
+    },
+    editable: {
+      description: 'Allows the possibility of creating a dropdown input instead of dropdown button'
+    },
+    filterOptions: {
+      description:
+        'Accepts a function that takes the items from the options property as a parameter, and delimits the available items from the dropdown'
+    },
+    getListTitle: {
+      description: 'Allows the opportunity to choose a text that will be shown in the Dropdown'
+    },
+    getItemLabel: {
+      description: 'Displays the text for each option in the Dropdown'
+    },
+    getItemKey: {
+      description: 'Unique key to be passed to each option in the Dropdown'
+    },
+    getItemValue: {
+      description: 'Unique value to be passed to each option in the Dropdown'
+    },
+    groupBy: {
+      description:
+        'It is the function or string that is invoked for every element in the array options'
+    },
+    id: {
+      description: 'Unique id'
+    },
+    label: {
+      description: 'Displays the text of the option inside the Dropdown'
+    },
+    listItemCategory: {
+      description: "The Dropdown's options can have one of two categories (Simple or Checkbox)"
+    },
+    multiselect: {
+      description: 'Specifies whether or not multiple options in a Dropdown are able to be selected'
+    },
+    onChange: {
+      description: "Calls a function whenever a change in an event of a dropdown's item is detected"
+    },
+    options: {
+      description: 'Options array'
+    },
+    selected: {
+      description: 'Item selected initially'
+    },
+    selectorText: {
+      description: 'Initial text displayed to the Dropdown'
+    },
+    showSelectAll: {
+      description: 'Allows you to display an option to Select/Deselect all options'
+    },
+    size: {
+      description: 'Size of the component'
+    },
+    sort: {
+      description: 'Sorts the elements of the options array'
+    },
+    variablesClassName: {
+      description: 'Accepts custom CSS class names'
+    },
+    required: {
+      table: {
+        disable: true
+      }
+    },
+    onInputChange: {
+      table: {
+        disable: true
+      }
+    },
+    onStateChange: {
+      table: {
+        disable: true
+      }
     }
   }
 } as Meta;
@@ -24,7 +109,6 @@ DefaultDropdown.args = {
   category: 'simple',
   id: 'ads-dropdown',
   size: 'large',
-  label: 'Dropdown',
   selectorText: 'Selector Text',
   options: [
     {

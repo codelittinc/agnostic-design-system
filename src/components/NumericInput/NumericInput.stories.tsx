@@ -10,6 +10,16 @@ export default {
     docs: {
       page: mdx
     }
+  },
+  argTypes: {
+    max: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 10000,
+        step: 100
+      }
+    }
   }
 } as Meta;
 

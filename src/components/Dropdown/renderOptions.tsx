@@ -12,7 +12,6 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     getItemKey,
     getItemLabel,
     getItemValue,
-    getItemIcon,
     id,
     onChange,
     options,
@@ -64,7 +63,6 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
         getItemKey={item => getItemKey(item)}
         getItemLabel={item => getItemLabel(item)}
         getItemValue={item => getItemValue(item)}
-        getItemIcon={item => getItemIcon && getItemIcon(item)}
         variablesClassName={classnames(styles['dropdown-list'], variablesClassName)}
         listItemCategory={listItemCategory}
         selected={selected}
@@ -101,7 +99,6 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
                 getItemKey={item => getItemKey(item)}
                 getItemLabel={item => getItemLabel(item)}
                 getItemValue={item => getItemValue(item)}
-                getItemIcon={item => getItemIcon && getItemIcon(item)}
                 variablesClassName={classnames(
                   styles['dropdown-list'],
                   styles['dropdown-list-group'],

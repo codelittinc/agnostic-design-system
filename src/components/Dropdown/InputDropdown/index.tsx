@@ -23,7 +23,6 @@ export interface Props<T> {
   getListTitle: (selected: T | T[]) => string;
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
-  getItemIcon?: (item?: T) => React.ReactNode;
   getItemValue: (item: T) => string | number | string[];
   id: string;
   label?: string;

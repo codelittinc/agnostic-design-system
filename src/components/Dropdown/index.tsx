@@ -13,10 +13,10 @@ export interface Props<T> {
   category: Category;
   disabled?: boolean;
   editable?: boolean;
+  filterOptions?: (options: T | T[]) => T | T[];
   getListTitle: (selected: T | T[]) => string;
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
-  getItemIcon?: (item?: T) => React.ReactNode;
   getItemValue: (item: T) => string | number | string[];
   groupBy?: ((item: T) => any) | string;
   id: string;
@@ -24,17 +24,16 @@ export interface Props<T> {
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
   onChange: (item?: T | T[]) => void;
+  onInputChange?: (e: any) => void;
+  onStateChange: (state: boolean) => void;
   options: T[];
+  required?: boolean;
   selected?: T[] | T;
   selectorText?: string;
   showSelectAll?: boolean;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
-  filterOptions?: (options: T | T[]) => T | T[];
-  onInputChange?: (e: any) => void;
-  onStateChange: (state: boolean) => void;
-  required?: boolean;
 }
 
 const Dropdown = <T extends {}>(props: Props<T>) => {
