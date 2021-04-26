@@ -15,8 +15,13 @@
   width: var(--select-list-width, 100%);
 }
 
-.input-container{
-  display: none;
+.input-container {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .input-container-label {
@@ -42,9 +47,15 @@
 }
 
 .input-container-label:hover {
-  cursor: var(--select-items-list-cursor-hover, pointer);;
-  background-color: var(--select-items-list-background-color-hover, var(--select-items-list-background-color, var(--structure-white-color)));
-  box-shadow: var(--select-items-list-box-shadow-hover ,var(--select-items-list-box-shadow, 0rem 0.25rem 0.625rem rgba(232, 238, 252, 0.75)));
+  cursor: var(--select-items-list-cursor-hover, pointer);
+  background-color: var(
+    --select-items-list-background-color-hover,
+    var(--select-items-list-background-color, var(--structure-white-color))
+  );
+  box-shadow: var(
+    --select-items-list-box-shadow-hover,
+    var(--select-items-list-box-shadow, 0rem 0.25rem 0.625rem rgba(232, 238, 252, 0.75))
+  );
 }
 
 .selected {
@@ -54,19 +65,29 @@
 }
 
 .selected:hover {
-  background-color: var(--select-items-list-selected-background-color-hover, var(--select-items-list-selected-background-color));
+  background-color: var(
+    --select-items-list-selected-background-color-hover,
+    var(--select-items-list-selected-background-color)
+  );
   border: var(--select-items-list-selected-border-hover, var(--select-items-list-selected-border));
   color: var(--select-items-list-selected-color-hover, var(--select-items-list-selected-color));
 }
 
 .selected:focus {
-  background-color: var(--select-items-list-selected-background-color-focus, var(--select-items-list-selected-background-color));
+  background-color: var(
+    --select-items-list-selected-background-color-focus,
+    var(--select-items-list-selected-background-color)
+  );
   border: var(--select-items-list-selected-border-focus, var(--select-items-list-selected-border));
   color: var(--select-items-list-selected-color-focus, var(--select-items-list-selected-color));
 }
 
-.selected:active {
-  background-color: var(--select-items-list-selected-background-color-active, var(--select-items-list-selected-background-color));
+.selected:active,
+.input-container:focus + .input-container-label {
+  background-color: var(
+    --select-items-list-selected-background-color-active,
+    var(--select-items-list-selected-background-color)
+  );
   border: var(--select-items-list-selected-border-active, var(--select-items-list-selected-border));
   color: var(--select-items-list-selected-color-active, var(--select-items-list-selected-color));
 }

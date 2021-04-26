@@ -28,16 +28,7 @@ const getItems = (
     const isSelected = selected && getItemKey(selected) === currentKey;
 
     return (
-      <label
-        className={classNames(
-          styles['input-container-label'],
-          isSelected && styles.selected,
-          variablesClassName
-        )}
-        htmlFor={currentKey}
-        key={currentKey}
-      >
-        {getItem(option)}
+      <div key={currentKey}>
         <input
           id={currentKey}
           onChange={() => onChange(option)}
@@ -46,7 +37,17 @@ const getItems = (
           checked={option === selected}
           value={getItemValue(option)}
         />
-      </label>
+        <label
+          className={classNames(
+            styles['input-container-label'],
+            isSelected && styles.selected,
+            variablesClassName
+          )}
+          htmlFor={currentKey}
+        >
+          {getItem(option)}
+        </label>
+      </div>
     );
   });
 
