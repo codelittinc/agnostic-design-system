@@ -28,9 +28,17 @@ const getItems = (
     const isSelected = selected && getItemKey(selected) === currentKey;
 
     return (
-      <>
+      <label
+        className={classNames(
+          styles['input-container-label'],
+          isSelected && styles.selected,
+          variablesClassName
+        )}
+        htmlFor={currentKey}
+        key={currentKey}
+      >
+        {getItem(option)}
         <input
-          key={currentKey}
           id={currentKey}
           onChange={() => onChange(option)}
           type='radio'
@@ -38,17 +46,7 @@ const getItems = (
           checked={option === selected}
           value={getItemValue(option)}
         />
-        <label
-          className={classNames(
-            styles['input-container-label'],
-            isSelected && styles.selected,
-            variablesClassName
-          )}
-          htmlFor={currentKey}
-        >
-          {getItem(option)}
-        </label>
-      </>
+      </label>
     );
   });
 
