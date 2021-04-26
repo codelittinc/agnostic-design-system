@@ -123,10 +123,16 @@
 
 .select-all-container {
   align-items: center;
-  background-color: var(--dropdown-select-all-background-color, var(--list-background-color, var(--structure-color-100)));
+  background-color: var(
+    --dropdown-select-all-background-color,
+    var(--list-background-color, var(--structure-color-100))
+  );
   border-top: var(--dropdown-select-all-border-top, none);
   border-right: var(--dropdown-select-all-border-right, none);
-  border-bottom: var(--dropdown-select-all-border-bottom, var(--list-border, 1px solid transparent));
+  border-bottom: var(
+    --dropdown-select-all-border-bottom,
+    var(--list-border, 1px solid transparent)
+  );
   border-left: var(--dropdown-select-all-border-left, none);
   box-sizing: border-box;
   color: var(--dropdown-select-all-color, var(--primary-color-500));
@@ -148,14 +154,23 @@
 }
 
 .select-all-link:hover {
-  color: var(--dropdown-select-all-color-hover, var(--dropdown-select-all-color, var(--primary-color-500)));
-  font-style: var(--dropdown-select-all-font-style-hover, var(--dropdown-select-all-font-style, normal));
-  font-weight: var(--dropdown-select-all-font-weight-hover, var(--dropdown-select-all-font-weight, 400));
+  color: var(
+    --dropdown-select-all-color-hover,
+    var(--dropdown-select-all-color, var(--primary-color-500))
+  );
+  font-style: var(
+    --dropdown-select-all-font-style-hover,
+    var(--dropdown-select-all-font-style, normal)
+  );
+  font-weight: var(
+    --dropdown-select-all-font-weight-hover,
+    var(--dropdown-select-all-font-weight, 400)
+  );
 }
 
 .dropdown-list-group {
   --list-position: relative;
-  --list-width: calc(var(--dropdown-width) - 10%, 90%);
+  --list-width: calc(var(--dropdown-width) - 10%);
   --list-border: none;
   --list-border-active: none;
   --list-border-focus: none;
@@ -177,5 +192,5 @@
   font-style: var(--dropdown-group-font-style, normal);
   font-weight: var(--dropdown-group-font-weight, 400);
   margin: var(--dropdown-group-margin, 5px);
-  padding: var(--dropdown-group-padding, 10px 0);;
+  padding: var(--dropdown-group-padding, 10px 0);
 }
