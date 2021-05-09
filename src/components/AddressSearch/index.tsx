@@ -21,10 +21,8 @@ const AddressSearch: React.FC<Props> = props => {
     google.maps.places.AutocompletePrediction[]
   >([]);
   const { loading, service: autocompleteService, sessionToken } = useContext(MapsProviderContext);
-  const [
-    suggestionSelected,
-    setSuggestionSelected
-  ] = useState<google.maps.places.AutocompletePrediction>(selected);
+  const [suggestionSelected, setSuggestionSelected] =
+    useState<google.maps.places.AutocompletePrediction>(selected);
   const [placeService, setPlaceService] = useState<google.maps.places.PlacesService>();
 
   const cleanSuggestions = () => {

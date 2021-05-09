@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import useGoogleServices from './useGoogleService';
 
-export default function useMapsAutocomplete(
-  apiKey: string
-): {
+export default function useMapsAutocomplete(apiKey: string): {
   loading: boolean;
   service: google.maps.places.AutocompleteService | undefined;
   sessionToken: google.maps.places.AutocompleteSessionToken | undefined;

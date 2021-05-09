@@ -5,6 +5,7 @@ import Input from '@/components/Input';
 import Email from '@/components/EmailInput';
 import Button from '@/components/Button';
 import Dropdown from '@/components/Dropdown';
+import SelectItemsList from '@/components/SelectItemsList';
 import mdx from './Form.stories.mdx';
 
 export default {
@@ -46,6 +47,32 @@ export const Default = () => {
         // @TODO: Update documentation to explain how to customize the form
         formValueName='selected'
         formFieldType='object'
+      />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+        <Button id='back-button' text='back' onClick={() => alert('You clicked back!')} />
+        <Button id='submit' text='Submit' type='submit' />
+      </div>
+    </Form>
+  );
+};
+
+export const withSelectItemsList = () => {
+  const options = [
+    { name: 'Software', id: 'Software' },
+    { name: 'Financing', id: 'Financing' }
+  ];
+
+  return (
+    <Form onSubmit={values => alert(JSON.stringify(values))}>
+      <Input required id='username' name='username' placeholder='Username' label='Username' />
+      <SelectItemsList
+        name='select-items-list'
+        options={options}
+        getItemKey={item => item.id}
+        getItemValue={item => item.id}
+        formValueName='selected'
+        formFieldType='radio'
       />
 
       <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
