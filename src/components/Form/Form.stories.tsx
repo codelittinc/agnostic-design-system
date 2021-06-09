@@ -108,6 +108,10 @@ export const WithInitialValues = () => {
       label: 'Dog',
       value: 'Dog',
       id: 2
+    },
+    list: {
+      name: 'Software',
+      id: 'Software'
     }
   };
 
@@ -123,6 +127,12 @@ export const WithInitialValues = () => {
       id: 2
     }
   ];
+
+  const selectOptions = [
+    { name: 'Software', id: 'Software' },
+    { name: 'Financing', id: 'Financing' }
+  ];
+
   return (
     <Form initialValues={initialValues} onSubmit={values => alert(JSON.stringify(values))}>
       <div>
@@ -140,6 +150,15 @@ export const WithInitialValues = () => {
           getListTitle={item => item.label}
           formValueName='selected'
           formFieldType='object'
+        />
+        <br />
+        <SelectItemsList
+          name='list'
+          options={selectOptions}
+          getItemKey={item => item.id}
+          getItemValue={item => item.id}
+          formValueName='selected'
+          formFieldType='radio'
         />
 
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
