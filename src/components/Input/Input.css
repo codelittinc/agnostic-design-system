@@ -185,6 +185,10 @@
   color: var(--input-message-color-negative, var(--error-color));
 }
 
+.input--message:empty {
+  height: var(--input-message-height-empty, 0);
+}
+
 .input.input--valid {
   border-bottom: var(--input-border-bottom-positive, var(--input-border-positive));
   border-left: var(--input-border-left-positive, var(--input-border-positive));
