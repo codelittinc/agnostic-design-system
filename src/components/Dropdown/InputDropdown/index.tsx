@@ -72,6 +72,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
   const filteredOptions = (filterOptions || defaultFilter)(options);
   const hasSuggestions = filteredOptions.length > 0;
   const iconCategory = 'icon';
+  const autoComplete = 'off';
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -150,6 +151,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
         prepend={handleIconCategory()}
         onStateChange={onStateChange}
         required={required}
+        autoComplete={autoComplete}
       />
       {isListOpen && (
         <RenderOptions<T>

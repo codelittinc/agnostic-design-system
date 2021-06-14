@@ -20,6 +20,7 @@ export type Filter = {
 
 interface Props {
   actionIcon?: React.ReactNode;
+  autoComplete?: string;
   description?: string;
   disabled?: boolean;
   filters?: Filter[];
@@ -54,6 +55,7 @@ const INVALID = 'invalid';
 const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const {
     actionIcon,
+    autoComplete,
     description,
     disabled,
     filters,
@@ -187,6 +189,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
             withPrependSeparator ? styles['input-with-prepend-separator'] : ''
           )}
           disabled={disabled}
+          autoComplete={autoComplete}
           id={id}
           name={name}
           onChange={handleChange}
