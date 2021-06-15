@@ -19,12 +19,15 @@ interface Props<T> {
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
   onChange: (item?: T | T[]) => void;
+  onValidate: (item?: T | T[]) => void;
   options: T[];
   selected?: T[] | T;
   selectorText?: string;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
+  messageValidateClass: string;
+  validationMessage?: string;
 }
 
 const ButtonDropdown = <T extends {}>(props: Props<T>) => {
@@ -34,9 +37,12 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     size,
     getListTitle,
     onChange,
+    onValidate,
     multiselect,
     selectorText,
-    variablesClassName
+    variablesClassName,
+    messageValidateClass,
+    validationMessage
   } = props;
 
   const [listTitle, setListTitle] = useState(
@@ -70,6 +76,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
 
   const handleClick = (options: T | T[]) => {
     onChange(options);
+    onValidate(options);
     setListTitle(
       Array.isArray(options) && options.length > 0
         ? getListTitle(options)
@@ -81,28 +88,33 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
   };
 
   return (
-    <div className={classnames(variablesClassName, styles['dropdown-container'])}>
-      <Button
-        text={listTitle}
-        disabled={disabled}
-        onClick={displayOptionsList}
-        variablesClassName={classnames(styles['dropdown-button'], variablesClassName)}
-        category='neutral'
-        size={size}
-        appendIcon={getArrowIcon(isListOpen, size)}
-        withAppendIcon
-        ref={buttonRef}
-      />
-      {isListOpen && (
-        <RenderOptions<T>
-          {...props}
-          ref={listRef}
-          onChange={item => {
-            item && handleClick(item);
-          }}
+    <>
+      <div className={classnames(variablesClassName, styles['dropdown-container'])}>
+        <Button
+          text={listTitle}
+          disabled={disabled}
+          onClick={displayOptionsList}
+          variablesClassName={classnames(styles['dropdown-button'], variablesClassName)}
+          category='neutral'
+          size={size}
+          appendIcon={getArrowIcon(isListOpen, size)}
+          withAppendIcon
+          ref={buttonRef}
         />
-      )}
-    </div>
+        {isListOpen && (
+          <RenderOptions<T>
+            {...props}
+            ref={listRef}
+            onChange={item => {
+              item && handleClick(item);
+            }}
+          />
+        )}
+      </div>
+      <span className={classnames(styles['dropdown--message'], styles[messageValidateClass])}>
+        {validationMessage}
+      </span>
+    </>
   );
 };
 
