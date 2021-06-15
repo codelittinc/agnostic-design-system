@@ -5,13 +5,8 @@ import styles from '@/components/Dropdown/Dropdown.css';
 import IconGear from '@/assets/images/icons/web/gear.svg';
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
 /* eslint-disable */
-import {
-  LARGE_SIZE,
-  Category,
-  ListItemCategory,
-  Size
-} from '@/components/Dropdown';
- /* eslint-enable */
+import { LARGE_SIZE, Category, ListItemCategory, Size } from '@/components/Dropdown';
+/* eslint-enable */
 import RenderOptions from '../renderOptions';
 import { isEmpty } from 'lodash';
 
@@ -61,7 +56,8 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     required
   } = props;
 
-  const defaultFilter = options => options.filter(item => getItemLabel(item).toLowerCase().includes(listTitle.toLowerCase()));
+  const defaultFilter = options =>
+    options.filter(item => getItemLabel(item).toLowerCase().includes(listTitle.toLowerCase()));
 
   const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : '');
   const listRef = useRef<HTMLDivElement>(null);
