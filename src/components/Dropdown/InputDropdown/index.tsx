@@ -61,7 +61,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     required
   } = props;
 
-  const defaultFilter = options => options.filter(item => getItemLabel(item).includes(listTitle));
+  const defaultFilter = options => options.filter(item => getItemLabel(item).toLowerCase().includes(listTitle.toLowerCase()));
 
   const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : '');
   const listRef = useRef<HTMLDivElement>(null);
