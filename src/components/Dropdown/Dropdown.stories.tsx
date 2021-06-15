@@ -178,6 +178,35 @@ EditableDropdown.args = {
   editable: true
 };
 
+export const EditableDropdownWithRequired = Template.bind({});
+EditableDropdownWithRequired.args = {
+  category: 'simple',
+  id: 'ads-dropdown',
+  size: 'large',
+  label: 'Unselect the Option 2 to get the required field validation',
+  selectorText: 'Selector Text',
+  selected: {
+    label: 'Option 2',
+    value: '2'
+  },
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label,
+  required: true,
+  editable: true
+};
+
 export const IconDropdown = Template.bind({});
 IconDropdown.args = {
   id: 'ads-dropdown',

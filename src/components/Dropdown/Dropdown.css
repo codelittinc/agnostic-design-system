@@ -194,3 +194,26 @@
   margin: var(--dropdown-group-margin, 5px);
   padding: var(--dropdown-group-padding, 10px 0);
 }
+
+.dropdown--message {
+  color: var(--dropdown-message-color, var(--structure-color-700));
+  height: var(--dropdown-message-height, var(--height-xs));
+  font-family: var(--dropdown-message-font-family, 'Inter');
+  font-size: var(--dropdown-message-font-size, var(--paragraph-m));
+  font-weight: var(--dropdown-message-font-weight, var(--paragraph-font-weight-normal));
+  line-height: var(--dropdown-message-line-height, var(--paragraph-m-line-height));
+  margin: var(--dropdown-message-margin, 0);
+  width: 100%;
+}
+
+.dropdown--message-valid {
+  color: var(--dropdown-message-color-positive, var(--success-color));
+}
+
+.dropdown--message-invalid {
+  color: var(--dropdown-message-color-negative, var(--error-color));
+}
+
+.dropdown--message:empty {
+  height: var(--dropdown-message-height-empty, 0);
+}

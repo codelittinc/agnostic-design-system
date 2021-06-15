@@ -21,7 +21,7 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 |     getItemKey     |                                  (item: T) => string \| number                                  |                                                                                                        Unique key to be passed to each option in the Dropdown.                                                                                                        |    -    |   true    |
 |    getItemLabel    |                                       (item: T) => string                                       |                                                                                                          Displays the text for each option in the Dropdown.                                                                                                           |    -    |   true    |
 |    getItemValue    |                            (item: T) => string \| number \| string[]                            |                                                                                                       Unique value to be passed to each option in the Dropdown.                                                                                                       |    -    |   true    |
-|      groupBy       |                                   (item: T) => any \| string                                    |                                                                                            It's the function or string that is invoked for every element in the array **options**.                                                                                             |    -    |   false   |
+|      groupBy       |                                   (item: T) => any \| string                                    |                                                                                        It's the function or string that is invoked for every element in the array **options**.                                                                                        |    -    |   false   |
 |         id         |                                             string                                              |                                                                                                                              Unique id.                                                                                                                               |    -    |   true    |
 |       label        |                                             string                                              |                                                                                                         Displays the text of the option inside the Dropdown.                                                                                                          |    -    |   false   |
 |  listItemCategory  | [ListItemCategory](https://design-system.codelitt.dev/?path=/docs/components-list--simple-list) |                                                                                              The Dropdown's options can have one of two categories (Simple or Checkbox).                                                                                              | simple  |   false   |
@@ -87,43 +87,49 @@ They are listed in the table below.
 
 ### Variables of the Dropdown component
 
-|   Property   |    Attribute     | State |
-| :----------: | :--------------: | :---: |
-|              |      border      |       |
-|              |  border-radius   |       |
-|              |     display      |       |
-|              |    flex-wrap     |       |
-|              |      margin      |       |
-|              |     padding      |       |
-|              |      width       |       |
-| append-icon  |      color       | hover |
-|    group     |      color       |       |
-|    group     |   font-family    |       |
-|    group     |    font-size     |       |
-|    group     |    font-style    |       |
-|    group     |   font-weight    |       |
-|    group     |      margin      |       |
-|    group     |     padding      |       |
-|  group-div   |      border      |       |
-|  group-div   |     padding      |       |
-| prepend-icon |      color       | hover |
-| prepend-icon |       fill       | hover |
-|  select-all  | background-color |       |
-|  select-all  |  border-bottom   |       |
-|  select-all  |   border-left    |       |
-|  select-all  |   border-right   |       |
-|  select-all  |    border-top    |       |
-|  select-all  |      color       | hover |
-|  select-all  |     display      |       |
-|  select-all  |    flex-wrap     |       |
-|  select-all  |   font-family    |       |
-|  select-all  |    font-size     |       |
-|  select-all  |    font-style    | hover |
-|  select-all  |   font-weight    | hover |
-|  select-all  | justify-content  |       |
-|  select-all  |      margin      |       |
-|  select-all  |     padding      |       |
-|  select-all  |      width       |       |
+|   Property   |    Attribute     |       State        |
+| :----------: | :--------------: | :----------------: |
+|              |      border      |                    |
+|              |  border-radius   |                    |
+|              |     display      |                    |
+|              |    flex-wrap     |                    |
+|              |      margin      |                    |
+|              |     padding      |                    |
+|              |      width       |                    |
+| append-icon  |      color       |       hover        |
+|   message    |      color       | positive, negative |
+|   message    |      height      |       empty        |
+|   message    |   font-family    |                    |
+|   message    |    font-size     |                    |
+|   message    |   font-weight    |                    |
+|   message    |      margin      |                    |
+|    group     |   line-height    |                    |
+|    group     |   font-family    |                    |
+|    group     |    font-size     |                    |
+|    group     |    font-style    |                    |
+|    group     |   font-weight    |                    |
+|    group     |      margin      |                    |
+|    group     |     padding      |                    |
+|  group-div   |      border      |                    |
+|  group-div   |     padding      |                    |
+| prepend-icon |      color       |       hover        |
+| prepend-icon |       fill       |       hover        |
+|  select-all  | background-color |                    |
+|  select-all  |  border-bottom   |                    |
+|  select-all  |   border-left    |                    |
+|  select-all  |   border-right   |                    |
+|  select-all  |    border-top    |                    |
+|  select-all  |      color       |       hover        |
+|  select-all  |     display      |                    |
+|  select-all  |    flex-wrap     |                    |
+|  select-all  |   font-family    |                    |
+|  select-all  |    font-size     |                    |
+|  select-all  |    font-style    |       hover        |
+|  select-all  |   font-weight    |       hover        |
+|  select-all  | justify-content  |                    |
+|  select-all  |      margin      |                    |
+|  select-all  |     padding      |                    |
+|  select-all  |      width       |                    |
 
 ### Variables from the Button initially set up in the Dropdown component
 
