@@ -28,6 +28,7 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 |    multiselect     |                                             boolean                                             |                                                                                           Specifies whether or not multiple options in a Dropdown are able to be selected.                                                                                            |    -    |   false   |
 |      onChange      |                                    (item?: T \| T[]) => void                                    |                                                                                           Calls a function whenever a change in an event of a dropdown's item is detected.                                                                                            |    -    |   true    |
 |      options       |                                               T[]                                               |                                                                                                                            Options array.                                                                                                                             |   []    |   true    |
+|      required      |                                             boolean                                             |                                                                                                     Specifies that an option from the Dropdown has to be selected                                                                                                     |    -    |   false   |
 |      selected      |                                            T[] \| T                                             |                                                                                                                       Item selected initially.                                                                                                                        |    -    |   false   |
 |    selectorText    |                                             string                                              |                                       Initial text displayed to the Dropdown, for the [dropdown input](https://design-system.codelitt.dev/?path=/story/components-dropdown--editable-dropdown) it's equivalent to a placeholder                                       |    -    |   false   |
 |   showSelectAll    |                                             boolean                                             |                                                                                      Allows you to display an option to Select/Deselect all options. Works only with multiselect                                                                                      |  false  |   false   |
@@ -97,12 +98,6 @@ They are listed in the table below.
 |              |     padding      |                    |
 |              |      width       |                    |
 | append-icon  |      color       |       hover        |
-|   message    |      color       | positive, negative |
-|   message    |      height      |       empty        |
-|   message    |   font-family    |                    |
-|   message    |    font-size     |                    |
-|   message    |   font-weight    |                    |
-|   message    |      margin      |                    |
 |    group     |   line-height    |                    |
 |    group     |   font-family    |                    |
 |    group     |    font-size     |                    |
@@ -112,6 +107,12 @@ They are listed in the table below.
 |    group     |     padding      |                    |
 |  group-div   |      border      |                    |
 |  group-div   |     padding      |                    |
+|   message    |      color       | positive, negative |
+|   message    |   font-family    |                    |
+|   message    |    font-size     |                    |
+|   message    |   font-weight    |                    |
+|   message    |      height      |       empty        |
+|   message    |      margin      |                    |
 | prepend-icon |      color       |       hover        |
 | prepend-icon |       fill       |       hover        |
 |  select-all  | background-color |                    |

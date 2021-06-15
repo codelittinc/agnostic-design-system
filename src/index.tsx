@@ -8,6 +8,7 @@ export { default as Dropdown } from '@/components/Dropdown';
 export { default as List } from '@/components/List';
 export { default as MapsProvider } from '@/components/MapsProvider';
 export { default as NumericInput } from '@/components/NumericInput';
+export { default as RangeSlider } from '@/components/RangeSlider';
 export { default as TextArea } from '@/components/TextArea';
 export { default as Toast } from '@/components/Toast';
 export { default as UploadAvatar } from '@/components/UploadAvatar';

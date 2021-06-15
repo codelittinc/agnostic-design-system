@@ -26,17 +26,16 @@ export interface Props<T> {
   onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;
   onStateChange: (state: boolean) => void;
+  onValidate: (item?: T | T[]) => void;
   options: T[];
-  required?: boolean;
   selected?: T[] | T;
   selectorText?: string;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
+  messageValidateClass: string;
+  validationMessage?: string;
 }
-
-const VALID = 'valid';
-const INVALID = 'invalid';
 
 const InputDropdown = <T extends {}>(props: Props<T>) => {
   const {
@@ -52,19 +51,18 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     onChange,
     onInputChange,
     onStateChange,
+    onValidate,
     options,
     multiselect,
     selectorText,
     variablesClassName,
-    required
+    messageValidateClass,
+    validationMessage
   } = props;
 
   const defaultFilter = options =>
     options.filter(item => getItemLabel(item).toLowerCase().includes(listTitle.toLowerCase()));
 
-  const [validationState, setValidationState] = useState('');
-  const hasValidationState = validationState !== '';
-  const messageValidateClass = hasValidationState ? `dropdown--message-${validationState}` : '';
   const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : '');
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -75,7 +73,6 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
   const hasSuggestions = filteredOptions.length > 0;
   const iconCategory = 'icon';
   const autoComplete = 'off';
-  const requiredMessage = 'This field is required.';
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -108,29 +105,19 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     }
   };
 
-  const handleValidation = (item?: T | T[]) => {
-    const valid = !required || !isEmpty(item);
-    onStateChange(valid);
-    setValidationState(valid ? VALID : INVALID);
-  };
-
   const handleClick = (options: T | T[]) => {
     onChange(options);
     setListTitle(isEmpty(options) ? '' : getListTitle(options));
     setIsListOpen(!!multiselect);
-    handleValidation(options);
+    onValidate(options);
   };
 
   const handleDropdownChange = (item?: T | T[]) => {
     if (item) {
       handleClick(item);
     } else {
-      handleValidation(item);
+      onValidate(item);
     }
-  };
-
-  const getMessage = () => {
-    return validationState === INVALID ? requiredMessage : '';
   };
 
   const handleIconCategory = () => {
@@ -191,7 +178,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
         )}
       </div>
       <span className={classnames(styles['dropdown--message'], styles[messageValidateClass])}>
-        {getMessage()}
+        {validationMessage}
       </span>
     </>
   );

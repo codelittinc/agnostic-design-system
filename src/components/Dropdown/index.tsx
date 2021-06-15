@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputDropdown from './InputDropdown';
 import ButtonDropdown from './ButtonDropdown';
+import { isEmpty } from 'lodash';
 
 export type Category = 'simple' | 'icon';
 export type ListItemCategory = 'simple' | 'checkbox';
@@ -8,6 +9,9 @@ export type Size = 'large' | 'medium';
 
 export const LARGE_SIZE = 'large';
 export const SIMPLE_CATEGORY = 'simple';
+
+const VALID = 'valid';
+const INVALID = 'invalid';
 
 export interface Props<T> {
   category: Category;
@@ -37,9 +41,35 @@ export interface Props<T> {
 }
 
 const Dropdown = <T extends {}>(props: Props<T>) => {
-  const { editable } = props;
+  const { editable, required, onStateChange } = props;
 
-  return editable ? <InputDropdown<T> {...props} /> : <ButtonDropdown<T> {...props} />;
+  const [validationState, setValidationState] = useState('');
+  const hasValidationState = validationState !== '';
+  const messageValidateClass = hasValidationState ? `dropdown--message-${validationState}` : '';
+  const requiredMessage = 'This field is required.';
+
+  const handleValidation = (item?: T | T[]) => {
+    const valid = !required || !isEmpty(item);
+    onStateChange(valid);
+    setValidationState(valid ? VALID : INVALID);
+  };
+
+  const getMessage = () => {
+    return validationState === INVALID ? requiredMessage : '';
+  };
+
+  const childrenProps = {
+    messageValidateClass,
+    validationMessage: getMessage(),
+    onValidate: handleValidation,
+    ...props
+  };
+
+  return editable ? (
+    <InputDropdown<T> {...childrenProps} />
+  ) : (
+    <ButtonDropdown<T> {...childrenProps} />
+  );
 };
 
 Dropdown.defaultProps = {

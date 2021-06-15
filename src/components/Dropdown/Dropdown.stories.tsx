@@ -414,3 +414,26 @@ WithGroupBy.args = {
   multiselect: true,
   groupBy: item => item.label[0]
 };
+
+export const WithRequired = Template.bind({});
+WithRequired.args = {
+  category: 'simple',
+  id: 'ads-dropdown',
+  size: 'large',
+  selectorText: 'Selector Text',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label,
+  required: true
+};
