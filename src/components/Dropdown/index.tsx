@@ -49,7 +49,6 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
   const requiredMessage = 'This field is required.';
 
   const handleValidation = (item?: T | T[]) => {
-    debugger;
     const valid = !required || !isEmpty(item);
     onStateChange(valid);
     setValidationState(valid ? VALID : INVALID);
