@@ -6,37 +6,37 @@ import classNames from 'classnames';
 import 'rc-slider/assets/index.css';
 
 interface Props<T> {
-  label?: string;
   disabled?: boolean;
   dotStyle?: React.CSSProperties;
   handle?: (props) => React.ReactElement;
   handleStyle?: React.CSSProperties;
-  onChange?: (value: number) => void;
+  label?: string;
   marks?: T[];
   max?: number;
   min?: number;
-  value?: number;
+  onChange?: (value: number) => void;
   railStyle?: React.CSSProperties;
   step?: number;
   trackStyle?: React.CSSProperties;
+  value?: number;
   variablesClassName?: string;
 }
 
 const RangeSlider = <T extends {}>(props: Props<T>) => {
   const {
-    label,
     disabled,
     dotStyle,
     handle,
     handleStyle,
-    onChange,
+    label,
     marks,
     max,
     min,
-    value,
+    onChange,
     railStyle,
     step,
     trackStyle,
+    value,
     variablesClassName
   } = props;
 
