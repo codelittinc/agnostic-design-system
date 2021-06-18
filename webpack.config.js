@@ -17,18 +17,36 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: path.resolve(__dirname, 'node_modules/rc-slider'),
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-            modules: {
-              localIdentName: "ads-[name]__[local]--[hash:base64:5]",
-              localIdentContext: path.resolve(__dirname, "src"),
-              localIdentHashPrefix: "ads-",
+              modules: {
+                localIdentName: 'ads-[name]__[local]--[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+                localIdentHashPrefix: 'ads-'
+              }
             }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'node_modules/rc-slider'),
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+                localIdentHashPrefix: 'ads-'
+              }
             }
-          },
+          }
         ]
       },
       {

@@ -1,0 +1,23 @@
+.range-marker {
+  border-left: 0.0625rem solid var(--primary-color-300);
+  height: 0.75rem;
+  margin-top: 0.5625rem;
+}
+.range-marker-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 4.875rem;
+  font-size: 1rem;
+  color: var(--primary-color-700);
+  font-weight: 700;
+}
+.range-marker-container .range-marker {
+  border-left: 0.0625rem solid var(--primary-color-300);
+  height: 1rem;
+  margin-top: 0.5625rem;
+}
+.range-marker-container .range-marker-highlight {
+  border-left: 0.0625rem solid var(--primary-color-700);
+}
