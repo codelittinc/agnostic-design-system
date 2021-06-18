@@ -1,0 +1,7 @@
+@import '../../styles/theme/index.css';
+
+.range-slider-container {
+  width: var(--range-slider-height, 600px);
+  margin: var(--range-slider-margin, 50px);
+  font-family: var(--range-slider-font-family, 'Inter');
+}
