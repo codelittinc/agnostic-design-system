@@ -16,6 +16,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     onChange,
     options,
     multiselect,
+    nodeBeforeItems,
     variablesClassName,
     listItemCategory,
     showSelectAll,
@@ -24,6 +25,15 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
   } = props;
   const listRef = useRef<HTMLDivElement>(null);
   const customSort = sort;
+
+  const getNodeBeforeItems = appendNode => {
+    return (
+      <>
+        {nodeBeforeItems && nodeBeforeItems}
+        {appendNode && appendNode}
+      </>
+    );
+  };
 
   const getOptions = () => {
     return customSort ? options.sort(customSort) : options;
@@ -68,7 +78,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
         selected={selected}
         multiselect={multiselect}
         id={`${id}-list`}
-        nodeBeforeItems={selectAllContainer()}
+        nodeBeforeItems={getNodeBeforeItems(selectAllContainer())}
       />
     );
   };
@@ -108,7 +118,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
                 selected={selected}
                 multiselect={multiselect}
                 id={`${id}-list`}
-                nodeBeforeItems={buildAppendList(item, index)}
+                nodeBeforeItems={getNodeBeforeItems(buildAppendList(item, index))}
               />
             );
           })}

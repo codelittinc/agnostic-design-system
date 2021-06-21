@@ -18,6 +18,7 @@ interface Props<T> {
   id: string;
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
+  nodeBeforeItems?: React.ReactNode;
   onChange: (item?: T | T[]) => void;
   onValidate: (item?: T | T[]) => void;
   options: T[];
