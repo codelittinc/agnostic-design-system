@@ -23,6 +23,7 @@ export interface Props<T> {
   label?: string;
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
+  nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
   onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;

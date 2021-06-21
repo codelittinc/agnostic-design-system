@@ -16,6 +16,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     onChange,
     options,
     multiselect,
+    nodeAfterItems,
     nodeBeforeItems,
     variablesClassName,
     listItemCategory,
@@ -78,6 +79,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
         selected={selected}
         multiselect={multiselect}
         id={`${id}-list`}
+        nodeAfterItems={nodeAfterItems}
         nodeBeforeItems={getNodeBeforeItems(selectAllContainer())}
       />
     );

@@ -28,6 +28,7 @@ interface Props<T> {
   label?: string;
   listItemCategory?: ListItemCategory;
   multiselect?: boolean;
+  nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
   onChange?: (item?: T | T[]) => void;
   options?: T[];
@@ -53,6 +54,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     variablesClassName,
     listItemCategory = SIMPLE_CATEGORY,
     multiselect,
+    nodeAfterItems,
     nodeBeforeItems
   } = props;
 
@@ -143,6 +145,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
               />
             );
           })}
+        {nodeAfterItems}
       </ul>
     </div>
   );
