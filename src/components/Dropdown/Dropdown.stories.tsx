@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import Dropdown from '@/components/Dropdown';
+import GearIcon from '@/assets/images/icons/web/gear.svg';
 import mdx from './Dropdown.stories.mdx';
 
 export default {
@@ -377,6 +378,63 @@ WithMultiselectAndShowSelectAll.args = {
   showSelectAll: true
 };
 
+export const WithCustomIcon = Template.bind({});
+WithCustomIcon.args = {
+  category: 'simple',
+  customIcon: <GearIcon width={15} height={15} />,
+  iconPosition: 'left',
+  id: 'ads-dropdown',
+  size: 'large',
+  selectorText: 'Selector Text',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label
+};
+
+export const WithCustomNodes = Template.bind({});
+const nodeLabelStyle = { fontFamily: 'Inter' };
+WithCustomNodes.args = {
+  id: 'ads-dropdown',
+  category: 'simple',
+  size: 'large',
+  listItemCategory: 'checkbox',
+  label: 'Dropdown',
+  selectorText: 'Selector Text',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    },
+    {
+      label: 'Option 3',
+      value: '3'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: list => list.map(x => x.label).join(', '),
+  multiselect: true,
+  showSelectAll: true,
+  nodeAfterItems: <label style={nodeLabelStyle}>Bottom Label</label>,
+  nodeBeforeItems: <label style={nodeLabelStyle}>Top Label</label>
+};
+
 export const WithGroupBy = Template.bind({});
 WithGroupBy.args = {
   id: 'ads-dropdown',
@@ -436,37 +494,4 @@ WithRequired.args = {
   getItemValue: item => item.value,
   getListTitle: item => item.label,
   required: true
-};
-
-export const WithCustomNodes = Template.bind({});
-const nodeLabelStyle = { fontFamily: 'Inter' };
-WithCustomNodes.args = {
-  id: 'ads-dropdown',
-  category: 'simple',
-  size: 'large',
-  listItemCategory: 'checkbox',
-  label: 'Dropdown',
-  selectorText: 'Selector Text',
-  options: [
-    {
-      label: 'Option 1',
-      value: '1'
-    },
-    {
-      label: 'Option 2',
-      value: '2'
-    },
-    {
-      label: 'Option 3',
-      value: '3'
-    }
-  ],
-  getItemLabel: item => item.label,
-  getItemKey: item => item.value,
-  getItemValue: item => item.value,
-  getListTitle: list => list.map(x => x.label).join(', '),
-  multiselect: true,
-  showSelectAll: true,
-  nodeAfterItems: <label style={nodeLabelStyle}>Bottom Label</label>,
-  nodeBeforeItems: <label style={nodeLabelStyle}>Top Label</label>
 };

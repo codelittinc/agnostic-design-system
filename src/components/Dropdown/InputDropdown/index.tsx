@@ -12,6 +12,7 @@ import { isEmpty } from 'lodash';
 
 export interface Props<T> {
   category: Category;
+  customIcon?: React.ReactNode;
   disabled?: boolean;
   editable?: boolean;
   filterOptions?: (options: T | T[]) => T | T[];
@@ -41,6 +42,7 @@ export interface Props<T> {
 
 const InputDropdown = <T extends {}>(props: Props<T>) => {
   const {
+    customIcon,
     selected,
     label,
     disabled,
@@ -157,7 +159,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
           onMouseEnter={() => setIsInputHovered(true)}
           onMouseLeave={() => setIsInputHovered(false)}
           variablesClassName={classnames(styles['dropdown-input'], variablesClassName)}
-          actionIcon={getArrowIcon(isListOpen, size)}
+          actionIcon={customIcon || getArrowIcon(isListOpen, size)}
           withActionIcon
           onClickActionIcon={() => setIsListOpen(!isListOpen)}
           prepend={handleIconCategory()}

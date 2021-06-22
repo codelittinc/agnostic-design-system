@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import styles from '@/components/Dropdown/Dropdown.css';
-import Button from '@/components/Button';
+import Button, { Position } from '@/components/Button'; // eslint-disable-line no-unused-vars
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
 import { Category, ListItemCategory, Size } from '@/components/Dropdown'; // eslint-disable-line no-unused-vars
 import RenderOptions from '../renderOptions';
@@ -9,12 +9,14 @@ import { isEmpty } from 'lodash';
 
 interface Props<T> {
   category: Category;
+  customIcon?: React.ReactNode;
   disabled?: boolean;
   editable?: boolean;
   getListTitle: (selected: T | T[]) => string;
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string | number | string[];
+  iconPosition?: Position;
   id: string;
   listItemCategory: ListItemCategory;
   multiselect?: boolean;
@@ -35,7 +37,9 @@ interface Props<T> {
 const ButtonDropdown = <T extends {}>(props: Props<T>) => {
   const {
     selected,
+    customIcon,
     disabled,
+    iconPosition,
     size,
     getListTitle,
     onChange,
@@ -99,7 +103,8 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
           variablesClassName={classnames(styles['dropdown-button'], variablesClassName)}
           category='neutral'
           size={size}
-          appendIcon={getArrowIcon(isListOpen, size)}
+          iconPosition={iconPosition}
+          appendIcon={customIcon || getArrowIcon(isListOpen, size)}
           withAppendIcon
           ref={buttonRef}
         />

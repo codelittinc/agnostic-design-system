@@ -15,6 +15,7 @@ const INVALID = 'invalid';
 
 export interface Props<T> {
   category: Category;
+  customIcon?: React.ReactNode;
   disabled?: boolean;
   editable?: boolean;
   filterOptions?: (options: T | T[]) => T | T[];
