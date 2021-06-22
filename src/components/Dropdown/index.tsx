@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputDropdown from './InputDropdown';
 import ButtonDropdown from './ButtonDropdown';
 import { isEmpty } from 'lodash';
+import { Position } from '@/components/Button'; // eslint-disable-line no-unused-vars
 
 export type Category = 'simple' | 'icon';
 export type ListItemCategory = 'simple' | 'checkbox';
@@ -24,6 +25,7 @@ export interface Props<T> {
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string | number | string[];
   groupBy?: ((item: T) => any) | string;
+  iconPosition?: Position;
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;

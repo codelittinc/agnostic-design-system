@@ -17,6 +17,8 @@
   box-sizing: border-box;
   padding: var(--dropdown-group-div-padding, 20px);
   width: var(--dropdown-width, 100%);
+  position: var(--dropdown-group-div-position);
+  margin: var(--dropdown-group-div-margin);
 }
 
 .dropdown-input {
