@@ -100,6 +100,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
 
     return (
       <div className={styles['dropdown-list-group-container']} ref={ref || listRef}>
+        {nodeBeforeItems}
         {keys.length > 0 &&
           keys.map((item, index) => {
             return (
@@ -120,10 +121,11 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
                 selected={selected}
                 multiselect={multiselect}
                 id={`${id}-list`}
-                nodeBeforeItems={getNodeBeforeItems(buildAppendList(item, index))}
+                nodeBeforeItems={buildAppendList(item, index)}
               />
             );
           })}
+        {nodeAfterItems}
       </div>
     );
   };
