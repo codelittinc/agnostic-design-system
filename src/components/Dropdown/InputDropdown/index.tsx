@@ -26,6 +26,7 @@ export interface Props<T> {
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
+  nodeBeforeListContainer?: React.ReactNode;
   onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;
   onStateChange: (state: boolean) => void;
