@@ -432,8 +432,7 @@ WithCustomNodes.args = {
   multiselect: true,
   showSelectAll: true,
   nodeAfterItems: <label style={nodeLabelStyle}>Bottom Label Inside of List Container</label>,
-  nodeBeforeItems: <label style={nodeLabelStyle}>Top Label Inside of List Container</label>,
-  nodeBeforeListContainer: <div style={{ ...nodeLabelStyle, height: 30 }}>Top Element</div>
+  nodeBeforeItems: <label style={nodeLabelStyle}>Top Label Inside of List Container</label>
 };
 
 export const WithGroupBy = Template.bind({});

@@ -19,22 +19,7 @@
   width: var(--dropdown-group-div-width, var(--dropdown-width, 100%));
   position: var(--dropdown-group-div-position);
   margin: var(--dropdown-group-div-margin);
-  border-top-left-radius: var(
-    --dropdown-group-div-border-top-left-radius,
-    var(--dropdown-group-div-border-radius, 0)
-  );
-  border-top-right-radius: var(
-    --dropdown-group-div-border-top-right-radius,
-    var(--dropdown-group-div-border-radius, 0)
-  );
-  border-bottom-left-radius: var(
-    --dropdown-group-div-border-bottom-left-radius,
-    var(--dropdown-group-div-border-radius, 0)
-  );
-  border-bottom-right-radius: var(
-    --dropdown-group-div-border-bottom-right-radius,
-    var(--dropdown-group-div-border-radius, 0)
-  );
+  border-radius: var(--dropdown-group-div-border-radius);
   background-color: var(--dropdown-group-div-background-color);
   z-index: var(--dropdown-group-div-z-index, initial);
 }
