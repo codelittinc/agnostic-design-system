@@ -53,11 +53,11 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 ## Getting Started
 
 ```javascript
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Dropdown } from '@codelittinc/agnostic-design-system';
 
-class SimpleDropdown extends Component {
-  const [value, setValue] = useState('');
+const SimpleDropdown = () => {
+  const [selected, setSelected] = useState();
   const options = [
     {
       label: 'Option 1',
@@ -69,23 +69,21 @@ class SimpleDropdown extends Component {
     }
   ];
 
-  render() {
-    return (
-      <Dropdown
-        id='ads-dropdown'
-        value={value}
-        options={options}
-        onChange={item => {
-          setValue(item ? item.value : '');
-        }}
-        getItemLabel={item => item.label}
-        getItemKey={item => item.value}
-        getItemValue={item => item.value}
-        getListTitle={item => item.label}
-      />
-    );
-  }
-}
+  return (
+    <Dropdown
+      id='ads-dropdown'
+      category='simple'
+      selectorText='Select an option'
+      selected={selected}
+      options={options}
+      onChange={setSelected}
+      getItemLabel={item => item.label}
+      getItemKey={item => item.value}
+      getItemValue={item => item.value}
+      getListTitle={item => item.label}
+    />
+  );
+};
 
 export default SimpleDropdown;
 ```

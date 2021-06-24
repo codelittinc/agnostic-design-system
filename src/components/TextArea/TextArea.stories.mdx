@@ -32,22 +32,24 @@
 import React, { Component, useState } from 'react';
 import { TextArea } from '@codelittinc/agnostic-design-system';
 
-class SimpleTextArea extends Component {
+const SimpleTextArea = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setValue(e.target.value);
-  }
+  };
 
-  render() {
-    return (
-      <TextArea onChange={handleChange} value={value} label='Simple TextArea' placeholder='Enter Text' />
-    );
-  }
-}
+  return (
+    <TextArea
+      onChange={handleChange}
+      value={value}
+      label='Simple TextArea'
+      placeholder='Enter Text'
+    />
+  );
+};
 
 export default SimpleTextArea;
-
 ```
 
 # Variables available

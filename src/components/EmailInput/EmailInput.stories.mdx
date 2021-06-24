@@ -38,38 +38,31 @@ export default EmailInput;
 #### Example - Custom Regex in Email Input
 
 ```javascript
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { EmailInput } from '@codelittinc/agnostic-design-system';
 
-class EmailInput extends Component {
+const SimpleEmailInput = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  }
+  const validations = [
+    {
+      type: 'function',
+      test: value => !!value.match(/.codelitt./),
+      invalidMessage: 'It needs to be a Codelitt email'
+    }
+  ];
 
-  const validations = () => (
-    [
-      {
-        type: 'function',
-        test: value => !!value.match(/.codelitt./),
-        invalidMessage: 'It needs to be a Codelitt email'
-      }
-    ]
-  )
+  return (
+    <EmailInput
+      onChange={e => setValue(e.target.value)}
+      label='Email Input'
+      value={value}
+      validations={validations}
+    />
+  );
+};
 
-  render() {
-    return (
-      <EmailInput
-        onChange={handleOnChange}
-        label='Email Input'
-        value={value}
-        validations={validations} />
-    );
-  }
-}
-
-export default EmailInput;
+export default SimpleEmailInput;
 ```
 
 ## CSS Variables Available

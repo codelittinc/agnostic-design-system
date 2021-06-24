@@ -13,25 +13,14 @@
 ## Getting Started
 
 ```javascript
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { UploadAvatar } from '@codelittinc/agnostic-design-system';
 
-class SimpleUploadAvatar extends Component {
-  const [value, setValue] = useState();
-
-  const handleChange = (e) => {
-    setValue(e.target?.files?.[0]);
-  }
-
-  render() {
-    return (
-      <UploadAvatar onChange={handleChange} />
-    );
-  }
-}
+const SimpleUploadAvatar = () => {
+  return <UploadAvatar maxSize={5} imageTypes={['image/jpeg']} />;
+};
 
 export default SimpleUploadAvatar;
-
 ```
 
 # Customazing styles

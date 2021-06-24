@@ -60,25 +60,22 @@ Lastly, **invalidMessage** should be a string.
 ## Getting Started
 
 ```javascript
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Input } from '@codelittinc/agnostic-design-system';
 
-class SimpleInput extends Component {
+const SimpleInput = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setValue(e.target.value);
-  }
+  };
 
-  render() {
-    return (
-      <Input onChange={handleChange} value={value} label='Simple Input' placeholder='Enter Text' />
-    );
-  }
-}
+  return (
+    <Input onChange={handleChange} value={value} label='Simple Input' placeholder='Enter Text' />
+  );
+};
 
 export default SimpleInput;
-
 ```
 
 ## CSS Variables available

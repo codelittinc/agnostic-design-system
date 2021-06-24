@@ -19,33 +19,26 @@ The Numeric Input, however, has four unique properties to it, as listed below:
 ## Getting Started
 
 ```javascript
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { NumericInput } from '@codelittinc/agnostic-design-system';
 
-class NumericInput extends Component {
+const SimpleNumericInput = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  }
+  return (
+    <NumericInput
+      label='Numeric Input'
+      onChange={e => setValue(e.target.value)}
+      max={15}
+      positive={true}
+      radix={','}
+      scale={2}
+      value={value}
+    />
+  );
+};
 
-  render() {
-    return (
-      <NumericInput
-        label='Numeric Input'
-        onChange={handleOnChange}
-        max={15}
-        positive={true}
-        radix={','}
-        scale={2}
-        value={value}
-      />
-    );
-  }
-}
-
-export default NumericInput;
-
+export default SimpleNumericInput;
 ```
 
 ## CSS Variables Available
