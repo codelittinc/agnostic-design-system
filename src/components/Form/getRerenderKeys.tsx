@@ -1,4 +1,4 @@
-export default (values, fieldsValidationState, names) => {
+export default (values, fieldsValidationState, names, children) => {
   const v = {};
   names.forEach(c => {
     v[c] = values[c] || '';
@@ -9,5 +9,7 @@ export default (values, fieldsValidationState, names) => {
     n[c] = fieldsValidationState[c];
   });
 
-  return [...names, ...Object.values(v), ...Object.values(n)];
+  const chidrenProps = children.map(c => c.props);
+
+  return [...names, ...Object.values(v), ...Object.values(n), ...chidrenProps];
 };

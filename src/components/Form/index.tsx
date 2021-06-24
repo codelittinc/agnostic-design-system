@@ -37,7 +37,7 @@ const Form = (props: Props) => {
 
   useEffect(() => {
     setCustomChildren(getCustomChildren(customChildremProps));
-  }, getRerenderKeys(values, fieldsValidationState, names));
+  }, getRerenderKeys(values, fieldsValidationState, names, children));
 
   return customChildren;
 };
