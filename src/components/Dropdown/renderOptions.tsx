@@ -101,30 +101,32 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     return (
       <div className={styles['dropdown-list-group-container']} ref={ref || listRef}>
         {nodeBeforeItems}
-        {keys.length > 0 &&
-          keys.map((item, index) => {
-            return (
-              <List<T>
-                key={`list-groupby-${item + Math.random()}`}
-                size={size}
-                options={groupedOptions[item]}
-                onChange={onChange}
-                getItemKey={item => getItemKey(item)}
-                getItemLabel={item => getItemLabel(item)}
-                getItemValue={item => getItemValue(item)}
-                variablesClassName={classnames(
-                  styles['dropdown-list'],
-                  styles['dropdown-list-group'],
-                  variablesClassName
-                )}
-                listItemCategory={listItemCategory}
-                selected={selected}
-                multiselect={multiselect}
-                id={`${id}-list`}
-                nodeBeforeItems={buildAppendList(item, index)}
-              />
-            );
-          })}
+        <div className={styles['dropdown-list-groups-wrapper']}>
+          {keys.length > 0 &&
+            keys.map((item, index) => {
+              return (
+                <List<T>
+                  key={`list-groupby-${item + Math.random()}`}
+                  size={size}
+                  options={groupedOptions[item]}
+                  onChange={onChange}
+                  getItemKey={item => getItemKey(item)}
+                  getItemLabel={item => getItemLabel(item)}
+                  getItemValue={item => getItemValue(item)}
+                  variablesClassName={classnames(
+                    styles['dropdown-list'],
+                    styles['dropdown-list-group'],
+                    variablesClassName
+                  )}
+                  listItemCategory={listItemCategory}
+                  selected={selected}
+                  multiselect={multiselect}
+                  id={`${id}-list`}
+                  nodeBeforeItems={buildAppendList(item, index)}
+                />
+              );
+            })}
+        </div>
         {nodeAfterItems}
       </div>
     );

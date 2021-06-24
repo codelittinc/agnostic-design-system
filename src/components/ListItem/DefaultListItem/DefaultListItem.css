@@ -20,7 +20,9 @@
   box-shadow: var(--list-item-box-shadow, 0px 4px 10px rgba(232, 238, 252, 0.7));
   box-sizing: border-box;
   cursor: var(--list-item-cursor, pointer);
+  color: var(--list-item-color);
   display: var(--list-item-display, inline-flex);
+  font-weight: var(--list-item-font-weight);
   flex-direction: var(--list-item-flex-direction, row);
   height: var(--list-item-height, 100%);
   justify-content: var(--list-item-justify-content, space-between);
@@ -36,6 +38,8 @@
   border-top: var(--list-item-border-top-hover, 1px solid transparent);
   border-right: var(--list-item-border-right-hover, 1px solid transparent);
   border-left: var(--list-item-border-left-hover, 1px solid transparent);
+  color: var(--list-item-color-hover, var(--list-item-color));
+  font-weight: var(--list-item-font-weight-hover, var(--list-item-font-weight));
 }
 
 .list-item:active {
@@ -44,6 +48,8 @@
   border-top: var(--list-item-border-top-active, 1px solid var(--success-color));
   border-right: var(--list-item-border-right-active, 1px solid var(--success-color));
   border-left: var(--list-item-border-left-active, 1px solid var(--success-color));
+  color: var(--list-item-color-active, var(--list-item-color));
+  font-weight: var(--list-item-font-weight-active, var(--list-item-font-weight));
 }
 
 .list-item:focus {
@@ -61,6 +67,8 @@
     --list-item-border-left-focus,
     var(--list-item-border-left, 1px solid transparent)
   );
+  color: var(--list-item-color-focus, var(--list-item-color));
+  font-weight: var(--list-item-font-weight-focus, var(--list-item-font-weight));
   outline: var(--list-item-outline-focus, none);
 }
 
@@ -144,6 +152,9 @@
   border-top: var(--list-item-selected-border-top);
   border-right: var(--list-item-selected-border-right);
   border-left: var(--list-item-selected-border-left);
+  color: var(--list-item-selected-color);
+  font-size: var(--list-item-selected-font-size);
+  font-weight: var(--list-item-selected-font-weight);
 }
 
 .list-item-selected:hover {
@@ -156,8 +167,14 @@
     var(--list-item-selected-border-bottom)
   );
   border-top: var(--list-item-selected-border-top-hover, var(--list-item-selected-border-top));
-  border-right: var(--list-item-selected-border-right-hover, var(--list-item-selected-border-right));
+  border-right: var(
+    --list-item-selected-border-right-hover,
+    var(--list-item-selected-border-right)
+  );
   border-left: var(--list-item-selected-border-left-hover, var(--list-item-selected-border-left));
+  color: var(--list-item-selected-color-hover, var(--list-item-selected-color));
+  font-size: var(--list-item-selected-font-size-hover, var(--list-item-selected-font-size));
+  font-weight: var(--list-item-selected-font-weight-hover, var(--list-item-selected-font-weight));
 }
 
 .list-item-selected:focus {
@@ -170,8 +187,14 @@
     var(--list-item-selected-border-bottom)
   );
   border-top: var(--list-item-selected-border-top-focus, var(--list-item-selected-border-top));
-  border-right: var(--list-item-selected-border-right-focus, var(--list-item-selected-border-right));
+  border-right: var(
+    --list-item-selected-border-right-focus,
+    var(--list-item-selected-border-right)
+  );
   border-left: var(--list-item-selected-border-left-focus, var(--list-item-selected-border-left));
+  color: var(--list-item-selected-color-focus, var(--list-item-selected-color));
+  font-size: var(--list-item-selected-font-size-focus, var(--list-item-selected-font-size));
+  font-weight: var(--list-item-selected-font-weight-focus, var(--list-item-selected-font-weight));
 }
 
 .list-item-selected:active {
@@ -184,6 +207,12 @@
     var(--list-item-selected-border-bottom)
   );
   border-top: var(--list-item-selected-border-top-active, var(--list-item-selected-border-top));
-  border-right: var(--list-item-selected-border-right-active, var(--list-item-selected-border-right));
+  border-right: var(
+    --list-item-selected-border-right-active,
+    var(--list-item-selected-border-right)
+  );
   border-left: var(--list-item-selected-border-left-active, var(--list-item-selected-border-left));
+  color: var(--list-item-selected-color-active, var(--list-item-selected-color));
+  font-size: var(--list-item-selected-font-size-active, var(--list-item-selected-font-size));
+  font-weight: var(--list-item-selected-font-weight-active, var(--list-item-selected-font-weight));
 }

@@ -24,6 +24,11 @@
   z-index: var(--dropdown-group-div-z-index, initial);
 }
 
+.dropdown-list-groups-wrapper {
+  height: var(--dropdown-groups-wrapper-height);
+  overflow-y: var(--dropdown-groups-wrapper-overflow-y);
+}
+
 .dropdown-input {
   --input-background-color: var(--structure-color-100);
   --input-background-color-active: var(--structure-color-300);
