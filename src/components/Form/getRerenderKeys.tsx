@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default (values, fieldsValidationState, names, children) => {
   const v = {};
   names.forEach(c => {
@@ -9,7 +11,9 @@ export default (values, fieldsValidationState, names, children) => {
     n[c] = fieldsValidationState[c];
   });
 
-  const chidrenProps = children.map(c => c.props);
+  const childrenProps = React.Children.toArray(children).map(
+    child => React.isValidElement(child) && child.props
+  );
 
-  return [...names, ...Object.values(v), ...Object.values(n), ...chidrenProps];
+  return [...names, ...Object.values(v), ...Object.values(n), ...childrenProps];
 };
