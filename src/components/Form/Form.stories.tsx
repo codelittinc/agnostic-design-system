@@ -68,6 +68,7 @@ export const withSelectItemsList = () => {
       <Input required id='username' name='username' placeholder='Username' label='Username' />
       <SelectItemsList
         name='select-items-list'
+        label='Please select an item'
         options={options}
         getItemKey={item => item.id}
         getItemValue={item => item.id}

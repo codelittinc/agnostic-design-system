@@ -8,6 +8,7 @@ interface Props<T> {
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string;
   id: string;
+  label?: string | React.ReactNode;
   onChange: (item?: T) => void;
   options: T[];
   selected?: T;
@@ -60,6 +61,7 @@ const SelectItemsList = <T extends {}>(props: Props<T>) => {
     getItemKey,
     getItemLabel,
     getItemValue,
+    label,
     options
   } = props;
 
@@ -73,7 +75,18 @@ const SelectItemsList = <T extends {}>(props: Props<T>) => {
     variablesClassName
   );
 
-  return <div className={classNames(styles.container, variablesClassName)}>{items}</div>;
+  const getLabel = () => {
+    return React.isValidElement(label)
+      ? label
+      : label && <label className={classNames(styles['select-items-list--label'])}>{label}</label>;
+  };
+
+  return (
+    <>
+      {getLabel()}
+      <div className={classNames(styles.container, variablesClassName)}>{items}</div>
+    </>
+  );
 };
 
 SelectItemsList.defaultProps = {

@@ -91,3 +91,14 @@
   border: var(--select-items-list-selected-border-active, var(--select-items-list-selected-border));
   color: var(--select-items-list-selected-color-active, var(--select-items-list-selected-color));
 }
+
+.select-items-list--label {
+  font-family: var(--select-items-list-label-font-family, var(--input-font-family));
+  font-size: var(--select-items-list-label-font-size, var(--paragraph-l));
+  font-weight: var(--select-items-list-label-font-weight, var(--paragraph-font-weight-normal));
+  line-height: var(--select-items-list-label-line-height, var(--paragraph-l-line-height));
+  color: var(--select-items-list-label-color, var(--structure-color-800));
+  display: flex;
+  margin: var(--select-items-list-label-margin, 0);
+  width: 100%;
+}
