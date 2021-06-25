@@ -17,7 +17,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: path.resolve(__dirname, 'node_modules/rc-slider'),
+        exclude: [
+          path.resolve(__dirname, 'node_modules/rc-slider'),
+          path.resolve(__dirname, 'node_modules/react-phone-input-2')
+        ],
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -34,7 +37,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, 'node_modules/rc-slider'),
+        include: [
+          path.resolve(__dirname, 'node_modules/rc-slider'),
+          path.resolve(__dirname, 'node_modules/react-phone-input-2')
+        ],
         use: [
           MiniCssExtractPlugin.loader,
           {

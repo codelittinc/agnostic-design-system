@@ -89,6 +89,7 @@
     "downshift": "^6.1.0",
     "jest-svg-transformer": "^1.0.0",
     "lodash": "^4.17.21",
-    "rc-slider": "^9.7.2"
+    "rc-slider": "^9.7.2",
+    "react-phone-input-2": "^2.14.0"
   }
 }
