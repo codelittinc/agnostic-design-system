@@ -24,3 +24,11 @@ Default.args = {
   country: 'us',
   label: 'Default phone input'
 };
+
+export const LocalPhoneNumber = Template.bind({});
+LocalPhoneNumber.args = {
+  country: 'us',
+  localNumber: true,
+  placeholder: '(702) 123-4567',
+  label: 'Local phone number input'
+};

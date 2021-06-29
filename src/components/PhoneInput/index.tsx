@@ -3,9 +3,9 @@ import ExternalPhoneInput from 'react-phone-input-2';
 import classNames from 'classnames';
 import styles from '@/components/Input/Input.css';
 import 'react-phone-input-2/lib/style.css';
-
-export type Size = 'large' | 'medium';
-
+/* eslint-disable */
+import { Size } from '../Input';
+/* eslint-enable */
 interface Props {
   autoFormat?: boolean;
   country?: string;
@@ -15,8 +15,10 @@ interface Props {
   excludeCountries?: string[];
   hideLabel?: boolean;
   label?: string | React.ReactNode;
+  localNumber?: boolean;
   onChange: (value: string) => void;
   onlyCountries?: string[];
+  placeholder?: string;
   preferredCountries?: string[];
   size: Size;
   value?: string;
@@ -32,8 +34,10 @@ const PhoneInput = (props: Props) => {
     excludeCountries,
     hideLabel,
     label,
+    localNumber,
     onChange,
     onlyCountries,
+    placeholder,
     preferredCountries,
     size,
     value
@@ -60,12 +64,19 @@ const PhoneInput = (props: Props) => {
       {getLabel()}
       <ExternalPhoneInput
         autoFormat={autoFormat}
+        buttonStyle={localNumber ? { display: 'none' } : undefined}
         disabled={disabled}
+        disableCountryCode={localNumber}
         disableDropdown={disableDropdown}
         enableSearch={enableSearch}
-        inputClass={classNames(styles.input, styles[sizeClass], styles['input-with-prepend'])}
+        inputClass={classNames(
+          styles.input,
+          styles[sizeClass],
+          !localNumber && styles['input-with-prepend']
+        )}
         excludeCountries={excludeCountries}
         onlyCountries={onlyCountries}
+        placeholder={placeholder}
         preferredCountries={preferredCountries}
         country={country}
         value={value}
