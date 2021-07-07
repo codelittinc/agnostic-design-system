@@ -152,9 +152,6 @@
   border-top: var(--list-item-selected-border-top);
   border-right: var(--list-item-selected-border-right);
   border-left: var(--list-item-selected-border-left);
-  color: var(--list-item-selected-color);
-  font-size: var(--list-item-selected-font-size);
-  font-weight: var(--list-item-selected-font-weight);
 }
 
 .list-item-selected:hover {
@@ -172,9 +169,6 @@
     var(--list-item-selected-border-right)
   );
   border-left: var(--list-item-selected-border-left-hover, var(--list-item-selected-border-left));
-  color: var(--list-item-selected-color-hover, var(--list-item-selected-color));
-  font-size: var(--list-item-selected-font-size-hover, var(--list-item-selected-font-size));
-  font-weight: var(--list-item-selected-font-weight-hover, var(--list-item-selected-font-weight));
 }
 
 .list-item-selected:focus {
@@ -192,9 +186,6 @@
     var(--list-item-selected-border-right)
   );
   border-left: var(--list-item-selected-border-left-focus, var(--list-item-selected-border-left));
-  color: var(--list-item-selected-color-focus, var(--list-item-selected-color));
-  font-size: var(--list-item-selected-font-size-focus, var(--list-item-selected-font-size));
-  font-weight: var(--list-item-selected-font-weight-focus, var(--list-item-selected-font-weight));
 }
 
 .list-item-selected:active {
@@ -212,7 +203,29 @@
     var(--list-item-selected-border-right)
   );
   border-left: var(--list-item-selected-border-left-active, var(--list-item-selected-border-left));
+}
+
+.list-item-label-selected {
+  color: var(--list-item-selected-color);
+  font-size: var(--list-item-selected-font-size);
+  font-weight: var(--list-item-selected-font-weight);
+}
+
+.list-item-selected:active > .list-item-label-selected {
   color: var(--list-item-selected-color-active, var(--list-item-selected-color));
   font-size: var(--list-item-selected-font-size-active, var(--list-item-selected-font-size));
   font-weight: var(--list-item-selected-font-weight-active, var(--list-item-selected-font-weight));
 }
+
+.list-item-selected:focus > .list-item-label-selected {
+  color: var(--list-item-selected-color-focus, var(--list-item-selected-color));
+  font-size: var(--list-item-selected-font-size-focus, var(--list-item-selected-font-size));
+  font-weight: var(--list-item-selected-font-weight-focus, var(--list-item-selected-font-weight));
+}
+
+.list-item-selected:hover > .list-item-label-selected {
+  color: var(--list-item-selected-color-hover, var(--list-item-selected-color));
+  font-size: var(--list-item-selected-font-size-hover, var(--list-item-selected-font-size));
+  font-weight: var(--list-item-selected-font-weight-hover, var(--list-item-selected-font-weight));
+}
+

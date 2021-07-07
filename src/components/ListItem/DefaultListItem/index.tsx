@@ -53,7 +53,13 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
       <div className={classNames(styles['list-item-icon'], !getIcon && styles['div-hidden'])}>
         {getIcon && getIcon(item)}
       </div>
-      <span className={classNames(styles['list-item-label'], styles[sizeLabelClass])}>
+      <span
+        className={classNames(
+          styles['list-item-label'],
+          selected(item) && styles['list-item-label-selected'],
+          styles[sizeLabelClass]
+        )}
+      >
         {getLabel(item)}
       </span>
       <div
