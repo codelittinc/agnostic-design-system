@@ -15,9 +15,11 @@
 }
 
 .container {
+  align-items: var(--input-align-items);
   display: var(--input-display, flex);
-  flex-direction: var(--input-flex-directon, column);
+  flex-direction: var(--input-flex-direction, column);
   height: 100%;
+  justify-content: var(--input-justify-content);
   margin: var(--input-margin, 0);
   width: var(--input-width);
 }
@@ -141,7 +143,7 @@
   font-weight: var(--input-label-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-label-line-height, var(--paragraph-l-line-height));
   color: var(--input-label-color, var(--structure-color-800));
-  display: flex;
+  display: var(--input-label-display, flex);
   margin: var(--input-label-margin, 0);
   width: 100%;
 }
@@ -168,6 +170,7 @@
 
 .input--message {
   color: var(--input-message-color, var(--structure-color-700));
+  display: var(--input-message-display);
   height: var(--input-message-height, var(--height-xs));
   font-family: var(--input-message-font-family, var(--input-font-family));
   font-size: var(--input-message-font-size, var(--paragraph-m));
