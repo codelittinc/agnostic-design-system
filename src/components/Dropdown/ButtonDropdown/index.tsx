@@ -80,16 +80,19 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     setIsListOpen(!isListOpen);
   };
 
+  useEffect(() => {
+    setListTitle(
+      Array.isArray(selected) && selected.length > 0
+        ? getListTitle(selected)
+        : !multiselect && !isEmpty(selected)
+        ? getListTitle(selected as T)
+        : selectorText || ''
+    );
+  }, [selected]);
+
   const handleClick = (options: T | T[]) => {
     onChange(options);
     onValidate(options);
-    setListTitle(
-      Array.isArray(options) && options.length > 0
-        ? getListTitle(options)
-        : !multiselect && !isEmpty(options)
-        ? getListTitle(options)
-        : selectorText || ''
-    );
     setIsListOpen(!!multiselect);
   };
 
