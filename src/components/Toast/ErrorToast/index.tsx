@@ -7,10 +7,10 @@ import CloseIcon from '@/assets/images/icons/web/close.svg';
 const ErrorToast = props => {
   return (
     <DefaultToast
-      {...props}
       getIcon={() => (
         <CloseIcon className={classNames(styles['toast-error-icon'])} width={16} height={16} />
       )}
+      {...props}
       className={classNames(styles.toast, styles['toast--error'])}
     />
   );

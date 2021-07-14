@@ -7,10 +7,10 @@ import WarningIcon from '@/assets/images/icons/web/warning.svg';
 const WarningToast = props => {
   return (
     <DefaultToast
-      {...props}
       getIcon={() => (
         <WarningIcon className={classNames(styles['toast-warning-icon'])} width={25} height={25} />
       )}
+      {...props}
       className={classNames(styles.toast, styles['toast--warning'])}
     />
   );

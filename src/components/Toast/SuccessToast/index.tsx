@@ -7,7 +7,6 @@ import CheckMarkIcon from '@/assets/images/icons/web/checkmark.svg';
 const SuccessToast = props => {
   return (
     <DefaultToast
-      {...props}
       getIcon={() => (
         <CheckMarkIcon
           className={classNames(styles['toast-success-icon'])}
@@ -15,6 +14,7 @@ const SuccessToast = props => {
           height={18}
         />
       )}
+      {...props}
       className={classNames(styles.toast, styles['toast--success'])}
     />
   );
