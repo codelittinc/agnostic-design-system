@@ -16,13 +16,17 @@
   align-items: center;
   background-color: var(--toast-background-color, var(--structure-color-100));
   border: var(--toast-border, 1px solid var(--structure-color-500));
+  bottom: var(--toast-bottom);
   box-shadow: var(--toast-box-shadow, 0px 8px 8px rgba(137, 136, 147, 0.32));
   cursor: var(--toast-cursor, default);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  left: var(--toast-left);
   margin: var(--toast-margin, 0);
   position: var(--toast-position, absolute);
+  right: var(--toast-right);
+  top: var(--toast-top);
   z-index: 999;
 }
 
