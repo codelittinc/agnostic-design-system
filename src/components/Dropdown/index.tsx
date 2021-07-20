@@ -7,6 +7,7 @@ import { Position } from '@/components/Button'; // eslint-disable-line no-unused
 export type Category = 'simple' | 'icon';
 export type ListItemCategory = 'simple' | 'checkbox';
 export type Size = 'large' | 'medium';
+export type ListPosition = 'bottom' | 'top';
 
 export const LARGE_SIZE = 'large';
 export const SIMPLE_CATEGORY = 'simple';
@@ -29,6 +30,7 @@ export interface Props<T> {
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;
+  listPosition: ListPosition;
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
@@ -83,6 +85,7 @@ Dropdown.defaultProps = {
   options: [],
   onChange: () => {},
   listItemCategory: SIMPLE_CATEGORY,
+  listPosition: 'bottom',
   onStateChange: state => state,
   validations: []
 };

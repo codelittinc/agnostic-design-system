@@ -5,7 +5,7 @@ import styles from '@/components/Dropdown/Dropdown.css';
 import IconGear from '@/assets/images/icons/web/gear.svg';
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
 /* eslint-disable */
-import { LARGE_SIZE, Category, ListItemCategory, Size } from '@/components/Dropdown';
+import { LARGE_SIZE, Category, ListItemCategory, Size, ListPosition } from '@/components/Dropdown';
 /* eslint-enable */
 import RenderOptions from '../renderOptions';
 import { isEmpty } from 'lodash';
@@ -20,9 +20,11 @@ export interface Props<T> {
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string | number | string[];
+  groupBy?: ((item: T) => any) | string;
   id: string;
   label?: string;
   listItemCategory: ListItemCategory;
+  listPosition: ListPosition;
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
@@ -61,7 +63,9 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     selectorText,
     variablesClassName,
     messageValidateClass,
-    validationMessage
+    validationMessage,
+    listPosition,
+    groupBy
   } = props;
 
   const defaultFilter = options =>
@@ -101,6 +105,20 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
       listRef.current.style.top = height + 'px';
     }
   }, [height, isListOpen]);
+
+  useEffect(() => {
+    if (inputRef.current && listRef.current && isListOpen && listPosition === 'top') {
+      const bounds = inputRef.current.getBoundingClientRect();
+      if (groupBy) {
+        listRef.current.style.setProperty('bottom', `${bounds.height}px`);
+        listRef.current.style.setProperty('position', 'absolute');
+      } else {
+        const listElement = listRef.current.getElementsByTagName('ul')[0];
+
+        listElement.style.setProperty('bottom', `${bounds.height}px`);
+      }
+    }
+  }, [listRef, isListOpen]);
 
   const displayOptionsList = () => {
     setIsListOpen(true);

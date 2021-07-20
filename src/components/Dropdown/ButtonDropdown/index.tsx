@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import styles from '@/components/Dropdown/Dropdown.css';
 import Button, { Position } from '@/components/Button'; // eslint-disable-line no-unused-vars
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
-import { Category, ListItemCategory, Size } from '@/components/Dropdown'; // eslint-disable-line no-unused-vars
+import { Category, ListItemCategory, ListPosition, Size } from '@/components/Dropdown'; // eslint-disable-line no-unused-vars
 import RenderOptions from '../renderOptions';
 import { isEmpty } from 'lodash';
 
@@ -16,6 +16,7 @@ interface Props<T> {
   getItemKey: (item: T) => string | number;
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string | number | string[];
+  groupBy?: ((item: T) => any) | string;
   iconPosition?: Position;
   id: string;
   listItemCategory: ListItemCategory;
@@ -32,6 +33,7 @@ interface Props<T> {
   variablesClassName?: string;
   messageValidateClass: string;
   validationMessage?: string;
+  listPosition: ListPosition;
 }
 
 const ButtonDropdown = <T extends {}>(props: Props<T>) => {
@@ -48,7 +50,9 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     selectorText,
     variablesClassName,
     messageValidateClass,
-    validationMessage
+    validationMessage,
+    listPosition,
+    groupBy
   } = props;
 
   const [listTitle, setListTitle] = useState(
@@ -70,11 +74,25 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
         setIsListOpen(false);
       }
     }
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [buttonRef, isListOpen]);
+
+  useEffect(() => {
+    if (buttonRef.current && listRef.current && isListOpen && listPosition === 'top') {
+      const bounds = buttonRef.current.getBoundingClientRect();
+      if (groupBy) {
+        listRef.current.style.setProperty('bottom', `${bounds.height}px`);
+        listRef.current.style.setProperty('position', 'absolute');
+      } else {
+        const listElement = listRef.current.getElementsByTagName('ul')[0];
+        listElement.style.setProperty('bottom', `${bounds.height}px`);
+      }
+    }
+  }, [listRef, isListOpen]);
 
   const displayOptionsList = () => {
     setIsListOpen(!isListOpen);

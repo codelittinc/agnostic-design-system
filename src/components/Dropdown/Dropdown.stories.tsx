@@ -495,3 +495,26 @@ WithRequired.args = {
   getListTitle: item => item.label,
   required: true
 };
+
+export const DisplayListOnTop = Template.bind({});
+DisplayListOnTop.args = {
+  category: 'simple',
+  id: 'ads-dropdown',
+  size: 'large',
+  selectorText: 'Selector Text',
+  options: [
+    {
+      label: 'Option 1',
+      value: '1'
+    },
+    {
+      label: 'Option 2',
+      value: '2'
+    }
+  ],
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: item => item.label,
+  listPosition: 'top'
+};
