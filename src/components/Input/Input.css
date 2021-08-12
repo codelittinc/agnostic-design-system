@@ -40,6 +40,7 @@
 
 .input.input--medium {
   font-size: var(--input-font-size, var(--paragraph-m));
+  font-style: var(--input-font-style, normal);
   font-weight: var(--input-font-weight, var(--paragraph-font-weight-bold));
   height: var(--input-height, var(--height-m));
   line-height: var(--input-line-height, var(--paragraph-m-line-height));
@@ -48,6 +49,7 @@
 
 .input.input--large {
   font-size: var(--input-font-size, var(--paragraph-xl));
+  font-style: var(--input-font-style, normal);
   font-weight: var(--input-font-weight, var(--paragraph-font-weight-bold));
   height: var(--input-height, var(--height-l));
   line-height: var(--input-line-height, var(--paragraph-xl-line-height));
@@ -134,12 +136,39 @@
   color: var(--input-placeholder-color, var(--structure-color-700));
   font-family: var(--input-placeholder-font-family, var(--input-font-family));
   font-size: var(--input-placeholder-font-size, var(--paragraph-xl));
+  font-style: var(--input-placeholder-font-style, normal);
   font-weight: var(--input-placeholder-font-weight, var(--paragraph-font-weight-normal));
+}
+
+.input:disabled {
+  background-color: var(--input-background-color-disabled, var(--input-background-color));
+  border-bottom: var(
+    --input-border-bottom-disabled,
+    var(--input-border-disabled, var(--input-border-bottom, var(--input-border)))
+  );
+  border-left: var(
+    --input-border-left-disabled,
+    var(--input-border-disabled, var(--input-border-left, var(--input-border)))
+  );
+  border-right: var(
+    --input-border-right-disabled,
+    var(--input-border-disabled, var(--input-border-right, var(--input-border)))
+  );
+  border-top: var(
+    --input-border-top-disabled,
+    var(--input-border-disabled, var(--input-border-top, var(--input-border)))
+  );
+  color: var(--input-color-disabled, var(--input-color));
+  font-family: var(--input-font-family-disabled, var(--input-font-family));
+  font-size: var(--input-font-size-disabled, var(--input-font-size));
+  font-style: var(--input-font-style-disabled, var(--input-font-style));
+  font-weight: var(--input-font-weight-disabled, var(--input-font-weight));
 }
 
 .input--label {
   font-family: var(--input-label-font-family, var(--input-font-family));
   font-size: var(--input-label-font-size, var(--paragraph-l));
+  font-style: var(--input-label-font-style, normal);
   font-weight: var(--input-label-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-label-line-height, var(--paragraph-l-line-height));
   color: var(--input-label-color, var(--structure-color-800));
@@ -162,6 +191,7 @@
   height: var(--input-description-height, var(--height-xs));
   font-family: var(--input-description-font-family, var(--input-font-family));
   font-size: var(--input-description-font-size, var(--paragraph-m));
+  font-style: var(--input-description-font-style, normal);
   font-weight: var(--input-description-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-description-line-height, var(--paragraph-m-line-height));
   margin: var(--input-description-margin, 0);
@@ -174,6 +204,7 @@
   height: var(--input-message-height, var(--height-xs));
   font-family: var(--input-message-font-family, var(--input-font-family));
   font-size: var(--input-message-font-size, var(--paragraph-m));
+  font-style: var(--input-message-font-style, normal);
   font-weight: var(--input-message-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--input-message-line-height, var(--paragraph-m-line-height));
   margin: var(--input-message-margin, 0);
