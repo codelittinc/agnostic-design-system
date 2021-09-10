@@ -1,0 +1,28 @@
+@import '../../styles/theme/index.css';
+
+:root {
+  --modal-border: solid 1px black;
+  --modal-container-background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: none;
+  background-color: var(--modal-container-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin: auto;
+}
+
+.content-container {
+  background-color: white;
+  border: var(--modal-border);
+  border-radius: 5px;
+  height: auto;
+  width: auto;
+}

@@ -1,0 +1,29 @@
+.header-container {
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  background-color: #4db595;
+  display: flex;
+  height: 64px;
+  width: 500px;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-radius: 5px 5px 0 0;
+}
+
+.body-container {
+  padding: 30px 16px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+
+.footer-button {
+  width: 40%;
+  justify-content: center;
+}
