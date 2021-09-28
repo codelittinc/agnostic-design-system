@@ -1,0 +1,43 @@
+# Modal Component
+
+## Type: Simple
+
+## Modal Props
+
+|         Prop         |                    Type                    |                                                                                  Description                                                                              | Default | Mandatory |
+| :------------------: | :----------------------------------------: |   :--------------------------------------------------------------------------------------------------------------------------------------------------------------------:  | :-----: | :-------: |
+|       children       | React.ReactElement[] \| React.ReactElement |   This property represents the children nested within the Modal component. It is an implied property that does not need to be defined directly in the component brackets. |    -    |   false   |
+|         open         |                   Boolean                  |                     Sets the condition to open the modal or not.                                                                                                          |   true  |    true   |
+|    onClickOutside    |                  () => void                | Passes in a function that is run when a click event is detected outside the Modal.                                                                                        |    -    |    true   |
+|  variablesClassName  |                    string                  |                           Accepts custom CSS class names.                                                                                                                 |    -    |   false   |
+
+## Getting Started
+
+```javascript
+import React, { useState } from 'react';
+import { Button, Modal } from '@codelittinc/agnostic-design-system';
+
+const SimpleModal = () => {
+  const [open, setOpen] = useState('');
+
+  return (
+    <Button text='Open Modal' category='primary' onClick={() => setOpen(true)} />
+    <Modal
+      open={open}
+      onClickOutside={() => {
+        setOpen(false);
+      }}
+      variablesClassName={styles.modal}
+    >
+  );
+};
+
+export default SimpleModal;
+```
+
+## CSS Variables available
+
+|  Property   |            Attribute             |         State        |
+| :---------: | :------------------------------: | :------------------: |
+|             |          modal-border            |                      |
+|             | modal-container-background-color |                      |
