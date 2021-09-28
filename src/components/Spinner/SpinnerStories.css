@@ -1,0 +1,17 @@
+@import './Spinner.css';
+
+.default-lds-spinner {
+  --spinner-color: var(--primary-color-600);
+}
+
+.defined-background-lds-spinner {
+  --spinner-background-color: var(--primary-color-600);
+  --spinner-background-height: 10rem;
+  --spinner-background-width: 10rem;
+}
+
+.fullscreen-background-lds-spinner {
+  --spinner-background-color: var(--primary-color-600);
+  --spinner-background-height: 100vh;
+  --spinner-background-width: 100vw;
+}

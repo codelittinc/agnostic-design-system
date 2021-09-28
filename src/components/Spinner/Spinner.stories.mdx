@@ -1,0 +1,31 @@
+# Spinner Component
+
+## Type: Simple
+
+## Spinner Props
+
+|        Prop        |                                         Type                                          |                                                                                                                                      Description                                                                                                                                      |        Default         | Mandatory |
+| :----------------: | :-----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------: | :-------: |
+| variablesClassName |                                        string                                         |                                                                                                                            Accepts custom CSS class names.                                                                                                                            |           -            |   false   |
+
+## Getting Started
+```javascript
+import React, { Component, useState } from 'react';
+import { Spinner } from '@codelittinc/agnostic-design-system';
+
+const MyComponent = () =>{
+  const [loading, setLoading] = useState(true);
+
+  return loading ? <Spinner /> : <div>Display Content</div>;
+}
+
+export default MyComponent;
+```
+
+## CSS Variables Available
+|  Property   |    Attribute     |        State         |
+| :---------: | :--------------: | :------------------: |
+|      -      | background-color |          -           |
+|      -      |      color       |          -           |
+|      -      |      height      |          -           |
+|      -      |      width       |          -           |

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import styles from '@/components/UploadAvatar/UploadAvatar.css';
-import SpinnerLoader from '@/components/SpinnerLoader';
+import Spinner from '@/components/Spinner';
 import IconProfile from '@/assets/images/icons/web/profile-image.svg';
 
 const ONE_MEGA_BYTE = 1000000;
@@ -115,7 +115,7 @@ const UploadAvatar: React.FC<Props> = props => {
         >
           {isUploading ? (
             <>
-              <SpinnerLoader />
+              <Spinner />
               <p className={classnames(styles['image-overlay-text'])}>Uploading</p>
             </>
           ) : (

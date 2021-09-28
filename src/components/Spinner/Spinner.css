@@ -10,6 +10,15 @@
   }
 }
 
+.lds-spinner-background {
+  align-items: center;
+  background-color: var(--spinner-background-color, var(--structure-color-white));
+  display: flex;
+  height: var(--spinner-background-height, var(--height-xxl));
+  justify-content: center;
+  width: var(--spinner-background-width, var(--height-xxl));
+}
+
 .lds-spinner {
   display: inline-block;
   height: 5rem;
@@ -33,7 +42,7 @@
 }
 
 .lds-spinner div::after {
-  background: var(--spinner-background, var(--structure-color-white));
+  background: var(--spinner-color, var(--structure-color-white));
 }
 
 .lds-spinner .lds-spinner-segment:nth-child(1) {
