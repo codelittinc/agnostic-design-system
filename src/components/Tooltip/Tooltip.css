@@ -1,0 +1,84 @@
+@import '../../styles/theme/index.css';
+
+.tooltip {
+  align-items: center;
+  background-color: var(--tooltip-background-color, var(--structure-color-900));
+  border-radius: var(--tooltip-border-radius, var(--round-m));
+  display: none;
+  justify-content: center;
+  padding: var(--tooltip-padding, 5px 5px);
+  position: absolute;
+  z-index: 100;
+}
+
+.tooltip-children:hover ~ .tooltip {
+  display: flex;
+}
+
+.tooltip-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.tooltip .tooltip-content {
+  color: var(--tooltip-color, var(--structure-color-100));
+  font-family: var(--tooltip-font-family, 'Inter');
+  font-size: var(--tooltip-font-size, var(--paragraph-l));
+  font-weight: var(--tooltip-font-weight, var(--paragraph-font-weight-bold));
+}
+
+.tooltip::before {
+  content: "";
+  border: solid transparent;
+  border-color: var(--tooltip-background-color, var(--structure-color-900));
+  border-width: var(--tooltip-arrow-size, 5px);
+  height: 0;
+  position: absolute;
+  pointer-events: none;
+  transform: rotate(45deg);
+  width: 0;
+  z-index: -1;
+}
+
+.tooltip.tooltip-top {
+  top: calc(var(--tooltip-spacing, 50px) * -1);
+}
+
+.tooltip.tooltip-top::before {
+  bottom: calc(var(--tooltip-arrow-size, 5px) * -1);
+  left: 50%;
+  margin-left: calc(var(--tooltip-arrow-size, 5px) * -1);
+}
+
+.tooltip.tooltip-right {
+  left: calc(100% + var(--tooltip-spacing, 40px));
+}
+
+.tooltip.tooltip-right::before {
+  left: 0;
+  margin-left: calc(var(--tooltip-arrow-size, 5px) * -1);
+  top: calc(50% - var(--tooltip-arrow-size, 5px));
+}
+
+.tooltip.tooltip-bottom {
+  bottom: calc(var(--tooltip-spacing, 50px) * -1);
+}
+
+.tooltip.tooltip-bottom::before {
+  left: 50%;
+  margin-left: calc(var(--tooltip-arrow-size, 5px) * -1);
+  top: calc(var(--tooltip-arrow-size, 5px) * -1);
+}
+
+.tooltip.tooltip-left {
+  right: calc(100% + var(--tooltip-spacing, 40px));
+}
+
+.tooltip.tooltip-left::before {
+  margin-right: calc(var(--tooltip-arrow-size, 5px) * -1);
+  right: 0;
+  top: calc(50% - var(--tooltip-arrow-size, 5px));
+}

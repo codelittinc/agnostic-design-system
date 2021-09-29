@@ -1,0 +1,41 @@
+# Tooltip Component
+
+## Type: Simple
+
+## Tooltip Props
+|        Prop        |                    Type                    | Default | Mandatory |
+| :----------------: | :----------------------------------------: | :-----: | :-------: |
+|      content       |          React.ReactNode \| string         |    -    |   true    |
+|     children       | React.ReactElement[] \| React.ReactElement |    -    |   false   |
+|     position       |   'top' \| 'bottom' \| 'right' \| 'left';  |  'top'  |   false   |
+| variablesClassName |                   string                   |    -    |   false   |
+
+## Getting Started
+```javascript
+import React from 'react';
+import { PrimaryButton, Tooltip } from '@codelittinc/agnostic-design-system';
+
+const MyComponent = () =>{
+  return (
+    <div>
+      <Tooltip content='Click here to view properties location in the map'>
+        <PrimaryButton text='View Map' />
+      </Tooltip>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+## CSS Variables Available
+| Property |    Attribute     |        State         |
+| :------: | :--------------: | :------------------: |
+|     -    |    arrow-size    |          -           |
+|     -    | background-color |          -           |
+|     -    |   border-radius  |          -           |
+|     -    |      color       |          -           |
+|     -    |    font-family   |          -           |
+|     -    |    font-size     |          -           |
+|     -    |    font-weight   |          -           |
+|     -    |      spacing     |          -           |
