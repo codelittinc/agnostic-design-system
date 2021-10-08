@@ -1,0 +1,82 @@
+@import '../../styles/theme/index.css';
+
+:root {
+  --button-background-color-is-active: var(--structure-color-black);
+  --button-color-is-active: var(--structure-color-white);
+
+  --editor-container-border: 1px solid var(--structure-color-black);
+  --editor-container-height: 100%;
+  --editor-container-width: 100%;
+}
+
+.is-active {
+  background: var(--button-background-color-is-active);
+  color: var(--button-color-is-active);
+}
+
+.menu-bar-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.editor-container {
+  border: var(--editor-container-border);
+  width: var(--editor-container-width);
+  height: var(--editor-container-height);
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+td,
+th {
+  min-width: 1em;
+  border: 2px solid var(--structure-color-400);
+  padding: 3px 5px;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+  background-color: var(--structure-color-200);
+}
+
+.selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(200, 200, 255, 0.4);
+  pointer-events: none;
+}
+
+.column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: -2px;
+  width: 4px;
+  background-color: var(--primary-color-200);
+  pointer-events: none;
+}
+
+.tableWrapper {
+  padding: 1rem 0;
+  overflow-x: auto;
+}
+
+.resize-cursor {
+  cursor: ew-resize;
+  cursor: col-resize;
+}

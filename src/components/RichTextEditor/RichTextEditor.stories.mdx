@@ -1,0 +1,84 @@
+# RichTextEditor Component
+
+## Type: Simple
+
+## RichTextEditor Props
+
+|        Prop        |   Type   |                         Description                          |   Default   | Mandatory |
+| :----------------: | :------: | :----------------------------------------------------------: | :---------: | :-------: |
+|  menuEditOptions   | string[] |       List of the edit options available on the menu.        | All options |   false   |
+|   editorContent    |  string  | Text to be displayed by default inside the editor container. |      -      |   false   |
+| variablesClassName |  string  |               Accepts custom CSS class names.                |      -      |   false   |
+
+**Menu Edit Options**
+
+1. blockquote
+2. bullet list
+3. code block
+4. hard break
+5. h1
+6. h2
+7. h3
+8. h4
+9. h5
+10. h6
+11. horizontal rule
+12. ordered list
+13. bold
+14. code
+15. italic
+16. strike
+17. clear marks
+18. clear nodes
+19. undo
+20. redo
+21. table
+22. image
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import { RichTextEditor } from '@codelittinc/agnostic-design-system';
+
+const SimpleRichTextEditor = () => {
+  return (
+    <RichTextEditor
+      menuEditOptions={['blockquote', 'bullet list', 'code block', 'hard break', 'h1', 'redo']}
+      editorContent='<h2>Edit here</h2><br><br>'
+    />
+  );
+};
+
+export default SimpleRichTextEditor;
+```
+
+# Variables available
+
+|     Property     |         Attribute          |             State              |
+| :--------------: | :------------------------: | :----------------------------: |
+|      button      |        align-items         |                                |
+|      button      |       align-content        |                                |
+|      button      |      background-color      | hover, focus, active, disabled |
+|      button      |           border           | hover, focus, active, disabled |
+|      button      |       border-radius        |                                |
+|      button      |         box-shadow         | hover, focus, active, disabled |
+|      button      |           color            | hover, focus, active, disabled |
+|      button      |           cursor           | hover, focus, active, disabled |
+|      button      |          display           |                                |
+|      button      |       flex-direction       |                                |
+|      button      |         flex-wrap          |                                |
+|      button      |        font-family         |                                |
+|      button      |         font-size          |                                |
+|      button      |        font-weight         |                                |
+|      button      |           height           |                                |
+|      button      |      justify-content       |                                |
+|      button      |        line-height         |                                |
+|      button      |           margin           |                                |
+|      button      |          padding           |                                |
+|      button      |           width            |                                |
+|      button      | background-color-is-active |                                |
+|      button      |      color-is-active       |                                |
+| editor container |           border           |                                |
+| editor container |           height           |                                |
+| editor container |           width            |                                |
