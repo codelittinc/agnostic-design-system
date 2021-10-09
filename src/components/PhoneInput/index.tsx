@@ -9,6 +9,7 @@ import { Size } from '../Input';
 interface Props {
   autoFormat?: boolean;
   country?: string;
+  defaultMask?: string;
   disabled?: boolean;
   disableDropdown?: boolean;
   enableSearch?: boolean;
@@ -16,6 +17,7 @@ interface Props {
   hideLabel?: boolean;
   label?: string | React.ReactNode;
   localNumber?: boolean;
+  masks?: Record<string, string>;
   onChange: (value: string) => void;
   onlyCountries?: string[];
   placeholder?: string;
@@ -28,6 +30,7 @@ const PhoneInput = (props: Props) => {
   const {
     autoFormat,
     country,
+    defaultMask = '(...) ...-....',
     disabled,
     disableDropdown,
     enableSearch,
@@ -35,6 +38,7 @@ const PhoneInput = (props: Props) => {
     hideLabel,
     label,
     localNumber,
+    masks,
     onChange,
     onlyCountries,
     placeholder,
@@ -42,6 +46,11 @@ const PhoneInput = (props: Props) => {
     size,
     value
   } = props;
+
+  // Check if we should use customized mask or use the default mask
+  const derivedDefaultMask = (masks && country && masks[country]) || defaultMask;
+  // We need to force a re-render when masks change, otherwise they wont apply correctly
+  const key = `${country}-${derivedDefaultMask}-${localNumber}`;
   const sizeClass = `input--${size}`;
 
   const getLabel = () => {
@@ -63,8 +72,10 @@ const PhoneInput = (props: Props) => {
     <>
       {getLabel()}
       <ExternalPhoneInput
+        alwaysDefaultMask={localNumber}
         autoFormat={autoFormat}
         buttonStyle={localNumber ? { display: 'none' } : undefined}
+        defaultMask={derivedDefaultMask}
         disabled={disabled}
         disableCountryCode={localNumber}
         disableDropdown={disableDropdown}
@@ -75,6 +86,7 @@ const PhoneInput = (props: Props) => {
           !localNumber && styles['input-with-prepend']
         )}
         excludeCountries={excludeCountries}
+        key={key}
         onlyCountries={onlyCountries}
         placeholder={placeholder}
         preferredCountries={preferredCountries}

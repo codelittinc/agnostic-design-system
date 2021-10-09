@@ -30,5 +30,6 @@ LocalPhoneNumber.args = {
   country: 'us',
   localNumber: true,
   placeholder: '(702) 123-4567',
-  label: 'Local phone number input'
+  label: 'Local phone number input',
+  defaultMask: '(...) ...-....'
 };
