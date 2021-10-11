@@ -47,7 +47,6 @@ const PhoneInput = (props: Props) => {
     value
   } = props;
 
-  // Check if we should use customized mask or use the default mask
   const derivedDefaultMask = (masks && country && masks[country]) || defaultMask;
   // We need to force a re-render when masks change, otherwise they wont apply correctly
   const key = `${country}-${derivedDefaultMask}-${localNumber}`;
