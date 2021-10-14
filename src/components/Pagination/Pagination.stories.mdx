@@ -1,0 +1,43 @@
+# Pagination Component
+
+## Type: Simple
+
+## Pagination Props
+
+|        Prop               |           Type            |                                                                                         Description                                                                                             |        Default         | Mandatory |
+| :-----------------------: | :-----------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------: | :-------: |
+|   totalPages              |          number           |                                      Specifies the total number of pages we need to paginate.                                                                                                   |          10            |   true    |
+|   numberOfPagesToShow     |          function         |                                      Specifies how many pages we should display on the screen.                                                                                                  |          3             |   true    |
+|   currentPage             |          number           |                                      Specifies what is the currrent/active page the consumer is showing/displaying.                                                                             |          1             |   true    |
+|   onSelectPage            |          number           |                                      Specifies what should happen when a user selects a page.                                                                                                   |          -             |   true    |
+|   buttonNextLabel         |          string           |                                      Specifies the text we should display on the next button.                                                                                                   |        'Next'          |   false   |
+|   buttonNextIcon          |          ReactNode        |                                      Specifies the icon to be used for the next button.                                                                                                         |          -             |   false   |
+|   buttonNextIconPosition  |          Position         |                                      Specifies the position (left/right) the next button should have.                                                                                           |        'right'         |   false   |
+|   buttonPrevLabel         |          string           |                                      Specifies the text we should display on the prev button.                                                                                                   |        'Prev'          |   false   |
+|   buttonPrevIcon          |          ReactNode        |                                      Specifies the icon to be used for the previous button.                                                                                                     |          -             |   false   |
+|   buttonPrevIconPosition  |          Position         |                                      Specifies the position (left/right) the next button should have.                                                                                           |        'left'          |   false   |
+
+
+## Getting Started
+
+```javascript
+import React, { useState } from 'react';
+import { Pagination } from '@codelittinc/agnostic-design-system';
+
+const Pagination = args => {  
+  const [page, setPage] = useState(args.currentPage);
+  
+  return <Pagination {...args} currentPage={page} onSelectPage={e => setPage(e)} />;
+};
+
+export default Pagination;
+```
+
+## CSS Variables Available
+
+|  Property   |    Attribute     |             State              |
+| :---------: | :--------------: | :----------------------------: |
+|             |   list-style     |                                |
+|             |      display     |                                |
+|             |       gap        |                                |
+|             |  flex-direction  |                                |

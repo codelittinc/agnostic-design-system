@@ -1,0 +1,8 @@
+@import '../../styles/theme/index.css';
+
+.pagination-list {
+  list-style: var(--pagination-list-style, none);
+  display: flex;
+  gap: var(--pagination-flex-gap, var(--spacing-horizontal-xs));
+  flex-direction: var(--pagination-flex-direction, row);
+}
