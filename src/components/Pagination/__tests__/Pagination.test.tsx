@@ -22,6 +22,19 @@ describe('Pagination', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  describe('Number of pages to show', () => {
+    it('needs to be smaller than total pages', () => {
+      const onSelectPage = jest.fn();
+      renderPagination({ onSelectPage, totalPages: 3, numberOfPagesToShow: 5 });
+      const paginationList = screen.getByTestId('pagination-element');
+      expect(paginationList).toHaveTextContent(/1/);
+      expect(paginationList).toHaveTextContent(/2/);
+      expect(paginationList).toHaveTextContent(/3/);
+      expect(paginationList).not.toHaveTextContent(/0/);
+      expect(paginationList).not.toHaveTextContent(/-1/);
+    });
+  });
+
   describe('Number of pages', () => {
     it('is established by the user', () => {
       const onSelectPage = jest.fn();

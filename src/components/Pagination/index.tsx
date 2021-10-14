@@ -2,8 +2,9 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import Button, { Position } from '@/components/Button';
 import classNames from 'classnames';
-import styles from '@/components/Pagination/Pagination.css';
+import { getSelectedPage } from './utils';
 
+import styles from '@/components/Pagination/Pagination.css';
 export interface Props {
   totalPages: number;
   numberOfPagesToShow: number;
@@ -31,11 +32,15 @@ const Pagination = (props: Props) => {
     buttonPrevIconPosition
   } = props;
 
+  const selectedPage = getSelectedPage(currentPage, totalPages);
   const nonSelected = Math.floor(numberOfPagesToShow / 2);
-  const min = currentPage - nonSelected > 0 ? currentPage - nonSelected : 1;
+  const min = selectedPage - nonSelected > 0 ? selectedPage - nonSelected : 1;
+  const pagesLength = numberOfPagesToShow < totalPages ? numberOfPagesToShow : totalPages;
 
-  const pages = Array.from({ length: numberOfPagesToShow }, (_, i) => {
-    if (totalPages < numberOfPagesToShow + currentPage) {
+  const pages = Array.from({ length: pagesLength }, (_, i) => {
+    if (totalPages < numberOfPagesToShow) {
+      return min + i;
+    } else if (totalPages < numberOfPagesToShow + selectedPage) {
       return totalPages - numberOfPagesToShow + i + 1;
     } else {
       return min + i;
@@ -51,8 +56,8 @@ const Pagination = (props: Props) => {
           iconPosition={buttonPrevIconPosition}
           size='medium'
           text={buttonPrevLabel}
-          disabled={currentPage === 1}
-          onClick={() => onSelectPage(currentPage - 1)}
+          disabled={selectedPage === 1}
+          onClick={() => onSelectPage(selectedPage - 1)}
         />
       </li>
       {pages.map(item => (
@@ -60,7 +65,7 @@ const Pagination = (props: Props) => {
           <Button
             size='medium'
             text={item.toString()}
-            category={`${currentPage === item ? 'primary' : 'neutral'}`}
+            category={selectedPage === item ? 'primary' : 'neutral'}
             onClick={() => onSelectPage(item)}
           />
         </li>
@@ -72,8 +77,8 @@ const Pagination = (props: Props) => {
           iconPosition={buttonNextIconPosition}
           size='medium'
           text={buttonNextLabel}
-          disabled={currentPage === totalPages}
-          onClick={() => onSelectPage(currentPage + 1)}
+          disabled={selectedPage === totalPages}
+          onClick={() => onSelectPage(selectedPage + 1)}
         />
       </li>
     </ul>
