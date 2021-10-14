@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import Button, { Position } from '@/components/Button';
 import classNames from 'classnames';
 import styles from '@/components/Pagination/Pagination.css';
@@ -42,15 +43,15 @@ const Pagination = (props: Props) => {
   });
 
   return (
-    <ul className={classNames(styles['pagination-list'])} data-testid="pagination-element">
+    <ul className={classNames(styles['pagination-list'])} data-testid='pagination-element'>
       <li>
         <Button
-          withAppendIcon={buttonPrevIcon ? true : false}
+          withAppendIcon={!!buttonPrevIcon}
           appendIcon={buttonPrevIcon}
           iconPosition={buttonPrevIconPosition}
           size='medium'
           text={buttonPrevLabel}
-          disabled={currentPage == 1}
+          disabled={currentPage === 1}
           onClick={() => onSelectPage(currentPage - 1)}
         />
       </li>
@@ -59,19 +60,19 @@ const Pagination = (props: Props) => {
           <Button
             size='medium'
             text={item.toString()}
-            category={`${currentPage == item ? 'primary' : 'neutral'}`}
+            category={`${currentPage === item ? 'primary' : 'neutral'}`}
             onClick={() => onSelectPage(item)}
           />
         </li>
       ))}
       <li>
         <Button
-          withAppendIcon={buttonPrevIcon ? true : false}
+          withAppendIcon={!!buttonPrevIcon}
           appendIcon={buttonNextIcon}
           iconPosition={buttonNextIconPosition}
           size='medium'
           text={buttonNextLabel}
-          disabled={currentPage == totalPages}
+          disabled={currentPage === totalPages}
           onClick={() => onSelectPage(currentPage + 1)}
         />
       </li>

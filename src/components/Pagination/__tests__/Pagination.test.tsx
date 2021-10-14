@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import Pagination, { Props } from '@/components/Pagination';
 import { mount } from 'enzyme';
 import { render, screen, fireEvent } from '@testing-library/react';
