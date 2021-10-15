@@ -24,6 +24,7 @@ interface Props {
   preferredCountries?: string[];
   size: Size;
   value?: string;
+  variablesClassName?: string;
 }
 
 const PhoneInput = (props: Props) => {
@@ -44,7 +45,8 @@ const PhoneInput = (props: Props) => {
     placeholder,
     preferredCountries,
     size,
-    value
+    value,
+    variablesClassName
   } = props;
 
   const derivedDefaultMask = (masks && country && masks[country]) || defaultMask;
@@ -82,7 +84,8 @@ const PhoneInput = (props: Props) => {
         inputClass={classNames(
           styles.input,
           styles[sizeClass],
-          !localNumber && styles['input-with-prepend']
+          !localNumber && styles['input-with-prepend'],
+          variablesClassName
         )}
         excludeCountries={excludeCountries}
         key={key}
