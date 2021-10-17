@@ -1,14 +1,16 @@
 import React from 'react';
 import ExternalPhoneInput from 'react-phone-input-2';
 import classNames from 'classnames';
-import styles from '@/components/Input/Input.css';
-import 'react-phone-input-2/lib/style.css';
+import styles from './PhoneInput.css';
+import inputStyles from '@/components/Input/Input.css';
+
 /* eslint-disable */
 import { Size } from '../Input';
 /* eslint-enable */
 interface Props {
   autoFormat?: boolean;
   country?: string;
+  containerClass?: string;
   defaultMask?: string;
   disabled?: boolean;
   disableDropdown?: boolean;
@@ -31,6 +33,7 @@ const PhoneInput = (props: Props) => {
   const {
     autoFormat,
     country,
+    containerClass,
     defaultMask = '(...) ...-....',
     disabled,
     disableDropdown,
@@ -60,8 +63,8 @@ const PhoneInput = (props: Props) => {
       : label && (
           <label
             className={classNames(
-              styles['input--label'],
-              hideLabel && styles['input--label-hidden']
+              inputStyles['input--label'],
+              hideLabel && inputStyles['input--label-hidden']
             )}
           >
             {label}
@@ -82,11 +85,12 @@ const PhoneInput = (props: Props) => {
         disableDropdown={disableDropdown}
         enableSearch={enableSearch}
         inputClass={classNames(
-          styles.input,
-          styles[sizeClass],
-          !localNumber && styles['input-with-prepend'],
+          inputStyles.input,
+          inputStyles[sizeClass],
+          !localNumber && inputStyles['input-with-prepend'],
           variablesClassName
         )}
+        containerClass={classNames(styles['react-tel-input'], containerClass)}
         excludeCountries={excludeCountries}
         key={key}
         onlyCountries={onlyCountries}

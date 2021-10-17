@@ -12,7 +12,7 @@ exports[`PhoneInput renders correctly 1`] = `
     autocompleteSearch={false}
     buttonClass=""
     buttonStyle={Object {}}
-    containerClass=""
+    containerClass="react-tel-input"
     containerStyle={Object {}}
     copyNumbersOnly={true}
     country=""
@@ -77,7 +77,7 @@ exports[`PhoneInput renders correctly 1`] = `
     value=""
   >
     <div
-      className=" react-tel-input"
+      className="react-tel-input"
       onKeyDown={[Function]}
       style={Object {}}
     >
