@@ -25,7 +25,7 @@ interface Props {
   preferredCountries?: string[];
   size: Size;
   value?: string;
-  inputVariablesClassName?: string;
+  variablesClassName?: string;
 }
 
 const PhoneInput = (props: Props) => {
@@ -47,7 +47,7 @@ const PhoneInput = (props: Props) => {
     preferredCountries,
     size,
     value,
-    inputVariablesClassName
+    variablesClassName
   } = props;
 
   const derivedDefaultMask = (masks && country && masks[country]) || defaultMask;
@@ -86,7 +86,7 @@ const PhoneInput = (props: Props) => {
           inputStyles.input,
           inputStyles[sizeClass],
           !localNumber && inputStyles['input-with-prepend'],
-          inputVariablesClassName
+          variablesClassName
         )}
         containerClass={classNames(styles['react-tel-input'])}
         excludeCountries={excludeCountries}
