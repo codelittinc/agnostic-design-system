@@ -7,6 +7,7 @@
   position: relative;
   width: 100%;
 }
+
 .react-tel-input :disabled {
   cursor: not-allowed;
 }
@@ -20,700 +21,935 @@
 .react-tel-input :global(.ad) {
   background-position: -16px 0;
 }
+
 .react-tel-input :global(.ae) {
   background-position: -32px 0;
 }
+
 .react-tel-input :global(.af) {
   background-position: -48px 0;
 }
+
 .react-tel-input :global(.ag) {
   background-position: -64px 0;
 }
+
 .react-tel-input :global(.ai) {
   background-position: -80px 0;
 }
+
 .react-tel-input :global(.al) {
   background-position: -96px 0;
 }
+
 .react-tel-input :global(.am) {
   background-position: -112px 0;
 }
+
 .react-tel-input :global(.ao) {
   background-position: -128px 0;
 }
+
 .react-tel-input :global(.ar) {
   background-position: -144px 0;
 }
+
 .react-tel-input :global(.as) {
   background-position: -160px 0;
 }
+
 .react-tel-input :global(.at) {
   background-position: -176px 0;
 }
+
 .react-tel-input :global(.au) {
   background-position: -192px 0;
 }
+
 .react-tel-input :global(.aw) {
   background-position: -208px 0;
 }
+
 .react-tel-input :global(.az) {
   background-position: -224px 0;
 }
+
 .react-tel-input :global(.ba) {
   background-position: -240px 0;
 }
+
 .react-tel-input :global(.bb) {
   background-position: 0 -11px;
 }
+
 .react-tel-input :global(.bd) {
   background-position: -16px -11px;
 }
+
 .react-tel-input :global(.be) {
   background-position: -32px -11px;
 }
+
 .react-tel-input :global(.bf) {
   background-position: -48px -11px;
 }
+
 .react-tel-input :global(.bg) {
   background-position: -64px -11px;
 }
+
 .react-tel-input :global(.bh) {
   background-position: -80px -11px;
 }
+
 .react-tel-input :global(.bi) {
   background-position: -96px -11px;
 }
+
 .react-tel-input :global(.bj) {
   background-position: -112px -11px;
 }
+
 .react-tel-input :global(.bm) {
   background-position: -128px -11px;
 }
+
 .react-tel-input :global(.bn) {
   background-position: -144px -11px;
 }
+
 .react-tel-input :global(.bo) {
   background-position: -160px -11px;
 }
+
 .react-tel-input :global(.br) {
   background-position: -176px -11px;
 }
+
 .react-tel-input :global(.bs) {
   background-position: -192px -11px;
 }
+
 .react-tel-input :global(.bt) {
   background-position: -208px -11px;
 }
+
 .react-tel-input :global(.bw) {
   background-position: -224px -11px;
 }
+
 .react-tel-input :global(.by) {
   background-position: -240px -11px;
 }
+
 .react-tel-input :global(.bz) {
   background-position: 0 -22px;
 }
+
 .react-tel-input :global(.ca) {
   background-position: -16px -22px;
 }
+
 .react-tel-input :global(.cd) {
   background-position: -32px -22px;
 }
+
+
 .react-tel-input :global(.cf) {
   background-position: -48px -22px;
 }
+
 .react-tel-input :global(.cg) {
   background-position: -64px -22px;
 }
+
 .react-tel-input :global(.ch) {
   background-position: -80px -22px;
 }
+
 .react-tel-input :global(.ci) {
   background-position: -96px -22px;
 }
+
 .react-tel-input :global(.ck) {
   background-position: -112px -22px;
 }
+
 .react-tel-input :global(.cl) {
   background-position: -128px -22px;
 }
+
 .react-tel-input :global(.cm) {
   background-position: -144px -22px;
 }
+
 .react-tel-input :global(.cn) {
   background-position: -160px -22px;
 }
+
 .react-tel-input :global(.co) {
   background-position: -176px -22px;
 }
+
 .react-tel-input :global(.cr) {
   background-position: -192px -22px;
 }
+
 .react-tel-input :global(.cu) {
   background-position: -208px -22px;
 }
+
 .react-tel-input :global(.cv) {
   background-position: -224px -22px;
 }
+
 .react-tel-input :global(.cw) {
   background-position: -240px -22px;
 }
+
 .react-tel-input :global(.cy) {
   background-position: 0 -33px;
 }
+
 .react-tel-input :global(.cz) {
   background-position: -16px -33px;
 }
+
 .react-tel-input :global(.de) {
   background-position: -32px -33px;
 }
+
 .react-tel-input :global(.dj) {
   background-position: -48px -33px;
 }
+
 .react-tel-input :global(.dk) {
   background-position: -64px -33px;
 }
+
 .react-tel-input :global(.dm) {
   background-position: -80px -33px;
 }
+
 .react-tel-input :global(.do) {
   background-position: -96px -33px;
 }
+
 .react-tel-input :global(.dz) {
   background-position: -112px -33px;
 }
+
 .react-tel-input :global(.ec) {
   background-position: -128px -33px;
 }
+
 .react-tel-input :global(.ee) {
   background-position: -144px -33px;
 }
+
 .react-tel-input :global(.eg) {
   background-position: -160px -33px;
 }
+
 .react-tel-input :global(.er) {
   background-position: -176px -33px;
 }
+
 .react-tel-input :global(.es) {
   background-position: -192px -33px;
 }
+
 .react-tel-input :global(.et) {
   background-position: -208px -33px;
 }
+
 .react-tel-input :global(.fi) {
   background-position: -224px -33px;
 }
+
 .react-tel-input :global(.fj) {
   background-position: -240px -33px;
 }
+
 .react-tel-input :global(.fk) {
   background-position: 0 -44px;
 }
+
 .react-tel-input :global(.fm) {
   background-position: -16px -44px;
 }
+
 .react-tel-input :global(.fo) {
   background-position: -32px -44px;
 }
+
 .react-tel-input :global(.fr),
+
 .react-tel-input :global(.bl),
+
 .react-tel-input :global(.mf) {
   background-position: -48px -44px;
 }
+
 .react-tel-input :global(.ga) {
   background-position: -64px -44px;
 }
+
 .react-tel-input :global(.gb) {
   background-position: -80px -44px;
 }
+
 .react-tel-input :global(.gd) {
   background-position: -96px -44px;
 }
+
 .react-tel-input :global(.ge) {
   background-position: -112px -44px;
 }
+
 .react-tel-input :global(.gf) {
   background-position: -128px -44px;
 }
+
 .react-tel-input :global(.gh) {
   background-position: -144px -44px;
 }
+
 .react-tel-input :global(.gi) {
   background-position: -160px -44px;
 }
+
 .react-tel-input :global(.gl) {
   background-position: -176px -44px;
 }
+
 .react-tel-input :global(.gm) {
   background-position: -192px -44px;
 }
+
 .react-tel-input :global(.gn) {
   background-position: -208px -44px;
 }
+
 .react-tel-input :global(.gp) {
   background-position: -224px -44px;
 }
+
 .react-tel-input :global(.gq) {
   background-position: -240px -44px;
 }
+
 .react-tel-input :global(.gr) {
   background-position: 0 -55px;
 }
+
 .react-tel-input :global(.gt) {
   background-position: -16px -55px;
 }
+
 .react-tel-input :global(.gu) {
   background-position: -32px -55px;
 }
+
 .react-tel-input :global(.gw) {
   background-position: -48px -55px;
 }
+
 .react-tel-input :global(.gy) {
   background-position: -64px -55px;
 }
+
 .react-tel-input :global(.hk) {
   background-position: -80px -55px;
 }
+
 .react-tel-input :global(.hn) {
   background-position: -96px -55px;
 }
+
 .react-tel-input :global(.hr) {
   background-position: -112px -55px;
 }
+
 .react-tel-input :global(.ht) {
   background-position: -128px -55px;
 }
+
 .react-tel-input :global(.hu) {
   background-position: -144px -55px;
 }
+
 .react-tel-input :global(.id) {
   background-position: -160px -55px;
 }
+
 .react-tel-input :global(.ie) {
   background-position: -176px -55px;
 }
+
 .react-tel-input :global(.il) {
   background-position: -192px -55px;
 }
+
 .react-tel-input :global(.in) {
   background-position: -208px -55px;
 }
+
 .react-tel-input :global(.io) {
   background-position: -224px -55px;
 }
+
 .react-tel-input :global(.iq) {
   background-position: -240px -55px;
 }
+
 .react-tel-input :global(.ir) {
   background-position: 0 -66px;
 }
+
 .react-tel-input :global(.is) {
   background-position: -16px -66px;
 }
+
 .react-tel-input :global(.it) {
   background-position: -32px -66px;
 }
+
 .react-tel-input :global(.je) {
   background-position: -144px -154px;
 }
+
 .react-tel-input :global(.jm) {
   background-position: -48px -66px;
 }
+
 .react-tel-input :global(.jo) {
   background-position: -64px -66px;
 }
+
 .react-tel-input :global(.jp) {
   background-position: -80px -66px;
 }
+
 .react-tel-input :global(.ke) {
   background-position: -96px -66px;
 }
+
 .react-tel-input :global(.kg) {
   background-position: -112px -66px;
 }
+
 .react-tel-input :global(.kh) {
   background-position: -128px -66px;
 }
+
 .react-tel-input :global(.ki) {
   background-position: -144px -66px;
 }
+
 .react-tel-input :global(.xk) {
   background-position: -128px -154px;
 }
+
 .react-tel-input :global(.km) {
   background-position: -160px -66px;
 }
+
 .react-tel-input :global(.kn) {
   background-position: -176px -66px;
 }
+
 .react-tel-input :global(.kp) {
   background-position: -192px -66px;
 }
+
 .react-tel-input :global(.kr) {
   background-position: -208px -66px;
 }
+
 .react-tel-input :global(.kw) {
   background-position: -224px -66px;
 }
+
 .react-tel-input :global(.ky) {
   background-position: -240px -66px;
 }
+
 .react-tel-input :global(.kz) {
   background-position: 0 -77px;
 }
+
 .react-tel-input :global(.la) {
   background-position: -16px -77px;
 }
+
 .react-tel-input :global(.lb) {
   background-position: -32px -77px;
 }
+
 .react-tel-input :global(.lc) {
   background-position: -48px -77px;
 }
+
 .react-tel-input :global(.li) {
   background-position: -64px -77px;
 }
+
 .react-tel-input :global(.lk) {
   background-position: -80px -77px;
 }
+
 .react-tel-input :global(.lr) {
   background-position: -96px -77px;
 }
+
 .react-tel-input :global(.ls) {
   background-position: -112px -77px;
 }
+
 .react-tel-input :global(.lt) {
   background-position: -128px -77px;
 }
+
 .react-tel-input :global(.lu) {
   background-position: -144px -77px;
 }
+
 .react-tel-input :global(.lv) {
   background-position: -160px -77px;
 }
+
 .react-tel-input :global(.ly) {
   background-position: -176px -77px;
 }
+
 .react-tel-input :global(.ma) {
   background-position: -192px -77px;
 }
+
 .react-tel-input :global(.mc) {
   background-position: -208px -77px;
 }
+
 .react-tel-input :global(.md) {
   background-position: -224px -77px;
 }
+
 .react-tel-input :global(.me) {
   background-position: -112px -154px;
   height: 12px;
 }
+
 .react-tel-input :global(.mg) {
   background-position: 0 -88px;
 }
+
 .react-tel-input :global(.mh) {
   background-position: -16px -88px;
 }
+
 .react-tel-input :global(.mk) {
   background-position: -32px -88px;
 }
+
 .react-tel-input :global(.ml) {
   background-position: -48px -88px;
 }
+
 .react-tel-input :global(.mm) {
   background-position: -64px -88px;
 }
+
 .react-tel-input :global(.mn) {
   background-position: -80px -88px;
 }
+
 .react-tel-input :global(.mo) {
   background-position: -96px -88px;
 }
+
 .react-tel-input :global(.mp) {
   background-position: -112px -88px;
 }
+
 .react-tel-input :global(.mq) {
   background-position: -128px -88px;
 }
+
 .react-tel-input :global(.mr) {
   background-position: -144px -88px;
 }
+
 .react-tel-input :global(.ms) {
   background-position: -160px -88px;
 }
+
 .react-tel-input :global(.mt) {
   background-position: -176px -88px;
 }
+
 .react-tel-input :global(.mu) {
   background-position: -192px -88px;
 }
+
 .react-tel-input :global(.mv) {
   background-position: -208px -88px;
 }
+
 .react-tel-input :global(.mw) {
   background-position: -224px -88px;
 }
+
 .react-tel-input :global(.mx) {
   background-position: -240px -88px;
 }
+
 .react-tel-input :global(.my) {
   background-position: 0 -99px;
 }
+
 .react-tel-input :global(.mz) {
   background-position: -16px -99px;
 }
+
 .react-tel-input :global(.na) {
   background-position: -32px -99px;
 }
+
 .react-tel-input :global(.nc) {
   background-position: -48px -99px;
 }
+
 .react-tel-input :global(.ne) {
   background-position: -64px -99px;
 }
+
 .react-tel-input :global(.nf) {
   background-position: -80px -99px;
 }
+
 .react-tel-input :global(.ng) {
   background-position: -96px -99px;
 }
+
 .react-tel-input :global(.ni) {
   background-position: -112px -99px;
 }
+
 .react-tel-input :global(.nl),
+
 .react-tel-input :global(.bq) {
   background-position: -128px -99px;
 }
+
 .react-tel-input :global(.no) {
   background-position: -144px -99px;
 }
+
 .react-tel-input :global(.np) {
   background-position: -160px -99px;
 }
+
 .react-tel-input :global(.nr) {
   background-position: -176px -99px;
 }
+
 .react-tel-input :global(.nu) {
   background-position: -192px -99px;
 }
+
 .react-tel-input :global(.nz) {
   background-position: -208px -99px;
 }
+
 .react-tel-input :global(.om) {
   background-position: -224px -99px;
 }
+
 .react-tel-input :global(.pa) {
   background-position: -240px -99px;
 }
+
 .react-tel-input :global(.pe) {
   background-position: 0 -110px;
 }
+
 .react-tel-input :global(.pf) {
   background-position: -16px -110px;
 }
+
 .react-tel-input :global(.pg) {
   background-position: -32px -110px;
 }
+
 .react-tel-input :global(.ph) {
   background-position: -48px -110px;
 }
+
 .react-tel-input :global(.pk) {
   background-position: -64px -110px;
 }
+
 .react-tel-input :global(.pl) {
   background-position: -80px -110px;
 }
+
 .react-tel-input :global(.pm) {
   background-position: -96px -110px;
 }
+
 .react-tel-input :global(.pr) {
   background-position: -112px -110px;
 }
+
 .react-tel-input :global(.ps) {
   background-position: -128px -110px;
 }
+
 .react-tel-input :global(.pt) {
   background-position: -144px -110px;
 }
+
 .react-tel-input :global(.pw) {
   background-position: -160px -110px;
 }
+
 .react-tel-input :global(.py) {
   background-position: -176px -110px;
 }
+
 .react-tel-input :global(.qa) {
   background-position: -192px -110px;
 }
+
 .react-tel-input :global(.re) {
   background-position: -208px -110px;
 }
+
 .react-tel-input :global(.ro) {
   background-position: -224px -110px;
 }
+
 .react-tel-input :global(.rs) {
   background-position: -240px -110px;
 }
+
 .react-tel-input :global(.ru) {
   background-position: 0 -121px;
 }
+
 .react-tel-input :global(.rw) {
   background-position: -16px -121px;
 }
+
 .react-tel-input :global(.sa) {
   background-position: -32px -121px;
 }
+
 .react-tel-input :global(.sb) {
   background-position: -48px -121px;
 }
+
 .react-tel-input :global(.sc) {
   background-position: -64px -121px;
 }
+
 .react-tel-input :global(.sd) {
   background-position: -80px -121px;
 }
+
 .react-tel-input :global(.se) {
   background-position: -96px -121px;
 }
+
 .react-tel-input :global(.sg) {
   background-position: -112px -121px;
 }
+
 .react-tel-input :global(.sh) {
   background-position: -128px -121px;
 }
+
 .react-tel-input :global(.si) {
   background-position: -144px -121px;
 }
+
 .react-tel-input :global(.sk) {
   background-position: -160px -121px;
 }
+
 .react-tel-input :global(.sl) {
   background-position: -176px -121px;
 }
+
 .react-tel-input :global(.sm) {
   background-position: -192px -121px;
 }
+
 .react-tel-input :global(.sn) {
   background-position: -208px -121px;
 }
+
 .react-tel-input :global(.so) {
   background-position: -224px -121px;
 }
+
 .react-tel-input :global(.sr) {
   background-position: -240px -121px;
 }
+
 .react-tel-input :global(.ss) {
   background-position: 0 -132px;
 }
+
 .react-tel-input :global(.st) {
   background-position: -16px -132px;
 }
+
 .react-tel-input :global(.sv) {
   background-position: -32px -132px;
 }
+
 .react-tel-input :global(.sx) {
   background-position: -48px -132px;
 }
+
 .react-tel-input :global(.sy) {
   background-position: -64px -132px;
 }
+
 .react-tel-input :global(.sz) {
   background-position: -80px -132px;
 }
+
 .react-tel-input :global(.tc) {
   background-position: -96px -132px;
 }
+
 .react-tel-input :global(.td) {
   background-position: -112px -132px;
 }
+
 .react-tel-input :global(.tg) {
   background-position: -128px -132px;
 }
+
 .react-tel-input :global(.th) {
   background-position: -144px -132px;
 }
+
 .react-tel-input :global(.tj) {
   background-position: -160px -132px;
 }
+
 .react-tel-input :global(.tk) {
   background-position: -176px -132px;
 }
+
 .react-tel-input :global(.tl) {
   background-position: -192px -132px;
 }
+
 .react-tel-input :global(.tm) {
   background-position: -208px -132px;
 }
+
 .react-tel-input :global(.tn) {
   background-position: -224px -132px;
 }
+
 .react-tel-input :global(.to) {
   background-position: -240px -132px;
 }
+
 .react-tel-input :global(.tr) {
   background-position: 0 -143px;
 }
+
 .react-tel-input :global(.tt) {
   background-position: -16px -143px;
 }
+
 .react-tel-input :global(.tv) {
   background-position: -32px -143px;
 }
+
 .react-tel-input :global(.tw) {
   background-position: -48px -143px;
 }
+
 .react-tel-input :global(.tz) {
   background-position: -64px -143px;
 }
+
 .react-tel-input :global(.ua) {
   background-position: -80px -143px;
 }
+
 .react-tel-input :global(.ug) {
   background-position: -96px -143px;
 }
+
 .react-tel-input :global(.us) {
   background-position: -112px -143px;
 }
+
 .react-tel-input :global(.uy) {
   background-position: -128px -143px;
 }
+
 .react-tel-input :global(.uz) {
   background-position: -144px -143px;
 }
+
 .react-tel-input :global(.va) {
   background-position: -160px -143px;
 }
+
 .react-tel-input :global(.vc) {
   background-position: -176px -143px;
 }
+
 .react-tel-input :global(.ve) {
   background-position: -192px -143px;
 }
+
 .react-tel-input :global(.vg) {
   background-position: -208px -143px;
 }
+
 .react-tel-input :global(.vi) {
   background-position: -224px -143px;
 }
+
 .react-tel-input :global(.vn) {
   background-position: -240px -143px;
 }
+
 .react-tel-input :global(.vu) {
   background-position: 0 -154px;
 }
+
 .react-tel-input :global(.wf) {
   background-position: -16px -154px;
 }
+
 .react-tel-input :global(.ws) {
   background-position: -32px -154px;
 }
+
 .react-tel-input :global(.ye) {
   background-position: -48px -154px;
 }
+
 .react-tel-input :global(.za) {
   background-position: -64px -154px;
 }
+
 .react-tel-input :global(.zm) {
   background-position: -80px -154px;
 }
+
 .react-tel-input :global(.zw) {
   background-position: -96px -154px;
 }
@@ -771,9 +1007,11 @@
 .react-tel-input :global(.flag-dropdown):focus {
   cursor: pointer;
 }
+
 .react-tel-input :global(.flag-dropdown.invalid-number) {
   border-color: #d79f9f;
 }
+
 .react-tel-input :global(.flag-dropdown.open) {
   z-index: 2;
   background: #fff;
@@ -781,16 +1019,18 @@
 }
 
 .react-tel-input :global(.flag-dropdown.open .selected-flag) {
-    background: #fff;
-    border-radius: 3px 0 0 0;
-  }
-  
+  background: #fff;
+  border-radius: 3px 0 0 0;
+}
+
 .react-tel-input input[disabled] + :global(.flag-dropdown):hover {
   cursor: default;
 }
+
 .react-tel-input input[disabled] + :global(.flag-dropdown:hover .selected-flag) {
   background-color: transparent;
 }
+
 .react-tel-input :global(.selected-flag) {
   outline: none;
   position: relative;
@@ -846,72 +1086,83 @@
 .react-tel-input :global(.country-list .flag) {
   display: inline-block;
 }
+
 .react-tel-input :global(.country-list .divider) {
   padding-bottom: 5px;
   margin-bottom: 5px;
   border-bottom: 1px solid #ccc;
 }
+
 .react-tel-input :global(.country-list .country) {
   padding: 7px 9px;
 }
+
 .react-tel-input :global(.country-list .country .dial-code) {
   color: #6b6b6b;
 }
 
 .react-tel-input :global(.country-list .country):hover {
-    background-color: #f1f1f1;
-  }
-  .react-tel-input :global(.country-list .country.highlight) {
-    background-color: #f1f1f1;
-  }
-  .react-tel-input :global(.country-list .flag) {
-    margin-right: 7px;
-    margin-top: 2px;
-  }
-  .react-tel-input :global(.country-list .country-name) {
-    margin-right: 6px;
-  }
-  .react-tel-input :global(.country-list .search) {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    padding: 10px 0 6px 10px;
-  }
+  background-color: #f1f1f1;
+}
 
-  .react-tel-input :global(.country-list .search-emoji) {
-    font-size: 15px;
-  }
-  .react-tel-input :global(.country-list .search-box) {
-    border: 1px solid #cacaca;
-    border-radius: 3px;
-    font-size: 15px;
-    line-height: 15px;
-    margin-left: 6px;
-    padding: 3px 8px 5px;
-    outline: none;
-  }
-  .react-tel-input :global(.country-list .no-entries-message) {
-    padding: 7px 10px 11px;
-    opacity: 0.7;
-  }
-  .react-tel-input :global(.invalid-number-message){
-    position: absolute;
-    z-index: 1;
-    font-size: 13px;
-    left: 46px;
-    top: -8px;
-    background: #fff;
-    padding: 0 2px;
-    color: #de0000;
-  }
-  .react-tel-input :global(.special-label) {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    font-size: 13px;
-    left: 46px;
-    top: -8px;
-    background: #fff;
-    padding: 0 2px;
-    white-space: nowrap;
-  }
+.react-tel-input :global(.country-list .country.highlight) {
+  background-color: #f1f1f1;
+}
+
+.react-tel-input :global(.country-list .flag) {
+  margin-right: 7px;
+  margin-top: 2px;
+}
+
+.react-tel-input :global(.country-list .country-name) {
+  margin-right: 6px;
+}
+
+.react-tel-input :global(.country-list .search) {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: 10px 0 6px 10px;
+}
+
+.react-tel-input :global(.country-list .search-emoji) {
+  font-size: 15px;
+}
+
+.react-tel-input :global(.country-list .search-box) {
+  border: 1px solid #cacaca;
+  border-radius: 3px;
+  font-size: 15px;
+  line-height: 15px;
+  margin-left: 6px;
+  padding: 3px 8px 5px;
+  outline: none;
+}
+
+.react-tel-input :global(.country-list .no-entries-message) {
+  padding: 7px 10px 11px;
+  opacity: 0.7;
+}
+
+.react-tel-input :global(.invalid-number-message) {
+  position: absolute;
+  z-index: 1;
+  font-size: 13px;
+  left: 46px;
+  top: -8px;
+  background: #fff;
+  padding: 0 2px;
+  color: #de0000;
+}
+
+.react-tel-input :global(.special-label) {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  font-size: 13px;
+  left: 46px;
+  top: -8px;
+  background: #fff;
+  padding: 0 2px;
+  white-space: nowrap;
+}
