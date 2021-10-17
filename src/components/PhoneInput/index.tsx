@@ -10,7 +10,6 @@ import { Size } from '../Input';
 interface Props {
   autoFormat?: boolean;
   country?: string;
-  containerVariablesClassName?: string;
   defaultMask?: string;
   disabled?: boolean;
   disableDropdown?: boolean;
@@ -33,7 +32,6 @@ const PhoneInput = (props: Props) => {
   const {
     autoFormat,
     country,
-    containerVariablesClassName,
     defaultMask = '(...) ...-....',
     disabled,
     disableDropdown,
@@ -90,7 +88,7 @@ const PhoneInput = (props: Props) => {
           !localNumber && inputStyles['input-with-prepend'],
           inputVariablesClassName
         )}
-        containerClass={classNames(styles['react-tel-input'], containerVariablesClassName)}
+        containerClass={classNames(styles['react-tel-input'])}
         excludeCountries={excludeCountries}
         key={key}
         onlyCountries={onlyCountries}
