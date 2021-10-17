@@ -10,7 +10,7 @@ import { Size } from '../Input';
 interface Props {
   autoFormat?: boolean;
   country?: string;
-  containerClass?: string;
+  containerVariablesClassName?: string;
   defaultMask?: string;
   disabled?: boolean;
   disableDropdown?: boolean;
@@ -26,14 +26,14 @@ interface Props {
   preferredCountries?: string[];
   size: Size;
   value?: string;
-  variablesClassName?: string;
+  inputVariablesClassName?: string;
 }
 
 const PhoneInput = (props: Props) => {
   const {
     autoFormat,
     country,
-    containerClass,
+    containerVariablesClassName,
     defaultMask = '(...) ...-....',
     disabled,
     disableDropdown,
@@ -49,7 +49,7 @@ const PhoneInput = (props: Props) => {
     preferredCountries,
     size,
     value,
-    variablesClassName
+    inputVariablesClassName
   } = props;
 
   const derivedDefaultMask = (masks && country && masks[country]) || defaultMask;
@@ -88,9 +88,9 @@ const PhoneInput = (props: Props) => {
           inputStyles.input,
           inputStyles[sizeClass],
           !localNumber && inputStyles['input-with-prepend'],
-          variablesClassName
+          inputVariablesClassName
         )}
-        containerClass={classNames(styles['react-tel-input'], containerClass)}
+        containerClass={classNames(styles['react-tel-input'], containerVariablesClassName)}
         excludeCountries={excludeCountries}
         key={key}
         onlyCountries={onlyCountries}

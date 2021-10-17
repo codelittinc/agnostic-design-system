@@ -40,5 +40,5 @@ export const VariablesClassName = Template.bind({});
 VariablesClassName.args = {
   country: 'us',
   label: 'Default phone input',
-  variablesClassName: classNames(styles['phone-input'])
+  inputVariablesClassName: classNames(styles['phone-input'])
 };
