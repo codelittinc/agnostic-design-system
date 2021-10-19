@@ -36,6 +36,15 @@ LocalPhoneNumber.args = {
   defaultMask: '(...) ...-....'
 };
 
+export const CustomPhoneNumber = Template.bind({});
+CustomPhoneNumber.args = {
+  country: 'br',
+  localNumber: true,
+  placeholder: '(99) 99999-9999',
+  label: 'Custom Mask phone input',
+  masks: { br: '(..) .....-....' }
+};
+
 export const VariablesClassName = Template.bind({});
 VariablesClassName.args = {
   country: 'us',
