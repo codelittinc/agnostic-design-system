@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumericInput renders correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    
+    
+    <div
+      class="input--container"
+    >
+      <input
+        class="input input--large"
+        id="numeric-input-test"
+        placeholder="Enter Number"
+        value=""
+      />
+    </div>
+    <span
+      class="input--message"
+    />
+  </div>
+</div>
+`;

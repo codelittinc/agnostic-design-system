@@ -31,8 +31,8 @@ export interface Props {
   message?: string;
   name?: string;
   onBlur?: () => void;
-  onChange?: (e: any) => void;
-  onClickActionIcon: () => void;
+  onChange: (e: any) => void;
+  onClickActionIcon?: () => void;
   onFocus: () => void;
   onKeyDown?: () => void;
   onMouseEnter?: () => void;
@@ -43,7 +43,7 @@ export interface Props {
   required?: boolean;
   size: Size;
   value?: string;
-  validations: Validation[];
+  validations?: Validation[];
   variablesClassName?: string;
   withActionIcon?: boolean;
   withPrependSeparator?: boolean;
@@ -87,17 +87,17 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const [validationState, setValidationState] = useState('');
   const [invalidMessage, setInvalidMessage] = useState('');
-  const initialValidState = required ? false : !(validations.length > 0);
+  const initialValidState = required ? false : validations && !(validations.length > 0);
   const [valid, setValid] = useState(initialValidState);
   const sizeClass = `input--${size}`;
   const hasValidationState = validationState !== '';
   const prependSizeClass = `input--prepend-with-separator-${size}`;
   const messageValidateClass = hasValidationState ? `input--message-${validationState}` : '';
   const statusClass = hasValidationState ? `input--${validationState}` : '';
-  const enableInitialValidation = value && (required || validations.length > 0);
+  const enableInitialValidation = value && validations && (required || validations.length > 0);
 
   const enableValueValidation = value => {
-    return required || (validations.length > 0 && value);
+    return required || (validations && validations.length > 0 && value);
   };
 
   useEffect(() => {
@@ -132,10 +132,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 
   const handleChange = e => {
     const newValue = e.target.value;
+
     if (!matchesFilter(newValue, filters)) {
-      if (onChange) {
-        onChange(e);
-      }
+      onChange(e);
       const valid = isValid(newValue, validations, required);
       setValid(valid);
       onStateChange(valid);

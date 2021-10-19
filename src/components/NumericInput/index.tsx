@@ -16,7 +16,7 @@ interface Props {
   message?: string;
   onBlur?: () => void;
   onChange: (e: any) => void;
-  onClickActionIcon: () => void;
+  onClickActionIcon?: () => void;
   onFocus: () => void;
   onKeyDown?: () => void;
   onMouseEnter?: () => void;
@@ -30,7 +30,7 @@ interface Props {
   scale: number;
   size: Size;
   value?: string;
-  validations: Validation[];
+  validations?: Validation[];
   variablesClassName?: string;
   withActionIcon?: boolean;
   withPrependSeparator?: boolean;
@@ -55,7 +55,7 @@ const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { value, scale, max, radix, positive, ...inputProps } = props;
   const SCALE_REGEX = new RegExp(`^.+${radix}\\d{${scale + 1}}`);
 
-  const filters: Filter[] = [
+  const filters = [
     {
       type: 'RegExp',
       test: /[^\d.,-]/
