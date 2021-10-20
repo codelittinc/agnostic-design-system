@@ -1,0 +1,22 @@
+# TextArea Component
+
+## Type: Simple
+
+## TextArea Props
+
+|        Prop        |           Type            |                                                               Description                                                                | Default | Mandatory |
+| :----------------: | :-----------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|    description     |          string           |                                                  Text that displays above the textarea.                                                  |    -    |   false   |
+|      disabled      |          boolean          |                                       Specifies whether or not a textarea is disabled/actionable.                                        |  false  |   false   |
+|         id         |          string           |                                                                Unique id.                                                                |    -    |   true    |
+|   invalidMessage   |          string           | Text that displays when validation fails for the Textarea's value. The **required** property needs to be set to true for this to appear. |    -    |   false   |
+|       label        | string \| React.ReactNode |                                                  Text that displays above the Textarea.                                                  |    -    |   false   |
+|      message       |          string           |                                                  Text that displays below the Textarea.                                                  |    -    |   false   |
+|       onBlur       |     (e: any) => void      |                                 Calls a function whenever the user clicks outside of a focused Textarea.                                 |    -    |   false   |
+|      onChange      |     (e: any) => void      |                               Calls a function whenever a change in an event of the textarea is detected.                                |    -    |   true    |
+|   onStateChange    | (state: boolean) => void  |                                 It returns a boolean on **onChange** event when **required** is applied                                  |    -    |   false   |
+|    placeholder     |          string           |                                                     The Textarea's placeholder text.                                                     |    -    |   false   |
+|      required      |          boolean          |                                    Specifies whether or not a Textarea is required to be filled out.                                     |  false  |   false   |
+|       size\*       |           Size            |                                      Size of the component. The change is reflected on the height.                                       |  large  |   false   |
+|       value        |          string           |                                                        The value of the Textarea.                                                        |    -    |   true    |
+| variablesClassName |          string           |                                                     Accepts custom CSS class names.                                                      |    -    |   false   |

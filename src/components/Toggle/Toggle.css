@@ -1,0 +1,27 @@
+@import '../../styles/theme/index.css';
+
+.toggle-container {
+  background-color: lightgrey;
+  border-radius: 0.6rem;
+  padding: 0.3rem;
+}
+
+.toggle-first-button,
+.toggle-second-button {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  border-radius: 0.2rem;
+  color: grey;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.toggle-first-button {
+  margin-right: 0.3rem;
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
+}
