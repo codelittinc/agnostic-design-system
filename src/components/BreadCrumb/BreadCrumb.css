@@ -1,0 +1,40 @@
+@import '../../styles/theme/index.css';
+
+.breadcrumb {
+  background-color: var(--breadcrumb-background-color, var(--structure-color-200));
+  border-radius: var(--breadcrumb-border-radius, var(--round-m));
+  font-family: var(--breadcrumb-font-family, 'Inter');
+  padding: var(--breadcrumb-padding, var(--height-xxs) var(--height-xs));
+  width: var(--breadcrumb-width, auto);
+}
+
+.breadcrumb .breadcrumb-list-item {
+  display: inline;
+}
+
+.breadcrumb .breadcrumb-list-item .breadcrumb-separator {
+  color: var(--breadcrumb-separator-color, var(--structure-color-black));
+  font-size: var(--breadcrumb-separator-font-size, var(--height-xxs));
+  padding: var(--breadcrumb-separator-padding, 0 var(--height-xxs));
+}
+
+.breadcrumb .breadcrumb-list-item:first-child .breadcrumb-separator {
+  display: none;
+}
+
+.breadcrumb .breadcrumb-list-item .breadcrumb-link {
+  color: var(--breadcrumb-color, var(--primary-color-400));
+  font-size: var(--breadcrumb-font-size, var(--height-xxs));
+  text-decoration: none;
+}
+
+.breadcrumb .breadcrumb-list-item .breadcrumb-link:hover {
+  color: var(--breadcrumb-color-hover, var(--primary-color-600));
+  text-decoration: underline;
+}
+
+.breadcrumb .breadcrumb-list-item:last-child .breadcrumb-link {
+  color: var(--breadcrumb-color-inactive, var(--structure-color-black));
+  pointer-events: none;
+  text-decoration: none;
+}

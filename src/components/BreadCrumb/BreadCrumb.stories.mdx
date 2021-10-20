@@ -1,0 +1,62 @@
+# BreadCrumb Component
+
+## Type: Simple
+
+## BreadCrumb Props
+
+|        Prop        |  Type  |                                                     Description                                                      | Default | Optional |
+| :----------------: | :----: | :------------------------------------------------------------------------------------------------------------------: | :-----: | :------: |
+|       items        | item[] | Determines the title and href of the breadcrumb links. Expects an array of an object with two keys (title and link). |    -    |  false   |
+|     separator      | string |                         Determines the element that separates every link in the breadcrumb.                          |    -    |   true   |
+| variablesClassName | string |                                           Accepts custom CSS class names.                                            |    -    |   true   |
+
+## Getting Started
+
+```javascript
+import { BreadCrumb } from '@codelittinc/agnostic-design-system';
+
+const BreadCrumb = () => {
+  const BreadCrumbItems = {
+    separator: '/',
+    items: [
+      { title: 'Compiled escalations', link: 'https://usdm.my-compiled-escalation.com' },
+      { title: 'Box', link: 'https://usdm.my-box.com' },
+      { title: 'Automated Testing Tool', link: 'https://usdm.automated-testing-tool.com' },
+      { title: 'tests', link: 'https://usdm.tests.com' }
+    ]
+  };
+
+  return (
+    <ul className={styles['breadcrumb']}>
+      {BreadCrumbItems.items.map(function (item) {
+        return (
+          <>
+            <span className={styles['breadcrumb-separator']}>{BreadCrumbItems.separator}</span>
+            <li className={styles['list-item']}>
+              <a href={item.link} className={styles['breadcrumb-link']}>
+                {item.title}
+              </a>
+            </li>
+          </>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default BreadCrumb;
+```
+
+## List variables available
+
+| Property  |    Attribute     |      State      |
+| :-------: | :--------------: | :-------------: |
+| separator |      color       |                 |
+| separator |     padding      |                 |
+|           | background-color |                 |
+|           |  border-radius   |                 |
+|           |      color       | inactive, hover |
+|           |   font-family    |                 |
+|           |    font-size     |                 |
+|           |     padding      |                 |
+|           |      width       |                 |
