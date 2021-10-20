@@ -1,0 +1,48 @@
+@import '../../styles/theme/index.css';
+:root {
+  --tab-container-display: flex;
+  --tab-container-flex-flow: column;
+  --tab-container-width: auto;
+
+  --tab-menu-container-display: flex;
+  --tab-menu-container-flex-flow: row;
+  --tab-menu-container-align-items: center;
+
+  --tab-menu-button-height: auto;
+}
+
+.tab-container {
+  display: var(--tab-container-display);
+  flex-flow: var(--tab-container-flex-flow);
+  width: var(--tab-container-width);
+}
+
+.tab-menu-container {
+  align-items: var(--tab-menu-container-align-items);
+  display: var(--tab-menu-container-display);
+  flex-flow: var(--tab-menu-container-flex-flow);
+}
+
+.tab-menu-button {
+  --button-color: var(--structure-color-600);
+  --button-background-color: transparent;
+  --button-color-hover: var(--structure-color-600);
+  --button-background-color-hover: transparent;
+  --button-border-focus: none;
+  --button-border-hover: none;
+  --button-border-active: none;
+  --button-border-radius: none;
+  height: var(--tab-menu-button-height);
+}
+
+.tab-menu-button-active {
+  color: var(--button-color-active);
+  background-color: var(--button-background-color-active);
+  border: var(--button-border-active);
+  --button-color-focus: var(--button-color-active);
+  --button-background-color-focus: var(--button-background-color-active);
+  --button-border-focus: var(--button-border-active);
+  --button-color-hover: var(--button-color-active);
+  --button-background-color-hover: var(--button-background-color-active);
+  --button-border-hover: var(--button-border-active);
+}

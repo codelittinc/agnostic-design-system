@@ -1,0 +1,72 @@
+# Tab Component
+
+## Type: Simple
+
+## Tab Props
+
+|        Prop        |                 Type                  |             Description              | Default | Mandatory |
+| :----------------: | :-----------------------------------: | :----------------------------------: | :-----: | :-------: |
+|     components     |           React.ReactNode[]           |    Accepts a list of components.     |    -    |   true    |
+|     menuItems      | { title: string; active?: boolean }[] | Accepts a list of Menu Item objects. |    -    |   true    |
+| variablesClassName |                string                 |   Accepts custom CSS class names.    |    -    |   false   |
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import { Tab } from '@codelittinc/agnostic-design-system';
+
+const SimpleTab = () => {
+  return (
+    <Tab
+      menuItems={[{ title: 'Test Active', active: true }, { title: 'Test Inactive' }]}
+      components={[
+        <>
+          <div>Active</div>
+        </>,
+        <>
+          <div>Inactive</div>
+        </>
+      ]}
+    />
+  );
+};
+
+export default SimpleTab;
+```
+
+## Variables available
+
+|      Property      |    Attribute     |             State              |
+| :----------------: | :--------------: | :----------------------------: |
+|       button       |   align-items    |                                |
+|       button       |  align-content   |                                |
+|       button       | background-color | hover, focus, active, disabled |
+|       button       |      border      | hover, focus, active, disabled |
+|       button       |  border-radius   |                                |
+|       button       |    box-shadow    | hover, focus, active, disabled |
+|       button       |      color       | hover, focus, active, disabled |
+|       button       |      cursor      | hover, focus, active, disabled |
+|       button       |     display      |                                |
+|       button       |  flex-direction  |                                |
+|       button       |    flex-wrap     |                                |
+|       button       |   font-family    |                                |
+|       button       |    font-size     |                                |
+|       button       |   font-weight    |                                |
+|       button       |      height      |                                |
+|       button       | justify-content  |                                |
+|       button       |   line-height    |                                |
+|       button       |      margin      |                                |
+|       button       |     padding      |                                |
+|       button       |      width       |                                |
+|     container      |     display      |                                |
+|     container      |    flex-flow     |                                |
+|     container      |      width       |                                |
+|   menu-container   |     display      |                                |
+|   menu-container   |    flex-flow     |                                |
+|   menu-container   |   align-items    |                                |
+| menu-button-active |      color       |             hover              |
+| menu-button-active | background-color |             hover              |
+| menu-button-active |      border      |                                |
+| menu-button-active |   border-width   |                                |
+|    menu-button     |      height      |                                |

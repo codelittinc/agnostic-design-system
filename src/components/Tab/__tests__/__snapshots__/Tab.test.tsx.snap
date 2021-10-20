@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab renders correctly 1`] = `
+<Tab
+  components={
+    Array [
+      <React.Fragment>
+        <div>
+          active
+        </div>
+      </React.Fragment>,
+      <React.Fragment>
+        <div>
+          inactive
+        </div>
+      </React.Fragment>,
+    ]
+  }
+  menuItems={
+    Array [
+      Object {
+        "active": true,
+        "title": "Test Active",
+      },
+      Object {
+        "title": "Test Inactive",
+      },
+    ]
+  }
+>
+  <div
+    className="tab-container"
+  >
+    <div
+      className="tab-menu-container"
+    >
+      <ForwardRef
+        key="Test Active"
+        onClick={[Function]}
+        text="Test Active"
+        variablesClassName="tab-menu-button tab-menu-button-active"
+      >
+        <ForwardRef
+          onClick={[Function]}
+          text="Test Active"
+          variablesClassName="tab-menu-button tab-menu-button-active"
+        >
+          <ForwardRef
+            className="button button--neutral"
+            disabled={false}
+            fixed={false}
+            iconPosition="right"
+            onClick={[Function]}
+            size="large"
+            text="Test Active"
+            variablesClassName="tab-menu-button tab-menu-button-active"
+          >
+            <button
+              className="button button--neutral button button--large tab-menu-button tab-menu-button-active"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="button-text"
+              >
+                Test Active
+              </span>
+            </button>
+          </ForwardRef>
+        </ForwardRef>
+      </ForwardRef>
+      <ForwardRef
+        key="Test Inactive"
+        onClick={[Function]}
+        text="Test Inactive"
+        variablesClassName="tab-menu-button"
+      >
+        <ForwardRef
+          onClick={[Function]}
+          text="Test Inactive"
+          variablesClassName="tab-menu-button"
+        >
+          <ForwardRef
+            className="button button--neutral"
+            disabled={false}
+            fixed={false}
+            iconPosition="right"
+            onClick={[Function]}
+            size="large"
+            text="Test Inactive"
+            variablesClassName="tab-menu-button"
+          >
+            <button
+              className="button button--neutral button button--large tab-menu-button"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="button-text"
+              >
+                Test Inactive
+              </span>
+            </button>
+          </ForwardRef>
+        </ForwardRef>
+      </ForwardRef>
+    </div>
+    <div>
+      <div
+        key="0"
+      >
+        <div>
+          active
+        </div>
+      </div>
+      <div
+        key="1"
+      />
+    </div>
+  </div>
+</Tab>
+`;
