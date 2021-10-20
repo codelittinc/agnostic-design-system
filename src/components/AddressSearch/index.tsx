@@ -87,6 +87,8 @@ const AddressSearch: React.FC<Props> = props => {
       onChange={item => {
         item && handleClickSuggestion(item);
       }}
+      // Todo: verify how to handle array of predictions
+      // @ts-ignore
       getListTitle={getListTitle}
       filterOptions={options => options}
       onInputChange={handleChangeInput}

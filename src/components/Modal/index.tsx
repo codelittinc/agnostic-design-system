@@ -20,15 +20,13 @@ const Modal: React.FC<Props> = props => {
 
   document.addEventListener('mousedown', handleClickOutside);
 
-  return (
-    open && (
-      <div className={classNames(variablesClassName)}>
-        <div className={classNames(styles.container)} id='modal-container'>
-          <div className={classNames(styles['content-container'])}>{children}</div>
-        </div>
+  return open ? (
+    <div className={classNames(variablesClassName)}>
+      <div className={classNames(styles.container)} id='modal-container'>
+        <div className={classNames(styles['content-container'])}>{children}</div>
       </div>
-    )
-  );
+    </div>
+  ) : null;
 };
 
 export default Modal;

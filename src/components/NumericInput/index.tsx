@@ -1,7 +1,7 @@
 import React from 'react';
 // @TODO: Discover how to disable the no-unused-vars verification for ts interfaces
 /* eslint-disable */
-import Input, { Filter, Size, Validation } from '../Input';
+import Input, { Filter, Size, Validation, Props as InputProps } from '../Input';
   /* eslint-enable */
 
 interface Props {
@@ -59,7 +59,7 @@ const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
       type: 'function',
       test: value => positive && value.lastIndexOf('-') !== -1
     }
-  ];
+  ] as InputProps['filters'];
 
   return <Input {...inputProps} ref={ref} value={value} filters={filters} />;
 });

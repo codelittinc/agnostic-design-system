@@ -18,7 +18,7 @@ export type Filter = {
   test: RegExp | Function;
 };
 
-interface Props {
+export interface Props {
   actionIcon?: React.ReactNode;
   autoComplete?: string;
   description?: string;
@@ -133,7 +133,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const handleChange = e => {
     const newValue = e.target.value;
     if (!matchesFilter(newValue, filters)) {
-      onChange(e);
+      if (onChange) {
+        onChange(e);
+      }
       const valid = isValid(newValue, validations, required);
       setValid(valid);
       onStateChange(valid);

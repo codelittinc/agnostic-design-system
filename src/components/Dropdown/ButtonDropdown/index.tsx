@@ -136,6 +136,8 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
             onChange={item => {
               item && handleClick(item);
             }}
+            // Todo: verify why this is not provided
+            onStateChange={() => {}}
           />
         )}
       </div>

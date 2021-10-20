@@ -182,6 +182,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
           onClickActionIcon={() => setIsListOpen(!isListOpen)}
           prepend={handleIconCategory()}
           onStateChange={onStateChange}
+          validations={[]}
           autoComplete={autoComplete}
         />
         {isListOpen && (

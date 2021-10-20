@@ -18,7 +18,7 @@ const Form = (props: Props) => {
 
   const [values, setValues] = useState(initialValues);
 
-  const [customChildren, setCustomChildren] = useState([]);
+  const [customChildren, setCustomChildren] = useState<any[]>([]);
   const [fieldsValidationState, setFieldsValidationState] = useState({});
 
   const customChildremProps = {
