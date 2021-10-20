@@ -8,9 +8,11 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "build-storybook",
-    "build-package": "rm -rf dist; webpack --mode=production",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build-package": "rm -rf dist; npm run build:types; webpack --mode=production",
     "publish-storybook": "build-storybook -s public",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "eslint --fix '*/**/*.{js,ts,tsx}'",
