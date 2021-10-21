@@ -1,0 +1,50 @@
+# Toggle Component
+
+## Type: Simple
+
+## Toggle Props
+
+|        Prop        |        Type         |                             Description                             | Default | Mandatory |
+| :----------------: | :-----------------: | :-----------------------------------------------------------------: | :-----: | :-------: |
+|     activeItem     |          T          |              Specifies which item is currently active.              |    -    |   true    |
+|       items        |        T[ ]         |    Specifies all the items that should be present on the toggle.    |    -    |   true    |
+| variablesClassName |       string        | Receives the class name to add custom styles to the Toggle element. |    -    |   false   |
+|      getLabel      | (item: T) => string |               Returns the label for a specific item.                |    -    |   true    |
+|      getValue      | (item: T) => string |               Returns the valude for a specific item.               |    -    |   true    |
+|      onChange      | (item?: T) => void  |   Specifies what should happen when the toggle option is clicked.   |    -    |   true    |
+
+## Getting Started
+
+```javascript
+import React, { useState } from 'react';
+import { Toggle } from '@codelittinc/agnostic-design-system';
+
+const Toggle = args => {
+  const [active, setActive] = useState(args.activeItem);
+
+  return <Toggle {...args} activeItem={active} onChange={setActive} />;
+};
+
+export default Toggle;
+```
+
+## CSS Variables Available
+
+The component toggle is accepting style customization through its `variablesClassName` property
+`<Toggle variablesClassName={styles['my-toggle-css']} />`
+
+Apart from this, we are also using the component Button, and its style can be changed just as we do on the original component.
+
+### Toggle variables available
+
+|     Property      |    Attribute     | State |
+| :---------------: | :--------------: | :---: |
+|      toggle       |      height      |       |
+|      toggle       |     padding      |       |
+|      toggle       | background-color |       |
+|      toggle       |  border-radius   |       |
+| toggle-active-btn |  border-radius   |       |
+| toggle-active-btn |      height      |       |
+| toggle-active-btn |     padding      |       |
+|      button       |      color       |       |
+|       item        | background-color |       |

@@ -19,6 +19,7 @@
     "release": "release-it --ci",
     "start": "start-storybook -p 9009",
     "test": "jest -c jest.config.js",
+    "test:watch": "npm run test -- --watch",
     "heroku-prebuild": "mv .npmrc.heroku .npmrc",
     "build-lib-for-local-testing": "npm run build-package && cd node_modules/react/ && npm link && cd ../../"
   },

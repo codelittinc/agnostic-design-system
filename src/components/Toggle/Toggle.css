@@ -1,0 +1,81 @@
+@import '../../styles/theme/index.css';
+
+:root {
+  --toggle-background-color: var(--structure-color-200);
+  --toggle-active-background-color:  var(--structure-color-white);;
+  --toggle-font-family: 'Inter';
+  --toggle-font-size: var(--input-font-size, var(--paragraph-m));
+  --toggle-border: 1px solid var(--structure-color-300);
+  --toggle-width: 200px;
+  --toggle-height: 50px;
+  --toggle-color: var(--structure-color-600);
+  --toggle-padding: 10px;
+  --toggle-active-color: var(--primary-color-900);
+  --toggle-border: 1px solid var(--structure-color-300);
+  --toggle-border-radius: 3px;
+  --toggle-wrapper-border-radius: 3px;
+}
+
+span {
+  z-index: 1;
+}
+
+input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.toggle {
+  width: 100%;
+  height: var(--button-height);
+  padding: var(--button-padding, var(--toggle-padding));
+  display: flex;
+  background-color: var(--toggle-background-color);
+  position: relative;
+  border-radius: var(--toggle-wrapper-border-radius);
+}
+
+.toggle-active-btn {
+  position: absolute;
+  width: 45%;
+  background-color: var(--toggle-active-background-color);
+  box-shadow: 0 2px 15px rgb(0 0 0 / 15%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: var(--toggle-border-radius);
+  cursor: pointer;
+  display: block;
+  height: var(--toggle-height);
+  z-index: 1;
+  left: var(--toggle-padding);
+}
+
+.toggle-active-btn[data-active-item='false'] {
+  transform: translateX(100%);
+}
+
+button[category='neutral'],
+button[category='neutral']:hover,
+button[category='neutral']:active,
+button[category='neutral']:focus {
+  background-color: var(--toggle-background-color);
+  transition: all 0.5s ease;
+}
+
+label {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label[data-active='false'] button,
+label[data-active='false'] button:hover{
+  color: var(--toggle-color);
+}
+
+label[data-active='true'] button,
+label[data-active='true'] button:hover{
+  color: var(--toggle-active-color);
+}
