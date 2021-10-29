@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders correctly 1`] = `
+<Table
+  headerList={
+    Array [
+      "Name",
+      "Month",
+      "Gift",
+    ]
+  }
+  tableContent={
+    Array [
+      Array [
+        "Lisa",
+        "December",
+        "Car",
+      ],
+      Array [
+        "Tina",
+        "June",
+        "Dog",
+      ],
+      Array [
+        "Callie",
+        "August",
+        "Flowers",
+      ],
+      Array [
+        "Ruth",
+        "September",
+        "Diamonds",
+      ],
+    ]
+  }
+>
+  <table
+    className="table-container"
+  >
+    <thead
+      data-testid="table-header"
+    >
+      <tr>
+        <th
+          key="0"
+        >
+          Name
+        </th>
+        <th
+          key="1"
+        >
+          Month
+        </th>
+        <th
+          key="2"
+        >
+          Gift
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      data-testid="table-body"
+    >
+      <tr
+        key="0"
+      >
+        <td
+          key="0 - 0"
+        >
+           
+          Lisa
+        </td>
+        <td
+          key="0 - 1"
+        >
+           
+          December
+        </td>
+        <td
+          key="0 - 2"
+        >
+           
+          Car
+        </td>
+      </tr>
+      <tr
+        key="1"
+      >
+        <td
+          key="1 - 0"
+        >
+           
+          Tina
+        </td>
+        <td
+          key="1 - 1"
+        >
+           
+          June
+        </td>
+        <td
+          key="1 - 2"
+        >
+           
+          Dog
+        </td>
+      </tr>
+      <tr
+        key="2"
+      >
+        <td
+          key="2 - 0"
+        >
+           
+          Callie
+        </td>
+        <td
+          key="2 - 1"
+        >
+           
+          August
+        </td>
+        <td
+          key="2 - 2"
+        >
+           
+          Flowers
+        </td>
+      </tr>
+      <tr
+        key="3"
+      >
+        <td
+          key="3 - 0"
+        >
+           
+          Ruth
+        </td>
+        <td
+          key="3 - 1"
+        >
+           
+          September
+        </td>
+        <td
+          key="3 - 2"
+        >
+           
+          Diamonds
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</Table>
+`;

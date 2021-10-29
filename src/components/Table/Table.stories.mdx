@@ -1,0 +1,52 @@
+# Table Component
+
+## Type: Simple
+
+## Table Props
+
+|        Prop        |                   Type                   |                                   Description                                    | Default | Mandatory |
+| :----------------: | :--------------------------------------: | :------------------------------------------------------------------------------: | :-----: | :-------: |
+|     headerList     |     array of strings or react nodes      |            Specifies the list to be used to populate the table header            |    -    |   true    |
+|     footerList     |     array of strings or react nodes      |            Specifies the list to be used to populate the table footer            |    -    |   false   |
+|    tableContent    | array of array of strings or react nodes | Each array inside the matrix represents a row in the table with all its content. |    -    |   true    |
+| variablesClassName |                  string                  |             Specifies the custom class to apply styles to the table              |    -    |   false   |
+
+## Getting Started
+
+```javascript
+import { Table } from '@codelittinc/agnostic-design-system';
+
+const Table = args => {
+  return <Table {...args} />;
+};
+
+export default Table;
+```
+
+## CSS Variables Available
+
+| Property |    Attribute     | State |
+| :------: | :--------------: | :---: |
+|  table   | background-color |       |
+|  table   |  border-bottom   |       |
+|  table   |   border-left    |       |
+|  table   |   border-right   |       |
+|  table   |    border-top    |       |
+|  table   |      width       |       |
+|  table   |      color       |       |
+|  table   |   font-family    |       |
+| table th | background-color |       |
+| table th |  border-bottom   |       |
+| table th |   border-left    |       |
+| table th |   border-right   |       |
+| table th |    border-top    |       |
+| table th |      color       |       |
+| table th |   font-weight    |       |
+| table th |     padding      |       |
+| table th | background-color |       |
+| table th |  border-bottom   |       |
+| table th |   border-left    |       |
+| table th |   border-right   |       |
+| table th |    border-top    |       |
+| table th |   font-weight    |       |
+| table th |     padding      |       |
