@@ -16,8 +16,25 @@
 ```javascript
 import { Table } from '@codelittinc/agnostic-design-system';
 
-const Table = args => {
-  return <Table {...args} />;
+const props = {
+  headerList: ['First Name', 'Last Name', 'Email'],
+  tableContent: [
+    ['Ana', 'Robin', 'ana@mail.com'],
+    ['Beth', 'Julius', 'beth@mail.com'],
+    ['Ruth', 'Katherine', 'ruth@mail.com'],
+    ['Julia', 'Mark', 'julia@mail.com'],
+    ['Nath', 'Sloan', 'nath@mail.com']
+  ]
+};
+
+const Table = props => {
+  return (
+    <Table
+      headerList={props.headerList}
+      tableContent={props.tableContent}
+      variablesClassName='my-custom-table'
+    />
+  );
 };
 
 export default Table;
