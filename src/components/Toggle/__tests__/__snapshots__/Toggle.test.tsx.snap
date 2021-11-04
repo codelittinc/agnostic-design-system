@@ -6,17 +6,94 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        class="toggle-wrapper"
+      >
+        <div
+          class="toggle"
+          data-testid="toggle-element"
+        >
+          <div
+            class="toggle-active-btn"
+            data-active-item="First"
+            style="width: 50%; transform: translateX(0%);"
+          />
+          <label
+            data-active="true"
+            data-testid="toggle-label-First"
+            for="First"
+            style="width: 50%;"
+          >
+            <button
+              category="neutral"
+              class="button button--neutral button button--medium"
+              data-testid="toggle-element-First"
+              type="button"
+            >
+              <span
+                class="button-text"
+              >
+                First
+              </span>
+            </button>
+            <input
+              checked=""
+              data-testid="toggle-input-First"
+              id="First"
+              name="toggle"
+              readonly=""
+              type="radio"
+              value="First"
+            />
+          </label>
+          <label
+            data-active="false"
+            data-testid="toggle-label-Second"
+            for="Second"
+            style="width: 50%;"
+          >
+            <button
+              category="neutral"
+              class="button button--neutral button button--medium"
+              data-testid="toggle-element-Second"
+              type="button"
+            >
+              <span
+                class="button-text"
+              >
+                Second
+              </span>
+            </button>
+            <input
+              data-testid="toggle-input-Second"
+              id="Second"
+              name="toggle"
+              readonly=""
+              type="radio"
+              value="Second"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="toggle-wrapper"
+    >
+      <div
         class="toggle"
         data-testid="toggle-element"
       >
         <div
           class="toggle-active-btn"
-          data-active-item="true"
+          data-active-item="First"
+          style="width: 50%; transform: translateX(0%);"
         />
         <label
           data-active="true"
           data-testid="toggle-label-First"
           for="First"
+          style="width: 50%;"
         >
           <button
             category="neutral"
@@ -44,6 +121,7 @@ Object {
           data-active="false"
           data-testid="toggle-label-Second"
           for="Second"
+          style="width: 50%;"
         >
           <button
             category="neutral"
@@ -67,70 +145,6 @@ Object {
           />
         </label>
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="toggle"
-      data-testid="toggle-element"
-    >
-      <div
-        class="toggle-active-btn"
-        data-active-item="true"
-      />
-      <label
-        data-active="true"
-        data-testid="toggle-label-First"
-        for="First"
-      >
-        <button
-          category="neutral"
-          class="button button--neutral button button--medium"
-          data-testid="toggle-element-First"
-          type="button"
-        >
-          <span
-            class="button-text"
-          >
-            First
-          </span>
-        </button>
-        <input
-          checked=""
-          data-testid="toggle-input-First"
-          id="First"
-          name="toggle"
-          readonly=""
-          type="radio"
-          value="First"
-        />
-      </label>
-      <label
-        data-active="false"
-        data-testid="toggle-label-Second"
-        for="Second"
-      >
-        <button
-          category="neutral"
-          class="button button--neutral button button--medium"
-          data-testid="toggle-element-Second"
-          type="button"
-        >
-          <span
-            class="button-text"
-          >
-            Second
-          </span>
-        </button>
-        <input
-          data-testid="toggle-input-Second"
-          id="Second"
-          name="toggle"
-          readonly=""
-          type="radio"
-          value="Second"
-        />
-      </label>
     </div>
   </div>,
   "debug": [Function],
