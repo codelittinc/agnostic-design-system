@@ -36,3 +36,27 @@ Default.args = {
   getValue: item => item.title,
   items: items
 };
+
+const fourItems = [
+  {
+    title: 'First'
+  },
+  {
+    title: 'Second'
+  },
+  {
+    title: 'Third'
+  },
+  {
+    title: 'Forth'
+  }
+];
+
+export const MultipleItems = Template.bind({});
+
+MultipleItems.args = {
+  activeItem: fourItems[0],
+  getLabel: item => item.title,
+  getValue: item => item.title,
+  items: fourItems
+};

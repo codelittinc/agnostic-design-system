@@ -2,7 +2,8 @@
 
 :root {
   --toggle-background-color: var(--structure-color-200);
-  --toggle-active-background-color:  var(--structure-color-white);;
+  --toggle-wrapper-background-color: var(--structure-color-200);
+  --toggle-active-background-color: var(--structure-color-white);
   --toggle-font-family: 'Inter';
   --toggle-font-size: var(--input-font-size, var(--paragraph-m));
   --toggle-border: 1px solid var(--structure-color-300);
@@ -25,19 +26,24 @@ input {
   position: absolute;
 }
 
-.toggle {
+.toggle-wrapper {
   width: 100%;
   height: var(--button-height);
   padding: var(--button-padding, var(--toggle-padding));
-  display: flex;
-  background-color: var(--toggle-background-color);
-  position: relative;
+  background-color: var(--toggle-wrapper-background-color);
   border-radius: var(--toggle-wrapper-border-radius);
 }
 
+.toggle {
+  width: 100%;
+  height: var(--button-height);
+  display: flex;
+  background-color: var(--toggle-background-color);
+  position: relative;
+}
+/*[data-number-of-items]*/
 .toggle-active-btn {
   position: absolute;
-  width: 45%;
   background-color: var(--toggle-active-background-color);
   box-shadow: 0 2px 15px rgb(0 0 0 / 15%);
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -46,11 +52,10 @@ input {
   display: block;
   height: var(--toggle-height);
   z-index: 1;
-  left: var(--toggle-padding);
 }
 
 .toggle-active-btn[data-active-item='false'] {
-  transform: translateX(100%);
+  transform: translateX(50%);
 }
 
 button[category='neutral'],
@@ -63,7 +68,6 @@ button[category='neutral']:focus {
 
 label {
   height: 100%;
-  width: 50%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -71,11 +75,11 @@ label {
 }
 
 label[data-active='false'] button,
-label[data-active='false'] button:hover{
+label[data-active='false'] button:hover {
   color: var(--toggle-color);
 }
 
 label[data-active='true'] button,
-label[data-active='true'] button:hover{
+label[data-active='true'] button:hover {
   color: var(--toggle-active-color);
 }
