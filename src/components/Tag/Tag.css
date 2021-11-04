@@ -1,0 +1,19 @@
+:root {
+  --tag-container-background-color: var(--structure-color-100);
+  --tag-container-border-radius: 4px;
+  --tag-container-color: var(--structure-color-600);
+  --tag-container-padding: 4px;
+  --tag-container-width: fit-content;
+}
+
+.tag-container {
+  background-color: var(--tag-container-background-color);
+  border-radius: var(--tag-container-border-radius);
+  color: var(--tag-container-color);
+  font-family: var(--tag-container-font-family);
+  font-size: var(--tag-container-font-size);
+  font-weight: var(--tag-container-font-weight);
+  margin: auto;
+  padding: var(--tag-container-padding);
+  width: var(--tag-container-width);
+}
