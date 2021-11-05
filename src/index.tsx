@@ -10,6 +10,7 @@ export { default as MapsProvider } from '@/components/MapsProvider';
 export { default as Modal } from '@/components/Modal';
 export { default as NumericInput } from '@/components/NumericInput';
 export { default as Pagination } from '@/components/Pagination';
+export { default as PaginatedTable } from '@/components/PaginatedTable';
 export { default as PhoneInput } from '@/components/PhoneInput';
 export { default as RangeSlider } from '@/components/RangeSlider';
 export { default as RichTextEditor } from '@/components/RichTextEditor';

@@ -16,6 +16,8 @@ export interface Props {
   buttonPrevLabel?: string;
   buttonPrevIcon?: React.ReactNode;
   buttonPrevIconPosition?: Position;
+  buttonVariablesClassName?: string;
+  variablesClassName?: string;
 }
 
 const Pagination = (props: Props) => {
@@ -29,7 +31,9 @@ const Pagination = (props: Props) => {
     buttonNextIconPosition,
     buttonPrevLabel,
     buttonPrevIcon,
-    buttonPrevIconPosition
+    buttonPrevIconPosition,
+    buttonVariablesClassName,
+    variablesClassName
   } = props;
 
   const selectedPage = getSelectedPage(currentPage, totalPages);
@@ -48,9 +52,13 @@ const Pagination = (props: Props) => {
   });
 
   return (
-    <ul className={classNames(styles['pagination-list'])} data-testid='pagination-element'>
+    <ul
+      className={classNames(styles['pagination-list'], variablesClassName)}
+      data-testid='pagination-element'
+    >
       <li>
         <Button
+          variablesClassName={buttonVariablesClassName}
           withAppendIcon={!!buttonPrevIcon}
           appendIcon={buttonPrevIcon}
           iconPosition={buttonPrevIconPosition}
@@ -60,18 +68,20 @@ const Pagination = (props: Props) => {
           onClick={() => onSelectPage(selectedPage - 1)}
         />
       </li>
-      {pages.map(item => (
-        <li key={item}>
-          <Button
-            size='medium'
-            text={item.toString()}
-            category={selectedPage === item ? 'primary' : 'neutral'}
-            onClick={() => onSelectPage(item)}
-          />
-        </li>
-      ))}
+      {numberOfPagesToShow > 0 &&
+        pages.map(item => (
+          <li key={item}>
+            <Button
+              size='medium'
+              text={item.toString()}
+              category={selectedPage === item ? 'primary' : 'neutral'}
+              onClick={() => onSelectPage(item)}
+            />
+          </li>
+        ))}
       <li>
         <Button
+          variablesClassName={buttonVariablesClassName}
           withAppendIcon={!!buttonPrevIcon}
           appendIcon={buttonNextIcon}
           iconPosition={buttonNextIconPosition}

@@ -36,6 +36,7 @@ exports[`Table renders correctly 1`] = `
 >
   <table
     className="table-container"
+    data-testid="table-element"
   >
     <thead
       data-testid="table-header"

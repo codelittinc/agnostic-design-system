@@ -6,14 +6,18 @@ export interface Props {
   headerList: React.ReactNode[];
   tableContent: React.ReactNode[][];
   footerList?: React.ReactNode[];
+  renderFooter?: () => React.ReactNode;
   variablesClassName?: string;
 }
 
 const Table = (props: Props) => {
-  const { headerList, tableContent, footerList, variablesClassName } = props;
+  const { headerList, tableContent, footerList, renderFooter, variablesClassName } = props;
 
   return (
-    <table className={classNames(variablesClassName, styles['table-container'])}>
+    <table
+      className={classNames(variablesClassName, styles['table-container'])}
+      data-testid='table-element'
+    >
       <thead data-testid='table-header'>
         <tr>
           {headerList.map((header, headerIndex) => (
@@ -30,15 +34,17 @@ const Table = (props: Props) => {
           </tr>
         ))}
       </tbody>
-      {footerList && (
-        <tfoot>
-          <tr>
-            {footerList.map((foot, footIndex) => (
-              <th key={footIndex}>{foot}</th>
-            ))}
-          </tr>
-        </tfoot>
-      )}
+      {renderFooter
+        ? renderFooter()
+        : footerList && (
+            <tfoot>
+              <tr>
+                {footerList.map((foot, footIndex) => (
+                  <th key={footIndex}>{foot}</th>
+                ))}
+              </tr>
+            </tfoot>
+          )}
     </table>
   );
 };

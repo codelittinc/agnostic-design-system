@@ -1,0 +1,66 @@
+# PaginatedTable Component
+
+## Type: Composite
+
+The PaginatedTable contains the following components: [Table](https://design-system.codelitt.dev/?path=/docs/components-table--default), [Pagination](https://design-system.codelitt.dev/?path=/docs/components-pagination--default) and [NumericInput](https://design-system.codelitt.dev/?path=/docs/components-numeric-input--default).
+
+## PaginatedTable Props
+
+|        Prop        |              Type               |                                    Description                                    | Default | Mandatory |
+| :----------------: | :-----------------------------: | :-------------------------------------------------------------------------------: | :-----: | :-------: |
+|    currentPage     |             number              |                 Specifies the current page visible for the table                  |    -    |   true    |
+|  handlePageChange  |            function             | Specifies what should happens when a change event is triggered on the page number |    -    |   true    |
+|     headerList     | array of strings or react nodes |        Specifies the list to be used to populate the PaginatedTable header        |    -    |   true    |
+| itemsOnCurrentPage | array of strings or react nodes |            Specifies what should be the items displayed on the table.             |    -    |   true    |
+| totalNumberOfItems |             number              |          Defines the total number of items to be displayed on the table           |    -    |   true    |
+| variablesClassName |             string              |         Specifies the custom class to apply styles to the PaginatedTable          |    -    |   false   |
+
+## Getting Started
+
+```javascript
+import { PaginatedTable } from '@codelittinc/agnostic-design-system';
+
+const props = {
+  currentPage: 1,
+  handlePageChange: e => e,
+  headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
+  itemsOnCurrentPage: [
+    ['John', 'Oto', '@timo', 'type1', 'Active'],
+    ['Mark', 'Howard', '@mdo', 'type2', 'Inactive'],
+    ['Jacob', 'Martin', '@mdo', 'type1', 'Active'],
+    ['Lary', 'King', '@timo', 'type1', 'Inactive'],
+    ['Helen', 'Bonham', '@timo', 'type2', 'Active'],
+    ['Felix', 'Dougherty', '@timo', 'type1', 'Active'],
+    ['Joseph', 'Thomas', '@timo', 'type1', 'Inactive'],
+    ['Richard', 'Cardenas', '@timo', 'type1', 'Active']
+  ],
+  totalNumberOfItems: 15
+};
+
+const PaginatedTable = props => {
+  return <PaginatedTable {...props} />;
+};
+
+export default PaginatedTable;
+```
+
+## CSS Variables Available
+
+Given the nature of a composite component, in addition to its own, the PaginatedTable utilizes CSS variables from the Table, Pagination and NumericInput components.
+PaginatedTable variables are listed in the table below.
+
+### Variables of the PaginatedTable component
+
+|       Property        |    Attribute    | State |
+| :-------------------: | :-------------: | :---: |
+|      action-btns      |   align-items   |       |
+|      action-btns      |     display     |       |
+|      action-btns      | justify-content |       |
+|      action-btns      |    overflow     |       |
+|        button         |   font-family   |       |
+|        button         |    font-size    |       |
+|        button         |   font-weight   |       |
+|        button         |     padding     |       |
+|    number-of-pages    |   text-align    |       |
+| number-of-pages-input |    max-width    |       |
+| number-of-pages-input |     padding     |       |
