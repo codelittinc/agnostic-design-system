@@ -25,7 +25,7 @@ Object {
           >
             <button
               category="neutral"
-              class="button button--neutral button button--medium"
+              class="button button--neutral button button--medium toggle-span"
               data-testid="toggle-element-First"
               type="button"
             >
@@ -37,6 +37,7 @@ Object {
             </button>
             <input
               checked=""
+              class="toggle-input"
               data-testid="toggle-input-First"
               id="First"
               name="toggle"
@@ -53,7 +54,7 @@ Object {
           >
             <button
               category="neutral"
-              class="button button--neutral button button--medium"
+              class="button button--neutral button button--medium toggle-span"
               data-testid="toggle-element-Second"
               type="button"
             >
@@ -64,6 +65,7 @@ Object {
               </span>
             </button>
             <input
+              class="toggle-input"
               data-testid="toggle-input-Second"
               id="Second"
               name="toggle"
@@ -97,7 +99,7 @@ Object {
         >
           <button
             category="neutral"
-            class="button button--neutral button button--medium"
+            class="button button--neutral button button--medium toggle-span"
             data-testid="toggle-element-First"
             type="button"
           >
@@ -109,6 +111,7 @@ Object {
           </button>
           <input
             checked=""
+            class="toggle-input"
             data-testid="toggle-input-First"
             id="First"
             name="toggle"
@@ -125,7 +128,7 @@ Object {
         >
           <button
             category="neutral"
-            class="button button--neutral button button--medium"
+            class="button button--neutral button button--medium toggle-span"
             data-testid="toggle-element-Second"
             type="button"
           >
@@ -136,6 +139,7 @@ Object {
             </span>
           </button>
           <input
+            class="toggle-input"
             data-testid="toggle-input-Second"
             id="Second"
             name="toggle"

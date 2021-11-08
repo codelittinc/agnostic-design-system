@@ -17,11 +17,11 @@
   --toggle-wrapper-border-radius: 3px;
 }
 
-span {
+.toggle-span span {
   z-index: 1;
 }
 
-input {
+.toggle-input {
   visibility: hidden;
   position: absolute;
 }

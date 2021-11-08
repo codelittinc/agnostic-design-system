@@ -44,6 +44,7 @@ const Toggle = <T extends {}>(props: Props<T>) => {
                 category='neutral'
                 onClick={() => onChange(item)}
                 data-testid={`toggle-element-${getLabel(item)}`}
+                variablesClassName={classNames(styles['toggle-span'])}
               />
               <input
                 readOnly
@@ -53,6 +54,7 @@ const Toggle = <T extends {}>(props: Props<T>) => {
                 checked={activeItem === item}
                 value={getValue(item)}
                 data-testid={`toggle-input-${getLabel(item)}`}
+                className={classNames(styles['toggle-input'])}
               />
             </label>
           );
