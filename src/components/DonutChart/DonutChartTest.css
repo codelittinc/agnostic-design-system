@@ -1,0 +1,7 @@
+.custom-donut-chart {
+  --donutchart-full-circle-stroke: pink;
+  --donutchart-indicator-stroke: red;
+  --donutchart-text-font-family: 'Nunito Sans';
+  --donutchart-text-val-font-size: 15px;
+  --donutchart-text-label-font-size: 15px;
+}

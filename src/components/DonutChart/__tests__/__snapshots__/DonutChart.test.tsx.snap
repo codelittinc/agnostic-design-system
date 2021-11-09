@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DonutChart renders correctly 1`] = `
+<DonutChart
+  completion={55}
+  message="Completed"
+  size={150}
+  strokewidth={10}
+>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <svg
+      className="donutchart"
+      height={150}
+      width={150}
+    >
+      <circle
+        className="donutchart-full-circle"
+        cx={75}
+        cy={75}
+        r={70}
+        style={
+          Object {
+            "strokeWidth": 10,
+          }
+        }
+        transform="rotate(-90 75,75)"
+      />
+      <circle
+        className="donutchart-indicator"
+        cx={75}
+        cy={75}
+        r={70}
+        style={
+          Object {
+            "strokeDasharray": "241.90263432641405 439.822971502571",
+            "strokeWidth": 10,
+          }
+        }
+        transform="rotate(-90 75,75)"
+      />
+      <text
+        className="donutchart-text"
+        x={75}
+        y={75}
+      />
+    </svg>
+    <span
+      className="donutchart-text"
+    >
+      <span
+        className="donutchart-text-val"
+      >
+        55
+      </span>
+      <span
+        className="donutchart-text-label"
+      >
+         
+        Completed
+      </span>
+    </span>
+  </div>
+</DonutChart>
+`;
