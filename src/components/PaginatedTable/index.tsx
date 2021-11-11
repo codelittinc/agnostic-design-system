@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NumericInput from '@/components/NumericInput';
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
+import classNames from 'classnames';
 
 import styles from '@/components/PaginatedTable/PaginatedTable.css';
 import { isEmpty } from 'lodash';
@@ -86,8 +87,14 @@ const PaginatedTable = (props: Props) => {
                 buttonPrevLabel='Prev'
                 buttonPrevIcon={<span> &larr; </span>}
                 buttonPrevIconPosition='left'
-                buttonVariablesClassName={styles['btn-table-paginated']}
-                variablesClassName={styles['paginated-table-pagination']}
+                buttonVariablesClassName={classNames(
+                  styles['btn-table-paginated'],
+                  variablesClassName
+                )}
+                variablesClassName={classNames(
+                  styles['paginated-table-pagination'],
+                  variablesClassName
+                )}
               />
             </td>
           </tr>

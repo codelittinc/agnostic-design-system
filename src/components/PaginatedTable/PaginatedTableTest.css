@@ -1,0 +1,6 @@
+@import '../../styles/theme/index.css';
+
+.custom-button {
+  --button-background-color: red;
+  --button-color: black;
+}

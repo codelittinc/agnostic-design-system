@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import PaginatedTable from '@/components/PaginatedTable';
 import { Meta } from '@storybook/react';
 import mdx from './PaginatedTable.stories.mdx';
+import classNames from 'classnames';
+
+import styles from './PaginatedTableTest.css';
 
 export default {
   title: 'Components/PaginatedTable',
@@ -53,4 +56,11 @@ export const Default = Template.bind({});
 Default.args = {
   headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
   totalNumberOfItems: 15
+};
+
+export const CustomizedTable = Template.bind({});
+CustomizedTable.args = {
+  headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
+  totalNumberOfItems: 15,
+  variablesClassName: classNames(styles['custom-button'])
 };
