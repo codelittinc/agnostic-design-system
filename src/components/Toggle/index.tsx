@@ -19,7 +19,7 @@ const Toggle = <T extends {}>(props: Props<T>) => {
   const calculateTranslation = items.indexOf(activeItem) * 100;
 
   return (
-    <div className={classNames(styles['toggle-wrapper'])}>
+    <div className={classNames(styles['toggle-wrapper'], variablesClassName)}>
       <div data-testid='toggle-element' className={classNames(styles.toggle, variablesClassName)}>
         <div
           className={classNames(styles['toggle-active-btn'], variablesClassName)}
@@ -44,7 +44,7 @@ const Toggle = <T extends {}>(props: Props<T>) => {
                 category='neutral'
                 onClick={() => onChange(item)}
                 data-testid={`toggle-element-${getLabel(item)}`}
-                variablesClassName={classNames(styles['toggle-span'])}
+                variablesClassName={classNames(styles['toggle-span'], variablesClassName)}
               />
               <input
                 readOnly

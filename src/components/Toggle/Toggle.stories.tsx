@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Toggle from '@/components/Toggle';
 import { Meta } from '@storybook/react';
 import mdx from './Toggle.stories.mdx';
+import classNames from 'classnames';
+import styles from './Toggle.stories.css';
 
 export default {
   title: 'Components/Toggle',
@@ -59,4 +61,14 @@ MultipleItems.args = {
   getLabel: item => item.title,
   getValue: item => item.title,
   items: fourItems
+};
+
+export const customizedToggle = Template.bind({});
+
+customizedToggle.args = {
+  activeItem: items[0],
+  getLabel: item => item.title,
+  getValue: item => item.title,
+  items: items,
+  variablesClassName: classNames(styles['custom-toggle'])
 };

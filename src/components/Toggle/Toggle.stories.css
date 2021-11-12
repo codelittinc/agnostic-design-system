@@ -1,0 +1,7 @@
+@import '../../styles/theme/index.css';
+
+.custom-toggle {
+  --toggle-wrapper-background-color: blue;
+  --toggle-active-background-color: lightblue;
+  --toggle-active-color: white;
+}
