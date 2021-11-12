@@ -7,10 +7,11 @@ import styles from '@/components/PaginatedTable/PaginatedTable.css';
 import { isEmpty } from 'lodash';
 export interface Props {
   currentPage: number;
-  id?: string;
   handlePageChange: (value: number) => void;
   headerList: React.ReactNode[];
+  id?: string;
   itemsOnCurrentPage: React.ReactNode[][];
+  limit: number;
   totalNumberOfItems: number;
   variablesClassName?: string;
 }
@@ -22,14 +23,14 @@ const PaginatedTable = (props: Props) => {
     headerList,
     id,
     itemsOnCurrentPage,
+    limit,
     totalNumberOfItems,
     variablesClassName
   } = props;
 
   const [uniqueId] = useState(id || Math.floor(Math.random() * 1000 + 1));
 
-  const numItemsPerPage = itemsOnCurrentPage.length;
-  const numberOfPages = Math.ceil(totalNumberOfItems / numItemsPerPage);
+  const numberOfPages = Math.ceil(totalNumberOfItems / limit);
 
   const handleChange = event => {
     const { value } = event.target;
@@ -39,11 +40,20 @@ const PaginatedTable = (props: Props) => {
     }
   };
 
-  const initialRange = (currentPage - 1) * numItemsPerPage + 1;
-  const itemsRangeBegin = initialRange > 0 ? initialRange : 1;
+  const itemsRangeBegin = () => {
+    if (itemsOnCurrentPage) {
+      return (currentPage - 1) * limit + 1;
+    }
+    return 0;
+  };
+
   const itemsRangeEnd = () => {
-    const total = itemsRangeBegin + numItemsPerPage;
-    return total > totalNumberOfItems ? totalNumberOfItems : total;
+    if (itemsOnCurrentPage) {
+      const begin = itemsRangeBegin();
+      const total = begin + itemsOnCurrentPage.length - 1;
+      return Math.min(total, totalNumberOfItems);
+    }
+    return 0;
   };
 
   const widthFirstFooterCell = headerList.length - 2;
@@ -57,7 +67,9 @@ const PaginatedTable = (props: Props) => {
         <tfoot className={styles['paginated-footer']}>
           <tr>
             <td className={styles['pagination-items']}>
-              {itemsRangeBegin} - {itemsRangeEnd()} of {totalNumberOfItems} items
+              {itemsRangeBegin() !== 0
+                ? `${itemsRangeBegin()} - ${itemsRangeEnd()} of ${totalNumberOfItems} items`
+                : `-`}
             </td>
             <td className={styles['number-of-pages']} colSpan={widthFirstFooterCell}>
               <NumericInput

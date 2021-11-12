@@ -53,6 +53,7 @@ exports[`PaginatedTable renders correctly 1`] = `
       ],
     ]
   }
+  limit={5}
   tableContent={
     Array [
       Array [],
@@ -327,12 +328,7 @@ exports[`PaginatedTable renders correctly 1`] = `
           <td
             className="pagination-items"
           >
-            1
-             - 
-            6
-             of 
-            15
-             items
+            1 - 5 of 15 items
           </td>
           <td
             className="number-of-pages"

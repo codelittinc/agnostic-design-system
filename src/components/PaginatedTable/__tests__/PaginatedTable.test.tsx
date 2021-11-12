@@ -20,6 +20,7 @@ describe('PaginatedTable', () => {
           ['Lary', 'King', '@timo', 'type1', 'Inactive'],
           ['Helen', 'Bonham', '@timo', 'type2', 'Active']
         ]}
+        limit={5}
         totalNumberOfItems={15}
       />
     );
@@ -67,7 +68,8 @@ describe('PaginatedTable', () => {
           ['Karl', 'Roy', '@twitter', 'type2', 'Active'],
           ['Sean', 'Steppe', '@timo', 'type1', 'Inactive'],
           ['Samuel', 'Marriott', '@twitter', 'type1', 'Inactive']
-        ]
+        ],
+        limit: 10
       });
       const PaginatedTableItems = screen
         .getByTestId('table-element')
@@ -75,9 +77,34 @@ describe('PaginatedTable', () => {
 
       const paginationInput = screen.getByTestId('table-element').querySelector('input')!;
 
-      expect(PaginatedTableItems).toHaveTextContent(/1 - 11 of 15 items/);
+      expect(PaginatedTableItems).toHaveTextContent(/1 - 10 of 15 items/);
       fireEvent.change(paginationInput, { target: { value: 2 } });
       expect(PaginatedTableItems).toHaveTextContent(/11 - 15 of 15 items/);
+    });
+
+    it('shows the right number of items per page', () => {
+      renderPaginatedTable({
+        itemsOnCurrentPage: [
+          ['Mark', 'Howard', '@mdo', 'type2', 'Inactive'],
+          ['Jacob', 'Martin', '@mdo', 'type1', 'Active'],
+          ['Lary', 'King', '@timo', 'type1', 'Inactive'],
+          ['Helen', 'Bonham', '@timo', 'type2', 'Active'],
+          ['Felix', 'Dougherty', '@timo', 'type1', 'Active'],
+          ['Joseph', 'Thomas', '@timo', 'type1', 'Inactive'],
+          ['Richard', 'Cardenas', '@timo', 'type1', 'Active']
+        ],
+        limit: 7,
+        totalNumberOfItems: 10
+      });
+      const PaginatedTableItems = screen
+        .getByTestId('table-element')
+        .querySelector('.pagination-items')!;
+
+      const paginationInput = screen.getByTestId('table-element').querySelector('input')!;
+
+      expect(PaginatedTableItems).toHaveTextContent(/1 - 7 of 10 items/);
+      fireEvent.change(paginationInput, { target: { value: 2 } });
+      expect(PaginatedTableItems).toHaveTextContent(/8 - 10 of 10 items/);
     });
   });
 
@@ -145,6 +172,7 @@ function Wrapper(props) {
       handlePageChange={setPage}
       headerList={['First Name', 'Last Name', 'Handle', 'User Type', 'Status']}
       totalNumberOfItems={15}
+      limit={5}
       {...props}
     />
   );
