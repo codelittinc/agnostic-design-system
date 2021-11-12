@@ -90,5 +90,7 @@ export const CustomizedTable = Template.bind({});
 CustomizedTable.args = {
   headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
   totalNumberOfItems: 15,
+  listOfItems: listOfItems,
+  limit: 5,
   variablesClassName: classNames(styles['custom-button'])
 };
