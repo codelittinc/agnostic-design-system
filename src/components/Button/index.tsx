@@ -21,7 +21,7 @@ interface Props {
   fixed?: boolean;
   iconPosition?: Position;
   id?: string;
-  text?: string;
+  text?: string | React.ReactNode;
   onClick?: () => void;
   size?: Size;
   type?: 'button' | 'submit' | 'reset' | undefined;

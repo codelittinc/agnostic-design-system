@@ -3,7 +3,10 @@ import classNames from 'classnames';
 import styles from './Tab.css';
 import Button from '@/components/Button';
 
-type MenuItem = { title: string; active?: boolean };
+type MenuItem = {
+  title: string | React.ReactNode;
+  active?: boolean;
+};
 
 interface Props {
   components: React.ReactNode[];
@@ -24,10 +27,10 @@ const Tab = (props: Props) => {
   return (
     <div className={classNames(styles['tab-container'], variablesClassName)}>
       <div className={classNames(styles['tab-menu-container'], variablesClassName)}>
-        {menuItems.map(item => {
+        {menuItems.map((item, index) => {
           return (
             <Button
-              key={item.title}
+              key={`${item.title}-${index}`}
               variablesClassName={classNames(
                 styles['tab-menu-button'],
                 activeButton === item && styles['tab-menu-button-active'],

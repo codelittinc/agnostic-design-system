@@ -74,3 +74,62 @@ Default.args = {
     </>
   ]
 };
+
+const renderTitle = text => {
+  return (
+    <div>
+      Tab
+      <span>{text}</span>
+    </div>
+  );
+};
+
+export const TabWithHTMLElementTitle = Template.bind({});
+TabWithHTMLElementTitle.args = {
+  menuItems: [
+    { title: renderTitle('1'), active: true },
+    { title: renderTitle('2') },
+    { title: 'Tab 3' }
+  ],
+  components: [
+    <>
+      <div className={classNames(styles['component-container'])}>
+        <h2 className={classNames(styles['component-title'])}>Tab 1 Sample Content</h2>
+        <List
+          options={LIST1}
+          id='list'
+          getItemValue={item => item.value}
+          getItemLabel={item => item.label}
+          getItemKey={item => item.value}
+          onChange={() => {}}
+        />
+      </div>
+    </>,
+    <>
+      <div className={classNames(styles['component-container'])}>
+        <h2 className={classNames(styles['component-title'])}>Tab 2 Sample Content</h2>
+        <List
+          options={LIST1}
+          id='list'
+          getItemValue={item => item.value}
+          getItemLabel={item => item.label}
+          getItemKey={item => item.value}
+          onChange={() => {}}
+        />
+      </div>
+    </>,
+    <>
+      <div className={classNames(styles['component-container'])}>
+        <h2 className={classNames(styles['component-title'])}>Tab 3 Sample Content</h2>
+        <List
+          options={LIST2}
+          id='list'
+          getItemValue={item => item.value}
+          getItemLabel={item => item.label}
+          getItemKey={item => item.value}
+          onChange={() => {}}
+        />
+      </div>
+    </>
+  ]
+};

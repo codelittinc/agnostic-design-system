@@ -35,7 +35,7 @@ exports[`Tab renders correctly 1`] = `
       className="tab-menu-container"
     >
       <ForwardRef
-        key="Test Active"
+        key="Test Active-0"
         onClick={[Function]}
         text="Test Active"
         variablesClassName="tab-menu-button tab-menu-button-active"
@@ -71,7 +71,7 @@ exports[`Tab renders correctly 1`] = `
         </ForwardRef>
       </ForwardRef>
       <ForwardRef
-        key="Test Inactive"
+        key="Test Inactive-1"
         onClick={[Function]}
         text="Test Inactive"
         variablesClassName="tab-menu-button"
