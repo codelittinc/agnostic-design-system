@@ -57,7 +57,7 @@ const PaginatedTable = (props: Props) => {
     return 0;
   };
 
-  const widthFirstFooterCell = headerList.length - 2;
+  const widthFirstFooterCell = headerList.length;
 
   return (
     <Table
@@ -67,47 +67,54 @@ const PaginatedTable = (props: Props) => {
       renderFooter={() => (
         <tfoot className={styles['paginated-footer']}>
           <tr>
-            <td className={styles['pagination-items']}>
-              {itemsRangeBegin() !== 0
-                ? `${itemsRangeBegin()} - ${itemsRangeEnd()} of ${totalNumberOfItems} items`
-                : `-`}
-            </td>
-            <td className={styles['number-of-pages']} colSpan={widthFirstFooterCell}>
-              <NumericInput
-                id={`paginated-table-input-${uniqueId}`}
-                max={numberOfPages}
-                onChange={handleChange}
-                onStateChange={() => {}}
-                onFocus={() => {}}
-                scale={0}
-                size='medium'
-                value={currentPage.toString()}
-                variablesClassName={styles['number-of-pages-input']}
-                positive
-              />
-              <span>of {numberOfPages} pages</span>
-            </td>
-            <td className={styles['paginated-table-action-btns']}>
-              <Pagination
-                totalPages={numberOfPages}
-                numberOfPagesToShow={0}
-                currentPage={currentPage}
-                onSelectPage={handlePageChange}
-                buttonNextLabel='Next'
-                buttonNextIcon={<span> &rarr; </span>}
-                buttonNextIconPosition='right'
-                buttonPrevLabel='Prev'
-                buttonPrevIcon={<span> &larr; </span>}
-                buttonPrevIconPosition='left'
-                buttonVariablesClassName={classNames(
-                  styles['btn-table-paginated'],
-                  variablesClassName
-                )}
-                variablesClassName={classNames(
-                  styles['paginated-table-pagination'],
-                  variablesClassName
-                )}
-              />
+            <td colSpan={widthFirstFooterCell}>
+              <div className={styles['paginated-footer-wrapper']}>
+                <div className={styles['pagination-items']}>
+                  {' '}
+                  {itemsRangeBegin() !== 0
+                    ? `${itemsRangeBegin()} - ${itemsRangeEnd()} of ${totalNumberOfItems} items`
+                    : `-`}
+                </div>
+                <div className={styles['paginated-table-pages']}>
+                  <div className={styles['number-of-pages']}>
+                    <NumericInput
+                      id={`paginated-table-input-${uniqueId}`}
+                      max={numberOfPages}
+                      onChange={handleChange}
+                      onStateChange={() => {}}
+                      onFocus={() => {}}
+                      scale={0}
+                      size='medium'
+                      value={currentPage.toString()}
+                      variablesClassName={styles['number-of-pages-input']}
+                      positive
+                    />
+                    <span>of {numberOfPages} pages</span>
+                  </div>
+                  <div className={styles['paginated-table-action-btns']}>
+                    <Pagination
+                      totalPages={numberOfPages}
+                      numberOfPagesToShow={0}
+                      currentPage={currentPage}
+                      onSelectPage={handlePageChange}
+                      buttonNextLabel='Next'
+                      buttonNextIcon={<span> &rarr; </span>}
+                      buttonNextIconPosition='right'
+                      buttonPrevLabel='Prev'
+                      buttonPrevIcon={<span> &larr; </span>}
+                      buttonPrevIconPosition='left'
+                      buttonVariablesClassName={classNames(
+                        styles['btn-table-paginated'],
+                        variablesClassName
+                      )}
+                      variablesClassName={classNames(
+                        styles['paginated-table-pagination'],
+                        variablesClassName
+                      )}
+                    />
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
         </tfoot>

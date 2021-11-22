@@ -326,250 +326,262 @@ exports[`PaginatedTable renders correctly 1`] = `
       >
         <tr>
           <td
-            className="pagination-items"
+            colSpan={5}
           >
-            1 - 5 of 15 items
-          </td>
-          <td
-            className="number-of-pages"
-            colSpan={3}
-          >
-            <ForwardRef
-              id="paginated-table-input-paginated-table"
-              max={3}
-              onChange={[Function]}
-              onFocus={[Function]}
-              onStateChange={[Function]}
-              positive={true}
-              scale={0}
-              size="medium"
-              value="1"
-              variablesClassName="number-of-pages-input"
+            <div
+              className="paginated-footer-wrapper"
             >
-              <ForwardRef
-                filters={
-                  Array [
-                    Object {
-                      "test": /\\[\\^\\\\d\\.,-\\]/,
-                      "type": "RegExp",
-                    },
-                    Object {
-                      "test": [Function],
-                      "type": "function",
-                    },
-                    Object {
-                      "test": [Function],
-                      "type": "function",
-                    },
-                    Object {
-                      "test": [Function],
-                      "type": "function",
-                    },
-                  ]
-                }
-                id="paginated-table-input-paginated-table"
-                onChange={[Function]}
-                onFocus={[Function]}
-                onStateChange={[Function]}
-                size="medium"
-                validations={Array []}
-                value="1"
-                variablesClassName="number-of-pages-input"
+              <div
+                className="pagination-items"
+              >
+                 
+                1 - 5 of 15 items
+              </div>
+              <div
+                className="paginated-table-pages"
               >
                 <div
-                  className="number-of-pages-input container"
+                  className="number-of-pages"
                 >
-                  <div
-                    className="input--container"
-                  >
-                    <input
-                      className="input input--medium"
-                      id="paginated-table-input-paginated-table"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="1"
-                    />
-                  </div>
-                  <span
-                    className="input--message"
-                  />
-                </div>
-              </ForwardRef>
-            </ForwardRef>
-            <span>
-              of 
-              3
-               pages
-            </span>
-          </td>
-          <td
-            className="paginated-table-action-btns"
-          >
-            <Pagination
-              buttonNextIcon={
-                <span>
-                   → 
-                </span>
-              }
-              buttonNextIconPosition="right"
-              buttonNextLabel="Next"
-              buttonPrevIcon={
-                <span>
-                   ← 
-                </span>
-              }
-              buttonPrevIconPosition="left"
-              buttonPrevLabel="Prev"
-              buttonVariablesClassName="btn-table-paginated"
-              currentPage={1}
-              numberOfPagesToShow={0}
-              onSelectPage={[Function]}
-              totalPages={3}
-              variablesClassName="paginated-table-pagination"
-            >
-              <ul
-                className="pagination-list paginated-table-pagination"
-                data-testid="pagination-element"
-              >
-                <li>
                   <ForwardRef
-                    appendIcon={
-                      <span>
-                         ← 
-                      </span>
-                    }
-                    disabled={true}
-                    iconPosition="left"
-                    onClick={[Function]}
+                    id="paginated-table-input-paginated-table"
+                    max={3}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onStateChange={[Function]}
+                    positive={true}
+                    scale={0}
                     size="medium"
-                    text="Prev"
-                    variablesClassName="btn-table-paginated"
-                    withAppendIcon={true}
+                    value="1"
+                    variablesClassName="number-of-pages-input"
                   >
                     <ForwardRef
-                      appendIcon={
-                        <span>
-                           ← 
-                        </span>
+                      filters={
+                        Array [
+                          Object {
+                            "test": /\\[\\^\\\\d\\.,-\\]/,
+                            "type": "RegExp",
+                          },
+                          Object {
+                            "test": [Function],
+                            "type": "function",
+                          },
+                          Object {
+                            "test": [Function],
+                            "type": "function",
+                          },
+                          Object {
+                            "test": [Function],
+                            "type": "function",
+                          },
+                        ]
                       }
-                      disabled={true}
-                      iconPosition="left"
-                      onClick={[Function]}
+                      id="paginated-table-input-paginated-table"
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onStateChange={[Function]}
                       size="medium"
-                      text="Prev"
-                      variablesClassName="btn-table-paginated"
-                      withAppendIcon={true}
+                      validations={Array []}
+                      value="1"
+                      variablesClassName="number-of-pages-input"
                     >
-                      <ForwardRef
-                        appendIcon={
-                          <span>
-                             ← 
-                          </span>
-                        }
-                        className="button button--neutral"
-                        disabled={true}
-                        fixed={false}
-                        iconPosition="left"
-                        onClick={[Function]}
-                        size="medium"
-                        text="Prev"
-                        variablesClassName="btn-table-paginated"
-                        withAppendIcon={true}
+                      <div
+                        className="number-of-pages-input container"
                       >
-                        <button
-                          className="button button--neutral button button--medium btn-table-paginated"
-                          disabled={true}
-                          onClick={[Function]}
-                          type="button"
+                        <div
+                          className="input--container"
                         >
-                          <div
-                            className="append-icon-left"
-                          >
-                            <span>
-                               ← 
-                            </span>
-                          </div>
-                          <span
-                            className="button-text"
-                          >
-                            Prev
-                          </span>
-                        </button>
-                      </ForwardRef>
+                          <input
+                            className="input input--medium"
+                            id="paginated-table-input-paginated-table"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            value="1"
+                          />
+                        </div>
+                        <span
+                          className="input--message"
+                        />
+                      </div>
                     </ForwardRef>
                   </ForwardRef>
-                </li>
-                <li>
-                  <ForwardRef
-                    appendIcon={
+                  <span>
+                    of 
+                    3
+                     pages
+                  </span>
+                </div>
+                <div
+                  className="paginated-table-action-btns"
+                >
+                  <Pagination
+                    buttonNextIcon={
                       <span>
                          → 
                       </span>
                     }
-                    disabled={false}
-                    iconPosition="right"
-                    onClick={[Function]}
-                    size="medium"
-                    text="Next"
-                    variablesClassName="btn-table-paginated"
-                    withAppendIcon={true}
+                    buttonNextIconPosition="right"
+                    buttonNextLabel="Next"
+                    buttonPrevIcon={
+                      <span>
+                         ← 
+                      </span>
+                    }
+                    buttonPrevIconPosition="left"
+                    buttonPrevLabel="Prev"
+                    buttonVariablesClassName="btn-table-paginated"
+                    currentPage={1}
+                    numberOfPagesToShow={0}
+                    onSelectPage={[Function]}
+                    totalPages={3}
+                    variablesClassName="paginated-table-pagination"
                   >
-                    <ForwardRef
-                      appendIcon={
-                        <span>
-                           → 
-                        </span>
-                      }
-                      disabled={false}
-                      iconPosition="right"
-                      onClick={[Function]}
-                      size="medium"
-                      text="Next"
-                      variablesClassName="btn-table-paginated"
-                      withAppendIcon={true}
+                    <ul
+                      className="pagination-list paginated-table-pagination"
+                      data-testid="pagination-element"
                     >
-                      <ForwardRef
-                        appendIcon={
-                          <span>
-                             → 
-                          </span>
-                        }
-                        className="button button--neutral"
-                        disabled={false}
-                        fixed={false}
-                        iconPosition="right"
-                        onClick={[Function]}
-                        size="medium"
-                        text="Next"
-                        variablesClassName="btn-table-paginated"
-                        withAppendIcon={true}
-                      >
-                        <button
-                          className="button button--neutral button button--medium btn-table-paginated"
-                          disabled={false}
+                      <li>
+                        <ForwardRef
+                          appendIcon={
+                            <span>
+                               ← 
+                            </span>
+                          }
+                          disabled={true}
+                          iconPosition="left"
                           onClick={[Function]}
-                          type="button"
+                          size="medium"
+                          text="Prev"
+                          variablesClassName="btn-table-paginated"
+                          withAppendIcon={true}
                         >
-                          <span
-                            className="button-text"
+                          <ForwardRef
+                            appendIcon={
+                              <span>
+                                 ← 
+                              </span>
+                            }
+                            disabled={true}
+                            iconPosition="left"
+                            onClick={[Function]}
+                            size="medium"
+                            text="Prev"
+                            variablesClassName="btn-table-paginated"
+                            withAppendIcon={true}
                           >
-                            Next
-                          </span>
-                          <div
-                            className="append-icon-right"
-                          >
+                            <ForwardRef
+                              appendIcon={
+                                <span>
+                                   ← 
+                                </span>
+                              }
+                              className="button button--neutral"
+                              disabled={true}
+                              fixed={false}
+                              iconPosition="left"
+                              onClick={[Function]}
+                              size="medium"
+                              text="Prev"
+                              variablesClassName="btn-table-paginated"
+                              withAppendIcon={true}
+                            >
+                              <button
+                                className="button button--neutral button button--medium btn-table-paginated"
+                                disabled={true}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <div
+                                  className="append-icon-left"
+                                >
+                                  <span>
+                                     ← 
+                                  </span>
+                                </div>
+                                <span
+                                  className="button-text"
+                                >
+                                  Prev
+                                </span>
+                              </button>
+                            </ForwardRef>
+                          </ForwardRef>
+                        </ForwardRef>
+                      </li>
+                      <li>
+                        <ForwardRef
+                          appendIcon={
                             <span>
                                → 
                             </span>
-                          </div>
-                        </button>
-                      </ForwardRef>
-                    </ForwardRef>
-                  </ForwardRef>
-                </li>
-              </ul>
-            </Pagination>
+                          }
+                          disabled={false}
+                          iconPosition="right"
+                          onClick={[Function]}
+                          size="medium"
+                          text="Next"
+                          variablesClassName="btn-table-paginated"
+                          withAppendIcon={true}
+                        >
+                          <ForwardRef
+                            appendIcon={
+                              <span>
+                                 → 
+                              </span>
+                            }
+                            disabled={false}
+                            iconPosition="right"
+                            onClick={[Function]}
+                            size="medium"
+                            text="Next"
+                            variablesClassName="btn-table-paginated"
+                            withAppendIcon={true}
+                          >
+                            <ForwardRef
+                              appendIcon={
+                                <span>
+                                   → 
+                                </span>
+                              }
+                              className="button button--neutral"
+                              disabled={false}
+                              fixed={false}
+                              iconPosition="right"
+                              onClick={[Function]}
+                              size="medium"
+                              text="Next"
+                              variablesClassName="btn-table-paginated"
+                              withAppendIcon={true}
+                            >
+                              <button
+                                className="button button--neutral button button--medium btn-table-paginated"
+                                disabled={false}
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <span
+                                  className="button-text"
+                                >
+                                  Next
+                                </span>
+                                <div
+                                  className="append-icon-right"
+                                >
+                                  <span>
+                                     → 
+                                  </span>
+                                </div>
+                              </button>
+                            </ForwardRef>
+                          </ForwardRef>
+                        </ForwardRef>
+                      </li>
+                    </ul>
+                  </Pagination>
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
       </tfoot>

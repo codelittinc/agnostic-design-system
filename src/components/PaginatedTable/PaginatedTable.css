@@ -39,4 +39,17 @@
 
 .paginated-table-pagination {
   margin: 0;
+  padding: var(--paginated-table-pagination-padding, 0);
+}
+
+.paginated-table-pages {
+  display: flex;
+  align-items: center;
+}
+
+.paginated-footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
