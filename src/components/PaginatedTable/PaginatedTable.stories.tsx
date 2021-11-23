@@ -3,7 +3,8 @@ import PaginatedTable from '@/components/PaginatedTable';
 import { Meta } from '@storybook/react';
 import mdx from './PaginatedTable.stories.mdx';
 import classNames from 'classnames';
-
+import ArrowLeft from '@/assets/images/icons/web/arrow-left.svg';
+import ArrowRight from '@/assets/images/icons/web/arrow-right.svg';
 import styles from './PaginatedTableTest.css';
 
 export default {
@@ -93,4 +94,14 @@ CustomizedTable.args = {
   listOfItems: listOfItems,
   limit: 5,
   variablesClassName: classNames(styles['custom-button'])
+};
+
+export const CustomizedButtonIcons = Template.bind({});
+CustomizedButtonIcons.args = {
+  buttonNextIcon: <ArrowRight />,
+  buttonPrevIcon: <ArrowLeft />,
+  headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
+  totalNumberOfItems: 15,
+  listOfItems: listOfItems,
+  limit: 5
 };

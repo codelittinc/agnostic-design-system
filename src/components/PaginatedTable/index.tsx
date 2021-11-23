@@ -3,10 +3,12 @@ import NumericInput from '@/components/NumericInput';
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import classNames from 'classnames';
-
 import styles from '@/components/PaginatedTable/PaginatedTable.css';
 import { isEmpty } from 'lodash';
+
 export interface Props {
+  buttonNextIcon: React.ReactNode;
+  buttonPrevIcon: React.ReactNode;
   currentPage: number;
   handlePageChange: (value: number) => void;
   headerList: React.ReactNode[];
@@ -17,8 +19,13 @@ export interface Props {
   variablesClassName?: string;
 }
 
+const defaultButtonNextIcon = <span> &rarr; </span>;
+const defaultButtonPrevIcon = <span> &larr; </span>;
+
 const PaginatedTable = (props: Props) => {
   const {
+    buttonNextIcon = defaultButtonNextIcon,
+    buttonPrevIcon = defaultButtonPrevIcon,
     currentPage,
     handlePageChange,
     headerList,
@@ -57,7 +64,7 @@ const PaginatedTable = (props: Props) => {
     return 0;
   };
 
-  const widthFirstFooterCell = headerList.length - 2;
+  const widthFirstFooterCell = headerList.length - 1;
 
   return (
     <Table
@@ -85,26 +92,25 @@ const PaginatedTable = (props: Props) => {
                 variablesClassName={styles['number-of-pages-input']}
                 positive
               />
-              <span>of {numberOfPages} pages</span>
-            </td>
-            <td className={styles['paginated-table-action-btns']}>
+              <span className={styles['number-of-pages-text']}>of {numberOfPages} pages</span>
+
               <Pagination
                 totalPages={numberOfPages}
                 numberOfPagesToShow={0}
                 currentPage={currentPage}
                 onSelectPage={handlePageChange}
                 buttonNextLabel='Next'
-                buttonNextIcon={<span> &rarr; </span>}
+                buttonNextIcon={buttonNextIcon}
                 buttonNextIconPosition='right'
                 buttonPrevLabel='Prev'
-                buttonPrevIcon={<span> &larr; </span>}
+                buttonPrevIcon={buttonPrevIcon}
                 buttonPrevIconPosition='left'
                 buttonVariablesClassName={classNames(
                   styles['btn-table-paginated'],
                   variablesClassName
                 )}
                 variablesClassName={classNames(
-                  styles['paginated-table-pagination'],
+                  styles['paginated-table-action-btns'],
                   variablesClassName
                 )}
               />

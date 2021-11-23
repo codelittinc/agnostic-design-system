@@ -2,9 +2,11 @@
 
 .paginated-footer .paginated-table-action-btns {
   align-items: var(--paginated-table-align-items, center);
-  display: var(--paginated-table-display, flex);
+  display: var(--paginated-table-buttons-display, inline-flex);
   justify-content: var(--paginated-table-justify-content, flex-end);
+  margin: 0;
   overflow: var(--paginated-table-overflow, hidden);
+  padding: 0;
 }
 
 .paginated-table-action-btns .btn-table-paginated {
@@ -18,16 +20,18 @@
   text-align: var(--paginated-table-page-number-text-align, end);
 }
 
-.number-of-pages:after {
+.number-of-pages-text:after {
   content: '|';
   margin-left: 20px;
 }
 
 .number-of-pages-input {
+  --input-border: 5px solid red;
+  --input-padding: 5px 10px;
+
   max-width: var(--paginated-table-page-input-max-width, 35px);
   display: inline-table;
   margin-right: 10px;
-  --input-padding: 5px 10px;
   text-align: center;
 }
 
@@ -35,8 +39,4 @@
 .number-of-pages,
 .paginated-table-action-btns {
   vertical-align: baseline;
-}
-
-.paginated-table-pagination {
-  margin: 0;
 }
