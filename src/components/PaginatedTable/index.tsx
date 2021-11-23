@@ -3,9 +3,11 @@ import NumericInput from '@/components/NumericInput';
 import Pagination from '@/components/Pagination';
 import Table from '@/components/Table';
 import classNames from 'classnames';
-
+import ArrowLeft from '@/assets/images/icons/web/arrow-left.svg';
+import ArrowRight from '@/assets/images/icons/web/arrow-right.svg';
 import styles from '@/components/PaginatedTable/PaginatedTable.css';
 import { isEmpty } from 'lodash';
+
 export interface Props {
   currentPage: number;
   handlePageChange: (value: number) => void;
@@ -98,10 +100,10 @@ const PaginatedTable = (props: Props) => {
                       currentPage={currentPage}
                       onSelectPage={handlePageChange}
                       buttonNextLabel='Next'
-                      buttonNextIcon={<span> &rarr; </span>}
+                      buttonNextIcon={<ArrowRight />}
                       buttonNextIconPosition='right'
                       buttonPrevLabel='Prev'
-                      buttonPrevIcon={<span> &larr; </span>}
+                      buttonPrevIcon={<ArrowLeft />}
                       buttonPrevIconPosition='left'
                       buttonVariablesClassName={classNames(
                         styles['btn-table-paginated'],

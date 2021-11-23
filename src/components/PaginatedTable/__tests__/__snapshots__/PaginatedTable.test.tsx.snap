@@ -416,18 +416,10 @@ exports[`PaginatedTable renders correctly 1`] = `
                   className="paginated-table-action-btns"
                 >
                   <Pagination
-                    buttonNextIcon={
-                      <span>
-                         → 
-                      </span>
-                    }
+                    buttonNextIcon={<SvgArrowRight />}
                     buttonNextIconPosition="right"
                     buttonNextLabel="Next"
-                    buttonPrevIcon={
-                      <span>
-                         ← 
-                      </span>
-                    }
+                    buttonPrevIcon={<SvgArrowLeft />}
                     buttonPrevIconPosition="left"
                     buttonPrevLabel="Prev"
                     buttonVariablesClassName="btn-table-paginated"
@@ -443,11 +435,7 @@ exports[`PaginatedTable renders correctly 1`] = `
                     >
                       <li>
                         <ForwardRef
-                          appendIcon={
-                            <span>
-                               ← 
-                            </span>
-                          }
+                          appendIcon={<SvgArrowLeft />}
                           disabled={true}
                           iconPosition="left"
                           onClick={[Function]}
@@ -457,11 +445,7 @@ exports[`PaginatedTable renders correctly 1`] = `
                           withAppendIcon={true}
                         >
                           <ForwardRef
-                            appendIcon={
-                              <span>
-                                 ← 
-                              </span>
-                            }
+                            appendIcon={<SvgArrowLeft />}
                             disabled={true}
                             iconPosition="left"
                             onClick={[Function]}
@@ -471,11 +455,7 @@ exports[`PaginatedTable renders correctly 1`] = `
                             withAppendIcon={true}
                           >
                             <ForwardRef
-                              appendIcon={
-                                <span>
-                                   ← 
-                                </span>
-                              }
+                              appendIcon={<SvgArrowLeft />}
                               className="button button--neutral"
                               disabled={true}
                               fixed={false}
@@ -495,9 +475,11 @@ exports[`PaginatedTable renders correctly 1`] = `
                                 <div
                                   className="append-icon-left"
                                 >
-                                  <span>
-                                     ← 
-                                  </span>
+                                  <SvgArrowLeft>
+                                    <svg
+                                      data-file-name="SvgArrowLeft"
+                                    />
+                                  </SvgArrowLeft>
                                 </div>
                                 <span
                                   className="button-text"
@@ -511,11 +493,7 @@ exports[`PaginatedTable renders correctly 1`] = `
                       </li>
                       <li>
                         <ForwardRef
-                          appendIcon={
-                            <span>
-                               → 
-                            </span>
-                          }
+                          appendIcon={<SvgArrowRight />}
                           disabled={false}
                           iconPosition="right"
                           onClick={[Function]}
@@ -525,11 +503,7 @@ exports[`PaginatedTable renders correctly 1`] = `
                           withAppendIcon={true}
                         >
                           <ForwardRef
-                            appendIcon={
-                              <span>
-                                 → 
-                              </span>
-                            }
+                            appendIcon={<SvgArrowRight />}
                             disabled={false}
                             iconPosition="right"
                             onClick={[Function]}
@@ -539,11 +513,7 @@ exports[`PaginatedTable renders correctly 1`] = `
                             withAppendIcon={true}
                           >
                             <ForwardRef
-                              appendIcon={
-                                <span>
-                                   → 
-                                </span>
-                              }
+                              appendIcon={<SvgArrowRight />}
                               className="button button--neutral"
                               disabled={false}
                               fixed={false}
@@ -568,9 +538,11 @@ exports[`PaginatedTable renders correctly 1`] = `
                                 <div
                                   className="append-icon-right"
                                 >
-                                  <span>
-                                     → 
-                                  </span>
+                                  <SvgArrowRight>
+                                    <svg
+                                      data-file-name="SvgArrowRight"
+                                    />
+                                  </SvgArrowRight>
                                 </div>
                               </button>
                             </ForwardRef>

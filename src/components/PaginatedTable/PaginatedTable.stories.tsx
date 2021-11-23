@@ -3,7 +3,6 @@ import PaginatedTable from '@/components/PaginatedTable';
 import { Meta } from '@storybook/react';
 import mdx from './PaginatedTable.stories.mdx';
 import classNames from 'classnames';
-
 import styles from './PaginatedTableTest.css';
 
 export default {
