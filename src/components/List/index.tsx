@@ -68,16 +68,13 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
 
   const getSelectedItems = item => {
     if (multiselect && Array.isArray(selectedItemsList)) {
-      return isEqual(
-        item,
-        selectedItemsList?.find(s => isEqual(item, s))
-      )
-        ? selectedItemsList?.filter(s => !isEqual(s, item))
+      return isEqual(item.value, selectedItemsList?.find(s => isEqual(item.value, s.value))?.value)
+        ? selectedItemsList?.filter(s => !isEqual(s.value, item.value))
         : [...selectedItemsList, item];
     }
 
     if (listItemCategory !== RADIO_CATEGORY) {
-      return isEqual(item, selected) ? {} : item;
+      return isEqual(item.value, selected.value) ? {} : item;
     }
 
     return item;
@@ -126,8 +123,8 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                 getIcon={getItemIcon}
                 getIsSelected={item =>
                   Array.isArray(selectedItemsList)
-                    ? !!selectedItemsList?.find(s => isEqual(item, s))
-                    : isEqual(selectedItemsList, item)
+                    ? !!selectedItemsList?.find(s => isEqual(item.value, s.value))
+                    : isEqual(selectedItemsList.value, item.value)
                 }
                 getValue={getItemValue}
                 getName={getItemName}
@@ -139,7 +136,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                   !!(
                     isItemSelected ||
                     (Array.isArray(selectedItemsList) &&
-                      selectedItemsList.find(s => isEqual(item, s)))
+                      selectedItemsList.find(s => isEqual(item.value, s.value)))
                   )
                 }
               />
