@@ -4,4 +4,6 @@
   --toggle-wrapper-background-color: blue;
   --toggle-active-background-color: lightblue;
   --toggle-active-color: white;
+  --toggle-background-color-hover: yellow;
+  --toggle-background-color-active: green;
 }
