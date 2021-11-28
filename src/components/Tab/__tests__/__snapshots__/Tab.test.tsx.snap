@@ -20,9 +20,11 @@ exports[`Tab renders correctly 1`] = `
     Array [
       Object {
         "active": true,
+        "key": "1",
         "title": "Test Active",
       },
       Object {
+        "key": "2",
         "title": "Test Inactive",
       },
     ]

@@ -6,6 +6,7 @@ import Button from '@/components/Button';
 type MenuItem = {
   title: string | React.ReactNode;
   active?: boolean;
+  key: string;
 };
 
 interface Props {
@@ -16,9 +17,12 @@ interface Props {
 
 const Tab = (props: Props) => {
   const { menuItems, components, variablesClassName } = props;
+  if (menuItems.length === 0) {
+    return <></>;
+  }
 
-  const activeDefault = menuItems.find(item => item.active);
-  const [activeButton, setActiveButton] = useState(activeDefault || menuItems[0]);
+  const defaultKey = menuItems.find(item => item.active)?.key;
+  const [activeKey, setActiveKey] = useState(defaultKey || menuItems[0].key);
 
   if (menuItems.length !== components.length) {
     return <>It is necessary to provide the same amount of menu items and components.</>;
@@ -33,18 +37,18 @@ const Tab = (props: Props) => {
               key={`${item.title}-${index}`}
               variablesClassName={classNames(
                 styles['tab-menu-button'],
-                activeButton === item && styles['tab-menu-button-active'],
+                activeKey === item.key && styles['tab-menu-button-active'],
                 variablesClassName
               )}
               text={item.title}
-              onClick={() => setActiveButton(item)}
+              onClick={() => setActiveKey(item.key)}
             />
           );
         })}
       </div>
       <div>
         {components.map((component, index) => {
-          return <div key={index}>{menuItems[index] === activeButton && component}</div>;
+          return <div key={index}>{menuItems[index].key === activeKey && component}</div>;
         })}
       </div>
     </div>

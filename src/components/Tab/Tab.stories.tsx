@@ -38,13 +38,27 @@ const LIST2 = [
   }
 ];
 
+const LIST3 = [
+  {
+    label: 'Item 1 Tab 3',
+    value: 'vlabel'
+  },
+  {
+    label: 'Item 2 Tab 3',
+    value: 'vlabel1'
+  }
+];
+
 const Template = args => {
   return <Tab {...args} variablesClassName={classNames(styles['menu-button-active'])} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  menuItems: [{ title: 'Tab 1', active: true }, { title: 'Tab 2' }],
+  menuItems: [
+    { title: 'Tab 1', active: true, key: '1' },
+    { title: 'Tab 2', key: '2' }
+  ],
   components: [
     <>
       <div className={classNames(styles['component-container'])}>
@@ -87,9 +101,9 @@ const renderTitle = text => {
 export const TabWithHTMLElementTitle = Template.bind({});
 TabWithHTMLElementTitle.args = {
   menuItems: [
-    { title: renderTitle('1'), active: true },
-    { title: renderTitle('2') },
-    { title: 'Tab 3' }
+    { title: renderTitle('1'), active: true, key: '1' },
+    { title: renderTitle('2'), key: '2' },
+    { title: 'Tab 3', key: '3' }
   ],
   components: [
     <>
@@ -109,7 +123,7 @@ TabWithHTMLElementTitle.args = {
       <div className={classNames(styles['component-container'])}>
         <h2 className={classNames(styles['component-title'])}>Tab 2 Sample Content</h2>
         <List
-          options={LIST1}
+          options={LIST2}
           id='list'
           getItemValue={item => item.value}
           getItemLabel={item => item.label}
@@ -122,7 +136,7 @@ TabWithHTMLElementTitle.args = {
       <div className={classNames(styles['component-container'])}>
         <h2 className={classNames(styles['component-title'])}>Tab 3 Sample Content</h2>
         <List
-          options={LIST2}
+          options={LIST3}
           id='list'
           getItemValue={item => item.value}
           getItemLabel={item => item.label}

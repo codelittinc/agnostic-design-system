@@ -4,11 +4,11 @@
 
 ## Tab Props
 
-|        Prop        |                 Type                  |             Description              | Default | Mandatory |
-| :----------------: | :-----------------------------------: | :----------------------------------: | :-----: | :-------: |
-|     components     |           React.ReactNode[]           |    Accepts a list of components.     |    -    |   true    |
-|     menuItems      | { title: string; active?: boolean }[] | Accepts a list of Menu Item objects. |    -    |   true    |
-| variablesClassName |                string                 |   Accepts custom CSS class names.    |    -    |   false   |
+|        Prop        |                        Type                        |             Description              | Default | Mandatory |
+| :----------------: | :------------------------------------------------: | :----------------------------------: | :-----: | :-------: |
+|     components     |                 React.ReactNode[]                  |    Accepts a list of components.     |    -    |   true    |
+|     menuItems      | { title: string; active?: boolean; key: string }[] | Accepts a list of Menu Item objects. |    -    |   true    |
+| variablesClassName |                       string                       |   Accepts custom CSS class names.    |    -    |   false   |
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ import { Tab } from '@codelittinc/agnostic-design-system';
 const SimpleTab = () => {
   return (
     <Tab
-      menuItems={[{ title: 'Test Active', active: true }, { title: 'Test Inactive' }]}
+      menuItems={[{ title: 'Test Active', active: true, key: '1' }, { title: 'Test Inactive', key: '2' }]}
       components={[
         <>
           <div>Active</div>

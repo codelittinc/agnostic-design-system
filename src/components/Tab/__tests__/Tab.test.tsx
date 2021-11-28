@@ -7,7 +7,10 @@ describe('Tab', () => {
   it('renders correctly', () => {
     const wrapper = mount(
       <Tab
-        menuItems={[{ title: 'Test Active', active: true }, { title: 'Test Inactive' }]}
+        menuItems={[
+          { title: 'Test Active', active: true, key: '1' },
+          { title: 'Test Inactive', key: '2' }
+        ]}
         components={[
           <>
             <div>active</div>
@@ -25,7 +28,10 @@ describe('Tab', () => {
     it('opens the corresponding container', () => {
       const { getByText, queryByText } = render(
         <Tab
-          menuItems={[{ title: 'first', active: true }, { title: 'second' }]}
+          menuItems={[
+            { title: 'first', active: true, key: '1' },
+            { title: 'second', key: '2' }
+          ]}
           components={[
             <>
               <div>First Component</div>
