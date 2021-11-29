@@ -8,13 +8,12 @@
   --toggle-active-background-color: var(--structure-color-white);
   --toggle-font-family: 'Inter';
   --toggle-font-size: var(--input-font-size, var(--paragraph-m));
-  --toggle-border: 1px solid var(--structure-color-300);
   --toggle-width: 200px;
   --toggle-height: 50px;
   --toggle-color: var(--structure-color-600);
+  --toggle-color-hover: var(--toggle-color);
   --toggle-padding: 10px;
   --toggle-active-color: var(--primary-color-900);
-  --toggle-border: 1px solid var(--structure-color-300);
   --toggle-border-radius: 3px;
   --toggle-wrapper-border-radius: 3px;
 }
@@ -82,9 +81,12 @@ label {
   align-items: center;
 }
 
-label[data-active='false'] button,
-label[data-active='false'] button:hover {
+label[data-active='false'] button {
   color: var(--toggle-color);
+}
+
+label[data-active='false'] button:hover {
+  color: var(--toggle-color-hover);
 }
 
 label[data-active='true'] button,
