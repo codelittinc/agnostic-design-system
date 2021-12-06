@@ -6,12 +6,20 @@ export interface Props {
   headerList: React.ReactNode[];
   tableContent: React.ReactNode[][];
   footerList?: React.ReactNode[];
+  onRowClick?: (row: React.ReactNode, rowIndex: number) => void;
   renderFooter?: () => React.ReactNode;
   variablesClassName?: string;
 }
 
 const Table = (props: Props) => {
-  const { headerList, tableContent, footerList, renderFooter, variablesClassName } = props;
+  const { headerList, tableContent, footerList, onRowClick, renderFooter, variablesClassName } =
+    props;
+
+  const handleRowClick = (row, rowIndex) => {
+    if (onRowClick) {
+      onRowClick(row, rowIndex);
+    }
+  };
 
   return (
     <table
@@ -27,7 +35,13 @@ const Table = (props: Props) => {
       </thead>
       <tbody data-testid='table-body'>
         {tableContent.map((row, rowIndex) => (
-          <tr key={rowIndex}>
+          <tr
+            className={onRowClick ? styles['clickable-row'] : styles['non-clickable-row']}
+            key={rowIndex}
+            onClick={() => {
+              handleRowClick(row, rowIndex);
+            }}
+          >
             {row.map((content, contentIndex) => (
               <td key={`${rowIndex} - ${contentIndex}`}> {content}</td>
             ))}

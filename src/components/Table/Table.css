@@ -49,3 +49,7 @@
   font-weight: var(--table-font-weight);
   padding: var(--table-padding);
 }
+
+.clickable-row {
+  cursor: var(--table-clickable-row-cursor, pointer);
+}

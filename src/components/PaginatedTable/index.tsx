@@ -11,6 +11,7 @@ import { isEmpty } from 'lodash';
 export interface Props {
   currentPage: number;
   handlePageChange: (value: number) => void;
+  onRowClick?: (row: React.ReactNode, rowIndex: number) => void;
   headerList: React.ReactNode[];
   id?: string;
   itemsOnCurrentPage: React.ReactNode[][];
@@ -27,6 +28,7 @@ const PaginatedTable = (props: Props) => {
     id,
     itemsOnCurrentPage,
     limit,
+    onRowClick,
     totalNumberOfItems,
     variablesClassName
   } = props;
@@ -66,6 +68,7 @@ const PaginatedTable = (props: Props) => {
       headerList={headerList}
       tableContent={itemsOnCurrentPage}
       variablesClassName={variablesClassName}
+      onRowClick={onRowClick}
       renderFooter={() => (
         <tfoot className={styles['paginated-footer']}>
           <tr>

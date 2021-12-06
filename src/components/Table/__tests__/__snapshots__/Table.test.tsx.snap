@@ -63,7 +63,9 @@ exports[`Table renders correctly 1`] = `
       data-testid="table-body"
     >
       <tr
+        className="non-clickable-row"
         key="0"
+        onClick={[Function]}
       >
         <td
           key="0 - 0"
@@ -85,7 +87,9 @@ exports[`Table renders correctly 1`] = `
         </td>
       </tr>
       <tr
+        className="non-clickable-row"
         key="1"
+        onClick={[Function]}
       >
         <td
           key="1 - 0"
@@ -107,7 +111,9 @@ exports[`Table renders correctly 1`] = `
         </td>
       </tr>
       <tr
+        className="non-clickable-row"
         key="2"
+        onClick={[Function]}
       >
         <td
           key="2 - 0"
@@ -129,7 +135,9 @@ exports[`Table renders correctly 1`] = `
         </td>
       </tr>
       <tr
+        className="non-clickable-row"
         key="3"
+        onClick={[Function]}
       >
         <td
           key="3 - 0"

@@ -93,3 +93,16 @@ CustomizedTable.args = {
   limit: 5,
   variablesClassName: classNames(styles['custom-button'])
 };
+
+export const onRowClick = Template.bind({});
+const handleRowClick = (row, rowIndex) => {
+  alert('You selected the row ' + rowIndex + ' which contains the following data: ' + row);
+};
+
+onRowClick.args = {
+  headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
+  totalNumberOfItems: 15,
+  listOfItems: listOfItems,
+  limit: 5,
+  onRowClick: handleRowClick
+};
