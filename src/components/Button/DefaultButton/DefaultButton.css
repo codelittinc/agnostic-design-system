@@ -73,7 +73,8 @@
   cursor: var(--button-cursor-disabled, pointer);
 }
 
-.button:disabled .button--append-icon {
+.button:disabled .button--append-icon,
+.button:disabled svg path {
   fill: var(--button-append-icon-color-disabled, var(--button-color-disabled));
 }
 
