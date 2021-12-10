@@ -99,3 +99,8 @@ WithValidations.args = {
     }
   ]
 };
+
+export const WithInputDate = Template.bind({});
+WithInputDate.args = {
+  inputType: 'date'
+};

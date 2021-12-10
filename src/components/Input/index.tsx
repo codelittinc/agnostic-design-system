@@ -42,6 +42,7 @@ export interface Props {
   prepend?: React.ReactNode;
   required?: boolean;
   size: Size;
+  inputType?: string;
   value?: string;
   validations?: Validation[];
   variablesClassName?: string;
@@ -77,6 +78,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     prepend,
     required,
     size,
+    inputType,
     value,
     variablesClassName,
     validations,
@@ -205,6 +207,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           maxLength={limit}
+          type={inputType}
         />
         {!!prepend && (
           <div
