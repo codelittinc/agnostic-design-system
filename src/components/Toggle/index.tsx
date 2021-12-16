@@ -32,6 +32,7 @@ const Toggle = <T extends {}>(props: Props<T>) => {
         {items.map(item => {
           return (
             <label
+              className={classNames(styles['toggle-label'], variablesClassName)}
               style={{ width: `${buttonWidth}%` }}
               key={getLabel(item)}
               htmlFor={getLabel(item)}
