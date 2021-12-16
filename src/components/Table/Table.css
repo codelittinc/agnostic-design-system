@@ -1,53 +1,42 @@
 @import '../../styles/theme/index.css';
-:root {
-  --table-background-color: var(--structure-color-100);
-  --table-header-background-color: var(--structure-color-200);
-  --table-body-background-color: var(--structure-color-100);
-  --table-font-family: 'Inter';
-  --table-border: 1px solid var(--structure-color-300);
-  --table-border-bottom: 1px solid var(--structure-color-300);
-  --table-border-left: none;
-  --table-border-right: none;
-  --table-border-top: 1px solid var(--structure-color-300);
-  --table-width: 100%;
-  --table-color: var(--structure-color-800);
-  --table-header-color: var(--structure-color-900);
-  --table-font-family: 'Inter';
-  --table-font-weight: 100;
-  --table-header-font-weight: 300;
-  --table-padding: 10px;
-}
+
 .table-container {
-  background-color: var(--table-background-color);
-  border-bottom: var(--table-border-bottom);
-  border-left: var(--table-border-left);
+  background-color: var(--table-background-color,var(--structure-color-100));
+  border-bottom: var(--table-border-bottom, 1px solid var(--structure-color-300));
+  border-left: var(--table-border-left, none);
   border-radius: var(--table-border-radius, var(--round-m));
-  border-right: var(--table-border-right);
-  border-top: var(--table-border-top);
-  width: var(--table-width);
-  color: var(--table-color);
-  font-family: var(--table-font-family);
+  border-right: var(--table-border-right, none);
+  border-top: var(--table-border-top, 1px solid var(--structure-color-300));
+  width: var(--table-width, 100%);
+  color: var(--table-color, var(--structure-color-800));
+  font-family: var(--table-font-family, 'Inter');
+  border-collapse: var(--table-container-border-colapse, separate);
+  border-spacing: var(--table-container-border-spacing, 0);
+  box-sizing: var(--table-container-box-sizing, border-box);
+  font-size: var(--table-container-font-size, 14px);
+  overflow: var(--table-container-overflow, hidden);
 }
 
 .table-container th {
-  background-color: var(--table-header-background-color);
-  border-bottom: var(--table-border-bottom);
-  border-left: var(--table-border-left);
-  border-right: var(--table-border-right);
-  border-top: var(--table-border-top);
-  color: var(--table-header-color);
-  font-weight: var(--table-header-font-weight);
-  padding: var(--table-padding);
+  background-color: var(--table-header-background-color, var(--structure-color-200));
+  border-bottom: var(--table-border-bottom, 1px solid var(--structure-color-300));
+  border-left: var(--table-border-left, none);
+  border-right: var(--table-border-right, none);
+  border-top: var(--table-border-top, 1px solid var(--structure-color-300));
+  color: var(--table-header-color, var(--structure-color-900));
+  font-weight: var(--table-header-font-weight, 300);
+  padding: var(--table-padding, 10px);
 }
 
 .table-container td {
-  background-color: var(--table-header-background-color);
-  border-bottom: var(--table-border-bottom);
-  border-left: var(--table-border-left);
-  border-right: var(--table-border-right);
-  border-top: var(--table-border-top);
-  font-weight: var(--table-font-weight);
-  padding: var(--table-padding);
+  background-color: var(--table-background-color, var(--structure-color-200));
+  border-bottom: var(--table-border-bottom, 1px solid var(--structure-color-300));
+  border-left: var(--table-border-left, none);
+  border-right: var(--table-border-right, none);
+  border-top: var(--table-border-top, 1px solid var(--structure-color-300));
+  font-weight: var(--table-font-weight, 300);
+  padding: var(--table-padding, 10px);
+  vertical-align: var(--table-container-cell-vertical-align, middle);
 }
 
 .clickable-row {
