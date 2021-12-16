@@ -1,28 +1,22 @@
 @import '../../styles/theme/index.css';
 
-:root {
-  --modal-border: solid 1px black;
-  --modal-container-background-color: rgba(0, 0, 0, 0.1);
-}
-
 .container {
-  display: none;
-  background-color: var(--modal-container-background-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: var(--modal-container-display, flex);
+  background-color: var(--modal-container-background-color, rgba(0, 0, 0, 0.1));
+  justify-content: var(--modal-container-justify-content, center);
+  align-items: var(--modal-container-align-items, center);
   height: 100%;
   position: absolute;
   width: 100%;
   left: 0;
   top: 0;
-  margin: auto;
+  margin: var(--modal-container-align-items, auto);
 }
 
 .content-container {
-  background-color: white;
-  border: var(--modal-border);
-  border-radius: 5px;
-  height: auto;
-  width: auto;
+  background-color: var(--modal-content-container-background-color, var(--structure-color-white));
+  border: var(--modal-border, solid 1px black);
+  border-radius: var(--modal-content-container-border-radius, 5px);
+  height: var(--modal-content-container-height, auto);
+  width: var(--modal-content-container-width, auto);
 }
