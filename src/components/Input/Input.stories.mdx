@@ -17,6 +17,7 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 |          id          |          string           |                                                                                                                                      Unique id.                                                                                                                                       |                                                                    -                                                                     |   true    |
 |        label         | string \| React.ReactNode | Can be used as a [string](https://design-system.codelitt.dev/?path=/story/components-input--default-with-label-text) and allow the engineer to build a [custom label](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-label) and pass it as a parameter |                                                                    -                                                                     |   false   |
 |        limit         |          number           |                                                                                              Value passed to maxLength. Specifies the maximum number of characters allowed in the input.                                                                                              |                                                                    -                                                                     |   false   |
+|         mask         |          string           |                                                                                                              Can be used to determine the format of valid input values.                                                                                                               |                                                                    -                                                                     |   false   |
 |       message        |          string           |                                                                                                                         Text to be displayed below the input.                                                                                                                         |                                                                    -                                                                     |   false   |
 |        onBlur        |        () => void         |                                                                                                         Calls a function whenever the user clicks outside of a focused input.                                                                                                         |                                                                    -                                                                     |   false   |
 |       onChange       |     (e: any) => void      |                                                                                                       Calls a function whenever a change in an event of the input is detected.                                                                                                        |                                                                    -                                                                     |   true    |
@@ -44,7 +45,16 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 
 In the example [here](https://design-system.codelitt.dev/?path=/story/components-input--with-filters), the user is blocked from typing a number due to a regular expression matching for all digits.
 
-2. Regarding the **validations** property and its object keys, similar to the filters property above: **type** can either be defined with a value of 'RegExp' or 'function' (both as strings). With each case:
+2. Regarding the **mask** property, the size of the mask string will determine the size of the valid input. 
+On the following object, the key values can be added to the mask string so that their corresponding RegExp strings will be the values accepted on the input. Any character added to the mask that is different from these keys will be permanent and non-editable on the input.
+
+{
+  '9': '[0-9]',
+  'a': '[A-Za-z]',
+  '*': '[A-Za-z0-9]'
+}
+
+3. Regarding the **validations** property and its object keys, similar to the filters property above: **type** can either be defined with a value of 'RegExp' or 'function' (both as strings). With each case:
 
 - 'RegExp' - the **test** key will expect a Regular Expression as a value;
 - 'function' = the **test** key will expect a function call with a single parameter (represented as the input's value) as a value;

@@ -4,6 +4,7 @@ import styles from '@/components/Input/Input.css';
 import DefaultActionIcon from '@/assets/images/icons/web/close-icon.svg';
 import { isValid, getInvalidMessage } from './validations';
 import { matchesFilter } from './filters';
+import ReactInputMask from 'react-input-mask';
 
 export type Size = 'large' | 'medium';
 
@@ -26,8 +27,10 @@ export interface Props {
   filters?: Filter[];
   hideLabel?: boolean;
   id: string;
+  inputType?: string;
   label?: string | React.ReactNode;
   limit?: number;
+  mask?: string;
   message?: string;
   name?: string;
   onBlur?: () => void;
@@ -42,7 +45,6 @@ export interface Props {
   prepend?: React.ReactNode;
   required?: boolean;
   size: Size;
-  inputType?: string;
   value?: string;
   validations?: Validation[];
   variablesClassName?: string;
@@ -62,8 +64,10 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     filters,
     hideLabel,
     id,
+    inputType,
     label,
     limit,
+    mask,
     message,
     name,
     onBlur,
@@ -78,7 +82,6 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     prepend,
     required,
     size,
-    inputType,
     value,
     variablesClassName,
     validations,
@@ -176,39 +179,70 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     return '';
   };
 
+  const displayInput = () => {
+    const getAttr = value => {
+      return mask ? undefined : value;
+    };
+
+    return (
+      <input
+        {...inputProps}
+        ref={ref}
+        className={classNames(
+          styles.input,
+          styles[sizeClass],
+          styles[statusClass],
+          !!prepend && !withPrependSeparator ? styles['input-with-prepend'] : '',
+          withPrependSeparator ? styles['input-with-prepend-separator'] : ''
+        )}
+        disabled={disabled}
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        maxLength={limit}
+        type={inputType}
+        onKeyDown={onKeyDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        autoComplete={getAttr(autoComplete)}
+        onChange={getAttr(handleChange)}
+        value={getAttr(value || '')}
+        onFocus={getAttr(() => {
+          setValidationState('');
+          onFocus();
+        })}
+        onBlur={getAttr(handleBlur)}
+      />
+    );
+  };
+
+  const displayMaskedInput = mask => {
+    return (
+      <ReactInputMask
+        autoComplete={autoComplete}
+        id={id}
+        mask={mask}
+        name={id}
+        onChange={handleChange}
+        onFocus={() => {
+          setValidationState('');
+          onFocus();
+        }}
+        onBlur={handleBlur}
+        required={false}
+        value={value || ''}
+      >
+        {() => displayInput()}
+      </ReactInputMask>
+    );
+  };
+
   return (
     <div className={classNames(variablesClassName, styles.container)}>
       {getLabel()}
       {getDescription()}
       <div className={classNames(styles['input--container'])}>
-        <input
-          {...inputProps}
-          ref={ref}
-          className={classNames(
-            styles.input,
-            styles[sizeClass],
-            styles[statusClass],
-            !!prepend && !withPrependSeparator ? styles['input-with-prepend'] : '',
-            withPrependSeparator ? styles['input-with-prepend-separator'] : ''
-          )}
-          disabled={disabled}
-          autoComplete={autoComplete}
-          id={id}
-          name={name}
-          onChange={handleChange}
-          placeholder={placeholder}
-          value={value || ''}
-          onFocus={() => {
-            setValidationState('');
-            onFocus();
-          }}
-          onKeyDown={onKeyDown}
-          onBlur={handleBlur}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          maxLength={limit}
-          type={inputType}
-        />
+        {mask ? displayMaskedInput(mask) : displayInput()}
         {!!prepend && (
           <div
             className={classNames(

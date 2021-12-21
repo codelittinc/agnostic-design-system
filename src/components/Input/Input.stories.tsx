@@ -26,6 +26,13 @@ Default.args = {
   label: 'Input Label'
 };
 
+export const WithMask = Template.bind({});
+WithMask.args = {
+  placeholder: 'MM / DD / YYYY',
+  label: 'Input Date for Mask',
+  mask: '99/99/9999'
+};
+
 export const WithReactNodeLabel = Template.bind({});
 WithReactNodeLabel.args = {
   placeholder: 'Enter text',
