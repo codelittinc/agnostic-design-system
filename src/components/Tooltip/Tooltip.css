@@ -27,6 +27,7 @@
   font-family: var(--tooltip-font-family, 'Inter');
   font-size: var(--tooltip-font-size, var(--paragraph-l));
   font-weight: var(--tooltip-font-weight, var(--paragraph-font-weight-bold));
+  text-transform: var(--tooltip-text-transform, none);
 }
 
 .tooltip::before {
