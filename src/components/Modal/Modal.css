@@ -1,16 +1,24 @@
 @import '../../styles/theme/index.css';
 
+.wrapper {
+  height: var(--modal-wrapper-height, 100%);
+  position: var(--modal-wrapper-position, static);
+  top: var(--modal-wrapper-top, 0);
+  width: var(--modal-wrapper-width, 100%);
+  z-index: var(--modal-wrapper-z-index, 0);
+}
+
 .container {
-  display: var(--modal-container-display, flex);
-  background-color: var(--modal-container-background-color, rgba(0, 0, 0, 0.1));
-  justify-content: var(--modal-container-justify-content, center);
   align-items: var(--modal-container-align-items, center);
-  height: 100%;
+  background-color: var(--modal-container-background-color, rgba(0, 0, 0, 0.1));
+  display: var(--modal-container-display, flex);
+  justify-content: var(--modal-container-justify-content, center);
+  height: 100vh;
+  margin: var(--modal-container-margin, auto);
   position: absolute;
   width: 100%;
   left: 0;
   top: 0;
-  margin: var(--modal-container-align-items, auto);
 }
 
 .content-container {
