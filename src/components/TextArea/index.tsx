@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import styles from '@/components/TextArea/TextArea.css';
@@ -116,11 +116,22 @@ const TextArea: React.FC<Props> = props => {
     );
   };
 
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  useEffect(() => {
+    if (textareaRef && textareaRef.current) {
+      textareaRef.current.style.height = '0px';
+      const scrollHeight = textareaRef.current.scrollHeight;
+      textareaRef.current.style.height = scrollHeight + 'px';
+    }
+  }, [value]);
+
   return (
     <div className={classNames(variablesClassName)}>
       {getLabel()}
       {getDescription()}
       <textarea
+        ref={textareaRef}
         {...textareaProps}
         className={classNames(styles.textarea, styles[sizeClass], styles[statusClass])}
         disabled={disabled}
