@@ -40,7 +40,7 @@ const RichTextEditor: React.FC<Props> = props => {
   });
 
   return (
-    <div>
+    <div className={classNames(styles['text-editor-container'], variablesClassName)}>
       <MenuBar
         editor={editor}
         menuEditOptions={menuEditOptions}

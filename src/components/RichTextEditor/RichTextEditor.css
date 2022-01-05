@@ -9,14 +9,25 @@
   --editor-container-width: 100%;
 }
 
+.text-editor-container {
+  display: flex;
+  flex-direction: var(--rich-text-editor-flex-direction, column);
+}
+
 .is-active {
   background: var(--button-background-color-is-active);
   color: var(--button-color-is-active);
 }
 
 .menu-bar-container {
+  align-items: var(--menu-bar-align-items, flex-start);
+  background-color: var(--menu-bar-background-color, var(--structure-color-white));
+  border-radius: var(--menu-bar-border-radius, 0);
   display: flex;
   flex-wrap: wrap;
+  height: var(--menu-bar-height, auto);
+  justify-content: var(--menu-bar-justify-content, flex-start);
+  width: var(--menu-bar-width, auto);
 }
 
 .editor-container {
