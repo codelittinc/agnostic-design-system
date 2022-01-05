@@ -45,7 +45,7 @@ const Toggle = <T extends {}>(props: Props<T>) => {
                 category='neutral'
                 onClick={() => onChange(item)}
                 data-testid={`toggle-element-${getLabel(item)}`}
-                variablesClassName={classNames(styles['toggle-span'], variablesClassName)}
+                variablesClassName={classNames(styles['toggle-button'], variablesClassName)}
               />
               <input
                 readOnly

@@ -1,7 +1,21 @@
 @import '../../styles/theme/index.css';
 
-.toggle-span span {
+.toggle-button span {
   z-index: var(--toggle-span-z-index, 1);
+}
+
+.toggle-button[category='neutral']:hover {
+  background-color: var(--toggle-background-color-hover);
+}
+
+.toggle-button[category='neutral']:active,
+.toggle-button[category='neutral']:focus {
+  background-color: var(--toggle-background-color-active, var(--structure-color-400));
+}
+
+.toggle-button[category='neutral'] {
+  background-color: var(--toggle-background-color, var(--structure-color-200));
+  transition: var(--toggle-button-transition, all 0.5s ease);
 }
 
 .toggle-input {
@@ -42,20 +56,6 @@
 
 .toggle-active-btn[data-active-item='false'] {
   transform: var(--toggle-button-transform, translateX(50%));
-}
-
-button[category='neutral']:hover {
-  background-color: var(--toggle-background-color-hover);
-}
-
-button[category='neutral']:active,
-button[category='neutral']:focus {
-  background-color: var(--toggle-background-color-active, var(--structure-color-400));
-}
-
-button[category='neutral'] {
-  background-color: var(--toggle-background-color, var(--structure-color-200));
-  transition: var(--toggle-button-transition, all 0.5s ease);
 }
 
 .toggle-label {
