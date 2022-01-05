@@ -25,6 +25,8 @@
   height: var(--button-height);
   justify-content: var(--button-justify-content, initial);
   margin: var(--button-margin, none);
+  outline: var(--button-outline, none);
+  outline-offset: var(--button-outline-offset, 0);
   width: var(--button-width);
 }
 
@@ -34,6 +36,8 @@
   box-shadow: var(--button-box-shadow-hover, none);
   color: var(--button-color-hover, var(--button-color));
   cursor: var(--button-cursor-hover, pointer);
+  outline: var(--button-outline-hover, none);
+  outline-offset: var(--button-outline-offset-hover, 0);
 }
 
 .button:hover .button--append-icon {
@@ -46,7 +50,8 @@
   box-shadow: var(--button-box-shadow-focus, none);
   color: var(--button-color-focus, var(--button-color));
   cursor: var(--button-cursor-focus, pointer);
-  outline: none;
+  outline: var(--button-outline-focus, none);
+  outline-offset: var(--button-outline-offset-focus, 0);
 }
 
 .button:focus .button--append-icon {
@@ -59,6 +64,8 @@
   box-shadow: var(--button-box-shadow-active, none);
   color: var(--button-color-active, var(--button-color));
   cursor: var(--button-cursor-active, pointer);
+  outline: var(--button-outline-active, none);
+  outline-offset: var(--button-outline-offset-active, 0);
 }
 
 .button:active .button--append-icon {
