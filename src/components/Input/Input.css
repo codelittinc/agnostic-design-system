@@ -35,6 +35,7 @@
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
   font-family: var(--input-font-family);
+  text-align: var(--input-text-align, left);
   width: var(--input-width);
 }
 

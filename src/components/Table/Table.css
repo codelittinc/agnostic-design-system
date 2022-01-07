@@ -20,6 +20,7 @@
 .table-container th {
   background-color: var(--table-header-background-color, var(--structure-color-200));
   border-bottom: var(--table-border-bottom, 1px solid var(--structure-color-300));
+  border-bottom-style: var(--table-border-bottom-style, none);
   border-left: var(--table-border-left, none);
   border-right: var(--table-border-right, none);
   border-top: var(--table-border-top, 1px solid var(--structure-color-300));
@@ -37,6 +38,10 @@
   font-weight: var(--table-font-weight, 300);
   padding: var(--table-padding, 10px);
   vertical-align: var(--table-container-cell-vertical-align, middle);
+}
+
+.table-container tfoot td {
+  background-color: var(--table-footer-background-color, var(--structure-color-200));
 }
 
 .clickable-row {
