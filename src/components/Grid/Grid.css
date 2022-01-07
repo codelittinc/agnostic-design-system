@@ -1,18 +1,19 @@
 :root {
   --col-background-color: none;
   --col-border: none;
-  --container-background-color: none;
-  --container-border: none;
   --row-background-color: none;
   --row-border: none; }
 
 .codelitt-container {
-  background-color: var(--container-background-color);
-  border: var(--container-border);
-  margin: 0 auto;
+  background-color: var(--container-background-color, none);
+  border: var(--container-border, none);
+  border-top-style: var(--container-border-top-style, none);
+  box-shadow: var(--container-box-shadow, none);
+  margin: var(--container-margin, 0 auto);
   max-width: 375px;
-  padding-left: 12px;
-  padding-right: 12px; }
+  padding: var(--container-padding, 0 12px);
+  width: var(--container-width, auto);
+}
 
 .codelitt-container .codelitt-row {
   background-color: var(--row-background-color);
@@ -72,12 +73,15 @@
   width: 100%; }
 
 .codelitt-container-fluid {
-  background-color: var(--container-background-color);
-  border: var(--container-border);
-  margin: 0 auto;
+  background-color: var(--container-background-color, none);
+  border: var(--container-border, none);
+  border-top-style: var(--container-border-top-style, none);
+  box-shadow: var(--container-box-shadow, none);
+  margin: var(--container-margin, 0 auto);
   max-width: 100%;
-  padding-left: 12px;
-  padding-right: 12px; }
+  padding: var(--container-padding, 0 12px);
+  width: var(--container-width, auto);
+}
 
 .codelitt-container-fluid .codelitt-row {
   background-color: var(--row-background-color);
@@ -148,12 +152,16 @@
 
 @media only screen and (min-width: 400px) {
   .codelitt-container {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 375px;
-    padding-left: 12px;
-    padding-right: 12px; }
+    padding: var(--container-padding, 0 12px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -204,12 +212,16 @@
     padding-right: 12px;
     width: 100%; }
   .codelitt-container-fluid {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 100%;
-    padding-left: 12px;
-    padding-right: 12px; }
+    padding: var(--container-padding, 0 12px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container-fluid .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -262,12 +274,15 @@
 
 @media only screen and (min-width: 600px) {
   .codelitt-container {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 408px;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
   .codelitt-container .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -362,12 +377,16 @@
     padding-right: 16px;
     width: 100%; }
   .codelitt-container-fluid {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container-fluid .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -464,12 +483,15 @@
 
 @media only screen and (min-width: 800px) {
   .codelitt-container {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 768px;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
   .codelitt-container .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -608,12 +630,16 @@
     padding-right: 16px;
     width: 100%; }
   .codelitt-container-fluid {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 100%;
-    padding-left: 18px;
-    padding-right: 18px; }
+    padding: var(--container-padding, 0 18px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container-fluid .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -754,12 +780,15 @@
 
 @media only screen and (min-width: 1200px) {
   .codelitt-container {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 1024px;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
   .codelitt-container .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -898,12 +927,16 @@
     padding-right: 16px;
     width: 100%; }
   .codelitt-container-fluid {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container-fluid .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -1088,12 +1121,15 @@
 
 @media only screen and (min-width: 1440px) {
   .codelitt-container {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 1200px;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
   .codelitt-container .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -1232,12 +1268,16 @@
     padding-right: 16px;
     width: 100%; }
   .codelitt-container-fluid {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container-fluid .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -1422,12 +1462,16 @@
 
 @media only screen and (min-width: 1600px) {
   .codelitt-container {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 1480px;
-    padding-left: 16px;
-    padding-right: 16px; }
+    padding: var(--container-padding, 0 16px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
@@ -1566,12 +1610,16 @@
     padding-right: 16px;
     width: 100%; }
   .codelitt-container-fluid {
-    background-color: var(--container-background-color);
-    border: var(--container-border);
-    margin: 0 auto;
+    background-color: var(--container-background-color, none);
+    border: var(--container-border, none);
+    border-top-style: var(--container-border-top-style, none);
+    box-shadow: var(--container-box-shadow, none);
+    margin: var(--container-margin, 0 auto);
     max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px; }
+    padding: var(--container-padding, 0 20px);
+    width: var(--container-width, auto);
+  }
+
   .codelitt-container-fluid .codelitt-row {
     background-color: var(--row-background-color);
     border: var(--row-border);
