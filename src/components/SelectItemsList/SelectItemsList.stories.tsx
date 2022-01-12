@@ -30,6 +30,7 @@ const options = [
 
 export const Default = Template.bind({});
 Default.args = {
+  label: 'Select Items List',
   options,
   getItemKey: item => item.id,
   getItemValue: item => item.id
