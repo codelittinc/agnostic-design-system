@@ -60,7 +60,7 @@
   );
 }
 
-.input-container-label:focus {
+.input-container:focus + .input-container-label {
   outline: var(--select-items-list-outline-focus, 1px solid var(--primary-color-200));
   outline-offset: var(--select-items-list-outline-offset-focus, 8px);
 }
