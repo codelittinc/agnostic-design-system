@@ -84,12 +84,13 @@
 
 .input:focus {
   background-color: var(--input-background-color-focus, var(--input-background-color));
-  outline: var(--input-outline-focus, none);
   border-bottom: var(--input-border-bottom-focus, var(--input-border-focus, var(--input-border)));
   border-left: var(--input-border-left-focus, var(--input-border-focus, var(--input-border)));
   border-right: var(--input-border-right-focus, var(--input-border-focus, var(--input-border)));
   border-top: var(--input-border-top-focus, var(--input-border-focus, var(--input-border)));
   color: var(--input-color-focus, var(--input-color));
+  outline: var(--input-outline-focus, none);
+  outline-offset: var(--input-outline-offset-focus, 0);
 }
 
 .input:not([value='']) + .input--prepend.input--prepend-with-separator {
