@@ -37,9 +37,15 @@ const Table = (props: Props) => {
         {tableContent.map((row, rowIndex) => (
           <tr
             className={onRowClick ? styles['clickable-row'] : styles['non-clickable-row']}
+            tabIndex={rowIndex}
             key={rowIndex}
             onClick={() => {
               handleRowClick(row, rowIndex);
+            }}
+            onKeyPress={event => {
+              if (event.key === 'Enter') {
+                handleRowClick(row, rowIndex);
+              }
             }}
           >
             {row.map((content, contentIndex) => (

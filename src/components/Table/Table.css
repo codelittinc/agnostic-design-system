@@ -44,6 +44,10 @@
   background-color: var(--table-footer-background-color, var(--structure-color-200));
 }
 
+.table-container tr:focus td {
+  background-color: var(--table-row-background-color-focus, var(--structure-color-400));
+}
+
 .clickable-row {
   cursor: var(--table-clickable-row-cursor, pointer);
 }
