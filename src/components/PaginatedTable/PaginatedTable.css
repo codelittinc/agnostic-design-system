@@ -19,6 +19,7 @@
 }
 
 .number-of-pages:after {
+  color: var(--paginated-table-separator-color, var(--structure-color-800));
   content: '|';
   margin-left: 20px;
 }
