@@ -5,8 +5,11 @@
   --button-color-is-active: var(--structure-color-white);
 
   --editor-container-border: 1px solid var(--structure-color-black);
+  --editor-container-border-focus: 1px solid var(--structure-color-black);
   --editor-container-height: 100%;
   --editor-container-width: 100%;
+
+  --placeholder-color: var(--structure-color-600);
 }
 
 .is-active {
@@ -29,6 +32,11 @@
   border: var(--editor-container-border);
   width: var(--editor-container-width);
   height: var(--editor-container-height);
+}
+
+.editor-container:focus {
+  border: var(--editor-container-border-focus);
+  outline: none;
 }
 
 table {
@@ -90,4 +98,12 @@ th {
 .menu-bar-bottom-positioned {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.is-editor-empty:first-child::before {
+  color: var(--placeholder-color);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
 }

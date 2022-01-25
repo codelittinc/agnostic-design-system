@@ -6,7 +6,8 @@ import Table from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
-import Underline from '@tiptap/extension-underline'
+import Underline from '@tiptap/extension-underline';
+import Placeholder from '@tiptap/extension-placeholder';
 import styles from './RichTextEditor.css';
 import classNames from 'classnames';
 import MenuBar from './MenuBar';
@@ -16,11 +17,12 @@ interface Props {
   editorContent?: string;
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
   menuPositionedBottom?: boolean;
+  placeholderText?: string;
   variablesClassName?: string;
 }
 
 const RichTextEditor: React.FC<Props> = props => {
-  const { editorContent, menuEditOptions, menuPositionedBottom, variablesClassName } = props;
+  const { editorContent, menuEditOptions, menuPositionedBottom, placeholderText, variablesClassName } = props;
 
   const editor = useEditor({
     editorProps: {
@@ -37,7 +39,11 @@ const RichTextEditor: React.FC<Props> = props => {
       TableRow,
       TableHeader,
       Underline,
-      TableCell
+      TableCell,
+      Placeholder.configure({
+        placeholder: placeholderText,
+        emptyEditorClass: styles['is-editor-empty']
+      })
     ],
     content: editorContent || ''
   });
