@@ -9,11 +9,6 @@
   --editor-container-width: 100%;
 }
 
-.text-editor-container {
-  display: flex;
-  flex-direction: var(--rich-text-editor-flex-direction, column);
-}
-
 .is-active {
   background: var(--button-background-color-is-active);
   color: var(--button-color-is-active);
@@ -90,4 +85,9 @@ th {
 .resize-cursor {
   cursor: ew-resize;
   cursor: col-resize;
+}
+
+.menu-bar-bottom-positioned {
+  display: flex;
+  flex-direction: column-reverse;
 }

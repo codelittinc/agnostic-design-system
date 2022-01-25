@@ -12,13 +12,14 @@ import MenuBar from './MenuBar';
 import { MENU_EDIT_OPTIONS } from './richTextEditOptions';
 
 interface Props {
-  menuEditOptions?: typeof MENU_EDIT_OPTIONS;
   editorContent?: string;
+  menuEditOptions?: typeof MENU_EDIT_OPTIONS;
+  menuPositionedBottom?: boolean;
   variablesClassName?: string;
 }
 
 const RichTextEditor: React.FC<Props> = props => {
-  const { menuEditOptions, variablesClassName, editorContent } = props;
+  const { editorContent, menuEditOptions, menuPositionedBottom, variablesClassName } = props;
 
   const editor = useEditor({
     editorProps: {
@@ -39,8 +40,10 @@ const RichTextEditor: React.FC<Props> = props => {
     content: editorContent || ''
   });
 
+  const menuBarPosition = menuPositionedBottom ? styles['menu-bar-bottom-positioned'] : '';
+
   return (
-    <div className={classNames(styles['text-editor-container'], variablesClassName)}>
+    <div className={classNames(variablesClassName, menuBarPosition)}>
       <MenuBar
         editor={editor}
         menuEditOptions={menuEditOptions}

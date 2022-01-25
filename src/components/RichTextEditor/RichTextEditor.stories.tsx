@@ -43,5 +43,6 @@ Default.args = {
     'image',
     'table'
   ],
-  editorContent: '<h2>Edit here</h2><br><br>'
+  editorContent: '<h2>Edit here</h2><br><br>',
+  menuPositionedBottom: true
 };
