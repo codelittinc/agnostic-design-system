@@ -36,6 +36,7 @@ Default.args = {
     'code',
     'italic',
     'strike',
+    'underline',
     'clear marks',
     'clear nodes',
     'undo',

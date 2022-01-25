@@ -6,6 +6,7 @@ import Table from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
+import Underline from '@tiptap/extension-underline'
 import styles from './RichTextEditor.css';
 import classNames from 'classnames';
 import MenuBar from './MenuBar';
@@ -35,6 +36,7 @@ const RichTextEditor: React.FC<Props> = props => {
       }),
       TableRow,
       TableHeader,
+      Underline,
       TableCell
     ],
     content: editorContent || ''
