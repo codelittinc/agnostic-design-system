@@ -14,10 +14,11 @@ import {
 interface Props {
   editor: any;
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
+  ref?: React.Ref<HTMLDivElement>;
   variablesClassName?: string;
 }
 
-const MenuBar: React.FC<Props> = props => {
+const MenuBar = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { editor, menuEditOptions, variablesClassName } = props;
 
   if (!editor) {
@@ -32,7 +33,7 @@ const MenuBar: React.FC<Props> = props => {
   }
 
   return (
-    <div className={classNames(styles['menu-bar-container'])}>
+    <div className={classNames(styles['menu-bar-container'], variablesClassName)} ref={ref}>
       {renderMenuOptions(
         editor,
         variablesClassName,
@@ -107,6 +108,6 @@ const MenuBar: React.FC<Props> = props => {
       )}
     </div>
   );
-};
+});
 
 export default MenuBar;

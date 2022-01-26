@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
@@ -12,8 +12,10 @@ import styles from './RichTextEditor.css';
 import classNames from 'classnames';
 import MenuBar from './MenuBar';
 import { MENU_EDIT_OPTIONS } from './richTextEditOptions';
+import clsx from 'clsx';
 
 interface Props {
+  displayOnlyOnFocus?: boolean;
   editorContent?: string;
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
   menuPositionedBottom?: boolean;
@@ -22,7 +24,50 @@ interface Props {
 }
 
 const RichTextEditor: React.FC<Props> = props => {
-  const { editorContent, menuEditOptions, menuPositionedBottom, placeholderText, variablesClassName } = props;
+  const {
+    displayOnlyOnFocus,
+    editorContent,
+    menuEditOptions,
+    menuPositionedBottom,
+    placeholderText,
+    variablesClassName
+  } = props;
+
+  const [hideMenuBar, setHideMenuBar] = useState(displayOnlyOnFocus);
+
+  const menuBarClassName = clsx(
+    variablesClassName,
+    hideMenuBar ? styles['menu-bar-container-hidden'] : styles['menu-bar-container-visible']
+  );
+
+  const buttonsMenuElement = useRef<HTMLDivElement>(null);
+  const textAreaElement = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function buttonsMenuConcealer(event) {
+      if (
+        textAreaElement.current &&
+        buttonsMenuElement.current &&
+        !textAreaElement.current.contains(event.target) &&
+        !buttonsMenuElement.current.contains(event.target)
+      ) {
+        setHideMenuBar(true);
+      }
+    }
+
+    if (displayOnlyOnFocus) {
+      document.addEventListener('mousedown', buttonsMenuConcealer);
+      return () => {
+        document.removeEventListener('mousedown', buttonsMenuConcealer);
+      };
+    }
+  }, []);
+
+  const buttonsMenuDisplayer = () => {
+    displayOnlyOnFocus && setHideMenuBar(false);
+  };
+
+  const menuBarPosition = menuPositionedBottom ? styles['menu-bar-bottom-positioned'] : '';
 
   const editor = useEditor({
     editorProps: {
@@ -48,16 +93,17 @@ const RichTextEditor: React.FC<Props> = props => {
     content: editorContent || ''
   });
 
-  const menuBarPosition = menuPositionedBottom ? styles['menu-bar-bottom-positioned'] : '';
-
   return (
     <div className={classNames(variablesClassName, menuBarPosition)}>
       <MenuBar
         editor={editor}
         menuEditOptions={menuEditOptions}
-        variablesClassName={variablesClassName}
+        ref={buttonsMenuElement}
+        variablesClassName={menuBarClassName}
       />
-      <EditorContent editor={editor} />
+      <div ref={textAreaElement}>
+        <EditorContent editor={editor} onClick={() => buttonsMenuDisplayer()} />
+      </div>
     </div>
   );
 };
