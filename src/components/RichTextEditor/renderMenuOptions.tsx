@@ -5,6 +5,8 @@ import buttonNameFormatter from './buttonNameFormatter';
 import Button from '@/components/Button';
 
 export default function renderMenuOptions(
+  buttonIcons,
+  getButtonIcon,
   editor,
   variablesClassName,
   menuEditOptions,
@@ -38,11 +40,13 @@ export default function renderMenuOptions(
 
         return (
           <Button
-            text={buttonName}
+            appendIcon={getButtonIcon(buttonIcons, buttonName) ?? ''}
+            text={getButtonIcon(buttonIcons, buttonName) ? '' : buttonName}
             category='neutral'
             key={buttonName}
             onClick={() => onClickAction()}
             variablesClassName={classNames(className, variablesClassName)}
+            withAppendIcon={!!getButtonIcon(buttonIcons, buttonName)}
           />
         );
       })}

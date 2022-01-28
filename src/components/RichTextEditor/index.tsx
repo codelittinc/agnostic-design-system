@@ -15,6 +15,7 @@ import { MENU_EDIT_OPTIONS } from './richTextEditOptions';
 import clsx from 'clsx';
 
 interface Props {
+  buttonIcons?: Array<object>;
   displayOnlyOnFocus?: boolean;
   editorContent?: string;
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
@@ -25,6 +26,7 @@ interface Props {
 
 const RichTextEditor: React.FC<Props> = props => {
   const {
+    buttonIcons,
     displayOnlyOnFocus,
     editorContent,
     menuEditOptions,
@@ -96,6 +98,7 @@ const RichTextEditor: React.FC<Props> = props => {
   return (
     <div className={classNames(variablesClassName, menuBarPosition)}>
       <MenuBar
+        buttonIcons={buttonIcons}
         editor={editor}
         menuEditOptions={menuEditOptions}
         ref={buttonsMenuElement}

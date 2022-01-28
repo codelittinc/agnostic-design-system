@@ -6,6 +6,7 @@
 
 |         Prop         |   Type   |                                   Description                                   |   Default   | Mandatory |
 | :------------------: | :------: | :-----------------------------------------------------------------------------: | :---------: | :-------: |
+|     buttonIcons      | object[] |   List of objects containing the button name and the icon that it should use.   |      -      |   false   |
 |  displayOnlyOnFocus  | boolean  | Specifies whether or not the menu will be hidden when the editor is not in use. |      -      |   false   |
 |   menuEditOptions    | string[] |                 List of the edit options available on the menu.                 | All options |   false   |
 | menuPositionedBottom | boolean  |      Specifies whether or not the menu bar should be under the text input.      |      -      |   false   |
@@ -38,6 +39,19 @@
 21. redo
 22. table
 23. image
+
+**Button Icons**
+
+Should receive an array of objects containing the 'buttonName' and 'icon' keys with its values being the name of the button and the icon that it should use.
+
+example:
+
+```
+buttonIcons: [
+  {buttonName: 'h1', icon: <SearchIcon height='15' width='15' />},
+  {buttonName: 'underline', icon: <ArrowUp height='15' width='15' />}
+]
+```
 
 ## Getting Started
 

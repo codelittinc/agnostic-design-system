@@ -9,7 +9,13 @@ function tableButtonNameFormatter(str) {
   return word.charAt(0).toLowerCase() + word.substring(1);
 }
 
-export default function renderTableOptions(editor, variablesClassName, tableOptions) {
+export default function renderTableOptions(
+  buttonIcons,
+  getButtonIcon,
+  editor,
+  variablesClassName,
+  tableOptions
+) {
   return (
     <>
       {tableOptions?.map(buttonName => {
@@ -25,11 +31,13 @@ export default function renderTableOptions(editor, variablesClassName, tableOpti
 
         return (
           <Button
-            text={buttonName}
+            appendIcon={getButtonIcon(buttonIcons, buttonName) ?? ''}
+            text={getButtonIcon(buttonIcons, buttonName) ? '' : buttonName}
             category='neutral'
             key={buttonName}
             onClick={() => onClickAction()}
             variablesClassName={classNames(variablesClassName)}
+            withAppendIcon={!!getButtonIcon(buttonIcons, buttonName)}
           />
         );
       })}
