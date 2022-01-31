@@ -2,9 +2,10 @@
 
 .custom-toggle {
   --toggle-wrapper-background-color: blue;
-  --toggle-active-background-color: lightblue;
-  --toggle-active-color: white;
+  --toggle-active-btn-background-color: lightblue;
+  --toggle-color-active: white;
+  --toggle-color-hover: red;
+  --toggle-color: purple;
   --toggle-background-color-hover: yellow;
   --toggle-background-color-active: green;
-  --toggle-color-hover: red;
 }

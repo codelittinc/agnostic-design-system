@@ -19,38 +19,39 @@
 }
 
 .toggle-input {
-  visibility: hidden;
   position: absolute;
+  visibility: hidden;
 }
 
 .toggle-wrapper {
-  width: 100%;
-  height: var(--button-height);
-  padding: var(--toggle-padding, 10px);
   background-color: var(--toggle-wrapper-background-color, var(--structure-color-200));
   border-radius: var(--toggle-wrapper-border-radius, 3px);
+  height: var(--toggle-wrapper-height, 50px);
+  padding: var(--toggle-padding, 10px);
+  width: 100%;
 }
 
 .toggle {
-  width: var(--toggle-width, 100%);
-  height: var(--button-height);
-  display: var(--toggle-display, flex);
   background-color: var(--toggle-background-color, var(--structure-color-200));
+  border-radius: var(--toggle-border-radius, 3px);
+  display: var(--toggle-display, flex);
+  height: var(--toggle-height, 50px);
   position: var(--toggle-position, relative);
+  width: var(--toggle-width, 100%);
 }
 /*[data-number-of-items]*/
 .toggle-active-btn {
-  position: var(--toggle-active-btn-position, absolute);
-  background-color: var(--toggle-active-background-color, var(--structure-color-white));
+  background-color: var(--toggle-active-btn-background-color, var(--structure-color-white));
   box-shadow: var(--toggle-active-btn-box-shadow, 0 2px 15px rgb(0 0 0 / 15%));
+  border-radius: var(--toggle-active-btn-border-radius, 3px);
+  cursor: var(--toggle-active-btn-cursor, pointer);
+  display: var(--toggle-active-btn-display, block);
+  height: var(--toggle-active-btn-height, 50px);
+  position: var(--toggle-active-btn-position, absolute);
   transition: var(
     --toggle-active-btn-transition,
     transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
   );
-  border-radius: var(--toggle-border-radius, 3px);
-  cursor: var(--toggle-active-btn-cursor, pointer);
-  display: var(--toggle-active-btn-display, block);
-  height: var(--toggle-height, 50px);
   z-index: var(--toggle-active-btn-z-index, 1);
 }
 
@@ -59,12 +60,12 @@
 }
 
 .toggle-label {
-  height: var(--toggle-label-height, 100%);
-  position: var(--toggle-label-position, relative);
+  align-items: var(--toggle-label-align-items, center);
   display: var(--toggle-label-display, flex);
   flex-direction: var(--toggle-label-flex-direction, column);
-  align-items: var(--toggle-label-align-items, center);
+  height: var(--toggle-label-height, 100%);
   margin: var(--toggle-label-margin);
+  position: var(--toggle-label-position, relative);
 }
 
 .toggle-label[data-active='false'] button {
@@ -77,5 +78,5 @@
 
 .toggle-label[data-active='true'] button,
 .toggle-label[data-active='true'] button:hover {
-  color: var(--toggle-active-color, var(--primary-color-900));
+  color: var(--toggle-color-active, var(--primary-color-900));
 }
