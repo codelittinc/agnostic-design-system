@@ -1,11 +1,14 @@
 .codelitt-container {
   background-color: var(--container-background-color, none);
   border: var(--container-border, none);
+  border-radius: var(--container-border-radius, 0);
   border-top-style: var(--container-border-top-style, none);
   box-shadow: var(--container-box-shadow, none);
   margin: var(--container-margin, 0 auto);
   max-width: 375px;
   padding: var(--container-padding, 0 12px);
+  page-break-inside: var(--container-page-break-inside, auto);
+  position: var(--container-position, static);
   width: var(--container-width, auto);
 }
 
@@ -92,11 +95,14 @@
 .codelitt-container-fluid {
   background-color: var(--container-background-color, none);
   border: var(--container-border, none);
+  border-radius: var(--container-border-radius, 0);
   border-top-style: var(--container-border-top-style, none);
   box-shadow: var(--container-box-shadow, none);
   margin: var(--container-margin, 0 auto);
   max-width: 100%;
   padding: var(--container-padding, 0 12px);
+  page-break-inside: var(--container-page-break-inside, auto);
+  position: var(--container-position, static);
   width: var(--container-width, auto);
 }
 
@@ -194,11 +200,14 @@
   .codelitt-container {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 375px;
     padding: var(--container-padding, 0 12px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -285,11 +294,14 @@
   .codelitt-container-fluid {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 100%;
     padding: var(--container-padding, 0 12px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -377,11 +389,14 @@
   .codelitt-container {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 408px;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -540,11 +555,14 @@
   .codelitt-container-fluid {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 100%;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -704,11 +722,14 @@
   .codelitt-container {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 768px;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -939,11 +960,14 @@
   .codelitt-container-fluid {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 100%;
     padding: var(--container-padding, 0 18px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -1175,11 +1199,14 @@
   .codelitt-container {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 1024px;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -1410,11 +1437,14 @@
   .codelitt-container-fluid {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 100%;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -1718,11 +1748,14 @@
   .codelitt-container {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 1200px;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -1953,11 +1986,14 @@
   .codelitt-container-fluid {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 100%;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -2261,11 +2297,14 @@
   .codelitt-container {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 1480px;
     padding: var(--container-padding, 0 16px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
@@ -2496,11 +2535,14 @@
   .codelitt-container-fluid {
     background-color: var(--container-background-color, none);
     border: var(--container-border, none);
+    border-radius: var(--container-border-radius, 0);
     border-top-style: var(--container-border-top-style, none);
     box-shadow: var(--container-box-shadow, none);
     margin: var(--container-margin, 0 auto);
     max-width: 100%;
     padding: var(--container-padding, 0 20px);
+    page-break-inside: var(--container-page-break-inside, auto);
+    position: var(--container-position, static);
     width: var(--container-width, auto);
   }
 
