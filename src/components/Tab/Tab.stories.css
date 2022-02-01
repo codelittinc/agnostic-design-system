@@ -4,15 +4,6 @@
   --button-color-active: var(--primary-color-700);
   --button-background-color-active: transparent;
   --button-border-active: 2px solid var(--primary-color-700);
-  border-width: 0 0 2px 0;
-}
-
-.menu-button-active:focus {
-  border-width: 0 0 2px 0;
-}
-
-.menu-button-active:hover {
-  border-width: 0 0 2px 0;
 }
 
 .component-container {

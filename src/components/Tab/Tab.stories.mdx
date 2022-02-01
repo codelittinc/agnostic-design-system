@@ -19,7 +19,10 @@ import { Tab } from '@codelittinc/agnostic-design-system';
 const SimpleTab = () => {
   return (
     <Tab
-      menuItems={[{ title: 'Test Active', active: true, key: '1' }, { title: 'Test Inactive', key: '2' }]}
+      menuItems={[
+        { title: 'Test Active', active: true, key: '1' },
+        { title: 'Test Inactive', key: '2' }
+      ]}
       components={[
         <>
           <div>Active</div>
@@ -43,6 +46,7 @@ export default SimpleTab;
 |       button       |  align-content   |                                |
 |       button       | background-color | hover, focus, active, disabled |
 |       button       |      border      | hover, focus, active, disabled |
+|       button       |   border-width   |      hover, focus, active      |
 |       button       |  border-radius   |                                |
 |       button       |    box-shadow    | hover, focus, active, disabled |
 |       button       |      color       | hover, focus, active, disabled |
@@ -62,6 +66,7 @@ export default SimpleTab;
 |     container      |     display      |                                |
 |     container      |    flex-flow     |                                |
 |     container      |      width       |                                |
+|     container      |      margin      |                                |
 |   menu-container   |     display      |                                |
 |   menu-container   |    flex-flow     |                                |
 |   menu-container   |   align-items    |                                |
