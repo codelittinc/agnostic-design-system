@@ -40,6 +40,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 25%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 25%);
 }
 
@@ -58,6 +59,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 50%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 25%);
 }
 
@@ -76,6 +78,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 75%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 75%);
 }
 
@@ -94,6 +97,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 100%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 100%);
 }
 
@@ -139,6 +143,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 25%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 25%);
 }
 
@@ -157,6 +162,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 50%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 50%);
 }
 
@@ -175,6 +181,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 75%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 75%);
 }
 
@@ -193,6 +200,7 @@
   margin: var(--col-margin, auto);
   max-width: var(--col-max-width, 100%);
   padding: var(--col-padding, 0 12px);
+  text-align: var(--col-text-align, start);
   width: var(--col-width, 100%);
 }
 
@@ -249,6 +257,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -267,6 +276,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -285,6 +295,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -303,6 +314,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%);
   }
 
@@ -348,6 +360,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -366,6 +379,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -384,6 +398,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -402,6 +417,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 12px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%); }
   }
 
@@ -448,6 +464,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 12.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 12.5%);
   }
 
@@ -466,6 +483,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -484,6 +502,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 37.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 37.5%);
   }
 
@@ -502,6 +521,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -520,6 +540,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 62.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 62.5%);
   }
 
@@ -538,6 +559,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -556,6 +578,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 87.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 87.5%);
   }
 
@@ -574,6 +597,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%);
   }
 
@@ -619,6 +643,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 12.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 12.5%);
   }
 
@@ -637,6 +662,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -655,6 +681,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 37.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 37.5%);
   }
 
@@ -673,6 +700,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -691,6 +719,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 62.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 62.5%);
   }
 
@@ -709,6 +738,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -727,6 +757,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 87.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 87.5%);
   }
 
@@ -745,6 +776,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%); }
   }
 
@@ -791,6 +823,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 8.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 8.33333%);
   }
 
@@ -809,6 +842,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 16.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 16.66667%);
   }
 
@@ -827,6 +861,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -845,6 +880,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 33.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 33.33333%);
   }
 
@@ -863,6 +899,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 41.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 41.66667%);
   }
 
@@ -881,6 +918,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -899,6 +937,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 58.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 58.33333%);
   }
 
@@ -917,6 +956,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 66.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 66.66667%);
   }
 
@@ -935,6 +975,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -953,6 +994,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 83.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 83.33333%);
   }
 
@@ -971,6 +1013,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 91.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 91.66667%);
   }
 
@@ -989,6 +1032,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%);
   }
 
@@ -1034,6 +1078,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 8.33333%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 8.33333%);
   }
 
@@ -1052,6 +1097,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 16.66667%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 16.66667%);
   }
 
@@ -1070,6 +1116,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -1088,6 +1135,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 33.33333%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 33.33333%);
   }
 
@@ -1106,6 +1154,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 41.66667%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 41.66667%);
   }
 
@@ -1124,6 +1173,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -1142,6 +1192,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 58.33333%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 58.33333%);
   }
 
@@ -1160,6 +1211,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 66.66667%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 66.66667%);
   }
 
@@ -1178,6 +1230,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -1196,6 +1249,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 83.33333%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 83.33333%);
   }
 
@@ -1214,6 +1268,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 91.66667%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 91.66667%);
   }
 
@@ -1232,6 +1287,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 18px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%); }
   }
 
@@ -1278,6 +1334,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 8.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 8.33333%);
   }
 
@@ -1296,6 +1353,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 16.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 16.66667%);
   }
 
@@ -1314,6 +1372,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -1332,6 +1391,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 33.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 33.33333%);
   }
 
@@ -1350,6 +1410,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 41.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 41.66667%);
   }
 
@@ -1368,6 +1429,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -1386,6 +1448,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 58.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 58.33333%);
   }
 
@@ -1404,6 +1467,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 66.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 66.66667%);
   }
 
@@ -1422,6 +1486,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -1440,6 +1505,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 83.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 83.33333%);
   }
 
@@ -1458,6 +1524,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 91.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 91.66667%);
   }
 
@@ -1476,6 +1543,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%);
   }
 
@@ -1521,6 +1589,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 6.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 6.25%);
   }
 
@@ -1539,6 +1608,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 12.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 12.5%);
   }
 
@@ -1557,6 +1627,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 18.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 18.75%);
   }
 
@@ -1575,6 +1646,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -1593,6 +1665,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 31.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 31.25%);
   }
 
@@ -1611,6 +1684,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 37.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 37.5%);
   }
 
@@ -1629,6 +1703,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 43.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 43.75%);
   }
 
@@ -1647,6 +1722,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -1665,6 +1741,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 56.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 56.25%);
   }
 
@@ -1683,6 +1760,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 62.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 62.5%);
   }
 
@@ -1701,6 +1779,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 68.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 68.75%);
   }
 
@@ -1719,6 +1798,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -1737,6 +1817,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 81.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 81.25%);
   }
 
@@ -1755,6 +1836,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 87.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 87.5%);
   }
 
@@ -1773,6 +1855,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 93.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 93.75%);
   }
 
@@ -1791,6 +1874,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%); }
   }
 
@@ -1837,6 +1921,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 8.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 8.33333%);
   }
 
@@ -1873,6 +1958,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -1891,6 +1977,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 33.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 33.33333%);
   }
 
@@ -1909,6 +1996,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 41.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 41.66667%);
   }
 
@@ -1927,6 +2015,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -1945,6 +2034,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 58.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 58.33333%);
   }
 
@@ -1963,6 +2053,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 66.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 66.66667%);
   }
 
@@ -1981,6 +2072,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -1999,6 +2091,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 83.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 83.33333%);
   }
 
@@ -2017,6 +2110,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 91.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 91.66667%);
   }
 
@@ -2035,6 +2129,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%);
   }
 
@@ -2080,6 +2175,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 6.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 6.25%);
   }
 
@@ -2098,6 +2194,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 12.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 12.5%);
   }
 
@@ -2116,6 +2213,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 18.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 18.75%);
   }
 
@@ -2134,6 +2232,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -2152,6 +2251,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 31.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 31.25%);
   }
 
@@ -2170,6 +2270,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 37.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 37.5%);
   }
 
@@ -2188,6 +2289,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 43.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 43.75%);
   }
 
@@ -2206,6 +2308,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -2224,6 +2327,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 56.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 56.25%);
   }
 
@@ -2242,6 +2346,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 62.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 62.5%);
   }
 
@@ -2260,6 +2365,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 68.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 68.75%);
   }
 
@@ -2278,6 +2384,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -2296,6 +2403,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 81.25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 81.25%);
   }
 
@@ -2314,6 +2422,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 87.5%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 87.5%);
   }
 
@@ -2332,6 +2441,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 93.75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 93.75%);
   }
 
@@ -2350,6 +2460,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%); }
   }
 
@@ -2396,6 +2507,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 8.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 8.33333%);
   }
 
@@ -2414,6 +2526,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 16.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 16.66667%);
   }
 
@@ -2432,6 +2545,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -2450,6 +2564,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 33.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 33.33333%);
   }
 
@@ -2468,6 +2583,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 41.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 41.66667%);
   }
 
@@ -2486,6 +2602,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -2504,6 +2621,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 58.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 58.33333%);
   }
 
@@ -2522,6 +2640,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 66.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 66.66667%);
   }
 
@@ -2540,6 +2659,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 75%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 75%);
   }
 
@@ -2558,6 +2678,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 83.33333%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 83.33333%);
   }
 
@@ -2576,6 +2697,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 91.66667%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 91.66667%);
   }
 
@@ -2594,6 +2716,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 16px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%);
   }
 
@@ -2639,6 +2762,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 6.25%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 6.25%);
   }
 
@@ -2657,6 +2781,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 12.5%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 12.5%);
   }
 
@@ -2675,6 +2800,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 18.75%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 18.75%);
   }
 
@@ -2693,6 +2819,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 25%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 25%);
   }
 
@@ -2711,6 +2838,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 31.25%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 31.25%);
   }
 
@@ -2729,6 +2857,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 37.5%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 37.5%);
   }
   .codelitt-container-fluid .codelitt-offset-xxl-6 {
@@ -2746,6 +2875,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 43.75%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 43.75%);
   }
 
@@ -2764,6 +2894,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 50%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 50%);
   }
 
@@ -2782,6 +2913,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 56.25%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 56.25%);
   }
 
@@ -2800,6 +2932,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 62.5%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 62.5%);
   }
 
@@ -2818,6 +2951,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 68.75%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 68.75%);
   }
 
@@ -2854,6 +2988,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 81.25%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 81.25%);
   }
 
@@ -2872,6 +3007,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 87.5%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 87.5%);
   }
 
@@ -2890,6 +3026,7 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 93.75%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 93.75%);
   }
 
@@ -2908,5 +3045,6 @@
     margin: var(--col-margin, auto);
     max-width: var(--col-max-width, 100%);
     padding: var(--col-padding, 0 20px);
+    text-align: var(--col-text-align, start);
     width: var(--col-width, 100%); }
   }
