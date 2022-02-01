@@ -15,8 +15,13 @@
   border: var(--row-border, none);
   display: flex;
   flex-wrap: wrap;
+  justify-content: var(--row-justify-content, normal);
+  left: var(--row-left, 0);
   margin: var(--row-margin, 0 -12px);
   padding: var(--row-padding, 0);
+  page-break-inside: var(--row-page-break-inside, auto);
+  position: var(--row-position, static);
+  top: var(--row-top, 0);
   width: var(--row-width, auto);
 }
 
@@ -106,8 +111,13 @@
   border: var(--row-border, none);
   display: flex;
   flex-wrap: wrap;
+  justify-content: var(--row-justify-content, normal);
+  left: var(--row-left, 0);
   margin: var(--row-margin, 0 -12px);
   padding: var(--row-padding, 0);
+  page-break-inside: var(--row-page-break-inside, auto);
+  position: var(--row-position, static);
+  top: var(--row-top, 0);
   width: var(--row-width, auto);
 }
 
@@ -208,8 +218,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -12px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -299,8 +314,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -12px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -391,8 +411,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -554,8 +579,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -718,8 +748,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -953,8 +988,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -18px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -1189,8 +1229,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -1424,8 +1469,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -1732,8 +1782,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -1967,8 +2022,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -2275,8 +2335,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -16px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
@@ -2510,8 +2575,13 @@
     border: var(--row-border, none);
     display: flex;
     flex-wrap: wrap;
+    justify-content: var(--row-justify-content, normal);
+    left: var(--row-left, 0);
     margin: var(--row-margin, 0 -20px);
     padding: var(--row-padding, 0);
+    page-break-inside: var(--row-page-break-inside, auto);
+    position: var(--row-position, static);
+    top: var(--row-top, 0);
     width: var(--row-width, auto);
   }
 
