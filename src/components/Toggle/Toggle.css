@@ -28,6 +28,7 @@
   border-radius: var(--toggle-wrapper-border-radius, 3px);
   height: var(--toggle-wrapper-height, 50px);
   padding: var(--toggle-padding, 10px);
+  white-space: var(--toggle-white-space, normal);
   width: 100%;
 }
 
