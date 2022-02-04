@@ -38,6 +38,7 @@
   border-top: var(--list-item-border-top-hover, 1px solid transparent);
   border-right: var(--list-item-border-right-hover, 1px solid transparent);
   border-left: var(--list-item-border-left-hover, 1px solid transparent);
+  box-shadow: var(--list-item-box-shadow-hover, var(--list-item-box-shadow));
   color: var(--list-item-color-hover, var(--list-item-color));
   font-weight: var(--list-item-font-weight-hover, var(--list-item-font-weight));
 }
