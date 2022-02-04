@@ -12,6 +12,7 @@
   border-bottom: var(--list-border-bottom, var(--list-border, 1px solid transparent));
   border-top: var(--list-border-top, var(--list-border, 1px solid transparent));
   border-radius: var(--list-border-radius, 0);
+  bottom: var(--list-bottom, 0);
   box-shadow: var(--list-box-shadow, none);
   box-sizing: border-box;
   height: var(--list-height, var(--height-m));
