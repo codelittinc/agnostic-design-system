@@ -29,7 +29,7 @@
   margin: var(--list-item-margin, 0 0 var(--round-l) 0);
   min-height: var(--list-item-min-height, 50px);
   padding: var(--list-item-padding, var(--round-m));
-  width: 100%;
+  width: var(--list-item-width, 100%);
 }
 
 .list-item:hover {
