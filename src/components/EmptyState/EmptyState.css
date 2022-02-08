@@ -1,0 +1,33 @@
+.empty-state-container {
+  align-items: var(--empty-state-align-items, center);
+  display: var(--empty-state-display, flex);
+  flex-direction: var(--empty-state-flex-direction, column);
+  height: var(--empty-state-height, 100vh);
+  justify-content: var(--empty-state-justify-content, normal);
+  margin: var(--empty-state-margin, 40px 0 0);
+  text-align: var(--empty-state-text-align, center);
+  width: 100%;
+}
+
+.empty-state-image-container {
+  display: var(--empty-state-image-display, flex);
+  height: var(--empty-state-image-height, 132px);
+  justify-content: var(--empty-state-image-justify-content, center);
+  width: var(--empty-state-image-width, 185px);
+}
+
+.empty-state-title {
+  color: var(--empty-state-title-color, var(--structure-color-black));
+  font-size: var(--empty-state-title-font-size, var(--heading-xs));
+  font-weight: var(--empty-state-title-font-weight, var(--heading-font-weight-bold));
+  line-height: var(--empty-state-title-line-height, 25.2px);
+  margin: var(--empty-state-title-margin, 14px 0 6px);
+}
+
+.empty-state-description {
+  color: var(--empty-state-description-color, var(--structure-color-700));
+  font-size: var(--empty-state-description-font-size, var(--paragraph-l));
+  font-weight: var(--empty-state-description-font-weight, var(--paragraph-font-weight-normal));
+  line-height: var(--empty-state-description-line-height, 22.4px);
+  margin: var(--empty-state-description-margin, 0);
+}

@@ -1,0 +1,67 @@
+# Tag Component
+
+## Type: Simple
+
+## EmptyState Props
+
+OBS: An asterisk (\*) denotes that the property will have additional info below the table.
+
+|        Prop        |           Type            |                         Description                        |    Default    | Mandatory |
+| :----------------: | :-----------------------: | :--------------------------------------------------------: | :-----------: | :-------: |
+|    description     | string \| React.ReactNode |  Paragraph text rendered at the bottom of the component.   |       -       |   true    |
+|       image\*      |       React.ReactNode     |  Accepts a custom image. The image should be an svg file.  |imported image |   false   |
+|       title        | string \| React.ReactNode | Title text rendered between the image and the description. |       -       |   true    |
+| variablesClassName |          string           |              Accepts custom CSS class names.               |       -       |   false   |
+
+- The `image` property, passed as an imported svg file through a ReactNode, should receive a
+**height** and **width** property of 100% in order to properly adapt to the `empty-state-image-height`
+and `empty-state-image-width` custom CSS values. <br />
+**Example**: `<CustomEmptyStateImage height='100%' width='100%' />`
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import { EmptyState } from '@codelittinc/agnostic-design-system';
+import CustomEmptyStateImage from 'assets/images/custom-empty-state-image.svg';
+
+const MyComponent = () => {
+  return (
+    <div>
+      <EmptyState
+        description='Take a second to relax and enjoy this moment.'
+        image={<CustomEmptyStateImage height='100%' width='100%' />}
+        title='Wow, no risks to report!'
+      />
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+## CSS Variables Available
+
+|   Property  |    Attribute     | State |
+| :---------: | :--------------: | :---: |
+|             |    align-items   |   -   |
+|             |     display      |   -   |
+|             |  flex-direction  |   -   |
+|             |      height      |   -   |
+|             | justify-content  |   -   |
+|             |      margin      |   -   |
+|             |    text-align    |   -   |
+| description |      color       |   -   |
+| description |    font-size     |   -   |
+| description |   font-weight    |   -   |
+| description |   line-height    |   -   |
+| description |      margin      |   -   |
+|    image    |     display      |   -   |
+|    image    |      height      |   -   |
+|    image    | justify-content  |   -   |
+|    image    |      width       |   -   |
+|    title    |      color       |   -   |
+|    title    |    font-size     |   -   |
+|    title    |   font-weight    |   -   |
+|    title    |   line-height    |   -   |
+|    title    |     margin       |   -   |
