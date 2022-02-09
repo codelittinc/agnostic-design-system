@@ -1,0 +1,47 @@
+# Status Component
+
+## Type: Simple
+
+## Status Props
+
+|        Prop        |            Type           | Default | Mandatory |
+| :----------------: | :-----------------------: | :-----: | :-------: |
+|        icon        |       React.ReactNode     |    -    |   false   |
+|      leftIcon      |          boolean          |    -    |   true    |
+|        text        | string \| React.ReactNode |    -    |   true    |
+| variablesClassName |          string           |    -    |   false   |
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import { Status } from '@codelittinc/agnostic-design-system';
+import styles from './Status.module.scss';
+import TestImage from 'assets/images/test-image.svg';
+
+const MyComponent = () => {
+  return (
+    <div>
+      <Status
+        icon={<TestImage />}
+        leftIcon={true}
+        text={'lorem-ipsum'}
+        variablesClassName={styles['custom-styling']}
+      />
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+## CSS Variables Available
+
+| Property  |    Attribute     | State |
+| :-------: | :--------------: | :---: |
+|   icon    | background-color |   -   |
+|   icon    |  border-radius   |   -   |
+|   icon    |      height      |   -   |
+|   icon    |      width       |   -   |
+|   text    |      color       |   -   |
+|   text    |    font-size     |   -   |
