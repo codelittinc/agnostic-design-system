@@ -1,0 +1,46 @@
+# DualActionButton Component
+
+## Type: Simple
+
+## DualActionButton Props
+
+|        Prop         |    Type    | Default | Mandatory |
+| :-----------------: | :--------: | :-----: | :-------: |
+|  backButtonAction   | () => void |    -    |   true    |
+| forwardButtonAction | () => void |    -    |   true    |
+|        text         |   string   |    -    |   true    |
+| variablesClassName  |   string   |    -    |   false   |
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import { DualActionButton } from '@codelittinc/agnostic-design-system';
+
+const MyComponent = () => {
+  return (
+    <DualActionButton
+      text={'DualActionButton'}
+      backButtonAction={() => {}}
+      forwardButtonAction={() => {}}
+    />
+  );
+};
+
+export default MyComponent;
+```
+
+## CSS Variables Available
+
+|    Property    |    Attribute     |        State         |
+| :------------: | :--------------: | :------------------: |
+|   container    | background-color |          -           |
+|   container    |  border-radius   |          -           |
+| text-container | background-color |          -           |
+| text-container |   font-weight    |          -           |
+| text-container |     padding      |          -           |
+| text-container |      width       |          -           |
+|     button     | background-color | hover, focus, active |
+|     button     |  border-radius   |          -           |
+|     button     |      height      |          -           |
+|     button     |      width       |          -           |

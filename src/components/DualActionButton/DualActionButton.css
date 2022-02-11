@@ -1,0 +1,36 @@
+:root {
+  --dual-action-button-container-background-color: var(--structure-color-300);
+  --dual-action-button-container-border-radius: 4px;
+
+  --dual-action-button-text-container-background-color: var(--structure-color-300);
+  --dual-action-button-text-container-font-weight: 300;
+  --dual-action-button-text-container-padding: 0 6px;
+  --dual-action-button-text-container-width: auto;
+}
+
+.container {
+  align-items: center;
+  background-color: var(--dual-action-button-container-background-color);
+  border-radius: var(--dual-action-button-container-border-radius);
+  display: flex;
+}
+
+.text-container {
+  align-items: center;
+  background-color: var(--dual-action-button-text-container-background-color);
+  display: flex;
+  font-weight: var(--dual-action-button-text-container-font-weight);
+  justify-content: center;
+  padding: var(--dual-action-button-text-container-padding);
+  width: var(--dual-action-button-text-container-width);
+}
+
+.button {
+  --button-background-color: var(--structure-color-300);
+  --button-background-color-hover: var(--structure-color-400);
+  --button-background-color-focus: var(--structure-color-300);
+  --button-background-color-active: var(--structure-color-400);
+  --button-border-radius: 4px;
+  --button-height: 50px;
+  --button-width: 50px;
+}
