@@ -1,0 +1,51 @@
+# SectionSelector Component
+
+## Type: Simple
+
+## SectionSelector Props
+
+|   Prop   |    Type    | Default | Mandatory |
+| :------: | :--------: | :-----: | :-------: |
+| sections | Section[]  |    -    |   true    |
+| onClick  | () => void |    -    |   false   |
+
+## Section Type
+
+| Prop |  Type  | Default | Mandatory |
+| :--: | :----: | :-----: | :-------: |
+|  id  | string |    -    |   true    |
+| text | string |    -    |   true    |
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import { SectionSelector } from '@codelittinc/agnostic-design-system';
+
+const MyComponent = () => {
+  return (
+    <SectionSelector
+      sections={[
+        { text: 'Section 1', id: 'section-1' },
+        { text: 'Section 2', id: 'section-2' }
+      ]}
+    />
+  );
+};
+
+export default MyComponent;
+```
+
+## CSS Variables Available
+
+| Property |   Attribute   | State  |
+| :------: | :-----------: | :----: |
+|    -     |   flex-flow   |   -    |
+|    -     |    height     |   -    |
+|    -     |      top      |   -    |
+|  button  |    border     |   -    |
+|  button  | border-color  | active |
+|  button  | border-radius |   -    |
+|  button  |    padding    |   -    |
+|  button  |     width     |   -    |
+|   text   |     color     |   -    |

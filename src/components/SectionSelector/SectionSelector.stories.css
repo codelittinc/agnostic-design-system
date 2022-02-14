@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.sections-container {
+  display: flex;
+  flex-flow: column;
+  margin-left: 20px;
+}
+
+.section {
+  border: 5px solid black;
+  height: 500px;
+  width: 300px;
+  margin-top: 30px;
+  text-align: center;
+}
