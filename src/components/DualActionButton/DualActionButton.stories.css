@@ -1,0 +1,7 @@
+.wrapper {
+  --dual-action-button-container-height: 40px;
+  --dual-action-button-text-container-font-weight: 600;
+  --button-height: 32px;
+  --button-justify-content: center;
+  --button-width: 32px;
+}
