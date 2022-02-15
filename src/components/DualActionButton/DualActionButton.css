@@ -6,6 +6,7 @@
   display: flex;
   height: var(--dual-action-button-container-height, auto);
   padding: var(--dual-action-button-container-padding, 4px 8px);
+  width: var(--dual-action-button-container-width, auto);
 }
 
 .text-container {
