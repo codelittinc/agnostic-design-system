@@ -1,28 +1,21 @@
-:root {
-  --dual-action-button-container-background-color: var(--structure-color-300);
-  --dual-action-button-container-border-radius: 4px;
-
-  --dual-action-button-text-container-background-color: var(--structure-color-300);
-  --dual-action-button-text-container-font-weight: 300;
-  --dual-action-button-text-container-padding: 0 6px;
-  --dual-action-button-text-container-width: auto;
-}
-
 .container {
   align-items: center;
-  background-color: var(--dual-action-button-container-background-color);
-  border-radius: var(--dual-action-button-container-border-radius);
+  background-color: var(--dual-action-button-container-background-color, var(--structure-color-300));
+  border-radius: var(--dual-action-button-container-border-radius, 4px);
+  box-sizing: border-box;
   display: flex;
+  height: var(--dual-action-button-container-height, auto);
+  padding: var(--dual-action-button-container-padding, 4px 8px);
 }
 
 .text-container {
   align-items: center;
-  background-color: var(--dual-action-button-text-container-background-color);
+  background-color: var(--dual-action-button-text-container-background-color, var(--structure-color-300));
   display: flex;
-  font-weight: var(--dual-action-button-text-container-font-weight);
+  font-weight: var(--dual-action-button-text-container-font-weight, 300);
   justify-content: center;
-  padding: var(--dual-action-button-text-container-padding);
-  width: var(--dual-action-button-text-container-width);
+  padding: var(--dual-action-button-text-container-padding, 0 6px);
+  width: var(--dual-action-button-text-container-width, auto);
 }
 
 .button {
