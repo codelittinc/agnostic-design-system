@@ -19,11 +19,11 @@
 
 .table-container th {
   background-color: var(--table-header-background-color, var(--structure-color-200));
-  border-bottom: var(--table-border-bottom, var(--table-header-border-bottom, 1px solid var(--structure-color-300)));
+  border-bottom: var(--table-header-border-bottom, var(--table-border-bottom, 1px solid var(--structure-color-300)));
   border-bottom-style: var(--table-border-bottom-style, none);
-  border-left: var(--table-border-left, var(--table-header-border-left, none));
-  border-right: var(--table-border-right, var(--table-header-border-right, none));
-  border-top: var(--table-border-top, var(--table-header-border-top, 1px solid var(--structure-color-300)));
+  border-left: var(--table-header-border-left, var(--table-border-left, none));
+  border-right: var(--table-header-border-right, var(--table-border-right, none));
+  border-top: var(--table-header-border-top, var(--table-border-top, 1px solid var(--structure-color-300)));
   color: var(--table-header-color, var(--structure-color-900));
   font-weight: var(--table-header-font-weight, 300);
   padding: var(--table-padding, 10px);
@@ -31,10 +31,10 @@
 
 .table-container td {
   background-color: var(--table-background-color, var(--structure-color-200));
-  border-bottom: var(--table-border-bottom, var(--table-cell-border-bottom, 1px solid var(--structure-color-300)));
-  border-left: var(--table-border-left, var(--table-cell-border-left, none));
-  border-right: var(--table-border-right, var(--table-cell-border-right, none));
-  border-top: var(--table-border-top, var(--table-cell-border-top, 1px solid var(--structure-color-300)));
+  border-bottom: var(--table-cell-border-bottom, var(--table-border-bottom, 1px solid var(--structure-color-300)));
+  border-left: var(--table-cell-border-left, var(--table-border-left, none));
+  border-right: var(--table-cell-border-right, var(--table-border-right, none));
+  border-top: var(--table-cell-border-top, var(--table-border-top, 1px solid var(--structure-color-300)));
   font-weight: var(--table-font-weight, 300);
   padding: var(--table-padding, 10px);
   vertical-align: var(--table-container-cell-vertical-align, middle);
