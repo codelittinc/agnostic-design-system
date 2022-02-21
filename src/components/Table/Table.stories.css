@@ -1,0 +1,6 @@
+.custom-table {
+  --table-header-border-top: 4px solid var(--error-color);
+  --table-cell-border-left: 4px solid var(--information-color);
+  --table-cell-border-right: 4px solid var(--information-color);
+  --table-cell-border-bottom: 4px solid var(--warning-color);
+}
