@@ -10,6 +10,8 @@
 | forwardButtonAction | () => void |    -    |   true    |
 |        text         |   string   |    -    |   true    |
 | variablesClassName  |   string   |    -    |   false   |
+|  disableLeftButton  |  boolean   |    -    |   false   |
+| disableRightButton  |  boolean   |    -    |   false   |
 
 ## Getting Started
 
@@ -32,18 +34,19 @@ export default MyComponent;
 
 ## CSS Variables Available
 
-|    Property    |    Attribute     |        State         |
-| :------------: | :--------------: | :------------------: |
-|   container    | background-color |          -           |
-|   container    |  border-radius   |          -           |
-|   container    |      height      |          -           |
-|   container    |     padding      |          -           |
-|   container    |      width       |          -           |
-| text-container | background-color |          -           |
-| text-container |   font-weight    |          -           |
-| text-container |     padding      |          -           |
-| text-container |      width       |          -           |
-|     button     | background-color | hover, focus, active |
-|     button     |  border-radius   |          -           |
-|     button     |      height      |          -           |
-|     button     |      width       |          -           |
+|    Property    |     Attribute     |             State              |
+| :------------: | :---------------: | :----------------------------: |
+|   container    | background-color  |               -                |
+|   container    |   border-radius   |               -                |
+|   container    |      height       |               -                |
+|   container    |      padding      |               -                |
+|   container    |       width       |               -                |
+| text-container | background-color  |               -                |
+| text-container |    font-weight    |               -                |
+| text-container |      padding      |               -                |
+| text-container |       width       |               -                |
+|     button     | background-color  | hover, focus, active, disabled |
+|     button     |   border-radius   |               -                |
+|     button     |      height       |               -                |
+|     button     |       width       |               -                |
+|     button     | append-icon-color |            disabled            |

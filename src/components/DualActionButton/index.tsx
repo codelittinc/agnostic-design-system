@@ -10,10 +10,19 @@ type DualActionButtonProps = {
   forwardButtonAction: () => void;
   text: string;
   variablesClassName?: string;
+  disableRightButton?: boolean;
+  disableLeftButton?: boolean;
 };
 
 const DualActionButton: React.FC<DualActionButtonProps> = (props: DualActionButtonProps) => {
-  const { backButtonAction, forwardButtonAction, text, variablesClassName } = props;
+  const {
+    backButtonAction,
+    forwardButtonAction,
+    text,
+    variablesClassName,
+    disableLeftButton,
+    disableRightButton
+  } = props;
 
   return (
     <div className={classNames(styles.container, variablesClassName)}>
@@ -22,6 +31,7 @@ const DualActionButton: React.FC<DualActionButtonProps> = (props: DualActionButt
         withAppendIcon
         appendIcon={<IconLeftArrow fill='#10193C' />}
         variablesClassName={classNames(styles.button, variablesClassName)}
+        disabled={disableLeftButton}
       />
       <div className={classNames(styles['text-container'], variablesClassName)}>{text}</div>
       <Button
@@ -29,6 +39,7 @@ const DualActionButton: React.FC<DualActionButtonProps> = (props: DualActionButt
         withAppendIcon
         appendIcon={<IconRightArrow fill='#10193C' />}
         variablesClassName={classNames(styles.button, variablesClassName)}
+        disabled={disableRightButton}
       />
     </div>
   );
