@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import List from '@/components/List';
 import mdx from './List.stories.mdx';
+import styles from './List.stories.css';
 
 export default {
   title: 'Components/List',
@@ -132,4 +133,31 @@ CheckMarkList.args = {
   getItemValue: item => item.value,
   getItemLabel: item => item.label,
   getItemKey: item => item.value
+};
+
+export const CustomStyledRadioList = () => {
+  const [selectedItem, setSelectedItem] = useState({ label: '', value: '' });
+
+  return (
+    <List
+      getItemValue={item => item.value}
+      getItemLabel={item => item.label}
+      getItemKey={item => item.value}
+      listItemCategory='radio'
+      onChange={setSelectedItem}
+      options={[
+        {
+          label: 'Item 1',
+          value: '1'
+        },
+        {
+          label: 'Item 2',
+          value: '2'
+        }
+      ]}
+      selected={selectedItem}
+      size='large'
+      variablesClassName={styles['custom-list']}
+    />
+  );
 };

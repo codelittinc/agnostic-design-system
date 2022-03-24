@@ -59,6 +59,7 @@
 /* Style the indicator (dot/circle) large size */
 .radio-container .list-item-radio--large ~ .radio-check:after {
   background: var(--list-item-radio-background-color-circle, var(--structure-color-white));
+  border: var(--list-item-radio-border-circle, 0);
   border-radius: 50%;
   height: var(--list-item-radio-height-circle, 12px);
   left: var(--list-item-radio-left-circle, 6px);
@@ -69,6 +70,7 @@
 /* Style the indicator (dot/circle) medium size */
 .radio-container .list-item-radio--medium ~ .radio-check:after {
   background: var(--list-item-radio-background-color-circle, var(--structure-color-white));
+  border: var(--list-item-radio-border-circle, 0);
   border-radius: 50%;
   height: var(--list-item-radio-height-circle, 10px);
   left: var(--list-item-radio-left-circle, 5px);

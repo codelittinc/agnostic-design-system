@@ -1,0 +1,14 @@
+.custom-list {
+  --list-height: 40px;
+  --list-item-background-color: var(--structure-color-white);
+  --list-item-height: 40px;
+  --list-item-radio-background-color: var(--structure-color-white);
+  --list-item-radio-background-color-checked: var(--structure-color-white);
+  --list-item-radio-background-color-circle: var(--structure-color-white);
+  --list-item-radio-border-checked: 1px solid var(--primary-color-300);
+  --list-item-radio-border-circle: 4px solid var(--primary-color-300);
+  --list-item-radio-height-circle: 8px;
+  --list-item-radio-width-circle: 8px;
+  --list-item-radio-left-circle: 4px;
+  --list-item-radio-top-circle: 4px;
+}
