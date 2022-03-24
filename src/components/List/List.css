@@ -15,6 +15,7 @@
   bottom: var(--list-bottom, 0);
   box-shadow: var(--list-box-shadow, none);
   box-sizing: border-box;
+  display: var(--list-display, block);
   height: var(--list-height, var(--height-m));
   justify-content: space-between;
   list-style-type: var(--list-list-style-type, none);

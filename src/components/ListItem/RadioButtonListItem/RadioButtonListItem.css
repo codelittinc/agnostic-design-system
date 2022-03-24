@@ -28,7 +28,7 @@
 
 .list-item-radio--large ~ .radio-check {
   height: var(--list-item-radio-height, var(--heading-s));
-  top: -8px;
+  top: var(--list-item-radio-top, -8px);
   width: var(--list-item-radio-width, var(--heading-s));
 }
 
