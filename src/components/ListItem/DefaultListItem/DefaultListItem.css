@@ -154,6 +154,7 @@
   border-top: var(--list-item-selected-border-top);
   border-right: var(--list-item-selected-border-right);
   border-left: var(--list-item-selected-border-left);
+  outline: var(--list-item-selected-outline, none);
 }
 
 .list-item-selected:hover {
@@ -188,6 +189,7 @@
     var(--list-item-selected-border-right)
   );
   border-left: var(--list-item-selected-border-left-focus, var(--list-item-selected-border-left));
+  outline: var(--list-item-selected-outline-focus, none);
 }
 
 .list-item-selected:active {
@@ -205,6 +207,7 @@
     var(--list-item-selected-border-right)
   );
   border-left: var(--list-item-selected-border-left-active, var(--list-item-selected-border-left));
+  outline: var(--list-item-selected-outline-active, none);
 }
 
 .list-item-label-selected {
