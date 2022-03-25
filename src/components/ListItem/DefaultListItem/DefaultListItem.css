@@ -71,6 +71,7 @@
   color: var(--list-item-color-focus, var(--list-item-color));
   font-weight: var(--list-item-font-weight-focus, var(--list-item-font-weight));
   outline: var(--list-item-outline-focus, none);
+  outline-offset: var(--list-item-outline-offset-focus, 0);
 }
 
 .list-item-label {
