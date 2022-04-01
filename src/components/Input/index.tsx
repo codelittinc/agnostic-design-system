@@ -43,6 +43,7 @@ export interface Props {
   onStateChange: (state: boolean) => void;
   placeholder?: string;
   prepend?: React.ReactNode;
+  readOnly?: boolean;
   required?: boolean;
   size: Size;
   value?: string;
@@ -80,6 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     onStateChange,
     placeholder,
     prepend,
+    readOnly,
     required,
     size,
     value,
@@ -212,6 +214,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
           onFocus();
         })}
         onBlur={getAttr(handleBlur)}
+        readOnly={readOnly}
       />
     );
   };

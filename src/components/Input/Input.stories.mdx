@@ -29,6 +29,7 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 |    onStateChange     | (state: boolean) => void  |                                                                                             It returns a boolean with the validation result when there is a **validationRegex** property                                                                                              |                                                                    -                                                                     |   false   |
 |     placeholder      |          string           |                                                                                                                          The input field's placeholder text.                                                                                                                          |                                                                    -                                                                     |   false   |
 |       prepend        |      React.ReactNode      |                                                                        It is possible to add a [prepend](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend) in your input field.                                                                         |                                                                    -                                                                     |   false   |
+|       readOnly       |          boolean          |                                                                                                                  Specifies that the input field can't be edited.                                                                                                                   |                                                                    -                                                                     |   false   |
 |       required       |          boolean          |                                                                                                                  Specifies that the input field must be filled out.                                                                                                                   |                                                                    -                                                                     |   false   |
 |         size         |           Size            |                                                                                                             Size of the component. The change is reflected on the height.                                                                                                             |                                                                  large                                                                   |   true    |
 |      inputType       |          string           |                                                                                                               Defines what is the type that will be used on the input.                                                                                                                |                                                                    -                                                                     |   false   |
@@ -45,13 +46,13 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 
 In the example [here](https://design-system.codelitt.dev/?path=/story/components-input--with-filters), the user is blocked from typing a number due to a regular expression matching for all digits.
 
-2. Regarding the **mask** property, the size of the mask string will determine the size of the valid input. 
-On the following object, the key values can be added to the mask string so that their corresponding RegExp strings will be the values accepted on the input. Any character added to the mask that is different from these keys will be permanent and non-editable on the input.
+2. Regarding the **mask** property, the size of the mask string will determine the size of the valid input.
+   On the following object, the key values can be added to the mask string so that their corresponding RegExp strings will be the values accepted on the input. Any character added to the mask that is different from these keys will be permanent and non-editable on the input.
 
 {
-  '9': '[0-9]',
-  'a': '[A-Za-z]',
-  '*': '[A-Za-z0-9]'
+'9': '[0-9]',
+'a': '[A-Za-z]',
+'\*': '[A-Za-z0-9]'
 }
 
 3. Regarding the **validations** property and its object keys, similar to the filters property above: **type** can either be defined with a value of 'RegExp' or 'function' (both as strings). With each case:
