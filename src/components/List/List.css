@@ -25,6 +25,7 @@
   padding: var(--list-padding, 0);
   padding-inline-start: var(--list-padding-inline-start, 0);
   position: var(--list-position, initial);
+  top: var(--list-top);
   width: 100%;
 }
 

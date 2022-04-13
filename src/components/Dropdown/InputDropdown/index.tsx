@@ -54,6 +54,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     getItemLabel,
     getListTitle,
     id,
+    listPosition,
     onChange,
     onInputChange,
     onStateChange,
@@ -63,9 +64,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     selectorText,
     variablesClassName,
     messageValidateClass,
-    validationMessage,
-    listPosition,
-    groupBy
+    validationMessage
   } = props;
 
   const defaultFilter = options =>
@@ -105,20 +104,6 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
       listRef.current.style.top = height + 'px';
     }
   }, [height, isListOpen]);
-
-  useEffect(() => {
-    if (inputRef.current && listRef.current && isListOpen && listPosition === 'top') {
-      const bounds = inputRef.current.getBoundingClientRect();
-      if (groupBy) {
-        listRef.current.style.setProperty('bottom', `${bounds.height}px`);
-        listRef.current.style.setProperty('position', 'absolute');
-      } else {
-        const listElement = listRef.current.getElementsByTagName('ul')[0];
-
-        listElement.style.setProperty('bottom', `${bounds.height}px`);
-      }
-    }
-  }, [listRef, isListOpen]);
 
   const displayOptionsList = () => {
     setIsListOpen(true);
@@ -177,7 +162,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
           onMouseEnter={() => setIsInputHovered(true)}
           onMouseLeave={() => setIsInputHovered(false)}
           variablesClassName={classnames(styles['dropdown-input'], variablesClassName)}
-          actionIcon={customIcon || getArrowIcon(isListOpen, size)}
+          actionIcon={customIcon || getArrowIcon(isListOpen, listPosition, size)}
           withActionIcon
           onClickActionIcon={() => setIsListOpen(!isListOpen)}
           prepend={handleIconCategory()}

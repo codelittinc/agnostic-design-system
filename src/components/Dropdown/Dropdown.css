@@ -92,6 +92,14 @@
   z-index: 999;
 }
 
+.dropdown-list-postioned-top {
+  --list-bottom: var(--dropdown-list-bottom, 55px);
+}
+
+.dropdown-list-postioned-bottom {
+  --list-top: var(--dropdown-list-top, 55px);
+}
+
 .dropdown-button {
   --button-background-color: var(--structure-color-100);
   --button-background-color-active: var(--structure-color-300);

@@ -51,6 +51,9 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 1. bottom
 2. top
 
+  You can use the CSS variables ```--dropdown-list-top``` to control the position of the list in case you selected the 'bottom' option<br />
+or ```--dropdown-list-bottom``` in case you selected the 'top' option
+
 **Positions**
 
 1. left
@@ -99,6 +102,10 @@ export default SimpleDropdown;
 Given the nature of a composite component, in addition to its own, the Dropdown utilizes CSS variables from the Button, Input and List components.
 They are listed in the table below.
 
+The CSS variables ```--dropdown-list-top``` and ```--dropdown-list-bottom``` are used to control the dropdown list positioning.<br />
+Use the CSS variable ```--dropdown-list-top``` to control the list positioning if listPosition was defined as 'bottom' or if no option for it was selected.<br />
+Use the CSS variable ```--dropdown-list-bottom``` to control the list positioning if listPosition was defined as 'top'.<br />
+
 ### Variables of the Dropdown component
 
 |    Property    |    Attribute     |       State        |
@@ -129,6 +136,8 @@ They are listed in the table below.
 |   group-div    |     z-index      |                    |
 | groups-wrapper |      height      |                    |
 | groups-wrapper |    overflow-y    |                    |
+|     list       |      bottom      |                    |
+|     list       |       top        |                    |
 |    message     |      color       | positive, negative |
 |    message     |   font-family    |                    |
 |    message     |    font-size     |                    |

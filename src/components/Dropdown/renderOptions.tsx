@@ -20,6 +20,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     nodeBeforeItems,
     variablesClassName,
     listItemCategory,
+    listPosition,
     showSelectAll,
     sort,
     groupBy
@@ -53,8 +54,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
       <div className={styles['select-all-container']}>
         <a className={styles['select-all-link']} onClick={() => onChange(getSelectOptions(true))}>
           Select All
-        </a>{' '}
-        -{' '}
+        </a>
         <a className={styles['select-all-link']} onClick={() => onChange(getSelectOptions(false))}>
           Deselect All
         </a>
@@ -74,7 +74,13 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
         getItemKey={item => getItemKey(item)}
         getItemLabel={item => getItemLabel(item)}
         getItemValue={item => getItemValue(item)}
-        variablesClassName={classnames(styles['dropdown-list'], variablesClassName)}
+        variablesClassName={classnames(
+          styles['dropdown-list'],
+          variablesClassName,
+          listPosition === 'top'
+            ? styles['dropdown-list-postioned-top']
+            : styles['dropdown-list-postioned-bottom']
+        )}
         listItemCategory={listItemCategory}
         selected={selected}
         multiselect={multiselect}

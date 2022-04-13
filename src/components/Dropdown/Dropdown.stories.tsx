@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Meta } from '@storybook/react';
 import Dropdown from '@/components/Dropdown';
 import GearIcon from '@/assets/images/icons/web/gear.svg';
+import styles from './Dropdown.stories.css';
 import mdx from './Dropdown.stories.mdx';
 
 export default {
@@ -176,7 +177,8 @@ EditableDropdown.args = {
   getItemKey: item => item.value,
   getItemValue: item => item.value,
   getListTitle: item => item.label,
-  editable: true
+  editable: true,
+  variablesClassName: styles.dropdown
 };
 
 export const EditableDropdownWithRequired = Template.bind({});
@@ -205,7 +207,8 @@ EditableDropdownWithRequired.args = {
   getItemValue: item => item.value,
   getListTitle: item => item.label,
   required: true,
-  editable: true
+  editable: true,
+  variablesClassName: styles.dropdown
 };
 
 export const IconDropdown = Template.bind({});
@@ -233,7 +236,8 @@ IconDropdown.args = {
   getItemKey: item => item.value,
   getItemValue: item => item.value,
   getListTitle: item => item.label,
-  editable: true
+  editable: true,
+  variablesClassName: styles.dropdown
 };
 
 export const CheckBoxDropdown = Template.bind({});
@@ -296,7 +300,8 @@ FilteredOptionsDropdown.args = {
   getItemKey: item => item.value,
   getItemValue: item => item.value,
   getListTitle: item => item.label,
-  filterOptions: options => options.filter(option => option.label.includes('Foo'))
+  filterOptions: options => options.filter(option => option.label.includes('Foo')),
+  variablesClassName: styles.dropdown
 };
 
 const sortArrayByLabel = (a, b) => {

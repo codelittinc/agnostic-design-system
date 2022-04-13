@@ -46,13 +46,12 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     getListTitle,
     onChange,
     onValidate,
+    listPosition,
     multiselect,
     selectorText,
     variablesClassName,
     messageValidateClass,
-    validationMessage,
-    listPosition,
-    groupBy
+    validationMessage
   } = props;
 
   const [listTitle, setListTitle] = useState(
@@ -80,19 +79,6 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [buttonRef, isListOpen]);
-
-  useEffect(() => {
-    if (buttonRef.current && listRef.current && isListOpen && listPosition === 'top') {
-      const bounds = buttonRef.current.getBoundingClientRect();
-      if (groupBy) {
-        listRef.current.style.setProperty('bottom', `${bounds.height}px`);
-        listRef.current.style.setProperty('position', 'absolute');
-      } else {
-        const listElement = listRef.current.getElementsByTagName('ul')[0];
-        listElement.style.setProperty('bottom', `${bounds.height}px`);
-      }
-    }
-  }, [listRef, isListOpen]);
 
   const displayOptionsList = () => {
     setIsListOpen(!isListOpen);
@@ -125,7 +111,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
           category='neutral'
           size={size}
           iconPosition={iconPosition}
-          appendIcon={customIcon || getArrowIcon(isListOpen, size)}
+          appendIcon={customIcon || getArrowIcon(isListOpen, listPosition, size)}
           withAppendIcon
           ref={buttonRef}
         />
