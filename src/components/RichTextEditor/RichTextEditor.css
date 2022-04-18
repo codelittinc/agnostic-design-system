@@ -13,6 +13,8 @@
 }
 
 .is-active {
+  --button-append-icon-color: var(--button-icon-color-is-active);
+
   background: var(--button-background-color-is-active);
   color: var(--button-color-is-active);
 }

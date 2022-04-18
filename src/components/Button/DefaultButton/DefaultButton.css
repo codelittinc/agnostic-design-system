@@ -44,7 +44,8 @@
 }
 
 .button:hover .button--append-default-icon,
-.button:hover .button--append-icon > svg {
+.button:hover .button--append-icon > svg,
+.button:hover .button--append-icon > svg path {
   fill: var(--button-append-icon-color-hover, var(--button-color-hover));
 }
 
@@ -59,7 +60,8 @@
 }
 
 .button:focus .button--append-default-icon,
-.button:focus .button--append-icon > svg {
+.button:focus .button--append-icon > svg,
+.button:focus .button--append-icon > svg path {
   fill: var(--button-append-icon-color-focus, var(--button-color-focus));
 }
 
@@ -74,7 +76,8 @@
 }
 
 .button:active .button--append-default-icon,
-.button:active .button--append-icon > svg {
+.button:active .button--append-icon > svg,
+.button:active .button--append-icon > svg path {
   fill: var(--button-append-icon-color-active, var(--button-color-active));
 }
 
@@ -88,6 +91,7 @@
 
 .button:disabled .button--append-default-icon,
 .button:disabled .button--append-icon > svg,
+.button:disabled .button--append-icon > svg path,
 .button:disabled svg path {
   fill: var(--button-append-icon-color-disabled, var(--button-color-disabled));
 }
@@ -119,6 +123,7 @@
 }
 
 .button .button--append-default-icon,
-.button .button--append-icon > svg {
+.button .button--append-icon > svg,
+.button .button--append-icon > svg path {
   fill: var(--button-append-icon-color, var(--button-color));
 }
