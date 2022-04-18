@@ -43,7 +43,8 @@
   outline-offset: var(--button-outline-offset-hover, 0);
 }
 
-.button:hover .button--append-icon {
+.button:hover .button--append-default-icon,
+.button:hover .button--append-icon > svg {
   fill: var(--button-append-icon-color-hover, var(--button-color-hover));
 }
 
@@ -57,7 +58,8 @@
   outline-offset: var(--button-outline-offset-focus, 0);
 }
 
-.button:focus .button--append-icon {
+.button:focus .button--append-default-icon,
+.button:focus .button--append-icon > svg {
   fill: var(--button-append-icon-color-focus, var(--button-color-focus));
 }
 
@@ -71,7 +73,8 @@
   outline-offset: var(--button-outline-offset-active, 0);
 }
 
-.button:active .button--append-icon {
+.button:active .button--append-default-icon,
+.button:active .button--append-icon > svg {
   fill: var(--button-append-icon-color-active, var(--button-color-active));
 }
 
@@ -83,7 +86,8 @@
   cursor: var(--button-cursor-disabled, pointer);
 }
 
-.button:disabled .button--append-icon,
+.button:disabled .button--append-default-icon,
+.button:disabled .button--append-icon > svg,
 .button:disabled svg path {
   fill: var(--button-append-icon-color-disabled, var(--button-color-disabled));
 }
@@ -114,6 +118,7 @@
   margin: var(--button-append-icon-margin, 0 0 0 16px);
 }
 
-.button .button--append-icon {
+.button .button--append-default-icon,
+.button .button--append-icon > svg {
   fill: var(--button-append-icon-color, var(--button-color));
 }

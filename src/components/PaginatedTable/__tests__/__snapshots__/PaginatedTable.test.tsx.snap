@@ -495,11 +495,15 @@ exports[`PaginatedTable renders correctly 1`] = `
                                 <div
                                   className="append-icon-left"
                                 >
-                                  <SvgArrowLeft>
-                                    <svg
-                                      data-file-name="SvgArrowLeft"
-                                    />
-                                  </SvgArrowLeft>
+                                  <div
+                                    className="button--append-icon"
+                                  >
+                                    <SvgArrowLeft>
+                                      <svg
+                                        data-file-name="SvgArrowLeft"
+                                      />
+                                    </SvgArrowLeft>
+                                  </div>
                                 </div>
                                 <span
                                   className="button-text"
@@ -558,11 +562,15 @@ exports[`PaginatedTable renders correctly 1`] = `
                                 <div
                                   className="append-icon-right"
                                 >
-                                  <SvgArrowRight>
-                                    <svg
-                                      data-file-name="SvgArrowRight"
-                                    />
-                                  </SvgArrowRight>
+                                  <div
+                                    className="button--append-icon"
+                                  >
+                                    <SvgArrowRight>
+                                      <svg
+                                        data-file-name="SvgArrowRight"
+                                      />
+                                    </SvgArrowRight>
+                                  </div>
                                 </div>
                               </button>
                             </ForwardRef>

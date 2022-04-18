@@ -25,10 +25,10 @@ const getAppendIcon = (appendIcon, size) => {
   const sizeHeightIcon = largeIcon ? 14 : 10;
 
   return appendIcon ? (
-    <>{appendIcon}</>
+    <div className={styles['button--append-icon']}>{appendIcon}</div>
   ) : (
     <DefaultAppendIcon
-      className={classNames(styles['button--append-icon'])}
+      className={classNames(styles['button--append-default-icon'])}
       height={sizeHeightIcon}
       width={sizeWidthIcon}
     />
