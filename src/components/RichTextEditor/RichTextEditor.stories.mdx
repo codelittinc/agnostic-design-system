@@ -4,15 +4,16 @@
 
 ## RichTextEditor Props
 
-|         Prop         |   Type   |                                   Description                                   |   Default   | Mandatory |
-| :------------------: | :------: | :-----------------------------------------------------------------------------: | :---------: | :-------: |
-|     buttonIcons      | object[] |   List of objects containing the button name and the icon that it should use.   |      -      |   false   |
-|  displayOnlyOnFocus  | boolean  | Specifies whether or not the menu will be hidden when the editor is not in use. |      -      |   false   |
-|   menuEditOptions    | string[] |                 List of the edit options available on the menu.                 | All options |   false   |
-| menuPositionedBottom | boolean  |      Specifies whether or not the menu bar should be under the text input.      |      -      |   false   |
-|    editorContent     |  string  |          Text to be displayed by default inside the editor container.           |      -      |   false   |
-|   placeholderText    |  string  |             Text to be displayed as a placeholder on the container.             |      -      |   false   |
-|  variablesClassName  |  string  |                         Accepts custom CSS class names.                         |      -      |   false   |
+|         Prop         |        Type        |                                         Description                                         |   Default   | Mandatory |
+| :------------------: | :----------------: | :-----------------------------------------------------------------------------------------: | :---------: | :-------: |
+|     buttonIcons      |       object[]     |         List of objects containing the button name and the icon that it should use.         |      -      |   false   |
+|  displayOnlyOnFocus  |       boolean      |       Specifies whether or not the menu will be hidden when the editor is not in use.       |      -      |   false   |
+|   menuEditOptions    |       string[]     |                       List of the edit options available on the menu.                       | All options |   false   |
+| menuPositionedBottom |       boolean      |            Specifies whether or not the menu bar should be under the text input.            |      -      |   false   |
+|    editorContent     |       string       |  The value of the input field. It can be edited to be the initial text shown on the input.  |      -      |   false   |
+|       onChange       |  (e: any) => void  |          Calls a function whenever a change in an event of the input is detected.           |      -      |   false   |
+|   placeholderText    |       string       |                   Text to be displayed as a placeholder on the container.                   |      -      |   false   |
+|  variablesClassName  |       string       |                               Accepts custom CSS class names.                               |      -      |   false   |
 
 **Menu Edit Options**
 

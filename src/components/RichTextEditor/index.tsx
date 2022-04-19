@@ -20,6 +20,7 @@ interface Props {
   editorContent?: string;
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
   menuPositionedBottom?: boolean;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
   placeholderText?: string;
   variablesClassName?: string;
 }
@@ -31,6 +32,7 @@ const RichTextEditor: React.FC<Props> = props => {
     editorContent,
     menuEditOptions,
     menuPositionedBottom,
+    onChange,
     placeholderText,
     variablesClassName
   } = props;
@@ -92,7 +94,10 @@ const RichTextEditor: React.FC<Props> = props => {
         emptyEditorClass: styles['is-editor-empty']
       })
     ],
-    content: editorContent || ''
+    content: editorContent,
+    onUpdate({ editor }) {
+      onChange && onChange(editor.getHTML());
+    }
   });
 
   return (
