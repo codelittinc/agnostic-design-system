@@ -1,3 +1,47 @@
 .dropdown {
   --dropdown-list-top: 70px;
 }
+
+.custom-styled-dropdown {
+  --button-color: var(--structure-color-900);
+  --button-color-hover: var(--structure-color-900);
+  --button-background-color: var(--structure-color-200);
+  --button-background-color-hover: var(--structure-color-300);
+  --button-border-hover: none;
+  --button-font-size: 16px;
+  --button-height: 40px;
+  --dropdown-width: 140px;
+  --list-height: 188px;
+  --list-width: 240px;
+  --list-border: 1px solid var(--structure-color-300);
+  --list-border-radius: 8px;
+  --list-height: fit-content;
+  --list-overflow: hidden;
+  --list-padding: 8px;
+  --list-padding-inline-start: 8px;
+  --list-item-background-color: var(--structure-color-white);
+  --list-item-background-color-active: var(--structure-color-white);
+  --list-item-background-color-focus: var(--structure-color-white);
+  --list-item-background-color-hover: var(--structure-color-100);
+  --list-item-border-radius: 4px;
+  --list-item-border-bottom: none;
+  --list-item-border-bottom-hover: none;
+  --list-item-color-active: var(--structure-color-900);
+  --list-item-color-focus: var(--structure-color-900);
+  --list-item-font-size: 14px;
+  --list-item-min-height: 37px;
+  --list-item-padding: 8px;
+  --list-item-width: 224px;
+  --list-item-label-color: var(--structure-color-900);
+  --list-item-label-color-active: var(--structure-color-900);
+  --list-item-label-color-focus: var(--structure-color-900);
+  --list-item-label-font-size: 14px;
+  --list-item-label-margin: 0;
+  --list-item-selected-background-color: var(--structure-color-200);
+  --list-item-selected-background-color-hover: var(--structure-color-200);
+  --list-item-selected-border-bottom: none;
+  --list-item-selected-border-left: none;
+  --list-item-selected-border-right: none;
+  --list-item-selected-border-top: none;
+  --list-item-selected-font-weight: 500;
+}

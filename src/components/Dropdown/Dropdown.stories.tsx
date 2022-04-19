@@ -523,3 +523,26 @@ DisplayListOnTop.args = {
   getListTitle: item => item.label,
   listPosition: 'top'
 };
+
+export const CustomStyledDropdown = () => {
+  return (
+    <Dropdown
+      getItemLabel={item => item.label}
+      getItemKey={item => item.value}
+      getItemValue={item => item.value}
+      getListTitle={item => item.label}
+      options={[
+        {
+          label: 'Option 1',
+          value: '1'
+        },
+        {
+          label: 'Option 2',
+          value: '2'
+        }
+      ]}
+      selectorText='Select'
+      variablesClassName={styles['custom-styled-dropdown']}
+    />
+  );
+};
