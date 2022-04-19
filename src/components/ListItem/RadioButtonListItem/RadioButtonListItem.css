@@ -2,7 +2,7 @@
 
 .radio-container {
   cursor: pointer;
-  display: block;
+  display: var(--list-item-radio-display, block);
   margin-bottom: 12px;
   position: relative;
   padding-left: 30px;

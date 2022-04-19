@@ -37,6 +37,7 @@
   --list-item-label-color-focus: var(--structure-color-900);
   --list-item-label-font-size: 14px;
   --list-item-label-margin: 0;
+  --list-item-radio-display: none;
   --list-item-selected-background-color: var(--structure-color-200);
   --list-item-selected-background-color-hover: var(--structure-color-200);
   --list-item-selected-border-bottom: none;
