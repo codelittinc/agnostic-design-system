@@ -96,8 +96,9 @@
   --list-bottom: var(--dropdown-list-bottom, 55px);
 }
 
-.dropdown-list-postioned-bottom {
-  --list-top: var(--dropdown-list-top, 55px);
+.dropdown-list-postioned-bottom ul {
+  height: fit-content;
+  top: var(--dropdown-list-top, 55px);
 }
 
 .dropdown-button {
