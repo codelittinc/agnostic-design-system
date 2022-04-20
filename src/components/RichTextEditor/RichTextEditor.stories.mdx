@@ -72,33 +72,15 @@ const SimpleRichTextEditor = () => {
 export default SimpleRichTextEditor;
 ```
 
-# Variables available
+# CSS variables available
+
+Given the nature of a composite component, in addition to its own, the RichTextEditor utilizes CSS variables from the Button component.
+They are listed in the table below.
 
 |     Property     |         Attribute          |             State              |
 | :--------------: | :------------------------: | :----------------------------: |
-|      button      |        align-items         |                                |
-|      button      |       align-content        |                                |
-|      button      |      background-color      | hover, focus, active, disabled |
-|      button      |           border           | hover, focus, active, disabled |
-|      button      |       border-radius        |                                |
-|      button      |         box-shadow         | hover, focus, active, disabled |
-|      button      |           color            | hover, focus, active, disabled |
-|      button      |           cursor           | hover, focus, active, disabled |
-|      button      |          display           |                                |
-|      button      |       flex-direction       |                                |
-|      button      |         flex-wrap          |                                |
-|      button      |        font-family         |                                |
-|      button      |         font-size          |                                |
-|      button      |        font-weight         |                                |
-|      button      |           height           |                                |
-|      button      |    icon-color-is-active    |                                |
-|      button      |      justify-content       |                                |
-|      button      |        line-height         |                                |
-|      button      |           margin           |                                |
-|      button      |          padding           |                                |
-|      button      |           width            |                                |
-|      button      | background-color-is-active |                                |
-|      button      |      color-is-active       |                                |
+|  menu-bar-button |         icon-color         |                                |
+|  menu-bar-button |    icon-color-is-active    |                                |
 | editor container |           border           |             focus              |
 | editor container |           height           |                                |
 | editor container |           width            |                                |
@@ -109,3 +91,27 @@ export default SimpleRichTextEditor;
 |     menu bar     |      justify-content       |                                |
 |     menu bar     |           width            |                                |
 |   placeholder    |           color            |                                |
+
+## Observation:
+The following variables are initially set up and drawing defaults from the components that make up the RichTextEditor.
+For further customization, via CSS variables, please refer to their specific component's documentation.
+
+### Variables from the [Button](https://design-system.codelitt.dev/?path=/docs/components-button--neutral) initially set up in the RichTextEditor component
+
+| Property |         Attribute          |             State              |
+| :------: | :------------------------: | :----------------------------: |
+|          |        align-items         |                                |
+|          |       align-content        |                                |
+|          |      background-color      | hover, focus, active, disabled |
+|          |           border           | hover, focus, active, disabled |
+|          |       border-radius        |                                |
+|          |         box-shadow         | hover, focus, active, disabled |
+|          |           color            | hover, focus, active, disabled |
+|          |           cursor           | hover, focus, active, disabled |
+|          |          display           |                                |
+|          |       flex-direction       |                                |
+|          |         flex-wrap          |                                |
+|          |        font-family         |                                |
+|          |         font-size          |                                |
+|          |        font-weight         |                                |
+|          |           height           |                                |

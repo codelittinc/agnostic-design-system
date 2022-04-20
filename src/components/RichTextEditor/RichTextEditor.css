@@ -13,13 +13,15 @@
 }
 
 .is-active {
-  --button-append-icon-color: var(--button-icon-color-is-active);
+  --button-append-icon-color: var(--menu-bar-button-icon-color-is-active);
 
   background: var(--button-background-color-is-active);
   color: var(--button-color-is-active);
 }
 
 .menu-bar-container {
+  --button-append-icon-color: var(--menu-bar-button-icon-color);
+
   align-items: var(--menu-bar-align-items, flex-start);
   background-color: var(--menu-bar-background-color, var(--structure-color-white));
   border-radius: var(--menu-bar-border-radius, 0);
