@@ -36,3 +36,44 @@
   --list-item-radio-top-circle: 2px;
   --list-item-selected-background-color: var(--primary-color-300);
 }
+
+.custom-select-all-list {
+  --list-item-border-bottom: 1px solid var(--primary-color-300);
+  --list-item-border-left: 1px solid var(--primary-color-300);
+  --list-item-border-right: 1px solid var(--primary-color-300);
+  --list-item-border-top: 1px solid var(--primary-color-300);
+  --list-item-border-radius: 4px;
+  --list-item-flex-direction: row;
+  --list-item-padding: 17px 16px;
+  --list-item-label-font-size: 16px;
+  --list-item-label-line-height: 22.4px;
+  --list-item-label-margin: 0;
+  --list-item-checkbox-height: 16px;
+  --list-item-checkbox-width: 16px;
+  --list-item-checkbox-marker-color: blue;
+  --list-item-checkbox-marker-height: 9px;
+  --list-item-checkbox-marker-left: 6px;
+  --list-item-checkbox-marker-top: 2px;
+  --list-item-checkbox-marker-width: 4px;
+  --list-item-selected-background-color: blue;
+  --list-item-selected-border-bottom: 1px solid transparent;
+  --list-item-selected-border-left: 1px solid transparent;
+  --list-item-selected-border-right: 1px solid transparent;
+  --list-item-selected-border-top: 1px solid transparent;
+  --list-item-selected-border-bottom-active: 1px solid transparent;
+  --list-item-selected-border-left-active: 1px solid transparent;
+  --list-item-selected-border-right-active: 1px solid transparent;
+  --list-item-selected-border-top-active: 1px solid transparent;
+  --list-item-checkbox-background-color-checked: white;
+  --list-item-selected-color: white;
+  --list-item-selected-font-size: 16px;
+  --list-header-border-bottom: 1px solid grey;
+  --list-header-margin: 0 0 16px 0;
+  --list-header-padding: 0 0 16px 0;
+  --list-select-all-checkbox-background-color-checked: white;
+  --list-select-all-checkbox-border-checked: 1px solid var(--primary-color-300);
+  --list-select-all-checkbox-marker-color: blue;
+  --list-select-all-checkbox-marker-height: 8px;
+  --list-select-all-checkbox-marker-left: 6px;
+  --list-select-all-checkbox-marker-width: 3px;
+}

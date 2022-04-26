@@ -44,6 +44,15 @@
   outline: var(--list-outline-focus, none);
 }
 
+.list-heading-wrapper {
+  border-bottom: var(--list-header-border-bottom, 1px solid transparent);
+  display: flex;
+  justify-content: space-between;
+  margin: var(--list-header-margin, 0);
+  padding: var(--list-header-padding, 0);
+  width: 100%;
+}
+
 .list-label {
   color: var(--list-label-color, var(--structure-color-800));
   display: flex;
@@ -52,5 +61,85 @@
   font-weight: var(--list-label-font-weight, var(--paragraph-font-weight-normal));
   line-height: var(--list-label-line-height, var(--paragraph-l-line-height));
   margin: var(--list-label-margin, 0);
-  width: 100%;
 }
+
+.list-select-all-wrapper {
+  align-items: center;
+  display: flex;
+}
+
+.list-select-all-label {
+  color: var(--list-select-all-label-color, var(--structure-color-800));
+  display: flex;
+  font-family: var(--list-select-all-label-font-family, 'Inter');
+  font-size: var(--list-select-all-label-font-size, var(--paragraph-l));
+  margin: var(--list-select-all-label-margin, 0 16px 0 0);
+}
+
+.list-select-all-checkbox-wrapper {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+/* Hide the browser's default checkbox */
+.list-select-all-checkbox-wrapper .list-select-all-checkbox {
+  cursor: pointer;
+  height: var(--list-select-all-checkbox-height, 16px);
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: var(--list-select-all-checkbox-top, -5px);
+  width: var(--list-select-all-checkbox-width, 16px);
+  z-index: 100;
+}
+
+/* Create a custom checkbox */
+.list-select-all-custom-checkbox {
+  background-color: var(--list-select-all-checkbox-background-color, var(---structure-color-white));
+  border: var(--list-select-all-checkbox-border, 1px solid var(--structure-color-500));
+  border-radius: var(--list-select-all-checkbox-border-radius, var(--round-m));
+  height: var(--list-select-all-checkbox-height, 16px);
+  left: 0;
+  position: absolute;
+  top: var(--list-select-all-checkbox-top, -5px);
+  width: var(--list-select-all-checkbox-width, 16px);
+}
+
+/* When the checkbox is checked, add a green background */
+.list-select-all-checkbox-wrapper .list-select-all-checkbox:checked ~ .list-select-all-custom-checkbox {
+  background-color: var(--list-select-all-checkbox-background-color-checked, var(--success-color));
+  border: var(--list-select-all-checkbox-border-checked, 1px solid transparent);
+}
+
+/* Create the list-select-all-custom-checkbox/indicator (hidden when not checked) */
+.list-select-all-custom-checkbox:after {
+  content: '';
+  display: none;
+  position: absolute;
+}
+
+/* Show the list-select-all-custom-checkbox when checked */
+.list-select-all-checkbox-wrapper .list-select-all-checkbox:checked ~ .list-select-all-custom-checkbox:after {
+  display: block;
+}
+
+/* Style the list-select-all-custom-checkbox/indicator */
+.list-select-all-checkbox-wrapper .list-select-all-custom-checkbox:after {
+  border: solid var(--list-select-all-checkbox-marker-color,white);
+  border-width: 0 2px 2px 0;
+  height: var(--list-select-all-checkbox-marker-height, 12px);
+  left: var(--list-select-all-checkbox-marker-left, 8px);
+  top: var(--list-select-all-checkbox-marker-top, 3px);
+  width: var(--list-select-all-checkbox-marker-width, 6px);
+  transform: rotate(45deg);
+
+  /* height: 8px;
+  left: 6px;
+  top: 3px;
+  width: 3px; */
+}
+

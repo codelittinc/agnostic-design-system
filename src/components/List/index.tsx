@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
-import { isEqual } from 'lodash';
+import { isArray, isEmpty, isEqual } from 'lodash';
 
 import styles from '@/components/List/List.css';
 
@@ -16,6 +16,7 @@ const ARROW_DOWN_KEY = 40;
 const ARROW_UP_KEY = 38;
 const SIMPLE_CATEGORY = 'simple';
 const RADIO_CATEGORY = 'radio';
+const CHECKBOX_CATEGORY = 'checkbox';
 
 interface Props<T> {
   getItemLabel: (item: T) => React.ReactNode;
@@ -34,6 +35,8 @@ interface Props<T> {
   options?: T[];
   selected?: T[] | T;
   size?: Size;
+  showSelectAll?: boolean;
+  selectAllLabel?: string | React.ReactNode;
   variablesClassName?: string;
 }
 
@@ -55,7 +58,9 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     listItemCategory = SIMPLE_CATEGORY,
     multiselect,
     nodeAfterItems,
-    nodeBeforeItems
+    nodeBeforeItems,
+    showSelectAll,
+    selectAllLabel = 'Select All'
   } = props;
 
   const defaultRef = useRef<HTMLDivElement>(null);
@@ -100,11 +105,35 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     }
   };
 
+  const handleSelectAllClick = event => {
+    event.target.checked ? onChange(options) : onChange([]);
+  };
+
   return (
     <div className={classNames(styles['list-container'], variablesClassName)} ref={currentRef}>
-      {label && (
-        <label className={classNames(styles['list-label'], variablesClassName)}>{label}</label>
-      )}
+      <div className={classNames(styles['list-heading-wrapper'])}>
+        {label && (
+          <label className={classNames(styles['list-label'], variablesClassName)}>{label}</label>
+        )}
+        {multiselect && showSelectAll && listItemCategory === CHECKBOX_CATEGORY && (
+          <div className={classNames(styles['list-select-all-wrapper'])}>
+            <span className={classNames(styles['list-select-all-label'], variablesClassName)}>
+              {showSelectAll && selectAllLabel}
+            </span>
+            <div className={styles['list-select-all-checkbox-wrapper']}>
+              <input
+                className={classNames(styles['list-select-all-checkbox'])}
+                checked={isArray(selected) && !isEmpty(selected)}
+                onClick={event => handleSelectAllClick(event)}
+                onChange={() => {}}
+                tabIndex={-1}
+                type='checkbox'
+              />
+              <span className={styles['list-select-all-custom-checkbox']} />
+            </div>
+          </div>
+        )}
+      </div>
       <ul
         id={id}
         className={classNames(styles.list, variablesClassName)}

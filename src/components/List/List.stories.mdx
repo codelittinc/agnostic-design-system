@@ -2,25 +2,27 @@
 
 ## List Props
 
-|        Prop        |                    Type                    | Default | Optional |
-| :----------------: | :----------------------------------------: | :-----: | :------: |
-|    getItemLabel    |        (item: T) => React.ReactNode        |    -    |  false   |
-|    getItemIcon     |       (item?: T) => React.ReactNode        |    -    |   true   |
-|     getItemKey     |       (item: T) => string \| number        |    -    |  false   |
-|    getItemName     |            (item?: T) => string            |    -    |   true   |
-|    getItemValue    | (item: T) => string \| number \| string[ ] |    -    |  false   |
-|         id         |                   string                   |    -    |  false   |
-|   isItemSelected   |       (item?: T \| T[ ]) => boolean        |    -    |   true   |
-|       label        |                   string                   |    -    |   true   |
-|  listItemCategory  |              ListItemCategory              | simple  |   true   |
-|      onChange      |             (item?: T) => void             |    -    |  false   |
-|      options       |                    T[ ]                    |    -    |   true   |
-|      selected      |                 T[ ] \| T                  |    -    |   true   |
-|    multiselect     |                  boolean                   |    -    |   true   |
-|   nodeAfterItems   |              React.ReactNode               |    -    |   true   |
-|  nodeBeforeItems   |              React.ReactNode               |    -    |   true   |
-|        size        |                    Size                    |  large  |   true   |
-| variablesClassName |                   string                   |    -    |   true   |
+|        Prop        |                    Type                    |    Default    | Optional |
+| :----------------: | :----------------------------------------: | :-----------: | :------: |
+|    getItemLabel    |        (item: T) => React.ReactNode        |       -       |  false   |
+|    getItemIcon     |       (item?: T) => React.ReactNode        |       -       |   true   |
+|     getItemKey     |       (item: T) => string \| number        |       -       |  false   |
+|    getItemName     |            (item?: T) => string            |       -       |   true   |
+|    getItemValue    | (item: T) => string \| number \| string[ ] |       -       |  false   |
+|         id         |                   string                   |       -       |  false   |
+|   isItemSelected   |       (item?: T \| T[ ]) => boolean        |       -       |   true   |
+|       label        |                   string                   |       -       |   true   |
+|  listItemCategory  |              ListItemCategory              |     simple    |   true   |
+|      onChange      |             (item?: T) => void             |       -       |  false   |
+|      options       |                    T[ ]                    |       -       |   true   |
+|      selected      |                 T[ ] \| T                  |       -       |   true   |
+|    multiselect     |                  boolean                   |       -       |   true   |
+|   nodeAfterItems   |              React.ReactNode               |       -       |   true   |
+|  nodeBeforeItems   |              React.ReactNode               |       -       |   true   |
+|   selectAllLabel   |         string \| React.ReactNode          | 'Select All'  |  false   |
+|   showSelectAll    |                 boolean                    |     large     |  false   |
+|        size        |                   Size                     |     large     |   true   |
+| variablesClassName |                  string                    |       -       |   true   |
 
 **List Item Category availables:**
 
@@ -132,6 +134,9 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 |          |       padding        |               |
 |          | padding-inline-start |               |
 |          |       position       |               |
+|  header  |     border-bottom    |               |
+|  header  |        margin        |               |
+|  header  |        padding       |               |
 |  label   |        color         |               |
 |  label   |      font-size       |               |
 |  label   |     font-weight      |               |
@@ -177,17 +182,44 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 | item-selected |    font-size     | active, focus, hover |
 | item-selected |   font-weight    | active, focus, hover |
 
-### Variables availables for ListItemCategory [CheckBox](https://design-system.codelitt.dev/?path=/story/components-list--check-box-list)
+### Variables available for ListItemCategory [CheckBox](https://design-system.codelitt.dev/?path=/story/components-list--check-box-list)
 
-|   Property    |    Attribute     |     State      |
-| :-----------: | :--------------: | :------------: |
-| item-checkbox | background-color | checked, hover |
-| item-checkbox |      border      | checked, hover |
-| item-checkbox |  border-radius   |                |
-| item-checkbox |      height      |                |
-| item-checkbox |      width       |                |
+|      Property        |    Attribute     |     State      |
+|:--------------------:| :--------------: | :------------: |
+|    item-checkbox     | background-color | checked, hover |
+|    item-checkbox     |      border      | checked, hover |
+|    item-checkbox     |  border-radius   |                |
+|    item-checkbox     |      height      |                |
+|    item-checkbox     |      width       |                |
+| item-checkbox-marker |      color       |                |
+| item-checkbox-marker |      height      |                |
+| item-checkbox-marker |       left       |                |
+| item-checkbox-marker |       top        |                |
+| item-checkbox-marker |      width       |                |
 
-### Variables availables for ListItemCategory [CheckMark](https://design-system.codelitt.dev/?path=/story/components-list--check-mark-list)
+### Variables available for a multiselect-enabled and showSelectAll checkbox List
+
+|          Property          |    Attribute     |     State      |
+|:--------------------------:| :--------------: | :------------: |
+|    select-all-checkbox     | background-color |     checked    |
+|    select-all-checkbox     |      border      |     checked    |
+|    select-all-checkbox     |   border-radius  |                |
+|    select-all-checkbox     |      height      |                |
+|    select-all-checkbox     |       top        |                |
+|    select-all-checkbox     |      width       |                |
+|    select-all-checkbox     |   border-radius  |                |
+|  select-all-checkbox-label |      color       |                |
+|  select-all-checkbox-label |   font-family    |                |
+|  select-all-checkbox-label |    font-size     |                |
+|  select-all-checkbox-label |     margin       |                |
+| select-all-checkbox-marker |      color       |                |
+| select-all-checkbox-marker |      height      |                |
+| select-all-checkbox-marker |       left       |                |
+| select-all-checkbox-marker |       top        |                |
+| select-all-checkbox-marker |      width       |                |
+
+
+### Variables available for ListItemCategory [CheckMark](https://design-system.codelitt.dev/?path=/story/components-list--check-mark-list)
 
 |    Property    |   Attribute   |         State          |
 | :------------: | :-----------: | :--------------------: |
@@ -197,7 +229,7 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 | item-checkmark |    margin     |                        |
 | item-checkmark |     width     |                        |
 
-### Variables availables for ListItemCategory [Icon](https://design-system.codelitt.dev/?path=/story/components-list--icon-list)
+### Variables available for ListItemCategory [Icon](https://design-system.codelitt.dev/?path=/story/components-list--icon-list)
 
 | Property  | Attribute |     State     |
 | :-------: | :-------: | :-----------: |
@@ -205,7 +237,7 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 | item-icon |   fill    | active, hover |
 | item-icon |  margin   |               |
 
-### Variables availables for ListItemCategory [RadioButton](https://design-system.codelitt.dev/?path=/story/components-list--radio-button-list)
+### Variables available for ListItemCategory [RadioButton](https://design-system.codelitt.dev/?path=/story/components-list--radio-button-list)
 
 |  Property  |    Attribute     |         State          |
 | :--------: | :--------------: | :--------------------: |

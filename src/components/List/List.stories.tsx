@@ -15,7 +15,7 @@ export default {
 } as Meta;
 
 const Template = args => {
-  const [selectedItem, setSelectedItem] = useState(args.selected);
+  const [selectedItem, setSelectedItem] = useState({ label: '', value: '' });
 
   return <List {...args} selected={selectedItem} onChange={setSelectedItem} />;
 };
@@ -158,6 +158,40 @@ export const CustomStyledRadioList = () => {
       selected={selectedItem}
       size='large'
       variablesClassName={styles['custom-list']}
+    />
+  );
+};
+
+export const CustomStyledSelectAllList = () => {
+  const [selectedItem, setSelectedItem] = useState({ label: '', value: '' });
+
+  return (
+    <List
+      getItemValue={item => item.value}
+      getItemLabel={item => item.label}
+      getItemKey={item => item.value}
+      label='Some Label'
+      listItemCategory='checkbox'
+      onChange={setSelectedItem}
+      multiselect
+      options={[
+        {
+          label: 'Item 1',
+          value: '1'
+        },
+        {
+          label: 'Item 2',
+          value: '2'
+        },
+        {
+          label: 'Item 3',
+          value: '3'
+        }
+      ]}
+      selected={selectedItem}
+      showSelectAll
+      size='medium'
+      variablesClassName={styles['custom-select-all-list']}
     />
   );
 };

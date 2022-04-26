@@ -59,7 +59,7 @@
 
 /* Style the checkbox-check/indicator */
 .checkbox-container .checkbox-check:after {
-  border: solid white;
+  border: solid var(--list-item-checkbox-marker-color, white);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -74,10 +74,10 @@
 
 /* Style the indicator (dot/circle) medium size */
 .checkbox-container .list-item-checkbox--medium ~ .checkbox-check:after {
-  height: 10px;
-  left: 7px;
-  top: 2px;
-  width: 4px;
+  height: var(--list-item-checkbox-marker-height, 10px);
+  left: var(--list-item-checkbox-marker-left, 7px);
+  top: var(--list-item-checkbox-marker-top, 2px);
+  width: var(--list-item-checkbox-marker-width, 4px);
 }
 
 .checkbox-direction {
