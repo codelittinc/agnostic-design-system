@@ -21,6 +21,7 @@ interface Props {
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
   menuPositionedBottom?: boolean;
   onChange: React.Dispatch<React.SetStateAction<string>>;
+  onCreate: React.Dispatch<React.SetStateAction<object>>;
   placeholderText?: string;
   variablesClassName?: string;
 }
@@ -33,6 +34,7 @@ const RichTextEditor: React.FC<Props> = props => {
     menuEditOptions,
     menuPositionedBottom,
     onChange,
+    onCreate,
     placeholderText,
     variablesClassName
   } = props;
@@ -97,6 +99,9 @@ const RichTextEditor: React.FC<Props> = props => {
     content: editorContent,
     onUpdate({ editor }) {
       onChange && onChange(editor.getHTML());
+    },
+    onCreate({ editor }) {
+      onCreate && onCreate(editor);
     }
   });
 

@@ -4,16 +4,17 @@
 
 ## RichTextEditor Props
 
-|         Prop         |        Type        |                                         Description                                         |   Default   | Mandatory |
-| :------------------: | :----------------: | :-----------------------------------------------------------------------------------------: | :---------: | :-------: |
-|     buttonIcons      |       object[]     |         List of objects containing the button name and the icon that it should use.         |      -      |   false   |
-|  displayOnlyOnFocus  |       boolean      |       Specifies whether or not the menu will be hidden when the editor is not in use.       |      -      |   false   |
-|   menuEditOptions    |       string[]     |                       List of the edit options available on the menu.                       | All options |   false   |
-| menuPositionedBottom |       boolean      |            Specifies whether or not the menu bar should be under the text input.            |      -      |   false   |
-|    editorContent     |       string       |  The value of the input field. It can be edited to be the initial text shown on the input.  |      -      |   false   |
-|       onChange       |  (e: any) => void  |          Calls a function whenever a change in an event of the input is detected.           |      -      |   false   |
-|   placeholderText    |       string       |                   Text to be displayed as a placeholder on the container.                   |      -      |   false   |
-|  variablesClassName  |       string       |                               Accepts custom CSS class names.                               |      -      |   false   |
+|         Prop         |       Type       |                                                                                                 Description                                                                                                 |   Default   | Mandatory |
+| :------------------: | :--------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------: | :-------: |
+|     buttonIcons      |     object[]     |                                                                 List of objects containing the button name and the icon that it should use.                                                                 |      -      |   false   |
+|  displayOnlyOnFocus  |     boolean      |                                                               Specifies whether or not the menu will be hidden when the editor is not in use.                                                               |      -      |   false   |
+|   menuEditOptions    |     string[]     |                                                                               List of the edit options available on the menu.                                                                               | All options |   false   |
+| menuPositionedBottom |     boolean      |                                                                    Specifies whether or not the menu bar should be under the text input.                                                                    |      -      |   false   |
+|    editorContent     |      string      |                                                          The value of the input field. It can be edited to be the initial text shown on the input.                                                          |      -      |   false   |
+|       onChange       | (e: any) => void |                                                                  Calls a function whenever a change in an event of the input is detected.                                                                   |      -      |   false   |
+|       onCreate       | (e: any) => void | Calls a function and returns the editor whenever the component is ready allowing the developer to store the editor in a state an access all [the commands the editor has](https://tiptap.dev/api/commands). |      -      |   false   |
+|   placeholderText    |      string      |                                                                           Text to be displayed as a placeholder on the container.                                                                           |      -      |   false   |
+|  variablesClassName  |      string      |                                                                                       Accepts custom CSS class names.                                                                                       |      -      |   false   |
 
 **Menu Edit Options**
 
@@ -77,41 +78,42 @@ export default SimpleRichTextEditor;
 Given the nature of a composite component, in addition to its own, the RichTextEditor utilizes CSS variables from the Button component.
 They are listed in the table below.
 
-|     Property     |         Attribute          |             State              |
-| :--------------: | :------------------------: | :----------------------------: |
-|  menu-bar-button |         icon-color         |                                |
-|  menu-bar-button |    icon-color-is-active    |                                |
-| editor container |           border           |             focus              |
-| editor container |           height           |                                |
-| editor container |           width            |                                |
-|     menu bar     |        align-items         |                                |
-|     menu bar     |      background-color      |                                |
-|     menu bar     |       border-radius        |                                |
-|     menu bar     |           height           |                                |
-|     menu bar     |      justify-content       |                                |
-|     menu bar     |           width            |                                |
-|   placeholder    |           color            |                                |
+|     Property     |      Attribute       | State |
+| :--------------: | :------------------: | :---: |
+| menu-bar-button  |      icon-color      |       |
+| menu-bar-button  | icon-color-is-active |       |
+| editor container |        border        | focus |
+| editor container |        height        |       |
+| editor container |        width         |       |
+|     menu bar     |     align-items      |       |
+|     menu bar     |   background-color   |       |
+|     menu bar     |    border-radius     |       |
+|     menu bar     |        height        |       |
+|     menu bar     |   justify-content    |       |
+|     menu bar     |        width         |       |
+|   placeholder    |        color         |       |
 
 ## Observation:
+
 The following variables are initially set up and drawing defaults from the components that make up the RichTextEditor.
 For further customization, via CSS variables, please refer to their specific component's documentation.
 
 ### Variables from the [Button](https://design-system.codelitt.dev/?path=/docs/components-button--neutral) initially set up in the RichTextEditor component
 
-| Property |         Attribute          |             State              |
-| :------: | :------------------------: | :----------------------------: |
-|          |        align-items         |                                |
-|          |       align-content        |                                |
-|          |      background-color      | hover, focus, active, disabled |
-|          |           border           | hover, focus, active, disabled |
-|          |       border-radius        |                                |
-|          |         box-shadow         | hover, focus, active, disabled |
-|          |           color            | hover, focus, active, disabled |
-|          |           cursor           | hover, focus, active, disabled |
-|          |          display           |                                |
-|          |       flex-direction       |                                |
-|          |         flex-wrap          |                                |
-|          |        font-family         |                                |
-|          |         font-size          |                                |
-|          |        font-weight         |                                |
-|          |           height           |                                |
+| Property |    Attribute     |             State              |
+| :------: | :--------------: | :----------------------------: |
+|          |   align-items    |                                |
+|          |  align-content   |                                |
+|          | background-color | hover, focus, active, disabled |
+|          |      border      | hover, focus, active, disabled |
+|          |  border-radius   |                                |
+|          |    box-shadow    | hover, focus, active, disabled |
+|          |      color       | hover, focus, active, disabled |
+|          |      cursor      | hover, focus, active, disabled |
+|          |     display      |                                |
+|          |  flex-direction  |                                |
+|          |    flex-wrap     |                                |
+|          |   font-family    |                                |
+|          |    font-size     |                                |
+|          |   font-weight    |                                |
+|          |      height      |                                |
