@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
-import { isArray, isEmpty, isEqual } from 'lodash';
+import { isArray, isEqual } from 'lodash';
 
 import styles from '@/components/List/List.css';
 
@@ -123,7 +123,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
             <div className={styles['list-select-all-checkbox-wrapper']}>
               <input
                 className={classNames(styles['list-select-all-checkbox'])}
-                checked={isArray(selected) && !isEmpty(selected)}
+                checked={isArray(selected) && selected.length === options.length}
                 onClick={event => handleSelectAllClick(event)}
                 onChange={() => {}}
                 tabIndex={-1}
