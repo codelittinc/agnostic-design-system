@@ -29,13 +29,13 @@
 
 .list-item-checkbox--large ~ .checkbox-check {
   height: var(--list-item-checkbox-height, var(--heading-s));
-  top: -8px;
+  top: var(--list-item-checkbox-top, -8px);
   width: var(--list-item-checkbox-width, var(--heading-s));
 }
 
 .list-item-checkbox--medium ~ .checkbox-check {
   height: var(--list-item-checkbox-height, var(--heading-xs));
-  top: -5px;
+  top: var(--list-item-checkbox-top, -5px);
   width: var(--list-item-checkbox-width, var(--heading-xs));
 }
 
