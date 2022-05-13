@@ -4,7 +4,7 @@ import styles from '@/components/Modal/Modal.css';
 
 interface Props {
   open: boolean;
-  onClickOutside: () => void;
+  onClickOutside?: () => void;
   variablesClassName?: string;
 }
 
@@ -12,7 +12,7 @@ const Modal: React.FC<Props> = props => {
   const { variablesClassName, open, onClickOutside, children } = props;
 
   function handleClickOutside(event) {
-    if (event.target.id === 'modal-container') {
+    if (event.target.id === 'modal-container' && onClickOutside) {
       onClickOutside();
     }
   }
