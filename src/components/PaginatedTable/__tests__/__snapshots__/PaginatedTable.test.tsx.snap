@@ -408,21 +408,20 @@ exports[`PaginatedTable renders correctly 1`] = `
                       <div
                         className="number-of-pages-input container"
                       >
-                        <div
-                          className="input--container"
-                        >
-                          <input
-                            className="input input--medium"
-                            id="paginated-table-input-paginated-table"
-                            onBlur={[Function]}
-                            onChange={[Function]}
-                            onFocus={[Function]}
-                            value="1"
-                          />
+                        <div>
+                          <div
+                            className="input--container"
+                          >
+                            <input
+                              className="input input--medium"
+                              id="paginated-table-input-paginated-table"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              value="1"
+                            />
+                          </div>
                         </div>
-                        <span
-                          className="input--message"
-                        />
                       </div>
                     </ForwardRef>
                   </ForwardRef>

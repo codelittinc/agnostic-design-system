@@ -15,10 +15,11 @@
 }
 
 .container {
-  align-items: var(--input-align-items);
+  align-items: var(--input-align-items, stretch);
   display: var(--input-display, flex);
   flex-direction: var(--input-flex-direction, column);
-  height: 100%;
+  gap: var(--input-gap, 0);
+  height: var(--input-height, 100%);
   justify-content: var(--input-justify-content);
   margin: var(--input-margin, 0);
   width: var(--input-width);
@@ -34,6 +35,7 @@
   box-shadow: var(--input-box-shadow, none);
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
+  flex-grow: var(--input-field-flex-grow, 1);
   font-family: var(--input-font-family);
   text-align: var(--input-text-align, left);
   width: var(--input-width);
@@ -176,7 +178,7 @@
   color: var(--input-label-color, var(--structure-color-800));
   display: var(--input-label-display, flex);
   margin: var(--input-label-margin, 0);
-  width: 100%;
+  width: var(--input-label-width, 100%);
 }
 
 .input--label-hidden {

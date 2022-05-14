@@ -174,11 +174,13 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     );
   };
 
-  const getMessage = () => {
-    if (message || invalidMessage) {
-      return validationState === INVALID && invalidMessage ? invalidMessage : message;
-    }
-    return '';
+  const renderMessage = () => {
+    const messageToShow = validationState === INVALID && invalidMessage ? invalidMessage : message;
+    return (
+      <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
+        {messageToShow}
+      </span>
+    );
   };
 
   const displayInput = () => {
@@ -244,32 +246,32 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     <div className={classNames(variablesClassName, styles.container)}>
       {getLabel()}
       {getDescription()}
-      <div className={classNames(styles['input--container'])}>
-        {mask ? displayMaskedInput(mask) : displayInput()}
-        {!!prepend && (
-          <div
-            className={classNames(
-              styles['input--prepend'],
-              withPrependSeparator ? styles[prependSizeClass] : '',
-              withPrependSeparator ? styles['input--prepend-with-separator'] : ''
-            )}
-          >
-            {prepend}
-          </div>
-        )}
+      <div>
+        <div className={classNames(styles['input--container'])}>
+          {mask ? displayMaskedInput(mask) : displayInput()}
+          {!!prepend && (
+            <div
+              className={classNames(
+                styles['input--prepend'],
+                withPrependSeparator ? styles[prependSizeClass] : '',
+                withPrependSeparator ? styles['input--prepend-with-separator'] : ''
+              )}
+            >
+              {prepend}
+            </div>
+          )}
 
-        {withActionIcon && (
-          <div
-            className={classNames(styles['input--action-icon-container'])}
-            onClick={onClickActionIcon}
-          >
-            {getActionIcon(actionIcon)}
-          </div>
-        )}
+          {withActionIcon && (
+            <div
+              className={classNames(styles['input--action-icon-container'])}
+              onClick={onClickActionIcon}
+            >
+              {getActionIcon(actionIcon)}
+            </div>
+          )}
+        </div>
+        {(message || invalidMessage) && renderMessage()}
       </div>
-      <span className={classNames(styles['input--message'], styles[messageValidateClass])}>
-        {getMessage()}
-      </span>
     </div>
   );
 });

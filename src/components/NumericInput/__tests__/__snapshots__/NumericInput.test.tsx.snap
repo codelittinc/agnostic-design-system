@@ -7,19 +7,19 @@ exports[`NumericInput renders correctly 1`] = `
   >
     
     
-    <div
-      class="input--container"
-    >
-      <input
-        class="input input--large"
-        id="numeric-input-test"
-        placeholder="Enter Number"
-        value=""
-      />
+    <div>
+      <div
+        class="input--container"
+      >
+        <input
+          class="input input--large"
+          id="numeric-input-test"
+          placeholder="Enter Number"
+          value=""
+        />
+      </div>
+      
     </div>
-    <span
-      class="input--message"
-    />
   </div>
 </div>
 `;

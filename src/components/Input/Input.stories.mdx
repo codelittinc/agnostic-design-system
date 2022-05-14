@@ -29,7 +29,7 @@ OBS: An asterisk (\*) denotes that the property will have additional info below 
 |    onStateChange     | (state: boolean) => void  |                                                                                             It returns a boolean with the validation result when there is a **validationRegex** property                                                                                              |                                                                    -                                                                     |   false   |
 |     placeholder      |          string           |                                                                                                                          The input field's placeholder text.                                                                                                                          |                                                                    -                                                                     |   false   |
 |       prepend        |      React.ReactNode      |                                                                        It is possible to add a [prepend](https://design-system.codelitt.dev/?path=/story/components-input--with-prepend) in your input field.                                                                         |                                                                    -                                                                     |   false   |
-|       readOnly       |          boolean          |                                                                                                                  Specifies that the input field can't be edited.                                                                                                                   |                                                                    -                                                                     |   false   |
+|       readOnly       |          boolean          |                                                                                                                    Specifies that the input field can't be edited.                                                                                                                    |                                                                    -                                                                     |   false   |
 |       required       |          boolean          |                                                                                                                  Specifies that the input field must be filled out.                                                                                                                   |                                                                    -                                                                     |   false   |
 |         size         |           Size            |                                                                                                             Size of the component. The change is reflected on the height.                                                                                                             |                                                                  large                                                                   |   true    |
 |      inputType       |          string           |                                                                                                               Defines what is the type that will be used on the input.                                                                                                                |                                                                    -                                                                     |   false   |
@@ -109,6 +109,7 @@ export default SimpleInput;
 |             |    font-size     |                      disabled                      |
 |             |    font-style    |                      disabled                      |
 |             |   font-weight    |                      disabled                      |
+|             |       gap        |                                                    |
 |             |      height      |                                                    |
 |             | justify-content  |                                                    |
 |             |   line-height    |                                                    |
@@ -118,6 +119,7 @@ export default SimpleInput;
 |             |     padding      |                                                    |
 |             |    text-align    |                                                    |
 |             |      width       |                                                    |
+|    field    |    flex-grow     |                                                    |
 | action-icon | background-color |                                                    |
 | action-icon |      color       |                   hover, active                    |
 | action-icon |      cursor      |                                                    |
@@ -139,6 +141,7 @@ export default SimpleInput;
 |    label    |   line-height    |                                                    |
 |    label    |      height      |                                                    |
 |    label    |      margin      |                                                    |
+|    label    |      width       |                                                    |
 |   message   |      color       |                 positive, negative                 |
 |   message   |     display      |                                                    |
 |   message   |   font-family    |                                                    |
