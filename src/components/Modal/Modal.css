@@ -15,7 +15,7 @@
   justify-content: var(--modal-container-justify-content, center);
   height: 100vh;
   margin: var(--modal-container-margin, auto);
-  position: absolute;
+  position: var(--modal-container-position, absolute);
   width: 100%;
   left: 0;
   top: 0;
