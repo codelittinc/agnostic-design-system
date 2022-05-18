@@ -1,6 +1,11 @@
 @import '../../styles/theme/index.css';
 
-.custom-button {
+.custom-table {
   --button-background-color: red;
   --button-color: black;
+  --button-width: 69px;
+  --button-height: 32px;
+  --paginated-table-footer-wrapper-flex-direction: column;
+  --paginated-table-page-number-text-align: normal;
+  --paginated-table-page-number-text: 12px;
 }

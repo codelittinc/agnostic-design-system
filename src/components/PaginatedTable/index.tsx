@@ -94,7 +94,7 @@ const PaginatedTable = (props: Props) => {
                       variablesClassName={styles['number-of-pages-input']}
                       positive
                     />
-                    <span>of {numberOfPages} pages</span>
+                    <span className={styles['number-of-pages-text']}>of {numberOfPages} pages</span>
                   </div>
                   <div className={styles['paginated-table-action-btns']}>
                     <Pagination

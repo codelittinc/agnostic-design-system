@@ -91,7 +91,7 @@ CustomizedTable.args = {
   totalNumberOfItems: 15,
   listOfItems: listOfItems,
   limit: 5,
-  variablesClassName: classNames(styles['custom-button'])
+  variablesClassName: classNames(styles['custom-table'])
 };
 
 export const onRowClick = Template.bind({});

@@ -21,7 +21,11 @@
 .number-of-pages:after {
   color: var(--paginated-table-separator-color, var(--structure-color-800));
   content: '|';
-  margin-left: 20px;
+  margin: var(--paginated-table-separator-margin, 0 0 0 20px);
+}
+
+.number-of-pages-text {
+  font-size: var(--paginated-table-page-number-text, 14px);
 }
 
 .number-of-pages-input {
@@ -49,8 +53,8 @@
 }
 
 .paginated-footer-wrapper {
-  display: flex;
-  flex-direction: row;
+  display: var(--paginated-table-footer-wrapper-display, flex);
+  flex-direction: var(--paginated-table-footer-wrapper-flex-direction, row);
   justify-content: space-between;
   align-items: center;
 }

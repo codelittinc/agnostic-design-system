@@ -425,7 +425,9 @@ exports[`PaginatedTable renders correctly 1`] = `
                       </div>
                     </ForwardRef>
                   </ForwardRef>
-                  <span>
+                  <span
+                    className="number-of-pages-text"
+                  >
                     of 
                     3
                      pages
