@@ -24,6 +24,9 @@
   margin: var(--input-margin, 0);
   width: var(--input-width);
 }
+.input--field-container {
+  flex-grow: var(--input-field-flex-grow, 1);
+}
 
 .input {
   background-color: var(--input-background-color);
@@ -35,7 +38,6 @@
   box-shadow: var(--input-box-shadow, none);
   box-sizing: border-box;
   color: var(--input-color, var(--structure-color-900));
-  flex-grow: var(--input-field-flex-grow, 1);
   font-family: var(--input-font-family);
   text-align: var(--input-text-align, left);
   width: var(--input-width);

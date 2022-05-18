@@ -7,7 +7,9 @@ exports[`NumericInput renders correctly 1`] = `
   >
     
     
-    <div>
+    <div
+      class="input--field-container"
+    >
       <div
         class="input--container"
       >

@@ -246,7 +246,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     <div className={classNames(variablesClassName, styles.container)}>
       {getLabel()}
       {getDescription()}
-      <div>
+      <div className={classNames(styles['input--field-container'])}>
         <div className={classNames(styles['input--container'])}>
           {mask ? displayMaskedInput(mask) : displayInput()}
           {!!prepend && (

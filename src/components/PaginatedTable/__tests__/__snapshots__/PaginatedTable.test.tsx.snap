@@ -408,7 +408,9 @@ exports[`PaginatedTable renders correctly 1`] = `
                       <div
                         className="number-of-pages-input container"
                       >
-                        <div>
+                        <div
+                          className="input--field-container"
+                        >
                           <div
                             className="input--container"
                           >
