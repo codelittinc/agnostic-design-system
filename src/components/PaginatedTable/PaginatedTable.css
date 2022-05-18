@@ -36,6 +36,16 @@
   text-align: center;
 }
 
+.pagination-items {
+  margin: var(--paginated-table-total-number-items-margin, 0);
+  white-space: var(--paginated-table-total-number-items-white-space, normal);
+}
+
+.pagination-items,
+.number-of-pages-text {
+  font-size: var(--paginated-table-footer-font-size, 14px);
+}
+
 .pagination-items,
 .number-of-pages,
 .paginated-table-action-btns {

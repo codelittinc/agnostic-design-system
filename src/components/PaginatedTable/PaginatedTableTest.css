@@ -7,5 +7,6 @@
   --button-height: 32px;
   --paginated-table-footer-wrapper-flex-direction: column;
   --paginated-table-page-number-text-align: normal;
-  --paginated-table-page-number-text: 12px;
+  --paginated-table-footer-font-size: 12px;
+  --paginated-table-total-number-items-margin: 0 0 10px 0;
 }
