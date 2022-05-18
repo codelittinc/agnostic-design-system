@@ -16,6 +16,7 @@
 
 .number-of-pages {
   text-align: var(--paginated-table-page-number-text-align, end);
+  white-space: var(--paginated-table-page-number-white-space, normal);
 }
 
 .number-of-pages:after {
@@ -38,7 +39,6 @@
 
 .pagination-items {
   margin: var(--paginated-table-total-number-items-margin, 0);
-  white-space: var(--paginated-table-total-number-items-white-space, normal);
 }
 
 .pagination-items,
