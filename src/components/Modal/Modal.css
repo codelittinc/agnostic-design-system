@@ -25,6 +25,7 @@
   background-color: var(--modal-content-container-background-color, var(--structure-color-white));
   border: var(--modal-border, solid 1px black);
   border-radius: var(--modal-content-container-border-radius, 5px);
+  box-shadow: var(--modal-content-container-box-shadow);
   height: var(--modal-content-container-height, auto);
   width: var(--modal-content-container-width, auto);
 }
