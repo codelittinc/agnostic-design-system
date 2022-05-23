@@ -11,6 +11,7 @@ interface Props {
   id: string;
   invalidMessage?: string;
   label?: string | React.ReactNode;
+  maxLength?: number;
   message?: string;
   onBlur?: (e: any) => void;
   onChange: (e: any) => void;
@@ -32,6 +33,7 @@ const TextArea: React.FC<Props> = props => {
     id,
     invalidMessage,
     label,
+    maxLength,
     message,
     onBlur,
     onChange,
@@ -136,11 +138,12 @@ const TextArea: React.FC<Props> = props => {
         className={classNames(styles.textarea, styles[sizeClass], styles[statusClass])}
         disabled={disabled}
         id={id}
+        maxLength={maxLength}
+        onBlur={handleOnBlur}
         onChange={handleOnChange}
+        onFocus={handleOnFocus}
         placeholder={placeholder}
         value={value}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
       />
       {getMessage()}
     </div>

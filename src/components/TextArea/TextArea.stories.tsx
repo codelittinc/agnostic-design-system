@@ -55,3 +55,11 @@ WithInvalidMessage.args = {
   placeholder: 'Required TextArea',
   message: 'TextArea'
 };
+
+export const WithMaxLengthDefined = Template.bind({});
+WithMaxLengthDefined.args = {
+  label: 'This is a TextArea with a MaxLength of 5 defined',
+  maxLength: 5,
+  placeholder: 'MaxLength defined TextArea',
+  message: 'TextArea'
+};
