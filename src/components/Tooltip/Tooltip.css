@@ -8,6 +8,7 @@
   justify-content: center;
   padding: var(--tooltip-padding, 5px 5px);
   position: absolute;
+  white-space: var(--tooltip-white-space, normal);
   z-index: 100;
 }
 
