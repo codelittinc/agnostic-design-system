@@ -4,13 +4,14 @@
 
 ## Table Props
 
-|        Prop        |                   Type                   |                                   Description                                    | Default | Mandatory |
-| :----------------: | :--------------------------------------: | :------------------------------------------------------------------------------: | :-----: | :-------: |
-|     headerList     |     array of strings or react nodes      |            Specifies the list to be used to populate the table header            |    -    |   true    |
-|     footerList     |     array of strings or react nodes      |            Specifies the list to be used to populate the table footer            |    -    |   false   |
-|    renderFooter    |                 function                 |                      Returns the full footer HTML structure                      |    -    |   false   |
-|    tableContent    | array of array of strings or react nodes | Each array inside the matrix represents a row in the table with all its content. |    -    |   true    |
-| variablesClassName |                  string                  |             Specifies the custom class to apply styles to the table              |    -    |   false   |
+|         Prop        |                   Type                   |                                   Description                                    | Default | Mandatory |
+| :-----------------: | :--------------------------------------: | :------------------------------------------------------------------------------: | :-----: | :-------: |
+|     headerList      |     array of strings or react nodes      |            Specifies the list to be used to populate the table header            |    -    |   true    |
+|  headerButtonsList  |           array of react nodes           |     Specifies the list of elemets to display alongside the table header items    |    -    |   false   |
+|     footerList      |     array of strings or react nodes      |            Specifies the list to be used to populate the table footer            |    -    |   false   |
+|     renderFooter    |                 function                 |                      Returns the full footer HTML structure                      |    -    |   false   |
+|     tableContent    | array of array of strings or react nodes | Each array inside the matrix represents a row in the table with all its content. |    -    |   true    |
+|  variablesClassName |                  string                  |             Specifies the custom class to apply styles to the table              |    -    |   false   |
 
 ## Getting Started
 
@@ -75,3 +76,6 @@ export default Table;
 |container-cell |   vertical-align    |       |
 |    footer     |  background-color   |       |
 |      row      |  background-color   | focus |
+|   title-icon  |       cursor        |       |
+|   title-icon  |       display       |       |
+|   title-icon  |       margin        |       |

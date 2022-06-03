@@ -51,3 +51,9 @@
 .clickable-row {
   cursor: var(--table-clickable-row-cursor, pointer);
 }
+
+.table-title * {
+  cursor: var(--table-title-icon-cursor, pointer);
+  display: var(--table-title-icon-display, inline-block);
+  margin: var(--table-title-icon-margin, 0);
+}

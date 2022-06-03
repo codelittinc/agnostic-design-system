@@ -4,6 +4,7 @@ import { Meta } from '@storybook/react';
 import mdx from './PaginatedTable.stories.mdx';
 import classNames from 'classnames';
 import styles from './PaginatedTableTest.css';
+import Icon from '../../assets/images/icons/web/arrow-down-black.svg';
 
 export default {
   title: 'Components/PaginatedTable',
@@ -54,6 +55,13 @@ const listOfItems = [
 
 export const Default = Template.bind({});
 Default.args = {
+  headerButtonsList: [
+    <Icon key='1' />,
+    <Icon key='2' />,
+    <Icon key='3' />,
+    <Icon key='4' />,
+    <Icon key='5' />
+  ],
   headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
   totalNumberOfItems: 15,
   listOfItems: listOfItems,

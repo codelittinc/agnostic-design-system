@@ -121,29 +121,39 @@ exports[`PaginatedTable renders correctly 1`] = `
       >
         <tr>
           <th
+            className="table-title"
             key="0"
           >
             First Name
+             
           </th>
           <th
+            className="table-title"
             key="1"
           >
             Last Name
+             
           </th>
           <th
+            className="table-title"
             key="2"
           >
             Handle
+             
           </th>
           <th
+            className="table-title"
             key="3"
           >
             User Type
+             
           </th>
           <th
+            className="table-title"
             key="4"
           >
             Status
+             
           </th>
         </tr>
       </thead>

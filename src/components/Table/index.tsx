@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import styles from '@/components/Table/Table.css';
 export interface Props {
+  headerButtonsList?: React.ReactNode[];
   headerList: React.ReactNode[];
   tableContent: React.ReactNode[][];
   footerList?: React.ReactNode[];
@@ -12,8 +13,15 @@ export interface Props {
 }
 
 const Table = (props: Props) => {
-  const { headerList, tableContent, footerList, onRowClick, renderFooter, variablesClassName } =
-    props;
+  const {
+    headerList,
+    headerButtonsList,
+    tableContent,
+    footerList,
+    onRowClick,
+    renderFooter,
+    variablesClassName
+  } = props;
 
   const handleRowClick = (row, rowIndex) => {
     if (onRowClick) {
@@ -29,7 +37,9 @@ const Table = (props: Props) => {
       <thead data-testid='table-header'>
         <tr>
           {headerList.map((header, headerIndex) => (
-            <th key={headerIndex}>{header}</th>
+            <th key={headerIndex} className={styles['table-title']}>
+              {header} {!!headerButtonsList && headerButtonsList[headerIndex]}
+            </th>
           ))}
         </tr>
       </thead>

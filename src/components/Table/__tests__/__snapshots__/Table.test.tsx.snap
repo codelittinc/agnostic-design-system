@@ -43,19 +43,25 @@ exports[`Table renders correctly 1`] = `
     >
       <tr>
         <th
+          className="table-title"
           key="0"
         >
           Name
+           
         </th>
         <th
+          className="table-title"
           key="1"
         >
           Month
+           
         </th>
         <th
+          className="table-title"
           key="2"
         >
           Gift
+           
         </th>
       </tr>
     </thead>

@@ -11,11 +11,12 @@ import { isEmpty } from 'lodash';
 export interface Props {
   currentPage: number;
   handlePageChange: (value: number) => void;
-  onRowClick?: (row: React.ReactNode, rowIndex: number) => void;
+  headerButtonsList?: React.ReactNode[];
   headerList: React.ReactNode[];
   id?: string;
   itemsOnCurrentPage: React.ReactNode[][];
   limit: number;
+  onRowClick?: (row: React.ReactNode, rowIndex: number) => void;
   totalNumberOfItems: number;
   variablesClassName?: string;
 }
@@ -24,6 +25,7 @@ const PaginatedTable = (props: Props) => {
   const {
     currentPage,
     handlePageChange,
+    headerButtonsList,
     headerList,
     id,
     itemsOnCurrentPage,
@@ -66,6 +68,7 @@ const PaginatedTable = (props: Props) => {
   return (
     <Table
       headerList={headerList}
+      headerButtonsList={headerButtonsList}
       tableContent={itemsOnCurrentPage}
       variablesClassName={variablesClassName}
       onRowClick={onRowClick}
