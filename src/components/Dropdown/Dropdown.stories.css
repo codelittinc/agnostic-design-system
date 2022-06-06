@@ -10,6 +10,9 @@
   --button-border-hover: none;
   --button-font-size: 16px;
   --button-height: 40px;
+  --dropdown-selected-title-overflow: hidden;
+  --dropdown-selected-title-text-overflow: ellipsis;
+  --dropdown-selected-title-white-space: nowrap;
   --dropdown-width: 140px;
   --list-height: 188px;
   --list-width: 240px;

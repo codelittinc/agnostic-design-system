@@ -525,6 +525,8 @@ DisplayListOnTop.args = {
 };
 
 export const CustomStyledDropdown = () => {
+  const [selectedOption, setSelectedOption] = useState({});
+
   return (
     <Dropdown
       getItemLabel={item => item.label}
@@ -539,8 +541,14 @@ export const CustomStyledDropdown = () => {
         {
           label: 'Option 2',
           value: '2'
+        },
+        {
+          label: 'Option 21232321323213123',
+          value: '22'
         }
       ]}
+      onChange={setSelectedOption}
+      selected={selectedOption}
       selectorText='Select'
       variablesClassName={styles['custom-styled-dropdown']}
     />

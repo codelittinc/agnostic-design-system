@@ -112,6 +112,9 @@
   --button-justify-content: space-between;
   --button-padding: 5px 10px;
   --button-width: var(--dropdown-width, 100%);
+  --button-content-overflow: var(--dropdown-selected-title-overflow);
+  --button-content-text-overflow: var(--dropdown-selected-title-text-overflow);
+  --button-content-white-space: var(--dropdown-selected-title-white-space);
 }
 
 .dropdown-button:not(:only-child) {

@@ -118,6 +118,12 @@
   margin: var(--button-append-icon-margin, 0 16px 0 0);
 }
 
+.button-text {
+  overflow: var(--button-content-overflow, visible);
+  text-overflow: var(--button-content-text-overflow, clip);
+  white-space: var(--button-content-white-space, normal);
+}
+
 .button-text + .append-icon-right  {
   margin: var(--button-append-icon-margin, 0 0 0 16px);
 }
