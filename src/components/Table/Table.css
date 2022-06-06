@@ -36,12 +36,13 @@
   border-right: var(--table-cell-border-right, var(--table-border-right, none));
   border-top: var(--table-cell-border-top, var(--table-border-top, 1px solid var(--structure-color-300)));
   font-weight: var(--table-font-weight, 300);
-  padding: var(--table-padding, 10px);
+  padding: var(--table-cell-padding, var(--table-padding, 10px));
   vertical-align: var(--table-container-cell-vertical-align, middle);
 }
 
 .table-container tfoot td {
   background-color: var(--table-footer-background-color, var(--structure-color-200));
+  padding: var(--table-footer-padding, var(--table-padding, 10px));
 }
 
 .table-container tr:focus td {
