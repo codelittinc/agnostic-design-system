@@ -543,7 +543,7 @@ export const CustomStyledDropdown = () => {
           value: '2'
         },
         {
-          label: 'Option 21232321323213123',
+          label: 'Option 212323213232131',
           value: '22'
         }
       ]}
