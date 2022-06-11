@@ -47,7 +47,7 @@ const PaginatedTable = (props: Props) => {
 
   const itemsRangeBegin = () => {
     if (itemsOnCurrentPage) {
-      return (currentPage - 1) * limit + 1;
+      return currentPage > 0 ? (currentPage - 1) * limit + 1 : 1;
     }
     return 0;
   };
@@ -75,10 +75,7 @@ const PaginatedTable = (props: Props) => {
             <td colSpan={widthFirstFooterCell}>
               <div className={styles['paginated-footer-wrapper']}>
                 <div className={styles['pagination-items']}>
-                  {' '}
-                  {itemsRangeBegin() !== 0
-                    ? `${itemsRangeBegin()} - ${itemsRangeEnd()} of ${totalNumberOfItems} items`
-                    : `-`}
+                  {`${itemsRangeBegin()} - ${itemsRangeEnd()} of ${totalNumberOfItems} items`}
                 </div>
                 <div className={styles['paginated-table-pages']}>
                   <div className={styles['number-of-pages']}>

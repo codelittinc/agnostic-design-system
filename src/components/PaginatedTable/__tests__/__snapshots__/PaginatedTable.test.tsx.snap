@@ -354,7 +354,6 @@ exports[`PaginatedTable renders correctly 1`] = `
               <div
                 className="pagination-items"
               >
-                 
                 1 - 5 of 15 items
               </div>
               <div
