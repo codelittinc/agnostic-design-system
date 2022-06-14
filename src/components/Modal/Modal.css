@@ -19,6 +19,7 @@
   width: 100%;
   left: 0;
   top: 0;
+  z-index: var(--modal-container-z-index, var(--modal-wrapper-z-index, auto));
 }
 
 .content-container {
