@@ -38,3 +38,14 @@ WithElement.args = {
   content: renderElement(),
   position: 'top'
 };
+
+export const withDisabled = () => {
+  return (
+    <>
+      <Tooltip content='Tooltip' disabled>
+        {renderButton()}
+      </Tooltip>
+      <p>Tooltip with a disabled property set to true</p>
+    </>
+  );
+};
