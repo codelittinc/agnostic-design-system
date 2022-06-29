@@ -33,12 +33,11 @@
 }
 
 .menu-bar-container-hidden {
-  height: 0;
+  height: var(--menu-bar-height-hidden, 0);
   visibility: hidden;
 }
 
 .menu-bar-container-visible {
-  height: auto;
   visibility: visible;
 }
 
