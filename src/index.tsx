@@ -1,6 +1,7 @@
 export { default as AddressSearch } from '@/components/AddressSearch';
 export { default as BreadCrumb } from '@/components/BreadCrumb';
 export { default as Button } from '@/components/Button';
+export { default as DonutChart } from '@/components/DonutChart';
 export { default as Dropdown } from '@/components/Dropdown';
 export { default as DualActionButton } from '@/components/DualActionButton';
 export { default as EmailInput } from '@/components/EmailInput';
