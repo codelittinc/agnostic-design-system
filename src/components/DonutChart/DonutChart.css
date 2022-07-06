@@ -1,7 +1,32 @@
 @import '../../styles/theme/index.css';
 
+.wrapper {
+  position: relative;
+}
+
+.tooltip-wrapper {
+  background-color: var(--tooltip-background-color, var(--structure-color-white));
+  border: var(--tooltip-border, 1px solid #EAECF2);
+  border-radius: 8px;
+  height: 80px;
+  position: absolute;
+  width: 80px;
+  z-index: 10000;
+}
+
+.full-circle-tooltip-wrapper {
+  bottom: 170px;
+  left: 150px;
+}
+
+.tooltip {
+  height: inherit;
+  width: inherit;
+}
+
 .donutchart-full-circle {
   fill: var(--donutchart-full-circle-fill, transparent);
+  position: relative;
   stroke: var(--donutchart-full-circle-stroke, var(--structure-color-100));
 }
 
@@ -12,10 +37,17 @@
   transition: var(--donutchart-indicator-transition, stroke-dasharray 0.3s ease);
 }
 
+.donutchart-full-circle:hover,
+.donutchart-indicator:hover {
+  cursor: pointer;
+  stroke-width: 30 !important;
+}
+
 .donutchart {
   margin: var(--donutchart-margin, 0 auto);
   border-radius: var(--donutchart-border-radius, 50%);
   display: var(--donutchart-display, block);
+  overflow: visible;
 }
 
 .donutchart-text {
@@ -32,15 +64,17 @@
   width: var(--donutchart-text-width, 100%);
 }
 
-.donutchart-text-val {
-  font-size: var(--donutchart-text-val-font-size, 22px);
+.donutchart-completion-value {
+  font-size: var(--donutchart-completion-value-font-size, 22px);
 }
 
-.donutchart-text-label {
-  display: flex;
-  justify-content: center;
+.donutchart-message {
   align-items: center;
-  gap: var(--donutchart-text-label-gap, 5px);
-  font-size: var(--donutchart-text-label-font-size, 12px);
-  margin-top: var(--donutchart-text-label-margin-top, 5px);
+  color: var(--donutchart-message-color, var(--structure-color-black));
+  display: flex;
+  font-size: var(--donutchart-message-font-size, 12px);
+  font-weight: var(--donutchart-message-font-weight, 400);
+  gap: var(--donutchart-message-gap, 5px);
+  justify-content: center;
+  margin-top: var(--donutchart-message-margin-top, 5px);
 }

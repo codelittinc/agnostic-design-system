@@ -4,23 +4,31 @@
 
 ## DonutChart Props
 
-|        Prop        |      Type       |                                                      Description                                                       | Default | Mandatory |
-| :----------------: | :-------------: | :--------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
-|        size        |     number      | Specifies the overal size of the Donut Chart. We consider this number to calculate the chart radius and circunference. |    -    |   true    |
-|    strokewidth     |     number      |                        Specifies the width of the border you want to have on your donut chart.                         |    -    |   true    |
-|     completion     |     number      |                        Receives the percentage of the filled portion we will show on the chart                         |    -    |   true    |
-|      message       |     string      |                             Receives the label that should be displayed below the number.                              |    -    |   false   |
-|   iconForMessage   | React.ReactNode |                Receives the icon that would be prepended in the label. You can customize your own icon.                |    -    |   false   |
-| variablesClassName |     string      |                               Receives a custom class name for style/css customization.                                |    -    |   false   |
+|          Prop           |            Type           |                                                                 Description                                                                 | Default | Mandatory |
+| :---------------------: | :-----------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|        completion       |           number          | Receives the percentage of the filled portion we will show on the chart, where 100 represents the total amount and full width of the chart. |    -    |   true    |
+|      iconForMessage     |       React.ReactNode     |                            Receives the icon that would be prepended in the label. You can customize your own icon.                         |    -    |   false   |
+|         message         | string \| React.ReactNode |                                         Receives the label that should be displayed below the completion value.                             |    -    |   false   |
+|  renderCompletionValue  |           boolean         |            Receives a boolean value that will determine if the completion value should be rendered to the user inside the chart.            |   true  |   false   |
+|           size          |           number          |           Specifies the overal size of the Donut Chart. We consider this number to calculate the chart radius and circunference.            |    -    |   true    |
+|       strokewidth       |           number          |                                  Specifies the width of the border you want to have on your donut chart.                                    |    -    |   true    |
+|    variablesClassName   |           string          |                                         Receives a custom class name for style/css customization.                                           |    -    |   false   |
 
 ## Getting Started
 
 ```javascript
-import React, { useState } from 'react';
+import React from 'react';
 import { DonutChart } from '@codelittinc/agnostic-design-system';
 
-const DonutChart = args => {
-  return <DonutChart {...args} />;
+const DonutChart = () => {
+  return (
+    <DonutChart
+      completion={50}
+      message="Lorem Ipsum"
+      size={200}
+      strokewidth={20}
+    />
+  );
 };
 
 export default DonutChart;
@@ -28,28 +36,29 @@ export default DonutChart;
 
 ## CSS Variables Available
 
-|        Property        |    Attribute     | State |
-| :--------------------: | :--------------: | :---: |
-| donutchart-full-circle |       fill       |       |
-| donutchart-full-circle |      stroke      |       |
-|  donutchart-indicator  |       fill       |       |
-|  donutchart-indicator  |      stroke      |       |
-|  donutchart-indicator  | stroke-dasharray |       |
-|  donutchart-indicator  |    transition    |       |
-|       donutchart       |      margin      |       |
-|       donutchart       |  border-radius   |       |
-|       donutchart       |     display      |       |
-|    donutchart-text     |   align-items    |       |
-|    donutchart-text     |      bottom      |       |
-|    donutchart-text     |     display      |       |
-|    donutchart-text     |  flex-direction  |       |
-|    donutchart-text     |       fill       |       |
-|    donutchart-text     |   font-family    |       |
-|    donutchart-text     | justify-content  |       |
-|    donutchart-text     |       left       |       |
-|    donutchart-text     |     position     |       |
-|    donutchart-text     |       top        |       |
-|    donutchart-text     |      width       |       |
-|  donutchart-text-val   |    font-size     |       |
-| donutchart-text-label  |    font-size     |       |
-| donutchart-text-label  |       gap        |       |
+|          Property           |    Attribute     | State |
+| :-------------------------: | :--------------: | :---: |
+|   donutchart-full-circle    |       fill       |       |
+|   donutchart-full-circle    |      stroke      |       |
+|    donutchart-indicator     |       fill       |       |
+|    donutchart-indicator     |      stroke      |       |
+|    donutchart-indicator     | stroke-dasharray |       |
+|    donutchart-indicator     |    transition    |       |
+|         donutchart          |      margin      |       |
+|         donutchart          |  border-radius   |       |
+|         donutchart          |     display      |       |
+|      donutchart-text        |   align-items    |       |
+|      donutchart-text        |      bottom      |       |
+|      donutchart-text        |     display      |       |
+|      donutchart-text        |  flex-direction  |       |
+|      donutchart-text        |       fill       |       |
+|      donutchart-text        |   font-family    |       |
+|      donutchart-text        | justify-content  |       |
+|      donutchart-text        |       left       |       |
+|      donutchart-text        |     position     |       |
+|      donutchart-text        |       top        |       |
+|      donutchart-text        |      width       |       |
+| donutchart-completion-value |    font-size     |       |
+|    donutchart-message       |    font-size     |       |
+|    donutchart-message       |   font-weight    |       |
+|    donutchart-message       |       gap        |       |

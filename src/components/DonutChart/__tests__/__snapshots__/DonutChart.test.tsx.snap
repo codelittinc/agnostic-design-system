@@ -8,11 +8,7 @@ exports[`DonutChart renders correctly 1`] = `
   strokewidth={10}
 >
   <div
-    style={
-      Object {
-        "position": "relative",
-      }
-    }
+    className="wrapper"
   >
     <svg
       className="donutchart"
@@ -54,12 +50,12 @@ exports[`DonutChart renders correctly 1`] = `
       className="donutchart-text"
     >
       <span
-        className="donutchart-text-val"
+        className="donutchart-completion-value"
       >
         55
       </span>
       <span
-        className="donutchart-text-label"
+        className="donutchart-message"
       >
          
         Completed

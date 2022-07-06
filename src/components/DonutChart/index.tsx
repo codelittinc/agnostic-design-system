@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '@/components/DonutChart/DonutChart.css';
 import classnames from 'classnames';
 
 interface Props {
+  completion: number;
+  enableTooltip?: boolean;
+  fullCircleTooltip?: string | React.ReactNode;
+  iconForMessage?: React.ReactNode;
+  indicatorTooltip?: string | React.ReactNode;
+  message?: string | React.ReactNode;
+  renderCompletionValue?: boolean;
   size: number;
   strokewidth: number;
-  completion: number;
-  message?: string;
-  iconForMessage?: React.ReactNode;
   variablesClassName?: string;
 }
 
 const DonutChart = (props: Props) => {
-  const { size, strokewidth, completion, message, iconForMessage, variablesClassName } = props;
+  const {
+    completion,
+    enableTooltip,
+    fullCircleTooltip,
+    iconForMessage,
+    indicatorTooltip,
+    message,
+    renderCompletionValue = true,
+    size,
+    strokewidth,
+    variablesClassName
+  } = props;
+
+  const [showFullCircleTooltip, setShowFullCircleTooltip] = useState(true);
+  const [showIndicatorTooltip, setShowIndicatorTooltip] = useState(false);
 
   const halfsize = size * 0.5;
   const radius = halfsize - strokewidth * 0.5;
@@ -25,8 +43,20 @@ const DonutChart = (props: Props) => {
   const rotateval = 'rotate(-90 ' + halfsize + ',' + halfsize + ')';
 
   return (
-    <div style={{ position: 'relative' }}>
-      <svg width={size} height={size} className={classnames('donutchart', variablesClassName)}>
+    <div className={classnames(styles.wrapper, variablesClassName)}>
+      {showFullCircleTooltip && (
+        <div className={classnames(styles['tooltip-wrapper'], styles['full-circle-tooltip-wrapper'])}>
+          <div className={styles.tooltip}>{fullCircleTooltip}</div>
+        </div>
+      )}
+
+      {showIndicatorTooltip && (
+        <div className={classnames(styles['tooltip-wrapper'], styles['indicator-tooltip-wrapper'])}>
+          <div className={styles.test}>{indicatorTooltip}</div>
+        </div>
+      )}
+
+      <svg width={size} height={size} className={styles.donutchart}>
         <circle
           r={radius}
           cx={halfsize}
@@ -34,7 +64,11 @@ const DonutChart = (props: Props) => {
           transform={rotateval}
           style={trackstyle}
           className={styles['donutchart-full-circle']}
+          id="donutchart-full-circle"
+          onMouseOver={() => enableTooltip && setShowFullCircleTooltip(true)}
+          onMouseLeave={() => enableTooltip && setShowFullCircleTooltip(false)}
         />
+
         <circle
           r={radius}
           cx={halfsize}
@@ -42,13 +76,19 @@ const DonutChart = (props: Props) => {
           transform={rotateval}
           style={indicatorstyle}
           className={styles['donutchart-indicator']}
+          onMouseOver={() => enableTooltip && setShowIndicatorTooltip(true)}
+          onMouseLeave={() => enableTooltip && setShowIndicatorTooltip(false)}
         />
         <text className={styles['donutchart-text']} x={halfsize} y={halfsize} />
       </svg>
+
       <span className={styles['donutchart-text']}>
-        <span className={styles['donutchart-text-val']}>{completion}</span>
+        {renderCompletionValue && (
+          <span className={styles['donutchart-completion-value']}>{completion}</span>
+        )}
+
         {message && (
-          <span className={styles['donutchart-text-label']}>
+          <span className={styles['donutchart-message']}>
             {iconForMessage} {message}
           </span>
         )}

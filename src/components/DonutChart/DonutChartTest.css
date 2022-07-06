@@ -1,7 +1,9 @@
 .custom-donut-chart {
-  --donutchart-full-circle-stroke: pink;
-  --donutchart-indicator-stroke: red;
+  --donutchart-full-circle-stroke: var(--secondary-color-100);
+  --donutchart-indicator-stroke: var(--secondary-color-400);
   --donutchart-text-font-family: 'Nunito Sans';
-  --donutchart-text-val-font-size: 15px;
-  --donutchart-text-label-font-size: 15px;
+  --donutchart-completion-value-font-size: 15px;
+  --donutchart-message-color: var(--error-color);
+  --donutchart-message-font-size: 20px;
+  --donutchart-message-font-weight: 500;
 }
