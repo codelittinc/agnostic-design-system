@@ -6,7 +6,7 @@ import styles from './Dropdown.stories.css';
 import mdx from './Dropdown.stories.mdx';
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Components/Dropdown/Dropdown',
   component: Dropdown,
   parameters: {
     docs: {

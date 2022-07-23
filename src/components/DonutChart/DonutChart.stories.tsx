@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import styles from './DonutChartTest.css';
 
 export default {
-  title: 'Components/DonutChart',
+  title: 'Components/Charts/DonutChart',
   component: DonutChart,
   parameters: {
     docs: {

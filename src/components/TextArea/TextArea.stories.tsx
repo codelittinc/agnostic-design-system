@@ -4,7 +4,7 @@ import TextArea from '@/components/TextArea';
 import mdx from './TextArea.stories.mdx';
 
 export default {
-  title: 'Components/TextArea',
+  title: 'Components/Form/TextArea',
   component: TextArea,
   parameters: {
     docs: {

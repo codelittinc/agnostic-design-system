@@ -5,7 +5,7 @@ import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 import mdx from './Input.stories.mdx';
 
 export default {
-  title: 'Components/Input',
+  title: 'Components/Form/Input',
   component: Input,
   parameters: {
     docs: {

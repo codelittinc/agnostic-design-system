@@ -4,7 +4,7 @@ import BreadCrumb from '@/components/BreadCrumb';
 import mdx from './BreadCrumb.stories.mdx';
 
 export default {
-  title: 'Components/BreadCrumb',
+  title: 'Components/Navigation/BreadCrumb',
   component: BreadCrumb,
   parameters: {
     docs: {

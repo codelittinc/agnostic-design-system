@@ -6,7 +6,7 @@ import SearchIcon from '../../assets/images/icons/web/search-simple.svg';
 import ArrowUp from '../../assets/images/icons/web/gear.svg';
 
 export default {
-  title: 'Components/RichTextEditor',
+  title: 'Components/Form/RichTextEditor',
   component: RichTextEditor,
   parameters: {
     docs: {

@@ -9,7 +9,7 @@ import SelectItemsList from '@/components/SelectItemsList';
 import mdx from './Form.stories.mdx';
 
 export default {
-  title: 'Components/Form',
+  title: 'Components/Form/Form',
   component: Form,
   parameters: {
     docs: {

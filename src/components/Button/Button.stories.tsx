@@ -5,7 +5,7 @@ import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 import mdx from './Button.stories.mdx';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Button/Button',
   component: Button,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import NumericInput from '@/components/NumericInput';
 import mdx from './NumericInput.stories.mdx';
 
 export default {
-  title: 'Components/Numeric Input',
+  title: 'Components/Form/Numeric Input',
   component: NumericInput,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import EmailInput from '@/components/EmailInput';
 import mdx from './EmailInput.stories.mdx';
 
 export default {
-  title: 'Components/Email Input',
+  title: 'Components/Form/Email Input',
   component: EmailInput,
   parameters: {
     docs: {

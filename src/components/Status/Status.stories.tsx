@@ -5,7 +5,7 @@ import mdx from './Status.stories.mdx';
 import styles from './Status.stories.css';
 
 export default {
-  title: 'Components/Status',
+  title: 'Components/Label/Status',
   component: Status,
   parameters: {
     docs: {

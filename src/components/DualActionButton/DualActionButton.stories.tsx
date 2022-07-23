@@ -5,7 +5,7 @@ import styles from './DualActionButton.stories.css';
 import mdx from './DualActionButton.stories.mdx';
 
 export default {
-  title: 'Components/DualActionButton',
+  title: 'Components/Button/DualActionButton',
   component: DualActionButton,
   parameters: {
     docs: {

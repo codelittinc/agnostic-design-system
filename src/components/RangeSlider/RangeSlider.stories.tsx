@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react';
 import mdx from './RangeSlider.stories.mdx';
 
 export default {
-  title: 'Components/Range Slider',
+  title: 'Components/Form/Range Slider',
   component: RangeSlider,
   parameters: {
     docs: {
