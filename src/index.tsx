@@ -29,3 +29,5 @@ export { default as Toggle } from '@/components/Toggle';
 export { default as Tooltip } from '@/components/Tooltip';
 export { default as UploadAvatar } from '@/components/UploadAvatar';
 export * from '@/components/Grid';
+
+export { useOutsideClick } from '@/hooks/useOutsideClick';

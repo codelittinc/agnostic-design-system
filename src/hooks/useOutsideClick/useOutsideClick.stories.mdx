@@ -1,0 +1,18 @@
+# useOutsideClick
+
+Accepts a `callback` as the first argument that is executed when the user clicks outside of an element that is passed as a `ref`
+as a second argument.
+
+```javascript
+import { useRef } from 'react';
+import { useOutsideClick } from '/hooks/useOutsideClick';
+
+const someComponent = () => {
+  [...]
+  const ref = useRef(null);
+
+  useOutsideClick(() => ref, alert('You clicked outside the dropdown'));
+
+  [...]
+}
+```

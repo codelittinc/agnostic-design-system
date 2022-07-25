@@ -1,0 +1,16 @@
+.dropdown-wrapper {
+  align-items: center;
+  border: 1px solid var(--structure-color-600);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  width: 500px;
+
+  --dropdown-width: 250px;
+}
+
+.example-toast {
+  --toast-top: 82px;
+}
