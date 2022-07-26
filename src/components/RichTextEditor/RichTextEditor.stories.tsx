@@ -80,3 +80,12 @@ WithDisplayOnlyOnFocus.args = {
   menuEditOptions: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
   displayOnlyOnFocus: true
 };
+
+export const WithImageDisabledInEditor = Template.bind({});
+WithImageDisabledInEditor.args = {
+  menuEditOptions: ['bold', 'italic', 'underline', 'ordered list', 'bullet list'],
+  menuPositionedBottom: true,
+  placeholderText: 'Enter your article',
+  editorContent: 'Edit here',
+  disableImageValue: true
+};

@@ -16,6 +16,7 @@ import clsx from 'clsx';
 
 interface Props {
   buttonIcons?: Array<object>;
+  disableImageValue?: boolean;
   displayOnlyOnFocus?: boolean;
   editorContent?: string;
   menuEditOptions?: typeof MENU_EDIT_OPTIONS;
@@ -30,6 +31,7 @@ const RichTextEditor: React.FC<Props> = props => {
   const {
     buttonIcons,
     displayOnlyOnFocus,
+    disableImageValue,
     editorContent,
     menuEditOptions,
     menuPositionedBottom,
@@ -75,27 +77,29 @@ const RichTextEditor: React.FC<Props> = props => {
 
   const menuBarPosition = menuPositionedBottom ? styles['menu-bar-bottom-positioned'] : '';
 
+  const extensions: any = [
+    StarterKit,
+    !disableImageValue && Image,
+    Table.configure({
+      resizable: true
+    }),
+    TableRow,
+    TableHeader,
+    Underline,
+    TableCell,
+    Placeholder.configure({
+      placeholder: placeholderText,
+      emptyEditorClass: styles['is-editor-empty']
+    })
+  ];
+
   const editor = useEditor({
     editorProps: {
       attributes: {
         class: classNames(styles['editor-container'], variablesClassName)
       }
     },
-    extensions: [
-      StarterKit,
-      Image,
-      Table.configure({
-        resizable: true
-      }),
-      TableRow,
-      TableHeader,
-      Underline,
-      TableCell,
-      Placeholder.configure({
-        placeholder: placeholderText,
-        emptyEditorClass: styles['is-editor-empty']
-      })
-    ],
+    extensions: extensions,
     content: editorContent,
     onUpdate({ editor }) {
       onChange && onChange(editor.getHTML());
