@@ -28,8 +28,16 @@
   border-radius: var(--modal-content-container-border-radius, 5px);
   box-shadow: var(--modal-content-container-box-shadow);
   height: var(--modal-content-container-height, auto);
-  position: var(--modal-content-container-position, static);
-  right: var(--modal-content-container-right, auto);
+  overflow: var(--modal-content-container-overflow, visible);
+  position: fixed;
   top: var(--modal-content-container-top, auto);
   width: var(--modal-content-container-width, auto);
+}
+
+.modal-position-left {
+  left: 0;
+}
+
+.modal-position-right {
+  right: 0;
 }

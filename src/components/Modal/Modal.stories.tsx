@@ -29,7 +29,7 @@ const Template = args => {
           setOpen(false);
         }}
       >
-        Default Modal
+        <div className={styles['default-example-wrapper']}>Default Modal</div>
       </Modal>
     </div>
   );
