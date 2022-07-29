@@ -92,13 +92,18 @@
   z-index: 999;
 }
 
-.dropdown-list-postioned-top {
+.dropdown-list-positioned-top {
   --list-bottom: var(--dropdown-list-bottom, 55px);
 }
 
-.dropdown-list-postioned-bottom ul {
+.dropdown-list-positioned-bottom ul {
   height: fit-content;
   top: var(--dropdown-list-top, 55px);
+}
+
+.dropdown-list-positioned-bottom,
+.dropdown-list-positioned-top {
+  right: var(--dropdown-list-right, auto);
 }
 
 .dropdown-button {

@@ -78,8 +78,8 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
           styles['dropdown-list'],
           variablesClassName,
           listPosition === 'top'
-            ? styles['dropdown-list-postioned-top']
-            : styles['dropdown-list-postioned-bottom']
+            ? styles['dropdown-list-positioned-top']
+            : styles['dropdown-list-positioned-bottom']
         )}
         listItemCategory={listItemCategory}
         selected={selected}
