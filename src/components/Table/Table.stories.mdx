@@ -4,13 +4,16 @@
 
 ## Table Props
 
-|        Prop        |                   Type                   |                                   Description                                    | Default | Mandatory |
-| :----------------: | :--------------------------------------: | :------------------------------------------------------------------------------: | :-----: | :-------: |
-|     headerList     |     array of strings or react nodes      |            Specifies the list to be used to populate the table header            |    -    |   true    |
-|     footerList     |     array of strings or react nodes      |            Specifies the list to be used to populate the table footer            |    -    |   false   |
-|    renderFooter    |                 function                 |                      Returns the full footer HTML structure                      |    -    |   false   |
-|    tableContent    | array of array of strings or react nodes | Each array inside the matrix represents a row in the table with all its content. |    -    |   true    |
-| variablesClassName |                  string                  |             Specifies the custom class to apply styles to the table              |    -    |   false   |
+|        Prop        |                   Type                   |                                                Description                                                      | Default | Mandatory |
+| :----------------: | :--------------------------------------: | :-------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|     headerList     |     array of strings or react nodes      |                     Specifies the list to be used to populate the table header                                  |    -    |   true    |
+|     footerList     |     array of strings or react nodes      |                     Specifies the list to be used to populate the table footer                                  |    -    |   false   |
+|     onRowClick     |                 function                 |    Specifies what happens when a user clicks in a specific row. Receives the row index and the row data.        |    -    |   false   |
+|   onRowMouseEnter  |                 function                 |    Specifies what happens when a user hovers in a specific row. Receives the row index and the row data.        |    -    |   false   |
+|   onRowMouseLeave  |                 function                 |  Specifies what happens when a user ceases hovering in a specific row. Receives the row index and the row data. |    -    |   false   |
+|    renderFooter    |                 function                 |                                       Returns the full footer HTML structure                                    |    -    |   false   |
+|    tableContent    | array of array of strings or react nodes |                  Each array inside the matrix represents a row in the table with all its content.               |    -    |   true    |
+| variablesClassName |                  string                  |                              Specifies the custom class to apply styles to the table                            |    -    |   false   |
 
 ## Getting Started
 

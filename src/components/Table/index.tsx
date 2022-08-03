@@ -7,17 +7,39 @@ export interface Props {
   tableContent: React.ReactNode[][];
   footerList?: React.ReactNode[];
   onRowClick?: (row: React.ReactNode, rowIndex: number) => void;
+  onRowMouseEnter?: (row: React.ReactNode, rowIndex: number) => void;
+  onRowMouseLeave?: (row?: React.ReactNode, rowIndex?: number) => void;
   renderFooter?: () => React.ReactNode;
   variablesClassName?: string;
 }
 
 const Table = (props: Props) => {
-  const { headerList, tableContent, footerList, onRowClick, renderFooter, variablesClassName } =
-    props;
+  const {
+    headerList,
+    tableContent,
+    footerList,
+    onRowClick,
+    onRowMouseEnter,
+    onRowMouseLeave,
+    renderFooter,
+    variablesClassName
+  } = props;
 
   const handleRowClick = (row, rowIndex) => {
     if (onRowClick) {
       onRowClick(row, rowIndex);
+    }
+  };
+
+  const handleRowMouseEnter = (row, rowIndex) => {
+    if (onRowMouseEnter) {
+      onRowMouseEnter(row, rowIndex);
+    }
+  };
+
+  const handleRowMouseLeave = (row, rowIndex) => {
+    if (onRowMouseLeave) {
+      onRowMouseLeave(row, rowIndex);
     }
   };
 
@@ -39,9 +61,9 @@ const Table = (props: Props) => {
             className={onRowClick ? styles['clickable-row'] : styles['non-clickable-row']}
             tabIndex={0}
             key={rowIndex}
-            onClick={() => {
-              handleRowClick(row, rowIndex);
-            }}
+            onClick={() => handleRowClick(row, rowIndex)}
+            onMouseEnter={() => handleRowMouseEnter(row, rowIndex)}
+            onMouseLeave={() => handleRowMouseLeave(row, rowIndex)}
             onKeyPress={event => {
               if (event.key === 'Enter') {
                 handleRowClick(row, rowIndex);

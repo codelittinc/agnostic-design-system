@@ -12,6 +12,8 @@ export interface Props {
   currentPage: number;
   handlePageChange: (value: number) => void;
   onRowClick?: (row: React.ReactNode, rowIndex: number) => void;
+  onRowMouseEnter?: (row: React.ReactNode, rowIndex: number) => void;
+  onRowMouseLeave?: (row?: React.ReactNode, rowIndex?: number) => void;
   headerList: React.ReactNode[];
   id?: string;
   itemsOnCurrentPage: React.ReactNode[][];
@@ -29,6 +31,8 @@ const PaginatedTable = (props: Props) => {
     itemsOnCurrentPage,
     limit,
     onRowClick,
+    onRowMouseEnter,
+    onRowMouseLeave,
     totalNumberOfItems,
     variablesClassName
   } = props;
@@ -69,6 +73,8 @@ const PaginatedTable = (props: Props) => {
       tableContent={itemsOnCurrentPage}
       variablesClassName={variablesClassName}
       onRowClick={onRowClick}
+      onRowMouseEnter={onRowMouseEnter}
+      onRowMouseLeave={onRowMouseLeave}
       renderFooter={() => (
         <tfoot className={styles['paginated-footer']}>
           <tr>

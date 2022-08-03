@@ -67,6 +67,8 @@ exports[`Table renders correctly 1`] = `
         key="0"
         onClick={[Function]}
         onKeyPress={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         tabIndex={0}
       >
         <td
@@ -93,6 +95,8 @@ exports[`Table renders correctly 1`] = `
         key="1"
         onClick={[Function]}
         onKeyPress={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         tabIndex={0}
       >
         <td
@@ -119,6 +123,8 @@ exports[`Table renders correctly 1`] = `
         key="2"
         onClick={[Function]}
         onKeyPress={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         tabIndex={0}
       >
         <td
@@ -145,6 +151,8 @@ exports[`Table renders correctly 1`] = `
         key="3"
         onClick={[Function]}
         onKeyPress={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         tabIndex={0}
       >
         <td

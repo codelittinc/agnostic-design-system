@@ -106,3 +106,46 @@ onRowClick.args = {
   limit: 5,
   onRowClick: handleRowClick
 };
+
+export const onRowHover = () => {
+  const [page, setPage] = useState(1);
+  const [rowValues, setRowValues] = useState([]);
+  const [rowIndexNum, setRowIndexNum] = useState('-');
+
+  const handleRowHover = (row, rowIndex) => {
+    setRowValues(row);
+    setRowIndexNum(rowIndex);
+  };
+
+  const handleRowMouseLeave = () => {
+    setRowValues([]);
+    setRowIndexNum('-');
+  };
+
+  return (
+    <div>
+      <h4>
+        You hovered the row
+        <span style={{ color: 'red' }}>&nbsp;{rowIndexNum}&nbsp;</span>
+        which contains the following data:&nbsp;
+        {rowValues.map((row, index) => (
+          <span key={index} style={{ color: 'red' }}>
+            {row}&nbsp;
+          </span>
+        ))}
+      </h4>
+
+      <PaginatedTable
+        currentPage={page}
+        handlePageChange={setPage}
+        itemsOnCurrentPage={listOfItems[page - 1]}
+        headerList={['First Name', 'Last Name', 'Handle', 'User Type', 'Status']}
+        totalNumberOfItems={15}
+        listOfItems={listOfItems}
+        limit={5}
+        onRowMouseEnter={handleRowHover}
+        onRowMouseLeave={handleRowMouseLeave}
+      />
+    </div>
+  );
+};
