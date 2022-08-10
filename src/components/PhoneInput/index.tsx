@@ -88,7 +88,7 @@ const PhoneInput = (props: Props) => {
           !localNumber && inputStyles['input-with-prepend'],
           variablesClassName
         )}
-        containerClass={classNames(styles['react-tel-input'])}
+        containerClass={classNames(styles['react-tel-input'], variablesClassName)}
         excludeCountries={excludeCountries}
         key={key}
         onlyCountries={onlyCountries}
