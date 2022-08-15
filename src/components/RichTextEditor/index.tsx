@@ -65,10 +65,11 @@ const RichTextEditor: React.FC<Props> = props => {
 
     if (displayOnlyOnFocus) {
       document.addEventListener('mousedown', buttonsMenuConcealer);
-      return () => {
-        document.removeEventListener('mousedown', buttonsMenuConcealer);
-      };
     }
+
+    return () => {
+      document.removeEventListener('mousedown', buttonsMenuConcealer);
+    };
   }, []);
 
   const buttonsMenuDisplayer = () => {

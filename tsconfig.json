@@ -28,7 +28,7 @@
     "paths": {
       "@/*": ["*"]
     },
-    "types": ["googlemaps", "jest", "@testing-library/jest-dom"]
+    "types": ["googlemaps", "jest", "@testing-library/jest-dom", "@types/testing-library__jest-dom"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example", "**/*.stories.tsx"]

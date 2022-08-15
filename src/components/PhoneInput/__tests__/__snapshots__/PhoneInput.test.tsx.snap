@@ -12,6 +12,7 @@ exports[`PhoneInput renders correctly 1`] = `
     autocompleteSearch={false}
     buttonClass=""
     buttonStyle={Object {}}
+    className=""
     containerClass="react-tel-input"
     containerStyle={Object {}}
     copyNumbersOnly={true}
@@ -77,7 +78,7 @@ exports[`PhoneInput renders correctly 1`] = `
     value=""
   >
     <div
-      className="react-tel-input"
+      className="react-tel-input "
       onKeyDown={[Function]}
       style={Object {}}
     >
@@ -87,7 +88,7 @@ exports[`PhoneInput renders correctly 1`] = `
         Phone
       </div>
       <input
-        className="input input--large input-with-prepend form-control"
+        className="form-control input input--large input-with-prepend"
         disabled={false}
         onBlur={[Function]}
         onChange={[Function]}
@@ -102,7 +103,7 @@ exports[`PhoneInput renders correctly 1`] = `
         value=""
       />
       <div
-        className=" flag-dropdown"
+        className="flag-dropdown "
         style={Object {}}
       >
         <div

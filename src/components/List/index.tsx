@@ -73,13 +73,18 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
 
   const getSelectedItems = item => {
     if (multiselect && Array.isArray(selectedItemsList)) {
-      return isEqual(item.value, selectedItemsList?.find(s => isEqual(item.value, s.value))?.value)
-        ? selectedItemsList?.filter(s => !isEqual(s.value, item.value))
+      return isEqual(
+        item.value,
+        // @ts-expect-error
+        selectedItemsList?.find((s: any) => isEqual(item.value, s.value))?.value
+      )
+        ? selectedItemsList?.filter((s: any) => !isEqual(s?.value, item.value))
         : [...selectedItemsList, item];
     }
 
     if (listItemCategory !== RADIO_CATEGORY) {
-      return isEqual(item.value, selected.value) ? {} : item;
+      // @ts-expect-error
+      return isEqual(item.value, selected?.value) ? {} : item;
     }
 
     return item;
@@ -108,8 +113,8 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
   const isAllOptionsSelected =
     Array.isArray(options) &&
     Array.isArray(selected) &&
-    options?.every(element => {
-      return selected?.some(op => op.value === element.value);
+    options?.every((element: any) => {
+      return selected?.some((op: any) => op.value === element.value);
     });
 
   const handleSelectAllClick = event => {
@@ -118,7 +123,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     } else if (event.target.checked) {
       onChange(options);
     } else if (Array.isArray(selected)) {
-      onChange(selected.filter(s => !options.some(op => op.value === s.value)));
+      onChange(selected.filter((s: any) => !options.some((op: any) => op.value === s.value)));
     } else {
       onChange([]);
     }
@@ -169,10 +174,10 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                 item={item}
                 getLabel={getItemLabel}
                 getIcon={getItemIcon}
-                getIsSelected={item =>
+                getIsSelected={(item: any) =>
                   Array.isArray(selectedItemsList)
-                    ? !!selectedItemsList?.find(s => isEqual(item.value, s.value))
-                    : isEqual(selectedItemsList.value, item.value)
+                    ? !!selectedItemsList?.find((s: any) => isEqual(item.value, s.value)) // @ts-expect-error
+                    : isEqual(selectedItemsList?.value, item.value)
                 }
                 getValue={getItemValue}
                 getName={getItemName}
@@ -184,7 +189,8 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                   !!(
                     isItemSelected ||
                     (Array.isArray(selectedItemsList) &&
-                      selectedItemsList.find(s => isEqual(item.value, s.value)))
+                      // @ts-expect-error
+                      selectedItemsList.find((s: any) => isEqual(item.value, s.value)))
                   )
                 }
               />
