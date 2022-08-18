@@ -5,21 +5,28 @@ import classNames from 'classnames';
 import styles from '@/components/ListItem/CheckBoxListItem/CheckBoxListItem.css';
 
 const CheckBoxListItem = <T extends {}>({
+  isItemDisabled,
   getIsSelected,
   variablesClassName,
   ...props
 }: Props<T>) => {
   const sizeClass = `list-item-checkbox--${props.size}`;
+
+  const handleCheckedState = (item: any) => {
+    return isItemDisabled || (getIsSelected && getIsSelected(item));
+  };
+
   return (
     <DefaultListItem
       {...props}
       className={classNames(styles['list-item-checkbox-reverse'])}
+      isItemDisabled={isItemDisabled}
       getSelectedMarker={item => (
         <div className={styles['checkbox-container']}>
           <input
             type='checkbox'
             className={classNames(styles['list-item-checkbox'], styles[sizeClass])}
-            checked={getIsSelected && getIsSelected(item)}
+            checked={handleCheckedState(item)}
             onChange={() => {}}
             tabIndex={-1}
           />

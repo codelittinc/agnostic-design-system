@@ -15,7 +15,7 @@ export default {
 } as Meta;
 
 const Template = args => {
-  const [selectedItem, setSelectedItem] = useState({ label: '', value: '' });
+  const [selectedItem, setSelectedItem] = useState(undefined);
 
   return <List {...args} selected={selectedItem} onChange={setSelectedItem} />;
 };
@@ -86,6 +86,7 @@ RadioButtonList.args = {
 
 export const CheckBoxList = Template.bind({});
 CheckBoxList.args = {
+  disabledOptionsList: ['1', '2'],
   listItemCategory: 'checkbox',
   label: 'Some label',
   id: 'ads-list',

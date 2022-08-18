@@ -7,6 +7,7 @@ import { groupBy as groupByLodash } from 'lodash';
 
 const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HTMLDivElement>) => {
   const {
+    disabledOptionsList,
     selected,
     size,
     getItemKey,
@@ -67,6 +68,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
   const ListWithoutGroupBy = () => {
     return (
       <List<T>
+        disabledOptionsList={disabledOptionsList}
         ref={ref || listRef}
         size={size}
         options={getOptions()}
@@ -112,6 +114,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
             keys.map((item, index) => {
               return (
                 <List<T>
+                  disabledOptionsList={disabledOptionsList}
                   key={`list-groupby-${item + Math.random()}`}
                   size={size}
                   options={groupedOptions[item]}

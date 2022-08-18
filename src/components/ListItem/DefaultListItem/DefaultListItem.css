@@ -74,6 +74,30 @@
   outline-offset: var(--list-item-outline-offset-focus, 0);
 }
 
+.disabled-list-item {
+  --list-item-background-color: var(--disabled-list-item-background-color, var(--structure-color-white));
+  --list-item-background-color-active: var(
+    --disabled-list-item-background-color-active,
+    var(--disabled-list-item-background-color, var(--structure-color-white))
+  );
+  --list-item-background-color-focus: var(
+    --disabled-list-item-background-color-focus,
+    var(--disabled-list-item-background-color, var(--structure-color-white))
+  );
+  --list-item-background-color-hover: var(
+    --disabled-list-item-background-color-hover,
+    var(--disabled-list-item-background-color, var(--structure-color-white))
+  );
+  --list-item-border-bottom: var(
+    --disabled-list-item-border-bottom, 1px solid var(--list-item-background-color-disabled)
+  );
+  --list-item-border-bottom-hover: var(
+    --disabled-list-item-border-bottom-hover, 1px solid var(--list-item-background-color-disabled)
+  );
+
+  opacity: var(--disabled-list-item-opacity, 0.4);
+}
+
 .list-item-label {
   color: var(--list-item-label-color, var(--structure-color-700));
   display: flex;

@@ -4,6 +4,7 @@ import styles from '@/components/ListItem/DefaultListItem/DefaultListItem.css';
 
 export interface Props<T> {
   className?: string;
+  disabledOptionsList?: string[];
   getLabel: (item: T) => React.ReactNode;
   getIcon?: (item?: T) => React.ReactNode;
   getIsSelected?: (item: T) => boolean;
@@ -11,6 +12,7 @@ export interface Props<T> {
   getSelectedMarker?: (item: T) => React.ReactNode;
   getValue: (item: T) => string | number | string[];
   item: T;
+  isItemDisabled?: boolean;
   key: number | string;
   onClick?: (event: React.MouseEvent) => void;
   onKeyDown: (event: React.KeyboardEvent) => void;
@@ -30,6 +32,7 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
     onKeyDown,
     key,
     item,
+    isItemDisabled,
     selected,
     variablesClassName
   } = props;
@@ -46,6 +49,7 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
         className,
         styles['list-item'],
         selected(item) && styles['list-item-selected'],
+        { [styles['disabled-list-item']]: isItemDisabled },
         variablesClassName
       )}
       tabIndex={0}

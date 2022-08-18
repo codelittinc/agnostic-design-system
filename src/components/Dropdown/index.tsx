@@ -19,6 +19,7 @@ export interface Props<T> {
   category: Category;
   customIcon?: React.ReactNode;
   disabled?: boolean;
+  disabledOptionsList?: string[];
   editable?: boolean;
   filterOptions?: (options: T | T[]) => T | T[];
   getListTitle: (selected: T | T[]) => string;

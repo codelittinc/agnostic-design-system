@@ -19,6 +19,7 @@ const RADIO_CATEGORY = 'radio';
 const CHECKBOX_CATEGORY = 'checkbox';
 
 interface Props<T> {
+  disabledOptionsList?: string[];
   getItemLabel: (item: T) => React.ReactNode;
   getItemIcon?: (item?: T) => React.ReactNode;
   getItemKey: (item: T) => string | number;
@@ -42,6 +43,7 @@ interface Props<T> {
 
 const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) => {
   const {
+    disabledOptionsList,
     label,
     size = LARGE_SIZE,
     isItemSelected,
@@ -129,6 +131,10 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
     }
   };
 
+  const checkIsItemDisabled = (item: any) => {
+    return disabledOptionsList?.includes(item.value);
+  };
+
   return (
     <div className={classNames(styles['list-container'], variablesClassName)} ref={currentRef}>
       {(multiselect || label) && (
@@ -170,6 +176,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
             return (
               <ListItem<T>
                 category={listItemCategory}
+                isItemDisabled={checkIsItemDisabled(item)}
                 size={size}
                 item={item}
                 getLabel={getItemLabel}
@@ -183,7 +190,7 @@ const List = <T extends {}>(props: Props<T>, ref?: React.Ref<HTMLDivElement>) =>
                 getName={getItemName}
                 variablesClassName={variablesClassName}
                 key={`${getItemKey(item)}`}
-                onClick={() => onChange(getSelectedItems(item))}
+                onClick={() => !checkIsItemDisabled(item) && onChange(getSelectedItems(item))}
                 onKeyDown={e => handleKeyDown(item, index, e)}
                 selected={item =>
                   !!(

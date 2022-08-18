@@ -4,6 +4,7 @@
 
 |        Prop        |                    Type                    |    Default    | Optional |
 | :----------------: | :----------------------------------------: | :-----------: | :------: |
+|disabledOptionsList |                  string[]                  |       -       |   true   |
 |    getItemLabel    |        (item: T) => React.ReactNode        |       -       |  false   |
 |    getItemIcon     |       (item?: T) => React.ReactNode        |       -       |   true   |
 |     getItemKey     |       (item: T) => string \| number        |       -       |  false   |
@@ -147,6 +148,8 @@ For the [List](https://design-system.codelitt.dev/?path=/story/components-list--
 
 |   Property    |    Attribute     |        State         |
 | :-----------: | :--------------: | :------------------: |
+| disabled-item | background-color | active, focus, hover |
+| disabled-item |  border-bottom   |         hover        |
 |     item      |   align-items    |                      |
 |     item      | background-color | active, focus, hover |
 |     item      |  border-radius   |                      |
