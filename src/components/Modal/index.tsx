@@ -20,12 +20,12 @@ const Modal: React.FC<Props> = props => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    open && document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [open, onClickOutside]);
 
   return open ? (
     <div className={classNames(styles.wrapper, variablesClassName)}>
