@@ -17,6 +17,7 @@ const INVALID = 'invalid';
 
 export interface Props<T> {
   category: Category;
+  collapsibleGroups?: boolean;
   customIcon?: React.ReactNode;
   disabled?: boolean;
   disabledOptionsList?: string[];
@@ -27,6 +28,7 @@ export interface Props<T> {
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string | number | string[];
   groupBy?: ((item: T) => any) | string;
+  hideGroupByTitle?: boolean;
   iconPosition?: Position;
   id: string;
   label?: string;

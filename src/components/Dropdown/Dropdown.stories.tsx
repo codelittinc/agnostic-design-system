@@ -106,6 +106,29 @@ const Template = args => {
   return <Dropdown {...args} selected={selectedItem} onChange={setSelectedItem} />;
 };
 
+const groupByList = [
+  {
+    label: 'B Option 1',
+    value: '1'
+  },
+  {
+    label: 'A Option 2',
+    value: '2'
+  },
+  {
+    label: 'B Option 3',
+    value: '3'
+  },
+  {
+    label: 'A  Option 4',
+    value: '4'
+  },
+  {
+    label: 'C Option 5',
+    value: '5'
+  }
+];
+
 export const DefaultDropdown = Template.bind({});
 DefaultDropdown.args = {
   category: 'simple',
@@ -483,34 +506,33 @@ WithGroupBy.args = {
   listItemCategory: 'checkbox',
   label: 'Dropdown',
   selectorText: 'Selector Text',
-  options: [
-    {
-      label: 'B Option 1',
-      value: '1'
-    },
-    {
-      label: 'A Option 2',
-      value: '2'
-    },
-    {
-      label: 'B Option 3',
-      value: '3'
-    },
-    {
-      label: 'A  Option 4',
-      value: '4'
-    },
-    {
-      label: 'C Option 5',
-      value: '5'
-    }
-  ],
+  options: groupByList,
   getItemLabel: item => item.label,
   getItemKey: item => item.value,
   getItemValue: item => item.value,
   getListTitle: list => list.map(x => x.label).join(', '),
   multiselect: true,
   groupBy: item => item.label[0]
+};
+
+export const WithCollapsibleGroups = Template.bind({});
+WithCollapsibleGroups.args = {
+  collapsibleGroups: true,
+  id: 'ads-dropdown',
+  category: 'simple',
+  size: 'large',
+  listItemCategory: 'checkbox',
+  label: 'Dropdown',
+  selectorText: 'Selector Text',
+  options: groupByList,
+  getItemLabel: item => item.label,
+  getItemKey: item => item.value,
+  getItemValue: item => item.value,
+  getListTitle: () => 'Selector Text',
+  multiselect: true,
+  groupBy: item => item.label[0],
+  hideGroupByTitle: true,
+  variablesClassName: styles['custom-styled-collapsible-dropdown']
 };
 
 export const WithRequired = Template.bind({});

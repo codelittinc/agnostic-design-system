@@ -4,10 +4,13 @@ import { Props as DropdownProps } from '@/components/Dropdown'; // eslint-disabl
 import List from '@/components/List';
 import classnames from 'classnames';
 import { groupBy as groupByLodash } from 'lodash';
+import CollapsibleGroup from './collapsibleGroup';
 
 const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HTMLDivElement>) => {
   const {
+    collapsibleGroups,
     disabledOptionsList,
+    hideGroupByTitle,
     selected,
     size,
     getItemKey,
@@ -106,35 +109,56 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
       );
     };
 
+    const buildGroupedList = (item, index) => {
+      return (
+        <List<T>
+          disabledOptionsList={disabledOptionsList}
+          getItemKey={item => getItemKey(item)}
+          getItemLabel={item => getItemLabel(item)}
+          getItemValue={item => getItemValue(item)}
+          id={`${id}-list`}
+          listItemCategory={listItemCategory}
+          multiselect={multiselect}
+          nodeBeforeItems={!hideGroupByTitle && buildAppendList(item, index)}
+          onChange={onChange}
+          options={groupedOptions[item]}
+          selected={selected}
+          size={size}
+          variablesClassName={classnames(
+            styles['dropdown-list'],
+            styles['dropdown-list-group'],
+            variablesClassName
+          )}
+        />
+      );
+    };
+
+    const renderList = keys => {
+      return (
+        keys.length > 0 &&
+        keys.map((item: string, index: number) => {
+          return collapsibleGroups ? (
+            <CollapsibleGroup
+              buttonText={item}
+              key={`list-groupby-${item + Math.random()}`}
+              size={size}
+            >
+              {buildGroupedList(item, index)}
+            </CollapsibleGroup>
+          ) : (
+            <React.Fragment key={`list-groupby-${item + Math.random()}`}>
+              {buildGroupedList(item, index)}
+            </React.Fragment>
+          );
+        })
+      );
+    };
+
     return (
       <div className={styles['dropdown-list-group-container']} ref={ref || listRef}>
         {nodeBeforeItems}
         <div className={styles['dropdown-list-groups-wrapper']}>
-          {keys.length > 0 &&
-            keys.map((item, index) => {
-              return (
-                <List<T>
-                  disabledOptionsList={disabledOptionsList}
-                  key={`list-groupby-${item + Math.random()}`}
-                  size={size}
-                  options={groupedOptions[item]}
-                  onChange={onChange}
-                  getItemKey={item => getItemKey(item)}
-                  getItemLabel={item => getItemLabel(item)}
-                  getItemValue={item => getItemValue(item)}
-                  variablesClassName={classnames(
-                    styles['dropdown-list'],
-                    styles['dropdown-list-group'],
-                    variablesClassName
-                  )}
-                  listItemCategory={listItemCategory}
-                  selected={selected}
-                  multiselect={multiselect}
-                  id={`${id}-list`}
-                  nodeBeforeItems={buildAppendList(item, index)}
-                />
-              );
-            })}
+          {keys.length > 0 && <>{renderList(keys)}</>}
         </div>
         {nodeAfterItems}
       </div>

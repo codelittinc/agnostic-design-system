@@ -49,3 +49,42 @@
   --list-item-selected-border-top: none;
   --list-item-selected-font-weight: 500;
 }
+
+.custom-styled-collapsible-dropdown {
+  --button-height: 40px;
+  --dropdown-group-font-size: 14px;
+  --dropdown-group-font-weight: 500;
+  --dropdown-group-div-border-radius: 8px;
+  --dropdown-group-div-padding: 16px 16px 0;
+  --dropdown-group-div-width: auto;
+  --dropdown-width: 195px;
+  --list-border-bottom: none;
+  --list-border-left: none;
+  --list-border-right: none;
+  --list-border-top: none;
+  --list-border-radius: 8px;
+  --list-margin: 0 0 16px;
+  --list-width: 400px;
+  --list-item-background-color-focus: transparent;
+  --list-item-border-radius: 8px;
+  --list-item-checkbox-height: 24px;
+  --list-item-checkbox-width: 24px;
+  --list-item-font-weight: 500;
+  --list-item-selected-border-bottom: none;
+  --list-item-selected-border-left: none;
+  --list-item-selected-border-right: none;
+  --list-item-selected-border-top: none;
+  --list-item-border-bottom: none;
+  --list-item-border-left: none;
+  --list-item-border-right: none;
+  --list-item-border-top: none;
+  --list-item-border-bottom-hover: none;
+  --list-item-border-left-hover: none;
+  --list-item-border-right-hover: none;
+  --list-item-border-top-hover: none;
+  --list-item-padding: 20px;
+  --list-item-label-font-family: 'Roboto', sans-serif;
+  --list-item-label-font-size: 14px;
+  --list-item-label-font-weight: 500;
+  --list-item-label-margin: 0 0 0 8px;
+}

@@ -244,3 +244,14 @@
 .dropdown--message:empty {
   height: var(--dropdown-message-height-empty, 0);
 }
+
+.collapsible-group-wrapper {
+  margin-bottom: 16px;
+}
+
+.collapsible-group-button {
+  --button-display: flex;
+  --button-justify-content: space-between;
+  --button-margin: 0 0 16px;
+  --button-width: 100%;
+}
