@@ -13,14 +13,17 @@
 }
 
 .dropdown-list-group-container {
-  border: var(--dropdown-group-div-border, 1px solid var(--primary-color-200));
-  box-sizing: border-box;
-  padding: var(--dropdown-group-div-padding, 20px);
-  width: var(--dropdown-group-div-width, var(--dropdown-width, 100%));
-  position: var(--dropdown-group-div-position);
-  margin: var(--dropdown-group-div-margin);
-  border-radius: var(--dropdown-group-div-border-radius);
   background-color: var(--dropdown-group-div-background-color);
+  border: var(--dropdown-group-div-border, 1px solid var(--primary-color-200));
+  border-radius: var(--dropdown-group-div-border-radius);
+  box-sizing: border-box;
+  margin: var(--dropdown-group-div-margin);
+  max-height: var(--dropdown-group-div-max-height, auto);
+  padding: var(--dropdown-group-div-padding, 20px);
+  position: var(--dropdown-group-div-position);
+  overflow-x: var(--dropdown-group-div-overflow-x, static);
+  overflow-y: var(--dropdown-group-div-overflow-y, static);
+  width: var(--dropdown-group-div-width, var(--dropdown-width, 100%));
   z-index: var(--dropdown-group-div-z-index, initial);
 }
 
