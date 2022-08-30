@@ -18,6 +18,7 @@ const INVALID = 'invalid';
 export interface Props<T> {
   category: Category;
   collapsibleGroups?: boolean;
+  collapsibleGroupsButtonItems?: React.ReactNode[];
   customIcon?: React.ReactNode;
   disabled?: boolean;
   disabledOptionsList?: string[];

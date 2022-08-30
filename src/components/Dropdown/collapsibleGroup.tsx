@@ -4,11 +4,11 @@ import Button, { Size } from '@/components/Button'; // eslint-disable-line no-un
 import styles from './Dropdown.css';
 
 type Props = {
-  buttonText: string;
+  buttonContent: string | React.ReactNode;
   size: Size;
 };
 
-const CollapsibleGroup: React.FC<Props> = ({ buttonText, children, size }) => {
+const CollapsibleGroup: React.FC<Props> = ({ buttonContent, children, size }) => {
   const [showChildren, setShowChildren] = useState(true);
 
   return (
@@ -16,7 +16,7 @@ const CollapsibleGroup: React.FC<Props> = ({ buttonText, children, size }) => {
       <Button
         appendIcon={getArrowIcon(!showChildren, 'top', size)}
         onClick={() => setShowChildren(!showChildren)}
-        text={buttonText}
+        text={buttonContent}
         withAppendIcon
         variablesClassName={styles['collapsible-group-button']}
       />

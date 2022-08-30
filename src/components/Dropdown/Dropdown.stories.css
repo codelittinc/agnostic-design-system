@@ -88,3 +88,14 @@
   --list-item-label-font-weight: 500;
   --list-item-label-margin: 0 0 0 8px;
 }
+
+.collapsible-button-icon-wrapper {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  border-radius: 8px;
+  height: 32px;
+  justify-content: center;
+  margin-right: 8px;
+  width: 32px;
+}

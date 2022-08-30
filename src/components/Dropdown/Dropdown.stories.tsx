@@ -4,6 +4,7 @@ import Dropdown from '@/components/Dropdown';
 import GearIcon from '@/assets/images/icons/web/gear.svg';
 import styles from './Dropdown.stories.css';
 import mdx from './Dropdown.stories.mdx';
+import { uniqueId } from 'lodash';
 
 export default {
   title: 'Components/Dropdown',
@@ -532,7 +533,15 @@ WithCollapsibleGroups.args = {
   multiselect: true,
   groupBy: item => item.label[0],
   hideGroupByTitle: true,
-  variablesClassName: styles['custom-styled-collapsible-dropdown']
+  variablesClassName: styles['custom-styled-collapsible-dropdown'],
+  collapsibleGroupsButtonItems: [
+    <div className={styles['collapsible-button-icon-wrapper']} key={uniqueId()}>
+      <GearIcon />
+    </div>,
+    <div className={styles['collapsible-button-icon-wrapper']} key={uniqueId()}>
+      <GearIcon />
+    </div>
+  ]
 };
 
 export const WithRequired = Template.bind({});

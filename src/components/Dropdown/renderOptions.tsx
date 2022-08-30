@@ -9,6 +9,7 @@ import CollapsibleGroup from './collapsibleGroup';
 const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HTMLDivElement>) => {
   const {
     collapsibleGroups,
+    collapsibleGroupsButtonItems,
     disabledOptionsList,
     hideGroupByTitle,
     selected,
@@ -139,7 +140,16 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
         keys.map((item: string, index: number) => {
           return collapsibleGroups ? (
             <CollapsibleGroup
-              buttonText={item}
+              buttonContent={
+                collapsibleGroupsButtonItems ? (
+                  <div className={styles['collapsible-button-icon-wrapper']}>
+                    {collapsibleGroupsButtonItems[index]}
+                    {item}
+                  </div>
+                ) : (
+                  item
+                )
+              }
               key={`list-groupby-${item + Math.random()}`}
               size={size}
             >

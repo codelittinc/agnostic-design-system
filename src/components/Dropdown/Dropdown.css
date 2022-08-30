@@ -255,3 +255,8 @@
   --button-margin: 0 0 16px;
   --button-width: 100%;
 }
+
+.collapsible-button-icon-wrapper {
+  align-items: center;
+  display: flex;
+}
