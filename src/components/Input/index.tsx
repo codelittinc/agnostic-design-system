@@ -225,6 +225,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     return (
       <ReactInputMask
         autoComplete={autoComplete}
+        disabled={disabled}
         id={id}
         mask={mask}
         name={id}

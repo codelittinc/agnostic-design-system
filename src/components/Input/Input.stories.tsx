@@ -111,3 +111,10 @@ export const WithInputDate = Template.bind({});
 WithInputDate.args = {
   inputType: 'date'
 };
+
+export const WithPhone = Template.bind({});
+WithPhone.args = {
+  label: 'Phone Number',
+  mask: '(999)999-9999',
+  placeholder: 'Enter Number'
+};
