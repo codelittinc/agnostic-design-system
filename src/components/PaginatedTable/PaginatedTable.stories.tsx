@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PaginatedTable from '@/components/PaginatedTable';
+import EmptyState from '../EmptyState';
 import { Meta } from '@storybook/react';
 import mdx from './PaginatedTable.stories.mdx';
 import classNames from 'classnames';
@@ -148,4 +149,16 @@ export const onRowHover = () => {
       />
     </div>
   );
+};
+
+const renderEmptyState = () => {
+  return <EmptyState description='' title='No results found' />;
+};
+
+export const EmptyTable = Template.bind({});
+EmptyTable.args = {
+  headerList: [],
+  totalNumberOfItems: 0,
+  listOfItems: [],
+  renderEmptyState: renderEmptyState
 };
