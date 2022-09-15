@@ -106,6 +106,9 @@
 
 .dropdown-list-positioned-bottom,
 .dropdown-list-positioned-top {
+  max-height: var(--dropdown-list-max-height, auto);
+  min-height: var(--dropdown-list-min-height, auto);
+  overflow: var(--dropdown-list-overflow, static);
   right: var(--dropdown-list-right, auto);
 }
 
