@@ -104,11 +104,15 @@
   top: var(--dropdown-list-top, 55px);
 }
 
-.dropdown-list-positioned-bottom,
-.dropdown-list-positioned-top {
+.dropdown-list-positioned-bottom ul,
+.dropdown-list-positioned-top ul {
   max-height: var(--dropdown-list-max-height, auto);
   min-height: var(--dropdown-list-min-height, auto);
   overflow: var(--dropdown-list-overflow, static);
+}
+
+.dropdown-list-positioned-bottom,
+.dropdown-list-positioned-top {
   right: var(--dropdown-list-right, auto);
 }
 
