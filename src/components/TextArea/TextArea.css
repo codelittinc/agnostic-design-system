@@ -14,7 +14,7 @@
   display: flex;
   font-family: var(--textarea-font-family);
   margin: var(--textarea-margin, 0);
-  overflow-x: var(--textarea-overflow-x, hidden);;
+  overflow-x: var(--textarea-overflow-x, hidden);
   overflow-y: var(--textarea-overflow-y, hidden);
   resize: none;
   width: var(--textarea-width, 100%);
@@ -27,6 +27,7 @@
 
 .textarea:disabled {
   background-color: var(--textarea-background-color-disabled, var(--textarea-background-color));
+  color: var(--textarea-color-disabled, var(--structure-color-600));
   border: var(--textarea-border-disabled, var(--textarea-border));
 }
 
@@ -46,6 +47,10 @@
   font-family: var(--textarea-placeholder-font-family, var(--textarea-font-family));
   font-size: var(--textarea-placeholder-font-size, var(--paragraph-xl));
   font-weight: var(--textarea-placeholder-font-weight, var(--paragraph-font-weight-normal));
+}
+
+.textarea:disabled::placeholder {
+  color: var(--textarea-placeholder-color-disabled, var(--structure-color-600));
 }
 
 .textarea.textarea--medium {
