@@ -1,0 +1,29 @@
+name: PROD DEPLOY
+
+on:
+  push:
+    branches: '*/*'
+
+  workflow_dispatch:
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set release version
+      run: sed -i -e "s/\${STORYBOOK_GOOGLE_API_KEY}/$STORYBOOK_GOOGLE_API_KEY/g" heroku.yml
+
+    - name: review env var
+      run: cat heroku.yml
+
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.2.6
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
+        branch: ${{ env.RELEASE_VERSION }}
+        dontuseforce: false

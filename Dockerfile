@@ -5,8 +5,11 @@ FROM node:16.17-bullseye as builder
 ENV NPM_CONFIG_LOGLEVEL warn
 ARG STORYBOOK_GOOGLE_API_KEY
 
+
 # Create app directory
 WORKDIR /shared
+
+RUN echo pwd
 
 # Copy project files into the docker image
 COPY . .
