@@ -1,0 +1,25 @@
+name: PROD DEPLOY
+
+on:
+  push:
+    tags: [ '*.*.*' ]
+  workflow_dispatch:
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
+        usedocker: true
+        docker_build_args: |
+          STORYBOOK_GOOGLE_API_KEY
+      env:
+        STORYBOOK_GOOGLE_API_KEY: ${{ secrets.STORYBOOK_GOOGLE_API_KEY }}
