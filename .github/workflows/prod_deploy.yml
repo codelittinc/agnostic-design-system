@@ -16,12 +16,6 @@ jobs:
     - name: Set release version
       run: echo "RELEASE_VERSION=$GITHUB_REF" >> $GITHUB_ENV
 
-    - name: Set google api key to heroku.yml
-      run: sed -i -e "s/\${STORYBOOK_GOOGLE_API_KEY}/${{ secrets.STORYBOOK_GOOGLE_API_KEY }}/g" heroku.yml
-
-    - name: review env var
-      run: cat heroku.yml
-
     - name: Deploy to Heroku
       uses: AkhileshNS/heroku-deploy@v3.12.12
       with:
