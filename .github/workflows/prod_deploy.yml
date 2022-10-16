@@ -1,8 +1,8 @@
-name: PROD DEPLOY
+name: Deploy to production
 
 on:
   push:
-    tags: [ '*.*.*' ]
+    tags: [ '*' ]
   workflow_dispatch:
 
 jobs:
