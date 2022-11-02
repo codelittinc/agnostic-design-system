@@ -3,6 +3,7 @@ import InputDropdown from './InputDropdown';
 import ButtonDropdown from './ButtonDropdown';
 import { isEmpty } from 'lodash';
 import { Position } from '@/components/Button'; // eslint-disable-line no-unused-vars
+import { ControlledInputProps } from '../Input'; // eslint-disable-line no-unused-vars
 
 export type Category = 'simple' | 'icon';
 export type ListItemCategory = 'simple' | 'checkbox';
@@ -15,7 +16,7 @@ export const SIMPLE_CATEGORY = 'simple';
 const VALID = 'valid';
 const INVALID = 'invalid';
 
-export interface Props<T> {
+export type Props<T> = {
   category: Category;
   collapsibleGroups?: boolean;
   collapsibleGroupsButtonItems?: React.ReactNode[];
@@ -38,18 +39,15 @@ export interface Props<T> {
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
-  onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;
-  onStateChange: (state: boolean) => void;
   options: T[];
   required?: boolean;
-  selected?: T[] | T;
   selectorText?: string;
   showSelectAll?: boolean;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
-}
+} & ControlledInputProps<T | T[]>;
 
 const Dropdown = <T extends {}>(props: Props<T>) => {
   const { editable, required, onStateChange } = props;
@@ -61,7 +59,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
 
   const handleValidation = (item?: T | T[]) => {
     const valid = !required || !isEmpty(item);
-    onStateChange(valid);
+    onStateChange && onStateChange(valid);
     setValidationState(valid ? VALID : INVALID);
   };
 
@@ -75,7 +73,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
     onValidate: handleValidation,
     ...props
   };
-
+  console.log(props.value);
   return editable ? (
     <InputDropdown<T> {...childrenProps} />
   ) : (

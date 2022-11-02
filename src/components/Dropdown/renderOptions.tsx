@@ -12,7 +12,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     collapsibleGroupsButtonItems,
     disabledOptionsList,
     hideGroupByTitle,
-    selected,
+    value,
     size,
     getItemKey,
     getItemLabel,
@@ -30,6 +30,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
     sort,
     groupBy
   } = props;
+
   const listRef = useRef<HTMLDivElement>(null);
   const customSort = sort;
 
@@ -88,7 +89,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
             : styles['dropdown-list-positioned-bottom']
         )}
         listItemCategory={listItemCategory}
-        selected={selected}
+        selected={value}
         multiselect={multiselect}
         id={`${id}-list`}
         nodeAfterItems={nodeAfterItems}
@@ -123,7 +124,7 @@ const RenderOptions = <T extends {}>(props: DropdownProps<T>, ref?: React.Ref<HT
           nodeBeforeItems={!hideGroupByTitle && buildAppendList(item, index)}
           onChange={onChange}
           options={groupedOptions[item]}
-          selected={selected}
+          selected={value}
           size={size}
           variablesClassName={classnames(
             styles['dropdown-list'],

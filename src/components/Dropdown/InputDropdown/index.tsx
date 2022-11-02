@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import classnames from 'classnames';
-import Input from '@/components/Input';
 import styles from '@/components/Dropdown/Dropdown.css';
 import IconGear from '@/assets/images/icons/web/gear.svg';
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
@@ -9,8 +8,10 @@ import { LARGE_SIZE, Category, ListItemCategory, Size, ListPosition } from '@/co
 /* eslint-enable */
 import RenderOptions from '../renderOptions';
 import { isEmpty } from 'lodash';
+/* eslint-disable */
+import Input, { ControlledInputProps } from '@/components/Input';
 
-export interface Props<T> {
+export type Props<T> = {
   category: Category;
   customIcon?: React.ReactNode;
   disabled?: boolean;
@@ -28,24 +29,21 @@ export interface Props<T> {
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
-  onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;
-  onStateChange: (state: boolean) => void;
   onValidate: (item?: T | T[]) => void;
   options: T[];
-  selected?: T[] | T;
   selectorText?: string;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
   messageValidateClass: string;
   validationMessage?: string;
-}
+} & ControlledInputProps<T | T[]>;
 
 const InputDropdown = <T extends {}>(props: Props<T>) => {
   const {
     customIcon,
-    selected,
+    value,
     label,
     disabled,
     size,
@@ -70,7 +68,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
   const defaultFilter = options =>
     options.filter(item => getItemLabel(item).toLowerCase().includes(listTitle.toLowerCase()));
 
-  const [listTitle, setListTitle] = useState(selected ? getListTitle(selected) : '');
+  const [listTitle, setListTitle] = useState(value ? getListTitle(value) : '');
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
@@ -140,9 +138,9 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     }
   };
 
-  const handleChangeInput = e => {
-    onInputChange && onInputChange(e);
-    setListTitle(e.target.value);
+  const handleChangeInput = value => {
+    onInputChange && onInputChange(value);
+    setListTitle(value);
     displayOptionsList();
   };
 

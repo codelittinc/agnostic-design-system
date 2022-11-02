@@ -17,7 +17,7 @@ export default {
 const Template = args => {
   const [selectedItem, setSelectedItem] = useState(args.selected);
 
-  return <SelectItemsList {...args} selected={selectedItem} onChange={setSelectedItem} />;
+  return <SelectItemsList {...args} value={selectedItem} onChange={setSelectedItem} />;
 };
 
 const options = [

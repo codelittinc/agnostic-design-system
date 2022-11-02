@@ -1,40 +1,15 @@
 import React from 'react';
 // @TODO: Discover how to disable the no-unused-vars verification for ts interfaces
 /* eslint-disable */
-import Input, { Filter, Size, Validation, Props as InputProps } from '../Input';
-  /* eslint-enable */
+import Input, { InputProps } from '../Input';
+/* eslint-enable */
 
-interface Props {
-  actionIcon?: React.ReactNode;
-  description?: string;
-  disabled?: boolean;
-  filters?: Filter[];
-  id: string;
-  label?: string | React.ReactNode;
-  limit?: number;
+type Props = {
   max?: number;
-  message?: string;
-  onBlur?: () => void;
-  onChange: (e: any) => void;
-  onClickActionIcon?: () => void;
-  onFocus: () => void;
-  onKeyDown?: () => void;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  onStateChange: (state: boolean) => void;
-  placeholder?: string;
-  prepend?: React.ReactNode;
   positive?: boolean;
   radix?: string;
-  required?: boolean;
   scale: number;
-  size: Size;
-  value?: string;
-  validations?: Validation[];
-  variablesClassName?: string;
-  withActionIcon?: boolean;
-  withPrependSeparator?: boolean;
-}
+} & InputProps;
 
 const NON_DIGITS_REGEX = new RegExp(/\D+/, 'g');
 

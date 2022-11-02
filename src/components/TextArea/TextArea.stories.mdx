@@ -36,8 +36,8 @@ import { TextArea } from '@codelittinc/agnostic-design-system';
 const SimpleTextArea = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = value => {
+    setValue(value);
   };
 
   return (

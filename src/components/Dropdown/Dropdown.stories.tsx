@@ -65,7 +65,7 @@ export default {
     options: {
       description: 'Options array'
     },
-    selected: {
+    value: {
       description: 'Item selected initially'
     },
     selectorText: {
@@ -104,7 +104,7 @@ export default {
 const Template = args => {
   const [selectedItem, setSelectedItem] = useState(args.selected);
 
-  return <Dropdown {...args} selected={selectedItem} onChange={setSelectedItem} />;
+  return <Dropdown {...args} value={selectedItem} onChange={setSelectedItem} />;
 };
 
 const groupByList = [
@@ -183,7 +183,7 @@ EditableDropdown.args = {
   size: 'large',
   label: "Editable Dropdown with 'Option 2' initially selected",
   selectorText: 'Selector Text',
-  selected: {
+  value: {
     label: 'Option 2',
     value: '2'
   },
@@ -212,7 +212,7 @@ EditableDropdownWithRequired.args = {
   size: 'large',
   label: 'Unselect the Option 2 to get the required field validation',
   selectorText: 'Selector Text',
-  selected: {
+  value: {
     label: 'Option 2',
     value: '2'
   },
@@ -242,7 +242,7 @@ IconDropdown.args = {
   size: 'large',
   listItemCategory: 'simple',
   label: "Editable Icon Dropdown with 'Option 2' initially selected",
-  selected: {
+  value: {
     label: 'Option 2',
     value: '2'
   },
@@ -614,7 +614,7 @@ export const CustomStyledDropdown = () => {
         }
       ]}
       onChange={setSelectedOption}
-      selected={selectedOption}
+      value={selectedOption}
       selectorText='Select'
       variablesClassName={styles['custom-styled-dropdown']}
     />

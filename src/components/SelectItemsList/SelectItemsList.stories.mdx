@@ -15,7 +15,7 @@
 |       label        |                               string \| React.ReactNode                               | Can be used as a [string](https://design-system.codelitt.dev/?path=/story/components-input--default-with-label-text) and allow the engineer to build a [custom label](https://design-system.codelitt.dev/?path=/story/components-input--with-custom-label) and pass it as a parameter |           -            |   false   |
 |      onChange      |                                    (e: T) => void                                     |                                                                                                                   Calls a function whenever the button is clicked.                                                                                                                    |           -            |   true    |
 |      options       |                                          T[]                                          |                                                                                                                                    List of options                                                                                                                                    |           -            |   true    |
-|      selected      |                                           T                                           |                                                                                                                                Initially selected item                                                                                                                                |           -            |   false   |
+|      value         |                                           T                                           |                                                                                                                                Initially selected item                                                                                                                                |           -            |   false   |
 | variablesClassName |                                        string                                         |                                                                                                                            Accepts custom CSS class names.                                                                                                                            |           -            |   false   |
 
 ## Getting Started
@@ -40,7 +40,7 @@ const MySelectItemsList = () =>{
       <SelectItemsList
         id={'select-items-list'}
         onChange={setSelectedItem}
-        selected={selectedItem}
+        value={selectedItem}
         options={options}
       />
     );
@@ -90,6 +90,6 @@ In addition to its own, you will be able to use the CSS variables from the [Butt
 | select-list |      margin      |                      |
 | select-list |     padding      |                      |
 | select-list |      width       |                      |
-|  selected   | background-color | active, focus, hover |
-|  selected   |      border      | active, focus, hover |
-|  selected   |      color       | active, focus, hover |
+|   value     | background-color | active, focus, hover |
+|   value     |      border      | active, focus, hover |
+|   value     |      color       | active, focus, hover |

@@ -1,19 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './SelectItemsList.css';
+import { ControlledInputProps } from '../Input';
 
-interface Props<T> {
+type Props<T> = {
   getItem?: (item: T) => React.ReactNode;
   getItemKey: (item: T) => string;
   getItemLabel: (item: T) => string;
   getItemValue: (item: T) => string;
   id: string;
   label?: string | React.ReactNode;
-  onChange: (item?: T) => void;
   options: T[];
-  selected?: T;
   variablesClassName?: string;
-}
+} & ControlledInputProps<T>;
 
 const getItems = (
   options,
@@ -55,7 +54,7 @@ const getItems = (
 const SelectItemsList = <T extends {}>(props: Props<T>) => {
   const {
     onChange,
-    selected,
+    value,
     variablesClassName,
     getItem,
     getItemKey,
@@ -71,7 +70,7 @@ const SelectItemsList = <T extends {}>(props: Props<T>) => {
     getItemKey,
     getItemValue,
     onChange,
-    selected,
+    value,
     variablesClassName
   );
 

@@ -21,8 +21,8 @@ import { EmailInput } from '@codelittinc/agnostic-design-system';
 class EmailInput extends Component {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const handleChange = (value) => {
+    setValue(value);
   }
 
   render() {
@@ -54,7 +54,7 @@ const SimpleEmailInput = () => {
 
   return (
     <EmailInput
-      onChange={e => setValue(e.target.value)}
+      onChange={value => setValue(value)}
       label='Email Input'
       value={value}
       validations={validations}
