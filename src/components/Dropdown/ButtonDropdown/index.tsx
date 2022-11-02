@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import styles from '@/components/Dropdown/Dropdown.css';
-import Button, { Position } from '@/components/Button'; // eslint-disable-line no-unused-vars
+import Button, { Position } from '@/components/Button';
 import getArrowIcon from '@/components/Dropdown/getArrowIcon';
-import { Category, ListItemCategory, ListPosition, Size } from '@/components/Dropdown'; // eslint-disable-line no-unused-vars
+import { Category, ListItemCategory, ListPosition, Size } from '@/components/Dropdown';
 import RenderOptions from '../renderOptions';
 import { isEmpty } from 'lodash';
+import { ControlledInputProps } from '@/components/Input';
 
-interface Props<T> {
+type Props<T> = {
   category: Category;
   customIcon?: React.ReactNode;
   disabled?: boolean;
@@ -23,10 +24,8 @@ interface Props<T> {
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
-  onChange: (item?: T | T[]) => void;
   onValidate: (item?: T | T[]) => void;
   options: T[];
-  selected?: T[] | T;
   selectorText?: string;
   size: Size;
   sort?: (a: T, b: T) => number;
@@ -34,11 +33,11 @@ interface Props<T> {
   messageValidateClass: string;
   validationMessage?: string;
   listPosition: ListPosition;
-}
+} & ControlledInputProps<T | T[]>;
 
 const ButtonDropdown = <T extends {}>(props: Props<T>) => {
   const {
-    selected,
+    value,
     customIcon,
     disabled,
     iconPosition,
@@ -54,9 +53,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     validationMessage
   } = props;
 
-  const [listTitle, setListTitle] = useState(
-    selected ? getListTitle(selected) : selectorText || ''
-  );
+  const [listTitle, setListTitle] = useState(value ? getListTitle(value) : selectorText || '');
   const [isListOpen, setIsListOpen] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -86,13 +83,13 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
 
   useEffect(() => {
     setListTitle(
-      Array.isArray(selected) && selected.length > 0
-        ? getListTitle(selected)
-        : !multiselect && !isEmpty(selected)
-        ? getListTitle(selected as T)
+      Array.isArray(value) && value.length > 0
+        ? getListTitle(value)
+        : !multiselect && !isEmpty(value)
+        ? getListTitle(value as T)
         : selectorText || ''
     );
-  }, [selected]);
+  }, [value]);
 
   const handleClick = (options: T | T[]) => {
     onChange(options);
@@ -123,7 +120,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
               item && handleClick(item);
             }}
             // Todo: verify why this is not provided
-            onStateChange={() => {}}
+            onValidationChange={() => {}}
           />
         )}
       </div>

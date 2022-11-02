@@ -17,7 +17,7 @@ export default {
 const Template = args => {
   const [value, setValue] = useState('');
 
-  return <Input id='input-id' {...args} value={value} onChange={e => setValue(e.target.value)} />;
+  return <Input id='input-id' {...args} value={value} onChange={e => setValue(e)} />;
 };
 
 export const Default = Template.bind({});

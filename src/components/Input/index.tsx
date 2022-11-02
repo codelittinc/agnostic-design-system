@@ -19,7 +19,13 @@ export type Filter = {
   test: RegExp | Function;
 };
 
-export interface Props {
+export type ControlledInputProps<T> = {
+  value?: T;
+  onChange: (value?: T, event?: any) => void;
+  onValidationChange?: (state: boolean) => void;
+};
+
+export type InputProps<T = string> = {
   actionIcon?: React.ReactNode;
   autoComplete?: string;
   description?: string;
@@ -33,30 +39,27 @@ export interface Props {
   mask?: string;
   message?: string;
   name?: string;
-  onBlur?: () => void;
-  onChange: (e: any) => void;
-  onClickActionIcon?: () => void;
-  onFocus: () => void;
-  onKeyDown?: () => void;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  onStateChange: (state: boolean) => void;
   placeholder?: string;
   prepend?: React.ReactNode;
   readOnly?: boolean;
   required?: boolean;
   size: Size;
-  value?: string;
   validations?: Validation[];
   variablesClassName?: string;
   withActionIcon?: boolean;
   withPrependSeparator?: boolean;
-}
+  onBlur?: () => void;
+  onClickActionIcon?: () => void;
+  onFocus?: () => void;
+  onKeyDown?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+} & ControlledInputProps<T>;
 
 const VALID = 'valid';
 const INVALID = 'invalid';
 
-const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     actionIcon,
     autoComplete,
@@ -78,7 +81,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     onMouseEnter,
     onMouseLeave,
     onKeyDown,
-    onStateChange,
+    onValidationChange,
     placeholder,
     prepend,
     readOnly,
@@ -111,10 +114,15 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     if (enableInitialValidation) {
       const valid = isValid(value, validations, required);
       setValid(valid);
-      onStateChange(valid);
       setValidationState(valid ? VALID : INVALID);
     }
   }, []);
+
+  useEffect(() => {
+    if (valid !== undefined && onValidationChange) {
+      onValidationChange(valid);
+    }
+  }, [valid]);
 
   const handleBlur = event => {
     onBlur && onBlur();
@@ -141,10 +149,9 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     const newValue = e.target.value;
 
     if (!matchesFilter(newValue, filters)) {
-      onChange(e);
+      onChange(newValue, e);
       const valid = isValid(newValue, validations, required);
       setValid(valid);
-      onStateChange(valid);
       if (enableValueValidation(newValue)) {
         setValidationState(valid ? VALID : INVALID);
       }
@@ -213,7 +220,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
         value={getAttr(value || '')}
         onFocus={getAttr(() => {
           setValidationState('');
-          onFocus();
+          onFocus && onFocus();
         })}
         onBlur={getAttr(handleBlur)}
         readOnly={readOnly}
@@ -232,7 +239,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
         onChange={handleChange}
         onFocus={() => {
           setValidationState('');
-          onFocus();
+          onFocus && onFocus();
         }}
         onBlur={handleBlur}
         required={false}
@@ -280,7 +287,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 Input.defaultProps = {
   size: 'large',
   onFocus: () => {},
-  onStateChange: state => state,
+  onValidationChange: state => state,
   onChange: e => e,
   validations: []
 };

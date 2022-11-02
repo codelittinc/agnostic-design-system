@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from '@/components/Button/DefaultButton/DefaultButton.css';
 import DefaultAppendIcon from '@/assets/images/icons/web/append-button-icon.svg';
-import { Position, Size } from '@/components/Button'; // eslint-disable-line no-unused-vars
+import { Position, Size } from '@/components/Button';
 
 interface Props {
   appendIcon?: React.ReactNode;

@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import styles from '@/components/TextArea/TextArea.css';
+import { ControlledInputProps } from '../Input';
 
 type Size = 'large' | 'medium';
 
-interface Props {
+type Props = {
   description?: string;
   disabled?: boolean;
   id: string;
@@ -14,14 +15,11 @@ interface Props {
   maxLength?: number;
   message?: string;
   onBlur?: (e: any) => void;
-  onChange: (e: any) => void;
-  onStateChange: (state: boolean) => void;
   placeholder?: string;
   size: Size;
-  value?: string;
   variablesClassName?: string;
   required?: boolean;
-}
+} & ControlledInputProps<string>;
 
 const VALID = 'valid';
 const INVALID = 'invalid';
@@ -37,7 +35,7 @@ const TextArea: React.FC<Props> = props => {
     message,
     onBlur,
     onChange,
-    onStateChange,
+    onValidationChange,
     placeholder,
     size,
     value,
@@ -65,9 +63,9 @@ const TextArea: React.FC<Props> = props => {
 
     if (required) {
       setValid(validField);
-      onStateChange(validField);
+      onValidationChange && onValidationChange(validField);
     } else {
-      onStateChange(validField);
+      onValidationChange && onValidationChange(validField);
     }
   };
 
@@ -152,7 +150,7 @@ const TextArea: React.FC<Props> = props => {
 
 TextArea.defaultProps = {
   size: 'large',
-  onStateChange: state => state
+  onValidationChange: state => state
 };
 
 export default TextArea;

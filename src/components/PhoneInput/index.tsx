@@ -3,30 +3,26 @@ import ExternalPhoneInput from 'react-phone-input-2';
 import classNames from 'classnames';
 import styles from './PhoneInput.css';
 import inputStyles from '@/components/Input/Input.css';
+import { ControlledInputProps, Size } from '../Input';
 
-/* eslint-disable */
-import { Size } from '../Input';
-/* eslint-enable */
-interface Props {
+type Props = {
   autoFormat?: boolean;
   country?: string;
   defaultMask?: string;
-  disabled?: boolean;
   disableDropdown?: boolean;
   enableSearch?: boolean;
   excludeCountries?: string[];
-  hideLabel?: boolean;
   label?: string | React.ReactNode;
   localNumber?: boolean;
   masks?: Record<string, string>;
-  onChange: (value: string) => void;
   onlyCountries?: string[];
-  placeholder?: string;
   preferredCountries?: string[];
-  size: Size;
-  value?: string;
+  disabled?: boolean;
+  hideLabel?: boolean;
+  placeholder?: string;
+  size?: Size;
   variablesClassName?: string;
-}
+} & ControlledInputProps<string>;
 
 const PhoneInput = (props: Props) => {
   const {

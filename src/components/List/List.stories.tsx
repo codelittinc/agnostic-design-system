@@ -17,7 +17,7 @@ export default {
 const Template = args => {
   const [selectedItem, setSelectedItem] = useState(undefined);
 
-  return <List {...args} selected={selectedItem} onChange={setSelectedItem} />;
+  return <List {...args} value={selectedItem} onChange={setSelectedItem} />;
 };
 
 export const SimpleList = Template.bind({});
@@ -156,7 +156,7 @@ export const CustomStyledRadioList = () => {
           value: '2'
         }
       ]}
-      selected={selectedItem}
+      value={selectedItem}
       size='large'
       variablesClassName={styles['custom-list']}
     />
@@ -189,7 +189,7 @@ export const CustomStyledSelectAllList = () => {
           value: '3'
         }
       ]}
-      selected={selectedItem}
+      value={selectedItem}
       showSelectAll
       size='medium'
       variablesClassName={styles['custom-select-all-list']}

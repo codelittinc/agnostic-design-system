@@ -15,7 +15,7 @@ export default {
 
 const Template = args => {
   const [value, setValue] = useState('');
-  return <TextArea {...args} value={value} onChange={e => setValue(e.target.value)} />;
+  return <TextArea {...args} value={value} onChange={value => setValue(value)} />;
 };
 
 export const Default = Template.bind({});

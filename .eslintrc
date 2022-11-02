@@ -1,5 +1,8 @@
 {
   "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "extends": [
     "standard",
     "standard-react",
@@ -30,12 +33,8 @@
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
     "import/export": 0,
-    "no-unused-vars": [
-      "error",
-      {
-          "varsIgnorePattern": "^Meta$"
-      }
-    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "no-console": "error"
   }
 }

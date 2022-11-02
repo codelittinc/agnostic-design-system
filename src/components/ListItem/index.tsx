@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DefaultListItem, {
-  Props as DefaultListItemProps // eslint-disable-line no-unused-vars
+  Props as DefaultListItemProps
 } from '@/components/ListItem/DefaultListItem';
 import CheckBoxListItem from '@/components/ListItem/CheckBoxListItem';
 import CheckMarkListItem from '@/components/ListItem/CheckMarkListItem';

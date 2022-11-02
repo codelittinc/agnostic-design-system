@@ -26,14 +26,7 @@ export default {
 const Template = args => {
   const [value, setValue] = useState('');
 
-  return (
-    <NumericInput
-      id='numeric-input'
-      {...args}
-      value={value}
-      onChange={e => setValue(e.target.value)}
-    />
-  );
+  return <NumericInput id='numeric-input' {...args} value={value} onChange={e => setValue(e)} />;
 };
 
 export const Default = Template.bind({});

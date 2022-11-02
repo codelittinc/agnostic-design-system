@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import InputDropdown from './InputDropdown';
 import ButtonDropdown from './ButtonDropdown';
 import { isEmpty } from 'lodash';
-import { Position } from '@/components/Button'; // eslint-disable-line no-unused-vars
+import { Position } from '@/components/Button';
+import { ControlledInputProps } from '../Input';
 
 export type Category = 'simple' | 'icon';
 export type ListItemCategory = 'simple' | 'checkbox';
@@ -15,7 +16,7 @@ export const SIMPLE_CATEGORY = 'simple';
 const VALID = 'valid';
 const INVALID = 'invalid';
 
-export interface Props<T> {
+export type Props<T> = {
   category: Category;
   collapsibleGroups?: boolean;
   collapsibleGroupsButtonItems?: React.ReactNode[];
@@ -38,21 +39,18 @@ export interface Props<T> {
   multiselect?: boolean;
   nodeAfterItems?: React.ReactNode;
   nodeBeforeItems?: React.ReactNode;
-  onChange: (item?: T | T[]) => void;
   onInputChange?: (e: any) => void;
-  onStateChange: (state: boolean) => void;
   options: T[];
   required?: boolean;
-  selected?: T[] | T;
   selectorText?: string;
   showSelectAll?: boolean;
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
-}
+} & ControlledInputProps<T | T[]>;
 
 const Dropdown = <T extends {}>(props: Props<T>) => {
-  const { editable, required, onStateChange } = props;
+  const { editable, required, onValidationChange } = props;
 
   const [validationState, setValidationState] = useState('');
   const hasValidationState = validationState !== '';
@@ -61,7 +59,7 @@ const Dropdown = <T extends {}>(props: Props<T>) => {
 
   const handleValidation = (item?: T | T[]) => {
     const valid = !required || !isEmpty(item);
-    onStateChange(valid);
+    onValidationChange && onValidationChange(valid);
     setValidationState(valid ? VALID : INVALID);
   };
 
@@ -90,7 +88,7 @@ Dropdown.defaultProps = {
   onChange: () => {},
   listItemCategory: SIMPLE_CATEGORY,
   listPosition: 'bottom',
-  onStateChange: state => state,
+  onValidationChange: state => state,
   validations: []
 };
 

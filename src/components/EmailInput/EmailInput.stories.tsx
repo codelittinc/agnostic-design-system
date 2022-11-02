@@ -16,7 +16,7 @@ export default {
 const Template = args => {
   const [value, setValue] = useState('');
 
-  return <EmailInput {...args} value={value} onChange={e => setValue(e.target.value)} />;
+  return <EmailInput {...args} value={value} onChange={e => setValue(e)} />;
 };
 
 export const Default = Template.bind({});

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import getArrowIcon from './getArrowIcon';
-import Button, { Size } from '@/components/Button'; // eslint-disable-line no-unused-vars
+import Button, { Size } from '@/components/Button';
 import styles from './Dropdown.css';
 
 type Props = {

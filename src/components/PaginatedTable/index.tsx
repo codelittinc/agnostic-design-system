@@ -43,11 +43,10 @@ const PaginatedTable = (props: Props) => {
 
   const numberOfPages = Math.ceil(totalNumberOfItems / limit);
 
-  const handleChange = event => {
-    const { value } = event.target;
-
-    if (value > 0 || isEmpty(value)) {
-      handlePageChange(value);
+  const handleChange = value => {
+    const page = Number(value);
+    if (page > 0 || isEmpty(value)) {
+      handlePageChange(page);
     }
   };
 
@@ -95,7 +94,7 @@ const PaginatedTable = (props: Props) => {
                           id={`paginated-table-input-${uniqueId}`}
                           max={numberOfPages}
                           onChange={handleChange}
-                          onStateChange={() => {}}
+                          onValidationChange={() => {}}
                           onFocus={() => {}}
                           scale={0}
                           size='medium'

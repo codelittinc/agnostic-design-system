@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
 import PaginatedTable, { Props } from '@/components/PaginatedTable';
 import { mount } from 'enzyme';
 import { render, screen, fireEvent, within } from '@testing-library/react';

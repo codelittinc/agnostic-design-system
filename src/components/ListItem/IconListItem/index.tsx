@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultListItem, { Props } from '@/components/ListItem/DefaultListItem'; // eslint-disable-line no-unused-vars
+import DefaultListItem, { Props } from '@/components/ListItem/DefaultListItem';
 
 import IconGear from '@/assets/images/icons/web/gear.svg';
 
