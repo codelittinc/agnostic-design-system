@@ -28,4 +28,5 @@ export { default as Toast } from '@/components/Toast';
 export { default as Toggle } from '@/components/Toggle';
 export { default as Tooltip } from '@/components/Tooltip';
 export { default as UploadAvatar } from '@/components/UploadAvatar';
+export { default as ControlledForm } from '@/components/ControlledForm';
 export * from '@/components/Grid';
