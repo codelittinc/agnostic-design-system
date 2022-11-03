@@ -5,7 +5,7 @@ type Props = {
   max?: number;
   positive?: boolean;
   radix?: string;
-  scale: number;
+  scale?: number;
 } & InputProps;
 
 const NON_DIGITS_REGEX = new RegExp(/\D+/, 'g');
@@ -25,7 +25,7 @@ const isNumberBiggerThanMax = (radix, num, max) => {
 
 const NumericInput = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { value, scale, max, radix, positive, ...inputProps } = props;
-  const SCALE_REGEX = new RegExp(`^.+${radix}\\d{${scale + 1}}`);
+  const SCALE_REGEX = new RegExp(`^.+${radix}\\d{${(scale || 0) + 1}}`);
 
   const filters = [
     {

@@ -1,0 +1,131 @@
+# Controlled Form Component
+
+## Type: Simple
+
+The Controlled Form component helps to create a form and control all inputs fields. It become helpful to avoid creating a controller for each input field, providing and managing all input state.
+
+
+## Form Props
+
+|     Prop      |                            Type                          |                                                                                                                                                                                                                                                                                                                                              Description                                                                                                                                                                                                                                                                                                                                                                                | Default | Mandatory |
+| :-----------: | :------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|    render     | (inputProps: {getInputControls, isValid, state}) => void |           This prop will render the Form fields, it is a function that need to return a ReactNode. The `inputProps` param is an object that the fields are:  `getInputControl, isValid, and state`. The `getInputControls` will register the input, you will need to provide a name as the first param, and this name should be unique. Also, it will return an object with `onChange, value, and onValidationChange` where `onChange` is waiting for any input value changes, `value` is the input value itself, and `onValidationChange` is waiting for a boolean that represents if the input is valid or not. The `isValid` will be true when the form is valid and the `state` is an object with all inputs and validation values. |    -    |   true    |
+| initialValues |                          Object                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Pre-set values defined in each field. Accepts an object with keys matching the name of each individual field. The values of the keys are then rendered in the field as its value. |    -    |   false   |
+|   onSubmit    |                    (values) => void;                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Accepts a function that is called when the form is submitted.  |    -    |   true    |
+
+## Getting Started
+
+```javascript
+import React from 'react';
+import Form from '@/components/Form';
+import Input from '@/components/Input';
+import Email from '@/components/EmailInput';
+import Button from '@/components/Button';
+
+class SimpleForm extends Component {
+   type SelectorType = { name: string; id: string };
+  const options: SelectorType[] = [
+    { name: 'Software', id: 'Software' },
+    { name: 'Financing', id: 'Financing' },
+    { name: 'Retail', id: 'Retail' },
+    { name: 'Pet', id: 'Pet' },
+    { name: 'Law', id: 'Law' }
+  ];
+  type AnimalType = { value: string; id: number; label: string };
+  const animals: AnimalType[] = [
+    {
+      label: 'Cat',
+      value: 'Cat',
+      id: 1
+    },
+    {
+      label: 'Dog',
+      value: 'Dog',
+      id: 2
+    }
+  ];
+  render() {
+    return (
+      <ControlledForm
+      onSubmit={values => console.log(JSON.stringify(values))}
+      initialValues={{ name: 'Default Name', selectItem: options[0] }}
+      render={({ getInputControls, isValid }) => {
+        return (
+          <>
+            <Input
+              id='input-nome'
+              size='large'
+              label='Nome'
+              required
+              {...getInputControls('name')}
+            />
+            <br />
+            <EmailInput
+              label='Email'
+              id='input-email'
+              size='large'
+              required
+              onClickActionIcon={() => {}}
+              validations={[]}
+              {...getInputControls('email')}
+            />
+            <br />
+            <div>
+              <PhoneInput label='Phone' size='large' {...getInputControls('phone')} />
+            </div>
+            <br />
+            <div>
+              <NumericInput
+                label='Code'
+                id='input-email'
+                size='large'
+                validations={[]}
+                {...getInputControls('code')}
+              />
+            </div>
+            <br />
+            <SelectItemsList
+              id='input-select-items'
+              {...getInputControls<SelectorType>('items')}
+              label='Select Items List'
+              options={options}
+              getItemKey={item => item.id}
+              getItemValue={item => item.id}
+            />
+            <br />
+            <Dropdown
+              options={animals}
+              label='Preferred animal'
+              id='ads-dropdown'
+              getItemLabel={item => item.label}
+              getItemKey={item => item.value}
+              getItemValue={item => item.value}
+              getListTitle={item => (isArray(item) ? item[0]?.label : item.label)}
+              editable
+              {...getInputControls<AnimalType | AnimalType[]>('animals')}
+            />
+            <br />
+            <p>
+              <Button
+                type='submit'
+                disabled={!isValid}
+                onClick={() => {
+                  console.log('submitted');
+                }}
+                text='Submit'
+              />
+            </p>
+          </>
+        );
+      }}
+    />
+    );
+  }
+}
+
+export default SimpleForm;
+```
+
+## CSS Variables available
+
+Currently, the Form component does not have CSS variables for customization.
