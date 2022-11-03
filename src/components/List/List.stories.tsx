@@ -5,7 +5,7 @@ import mdx from './List.stories.mdx';
 import styles from './List.stories.css';
 
 export default {
-  title: 'Components/List',
+  title: 'Components/Content/List',
   component: List,
   parameters: {
     docs: {

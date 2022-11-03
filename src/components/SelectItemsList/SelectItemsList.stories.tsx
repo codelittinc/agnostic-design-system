@@ -5,7 +5,7 @@ import mdx from './SelectItemsList.stories.mdx';
 import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 
 export default {
-  title: 'Components/Select Items List',
+  title: 'Components/Forms/Select Items List',
   component: SelectItemsList,
   parameters: {
     docs: {

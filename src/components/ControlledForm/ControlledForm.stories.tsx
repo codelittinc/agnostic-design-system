@@ -13,7 +13,7 @@ import { isArray } from 'lodash';
 import mdx from './ControlledForm.stories.mdx';
 
 export default {
-  title: 'Components/Controlled Form',
+  title: 'Components/Forms/Controlled Form',
   component: ControlledForm,
   parameters: {
     docs: {

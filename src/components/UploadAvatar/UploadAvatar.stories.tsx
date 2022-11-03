@@ -4,7 +4,7 @@ import UploadAvatar from '@/components/UploadAvatar';
 import mdx from './UploadAvatar.stories.mdx';
 
 export default {
-  title: 'Components/UploadAvatar',
+  title: 'Components/Forms/UploadAvatar',
   component: UploadAvatar,
   parameters: {
     docs: {

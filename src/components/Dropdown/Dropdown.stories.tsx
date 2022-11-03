@@ -7,7 +7,7 @@ import mdx from './Dropdown.stories.mdx';
 import { uniqueId } from 'lodash';
 
 export default {
-  title: 'Components/Dropdown',
+  title: 'Components/Forms/Dropdown',
   component: Dropdown,
   parameters: {
     docs: {

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import styles from './Tab.stories.css';
 
 export default {
-  title: 'Components/Tab',
+  title: 'Components/Content/Tab',
   component: Tab,
   parameters: {
     docs: {

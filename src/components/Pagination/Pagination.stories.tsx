@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import mdx from './Pagination.stories.mdx';
 
 export default {
-  title: 'Components/Pagination',
+  title: 'Components/Content/Pagination',
   component: Pagination,
   parameters: {
     docs: {

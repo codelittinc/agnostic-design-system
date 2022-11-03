@@ -8,7 +8,7 @@ import Button from '@/components/Button';
 import EmailInput from '@/components/EmailInput';
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Content/Modal',
   component: Modal,
   parameters: {
     docs: {

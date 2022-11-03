@@ -6,7 +6,7 @@ import Col from './Col';
 import mdx from './Grid.stories.mdx';
 
 export default {
-  title: 'Components/Grid System',
+  title: 'Components/Layout/Grid System',
   component: Container,
   parameters: {
     docs: {

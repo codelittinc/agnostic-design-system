@@ -6,7 +6,7 @@ import mdx from './Tooltip.stories.mdx';
 import TestSearchIcon from '@/assets/images/icons/web/search-simple.svg';
 
 export default {
-  title: 'Components/Tooltip',
+  title: 'Components/Helpers/Tooltip',
   component: Tooltip,
   parameters: {
     docs: {

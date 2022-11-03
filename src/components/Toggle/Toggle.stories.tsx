@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import styles from './Toggle.stories.css';
 
 export default {
-  title: 'Components/Toggle',
+  title: 'Components/Forms/Toggle',
   component: Toggle,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 import mdx from './Tag.stories.mdx';
 
 export default {
-  title: 'Components/Tag',
+  title: 'Components/Helpers/Tag',
   component: Tag,
   parameters: {
     docs: {

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import styles from './PaginatedTableTest.css';
 
 export default {
-  title: 'Components/PaginatedTable',
+  title: 'Components/Content/PaginatedTable',
   component: PaginatedTable,
   parameters: {
     docs: {
