@@ -109,9 +109,5 @@
     "rc-slider": "^9.7.2",
     "react-input-mask": "^2.0.4",
     "react-phone-input-2": "^2.14.0"
-  },
-  "engines": {
-    "npm": "8.3.0",
-    "node": "16.17.0"
   }
 }
