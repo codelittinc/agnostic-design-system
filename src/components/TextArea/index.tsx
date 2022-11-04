@@ -57,8 +57,8 @@ const TextArea: React.FC<Props> = props => {
   const hasValue = value => /\S/.test(value);
 
   const handleOnChange = e => {
-    onChange(e);
     const value = e.target.value;
+    onChange(value);
     const validField = hasValue(value);
 
     if (required) {
