@@ -15,7 +15,14 @@ Getting your Github Token
 
 1. Access your [tokens page](https://github.com/settings/tokens)
 2. Create a token that can read registry packages
-3. npm set //npm.pkg.github.com/:_authToken YOUR TOKEN
+3. Set up an `.npmrc` file and add the following lines:
+
+```
+@codelittinc:registry=https://npm.pkg.github.com/codelittinc
+//npm.pkg.github.com/:_authToken=${YOUR_TOKEN}
+```
+Observation: Please keep in mind the token is **private**! As a standard and security safe
+practice, be sure to add the `npmrc` file as a rule in `gitignore`.
 
 Inside the project folder:
 
