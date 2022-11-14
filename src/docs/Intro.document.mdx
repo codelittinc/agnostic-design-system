@@ -17,14 +17,21 @@ Getting your Github Token
 
 1. Access your [tokens page](https://github.com/settings/tokens)
 2. Create a token that can read registry packages
-3. npm set //npm.pkg.github.com/:\_authToken YOUR TOKEN
 
-Inside the project folder:
+### Inside the project folder:
 
-1. run `echo "registry=https://npm.pkg.github.com/codelittinc" >> .npmrc`
+1. Set up an `.npmrc` file and add the following lines:
+
+```
+@codelittinc:registry=https://npm.pkg.github.com/codelittinc
+//npm.pkg.github.com/:_authToken=${YOUR_TOKEN}
+```
+
+Observation: Please keep in mind the token is **private**! As a standard and security safe
+practice, be sure to add the `npmrc` file as a rule in `gitignore`.
+
 2. run: `npm install @codelittinc/agnostic-design-system`
-3. add `import '@codelittinc/agnostic-design-system/dist/main.css'` to your `App.js`
-
+3. add `import '@codelittinc/agnostic-design-system/dist/main.css'` to your `App.js` (or `App.tsx` file if your project is using TypeScript)
 ### Importing a component
 
 `import { Button, Row, Container, Col } from '@codelittinc/agnostic-design-system';`
