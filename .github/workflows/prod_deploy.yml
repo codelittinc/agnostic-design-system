@@ -19,6 +19,7 @@ jobs:
         heroku_email: ${{ secrets.HEROKU_EMAIL }}
         heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
         usedocker: true
+        dontuseforce: false
         docker_build_args: |
           STORYBOOK_GOOGLE_API_KEY
       env:
