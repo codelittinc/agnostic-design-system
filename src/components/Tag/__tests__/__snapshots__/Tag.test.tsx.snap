@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tag renders correctly 1`] = `
-<Tag>
+<DocumentFragment>
   <div
-    className="tag-container"
+    class="tag-container"
   >
     Testing Tag
   </div>
-</Tag>
+</DocumentFragment>
 `;

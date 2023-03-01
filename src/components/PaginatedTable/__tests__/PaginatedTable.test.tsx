@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import PaginatedTable, { Props } from '@/components/PaginatedTable';
-import { mount } from 'enzyme';
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('PaginatedTable', () => {
   it('renders correctly', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <PaginatedTable
         currentPage={1}
         handlePageChange={() => {}}
@@ -23,7 +22,7 @@ describe('PaginatedTable', () => {
         totalNumberOfItems={15}
       />
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('Paginated input', () => {

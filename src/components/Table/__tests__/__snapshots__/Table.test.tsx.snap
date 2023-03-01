@@ -1,60 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table renders correctly 1`] = `
-<Table
-  headerList={
-    Array [
-      "Name",
-      "Month",
-      "Gift",
-    ]
-  }
-  tableContent={
-    Array [
-      Array [
-        "Lisa",
-        "December",
-        "Car",
-      ],
-      Array [
-        "Tina",
-        "June",
-        "Dog",
-      ],
-      Array [
-        "Callie",
-        "August",
-        "Flowers",
-      ],
-      Array [
-        "Ruth",
-        "September",
-        "Diamonds",
-      ],
-    ]
-  }
->
+<DocumentFragment>
   <table
-    className="table-container"
+    class="table-container"
     data-testid="table-element"
   >
     <thead
       data-testid="table-header"
     >
       <tr>
-        <th
-          key="0"
-        >
+        <th>
           Name
         </th>
-        <th
-          key="1"
-        >
+        <th>
           Month
         </th>
-        <th
-          key="2"
-        >
+        <th>
           Gift
         </th>
       </tr>
@@ -63,118 +25,62 @@ exports[`Table renders correctly 1`] = `
       data-testid="table-body"
     >
       <tr
-        className="non-clickable-row"
-        key="0"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <td
-          key="0 - 0"
-        >
-           
-          Lisa
+        <td>
+           Lisa
         </td>
-        <td
-          key="0 - 1"
-        >
-           
-          December
+        <td>
+           December
         </td>
-        <td
-          key="0 - 2"
-        >
-           
-          Car
+        <td>
+           Car
         </td>
       </tr>
       <tr
-        className="non-clickable-row"
-        key="1"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <td
-          key="1 - 0"
-        >
-           
-          Tina
+        <td>
+           Tina
         </td>
-        <td
-          key="1 - 1"
-        >
-           
-          June
+        <td>
+           June
         </td>
-        <td
-          key="1 - 2"
-        >
-           
-          Dog
+        <td>
+           Dog
         </td>
       </tr>
       <tr
-        className="non-clickable-row"
-        key="2"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <td
-          key="2 - 0"
-        >
-           
-          Callie
+        <td>
+           Callie
         </td>
-        <td
-          key="2 - 1"
-        >
-           
-          August
+        <td>
+           August
         </td>
-        <td
-          key="2 - 2"
-        >
-           
-          Flowers
+        <td>
+           Flowers
         </td>
       </tr>
       <tr
-        className="non-clickable-row"
-        key="3"
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        tabIndex={0}
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <td
-          key="3 - 0"
-        >
-           
-          Ruth
+        <td>
+           Ruth
         </td>
-        <td
-          key="3 - 1"
-        >
-           
-          September
+        <td>
+           September
         </td>
-        <td
-          key="3 - 2"
-        >
-           
-          Diamonds
+        <td>
+           Diamonds
         </td>
       </tr>
     </tbody>
   </table>
-</Table>
+</DocumentFragment>
 `;

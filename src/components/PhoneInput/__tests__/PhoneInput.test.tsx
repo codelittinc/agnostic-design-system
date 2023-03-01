@@ -1,12 +1,11 @@
 import React from 'react';
 import PhoneInput from '@/components/PhoneInput';
-import { mount } from 'enzyme';
 import { render, fireEvent } from '@testing-library/react';
 
 describe('PhoneInput', () => {
   it('renders correctly', () => {
-    const wrapper = mount(<PhoneInput />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<PhoneInput />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('Local number', () => {

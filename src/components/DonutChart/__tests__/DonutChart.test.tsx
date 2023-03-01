@@ -1,6 +1,6 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 import DonutChart from '@/components/DonutChart';
-import { mount } from 'enzyme';
 
 describe('DonutChart', () => {
   it('renders correctly', () => {
@@ -10,7 +10,7 @@ describe('DonutChart', () => {
       size: 150,
       strokewidth: 10
     };
-    const wrapper = mount(<DonutChart {...args} />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<DonutChart {...args} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

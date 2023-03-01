@@ -1,129 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PhoneInput renders correctly 1`] = `
-<PhoneInput
-  onChange={[Function]}
-  size="large"
->
-  <t
-    alwaysDefaultMask={false}
-    areaCodes={null}
-    autoFormat={true}
-    autocompleteSearch={false}
-    buttonClass=""
-    buttonStyle={Object {}}
-    className=""
-    containerClass="react-tel-input"
-    containerStyle={Object {}}
-    copyNumbersOnly={true}
-    country=""
-    countryCodeEditable={true}
-    defaultErrorMessage=""
-    defaultMask="(...) ...-...."
-    disableCountryCode={false}
-    disableCountryGuess={false}
-    disableDropdown={false}
-    disableInitialCountryGuess={false}
-    disableSearchIcon={false}
-    disabled={false}
-    dropdownClass=""
-    dropdownStyle={Object {}}
-    enableAreaCodeStretch={false}
-    enableAreaCodes={false}
-    enableClickOutside={true}
-    enableLongNumbers={false}
-    enableSearch={false}
-    enableTerritories={false}
-    excludeCountries={Array []}
-    flagsImagePath="./flags.png"
-    inputClass="input input--large input-with-prepend"
-    inputProps={Object {}}
-    inputStyle={Object {}}
-    isValid={true}
-    jumpCursorToEnd={true}
-    key="undefined-(...) ...-....-undefined"
-    keys={
-      Object {
-        "A": 65,
-        "DOWN": 40,
-        "ENTER": 13,
-        "ESC": 27,
-        "LEFT": 37,
-        "PLUS": 43,
-        "RIGHT": 39,
-        "SPACE": 32,
-        "TAB": 9,
-        "UP": 38,
-        "Z": 90,
-      }
-    }
-    localization={Object {}}
-    masks={null}
-    onChange={[Function]}
-    onEnterKeyPress={null}
-    onlyCountries={Array []}
-    placeholder="1 (702) 123-4567"
-    preferredCountries={Array []}
-    prefix="+"
-    preserveOrder={Array []}
-    priority={null}
-    regions=""
-    renderStringAsFlag=""
-    searchClass=""
-    searchNotFound="No entries to show"
-    searchPlaceholder="search"
-    searchStyle={Object {}}
-    showDropdown={false}
-    specialLabel="Phone"
-    value=""
+<DocumentFragment>
+  <div
+    class="react-tel-input "
   >
     <div
-      className="react-tel-input "
-      onKeyDown={[Function]}
-      style={Object {}}
+      class="special-label"
+    >
+      Phone
+    </div>
+    <input
+      class="form-control input input--large input-with-prepend"
+      placeholder="1 (702) 123-4567"
+      type="tel"
+      value=""
+    />
+    <div
+      class="flag-dropdown "
     >
       <div
-        className="special-label"
-      >
-        Phone
-      </div>
-      <input
-        className="form-control input input--large input-with-prepend"
-        disabled={false}
-        onBlur={[Function]}
-        onChange={[Function]}
-        onClick={[Function]}
-        onCopy={[Function]}
-        onDoubleClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        placeholder="1 (702) 123-4567"
-        style={Object {}}
-        type="tel"
-        value=""
-      />
-      <div
-        className="flag-dropdown "
-        style={Object {}}
+        aria-haspopup="listbox"
+        class="selected-flag"
+        role="button"
+        tabindex="0"
+        title=""
       >
         <div
-          aria-haspopup="listbox"
-          className="selected-flag"
-          onClick={[Function]}
-          role="button"
-          tabIndex="0"
-          title=""
+          class="flag 0"
         >
           <div
-            className="flag 0"
-          >
-            <div
-              className="arrow"
-            />
-          </div>
+            class="arrow"
+          />
         </div>
       </div>
     </div>
-  </t>
-</PhoneInput>
+  </div>
+</DocumentFragment>
 `;

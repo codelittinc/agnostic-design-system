@@ -1,36 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExampleComponent is renders correctly 1`] = `
-<ForwardRef
-  onClick={[Function]}
-  text="this is a test"
+exports[`ExampleComponent renders correctly 1`] = `
+<button
+  class="button button--neutral button button--large"
+  type="button"
 >
-  <ForwardRef
-    onClick={[Function]}
-    text="this is a test"
+  <span
+    class="button-text"
   >
-    <ForwardRef
-      className="button button--neutral"
-      disabled={false}
-      fixed={false}
-      iconPosition="right"
-      onClick={[Function]}
-      size="large"
-      text="this is a test"
-    >
-      <button
-        className="button button--neutral button button--large"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        <span
-          className="button-text"
-        >
-          this is a test
-        </span>
-      </button>
-    </ForwardRef>
-  </ForwardRef>
-</ForwardRef>
+    this is a test
+  </span>
+</button>
 `;

@@ -1,603 +1,241 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginatedTable renders correctly 1`] = `
-<PaginatedTable
-  currentPage={1}
-  handlePageChange={[Function]}
-  headerList={
-    Array [
-      "First Name",
-      "Last Name",
-      "Handle",
-      "User Type",
-      "Status",
-    ]
-  }
-  id="paginated-table"
-  itemsOnCurrentPage={
-    Array [
-      Array [
-        "John",
-        "Oto",
-        "@timo",
-        "type1",
-        "Active",
-      ],
-      Array [
-        "Mark",
-        "Howard",
-        "@mdo",
-        "type2",
-        "Inactive",
-      ],
-      Array [
-        "Jacob",
-        "Martin",
-        "@mdo",
-        "type1",
-        "Active",
-      ],
-      Array [
-        "Lary",
-        "King",
-        "@timo",
-        "type1",
-        "Inactive",
-      ],
-      Array [
-        "Helen",
-        "Bonham",
-        "@timo",
-        "type2",
-        "Active",
-      ],
-    ]
-  }
-  limit={5}
-  tableContent={
-    Array [
-      Array [],
-    ]
-  }
-  totalNumberOfItems={15}
->
-  <Table
-    headerList={
-      Array [
-        "First Name",
-        "Last Name",
-        "Handle",
-        "User Type",
-        "Status",
-      ]
-    }
-    renderFooter={[Function]}
-    tableContent={
-      Array [
-        Array [
-          "John",
-          "Oto",
-          "@timo",
-          "type1",
-          "Active",
-        ],
-        Array [
-          "Mark",
-          "Howard",
-          "@mdo",
-          "type2",
-          "Inactive",
-        ],
-        Array [
-          "Jacob",
-          "Martin",
-          "@mdo",
-          "type1",
-          "Active",
-        ],
-        Array [
-          "Lary",
-          "King",
-          "@timo",
-          "type1",
-          "Inactive",
-        ],
-        Array [
-          "Helen",
-          "Bonham",
-          "@timo",
-          "type2",
-          "Active",
-        ],
-      ]
-    }
+<DocumentFragment>
+  <table
+    class="table-container"
+    data-testid="table-element"
   >
-    <table
-      className="table-container"
-      data-testid="table-element"
+    <thead
+      data-testid="table-header"
     >
-      <thead
-        data-testid="table-header"
+      <tr>
+        <th>
+          First Name
+        </th>
+        <th>
+          Last Name
+        </th>
+        <th>
+          Handle
+        </th>
+        <th>
+          User Type
+        </th>
+        <th>
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      data-testid="table-body"
+    >
+      <tr
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <tr>
-          <th
-            key="0"
-          >
-            First Name
-          </th>
-          <th
-            key="1"
-          >
-            Last Name
-          </th>
-          <th
-            key="2"
-          >
-            Handle
-          </th>
-          <th
-            key="3"
-          >
-            User Type
-          </th>
-          <th
-            key="4"
-          >
-            Status
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        data-testid="table-body"
+        <td>
+           John
+        </td>
+        <td>
+           Oto
+        </td>
+        <td>
+           @timo
+        </td>
+        <td>
+           type1
+        </td>
+        <td>
+           Active
+        </td>
+      </tr>
+      <tr
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <tr
-          className="non-clickable-row"
-          key="0"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          tabIndex={0}
-        >
-          <td
-            key="0 - 0"
-          >
-             
-            John
-          </td>
-          <td
-            key="0 - 1"
-          >
-             
-            Oto
-          </td>
-          <td
-            key="0 - 2"
-          >
-             
-            @timo
-          </td>
-          <td
-            key="0 - 3"
-          >
-             
-            type1
-          </td>
-          <td
-            key="0 - 4"
-          >
-             
-            Active
-          </td>
-        </tr>
-        <tr
-          className="non-clickable-row"
-          key="1"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          tabIndex={0}
-        >
-          <td
-            key="1 - 0"
-          >
-             
-            Mark
-          </td>
-          <td
-            key="1 - 1"
-          >
-             
-            Howard
-          </td>
-          <td
-            key="1 - 2"
-          >
-             
-            @mdo
-          </td>
-          <td
-            key="1 - 3"
-          >
-             
-            type2
-          </td>
-          <td
-            key="1 - 4"
-          >
-             
-            Inactive
-          </td>
-        </tr>
-        <tr
-          className="non-clickable-row"
-          key="2"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          tabIndex={0}
-        >
-          <td
-            key="2 - 0"
-          >
-             
-            Jacob
-          </td>
-          <td
-            key="2 - 1"
-          >
-             
-            Martin
-          </td>
-          <td
-            key="2 - 2"
-          >
-             
-            @mdo
-          </td>
-          <td
-            key="2 - 3"
-          >
-             
-            type1
-          </td>
-          <td
-            key="2 - 4"
-          >
-             
-            Active
-          </td>
-        </tr>
-        <tr
-          className="non-clickable-row"
-          key="3"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          tabIndex={0}
-        >
-          <td
-            key="3 - 0"
-          >
-             
-            Lary
-          </td>
-          <td
-            key="3 - 1"
-          >
-             
-            King
-          </td>
-          <td
-            key="3 - 2"
-          >
-             
-            @timo
-          </td>
-          <td
-            key="3 - 3"
-          >
-             
-            type1
-          </td>
-          <td
-            key="3 - 4"
-          >
-             
-            Inactive
-          </td>
-        </tr>
-        <tr
-          className="non-clickable-row"
-          key="4"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          tabIndex={0}
-        >
-          <td
-            key="4 - 0"
-          >
-             
-            Helen
-          </td>
-          <td
-            key="4 - 1"
-          >
-             
-            Bonham
-          </td>
-          <td
-            key="4 - 2"
-          >
-             
-            @timo
-          </td>
-          <td
-            key="4 - 3"
-          >
-             
-            type2
-          </td>
-          <td
-            key="4 - 4"
-          >
-             
-            Active
-          </td>
-        </tr>
-      </tbody>
-      <tfoot
-        className="paginated-footer"
+        <td>
+           Mark
+        </td>
+        <td>
+           Howard
+        </td>
+        <td>
+           @mdo
+        </td>
+        <td>
+           type2
+        </td>
+        <td>
+           Inactive
+        </td>
+      </tr>
+      <tr
+        class="non-clickable-row"
+        tabindex="0"
       >
-        <tr>
-          <td
-            colSpan={5}
+        <td>
+           Jacob
+        </td>
+        <td>
+           Martin
+        </td>
+        <td>
+           @mdo
+        </td>
+        <td>
+           type1
+        </td>
+        <td>
+           Active
+        </td>
+      </tr>
+      <tr
+        class="non-clickable-row"
+        tabindex="0"
+      >
+        <td>
+           Lary
+        </td>
+        <td>
+           King
+        </td>
+        <td>
+           @timo
+        </td>
+        <td>
+           type1
+        </td>
+        <td>
+           Inactive
+        </td>
+      </tr>
+      <tr
+        class="non-clickable-row"
+        tabindex="0"
+      >
+        <td>
+           Helen
+        </td>
+        <td>
+           Bonham
+        </td>
+        <td>
+           @timo
+        </td>
+        <td>
+           type2
+        </td>
+        <td>
+           Active
+        </td>
+      </tr>
+    </tbody>
+    <tfoot
+      class="paginated-footer"
+    >
+      <tr>
+        <td
+          colspan="5"
+        >
+          <div
+            class="paginated-footer-wrapper"
           >
             <div
-              className="paginated-footer-wrapper"
+              class="pagination-items"
+            >
+              1 - 5 of 15 items
+            </div>
+            <div
+              class="paginated-table-pages"
             >
               <div
-                className="pagination-items"
+                class="number-of-pages"
               >
-                1 - 5 of 15 items
+                <div
+                  class="number-of-pages-input container"
+                >
+                  <div
+                    class="input--field-container"
+                  >
+                    <div
+                      class="input--container"
+                    >
+                      <input
+                        class="input input--medium"
+                        id="paginated-table-input-paginated-table"
+                        value="1"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <span
+                  class="number-of-pages-text"
+                >
+                  of 3 pages
+                </span>
               </div>
               <div
-                className="paginated-table-pages"
+                class="paginated-table-action-btns"
               >
-                <div
-                  className="number-of-pages"
+                <ul
+                  class="pagination-list paginated-table-pagination"
+                  data-testid="pagination-element"
                 >
-                  <ForwardRef
-                    id="paginated-table-input-paginated-table"
-                    max={3}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    onValidationChange={[Function]}
-                    positive={true}
-                    scale={0}
-                    size="medium"
-                    value="1"
-                    variablesClassName="number-of-pages-input"
-                  >
-                    <ForwardRef
-                      filters={
-                        Array [
-                          Object {
-                            "test": /\\[\\^\\\\d\\.,-\\]/,
-                            "type": "RegExp",
-                          },
-                          Object {
-                            "test": [Function],
-                            "type": "function",
-                          },
-                          Object {
-                            "test": [Function],
-                            "type": "function",
-                          },
-                          Object {
-                            "test": [Function],
-                            "type": "function",
-                          },
-                        ]
-                      }
-                      id="paginated-table-input-paginated-table"
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      onValidationChange={[Function]}
-                      size="medium"
-                      validations={Array []}
-                      value="1"
-                      variablesClassName="number-of-pages-input"
+                  <li>
+                    <button
+                      class="button button--neutral button button--medium btn-table-paginated"
+                      disabled=""
+                      type="button"
                     >
                       <div
-                        className="number-of-pages-input container"
+                        class="append-icon-left"
                       >
                         <div
-                          className="input--field-container"
+                          class="button--append-icon"
                         >
-                          <div
-                            className="input--container"
-                          >
-                            <input
-                              className="input input--medium"
-                              id="paginated-table-input-paginated-table"
-                              onBlur={[Function]}
-                              onChange={[Function]}
-                              onFocus={[Function]}
-                              value="1"
-                            />
-                          </div>
+                          <svg
+                            data-file-name="SvgArrowLeft"
+                          />
                         </div>
                       </div>
-                    </ForwardRef>
-                  </ForwardRef>
-                  <span
-                    className="number-of-pages-text"
-                  >
-                    of 
-                    3
-                     pages
-                  </span>
-                </div>
-                <div
-                  className="paginated-table-action-btns"
-                >
-                  <Pagination
-                    buttonNextIcon={<SvgArrowRight />}
-                    buttonNextIconPosition="right"
-                    buttonNextLabel="Next"
-                    buttonPrevIcon={<SvgArrowLeft />}
-                    buttonPrevIconPosition="left"
-                    buttonPrevLabel="Prev"
-                    buttonVariablesClassName="btn-table-paginated"
-                    currentPage={1}
-                    numberOfPagesToShow={0}
-                    onSelectPage={[Function]}
-                    totalPages={3}
-                    variablesClassName="paginated-table-pagination"
-                  >
-                    <ul
-                      className="pagination-list paginated-table-pagination"
-                      data-testid="pagination-element"
+                      <span
+                        class="button-text"
+                      >
+                        Prev
+                      </span>
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="button button--neutral button button--medium btn-table-paginated"
+                      type="button"
                     >
-                      <li>
-                        <ForwardRef
-                          appendIcon={<SvgArrowLeft />}
-                          disabled={true}
-                          iconPosition="left"
-                          onClick={[Function]}
-                          size="medium"
-                          text="Prev"
-                          variablesClassName="btn-table-paginated"
-                          withAppendIcon={true}
+                      <span
+                        class="button-text"
+                      >
+                        Next
+                      </span>
+                      <div
+                        class="append-icon-right"
+                      >
+                        <div
+                          class="button--append-icon"
                         >
-                          <ForwardRef
-                            appendIcon={<SvgArrowLeft />}
-                            disabled={true}
-                            iconPosition="left"
-                            onClick={[Function]}
-                            size="medium"
-                            text="Prev"
-                            variablesClassName="btn-table-paginated"
-                            withAppendIcon={true}
-                          >
-                            <ForwardRef
-                              appendIcon={<SvgArrowLeft />}
-                              className="button button--neutral"
-                              disabled={true}
-                              fixed={false}
-                              iconPosition="left"
-                              onClick={[Function]}
-                              size="medium"
-                              text="Prev"
-                              variablesClassName="btn-table-paginated"
-                              withAppendIcon={true}
-                            >
-                              <button
-                                className="button button--neutral button button--medium btn-table-paginated"
-                                disabled={true}
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                <div
-                                  className="append-icon-left"
-                                >
-                                  <div
-                                    className="button--append-icon"
-                                  >
-                                    <SvgArrowLeft>
-                                      <svg
-                                        data-file-name="SvgArrowLeft"
-                                      />
-                                    </SvgArrowLeft>
-                                  </div>
-                                </div>
-                                <span
-                                  className="button-text"
-                                >
-                                  Prev
-                                </span>
-                              </button>
-                            </ForwardRef>
-                          </ForwardRef>
-                        </ForwardRef>
-                      </li>
-                      <li>
-                        <ForwardRef
-                          appendIcon={<SvgArrowRight />}
-                          disabled={false}
-                          iconPosition="right"
-                          onClick={[Function]}
-                          size="medium"
-                          text="Next"
-                          variablesClassName="btn-table-paginated"
-                          withAppendIcon={true}
-                        >
-                          <ForwardRef
-                            appendIcon={<SvgArrowRight />}
-                            disabled={false}
-                            iconPosition="right"
-                            onClick={[Function]}
-                            size="medium"
-                            text="Next"
-                            variablesClassName="btn-table-paginated"
-                            withAppendIcon={true}
-                          >
-                            <ForwardRef
-                              appendIcon={<SvgArrowRight />}
-                              className="button button--neutral"
-                              disabled={false}
-                              fixed={false}
-                              iconPosition="right"
-                              onClick={[Function]}
-                              size="medium"
-                              text="Next"
-                              variablesClassName="btn-table-paginated"
-                              withAppendIcon={true}
-                            >
-                              <button
-                                className="button button--neutral button button--medium btn-table-paginated"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                              >
-                                <span
-                                  className="button-text"
-                                >
-                                  Next
-                                </span>
-                                <div
-                                  className="append-icon-right"
-                                >
-                                  <div
-                                    className="button--append-icon"
-                                  >
-                                    <SvgArrowRight>
-                                      <svg
-                                        data-file-name="SvgArrowRight"
-                                      />
-                                    </SvgArrowRight>
-                                  </div>
-                                </div>
-                              </button>
-                            </ForwardRef>
-                          </ForwardRef>
-                        </ForwardRef>
-                      </li>
-                    </ul>
-                  </Pagination>
-                </div>
+                          <svg
+                            data-file-name="SvgArrowRight"
+                          />
+                        </div>
+                      </div>
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </Table>
-</PaginatedTable>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</DocumentFragment>
 `;

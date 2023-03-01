@@ -1,126 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tab renders correctly 1`] = `
-<Tab
-  components={
-    Array [
-      <React.Fragment>
-        <div>
-          active
-        </div>
-      </React.Fragment>,
-      <React.Fragment>
-        <div>
-          inactive
-        </div>
-      </React.Fragment>,
-    ]
-  }
-  menuItems={
-    Array [
-      Object {
-        "active": true,
-        "key": "1",
-        "title": "Test Active",
-      },
-      Object {
-        "key": "2",
-        "title": "Test Inactive",
-      },
-    ]
-  }
->
+<DocumentFragment>
   <div
-    className="tab-container"
+    class="tab-container"
   >
     <div
-      className="tab-menu-container"
+      class="tab-menu-container"
     >
-      <ForwardRef
-        key="Test Active-0"
-        onClick={[Function]}
-        text="Test Active"
-        variablesClassName="tab-menu-button tab-menu-button-active"
+      <button
+        class="button button--neutral button button--large tab-menu-button tab-menu-button-active"
+        type="button"
       >
-        <ForwardRef
-          onClick={[Function]}
-          text="Test Active"
-          variablesClassName="tab-menu-button tab-menu-button-active"
+        <span
+          class="button-text"
         >
-          <ForwardRef
-            className="button button--neutral"
-            disabled={false}
-            fixed={false}
-            iconPosition="right"
-            onClick={[Function]}
-            size="large"
-            text="Test Active"
-            variablesClassName="tab-menu-button tab-menu-button-active"
-          >
-            <button
-              className="button button--neutral button button--large tab-menu-button tab-menu-button-active"
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              <span
-                className="button-text"
-              >
-                Test Active
-              </span>
-            </button>
-          </ForwardRef>
-        </ForwardRef>
-      </ForwardRef>
-      <ForwardRef
-        key="Test Inactive-1"
-        onClick={[Function]}
-        text="Test Inactive"
-        variablesClassName="tab-menu-button"
+          Test Active
+        </span>
+      </button>
+      <button
+        class="button button--neutral button button--large tab-menu-button"
+        type="button"
       >
-        <ForwardRef
-          onClick={[Function]}
-          text="Test Inactive"
-          variablesClassName="tab-menu-button"
+        <span
+          class="button-text"
         >
-          <ForwardRef
-            className="button button--neutral"
-            disabled={false}
-            fixed={false}
-            iconPosition="right"
-            onClick={[Function]}
-            size="large"
-            text="Test Inactive"
-            variablesClassName="tab-menu-button"
-          >
-            <button
-              className="button button--neutral button button--large tab-menu-button"
-              disabled={false}
-              onClick={[Function]}
-              type="button"
-            >
-              <span
-                className="button-text"
-              >
-                Test Inactive
-              </span>
-            </button>
-          </ForwardRef>
-        </ForwardRef>
-      </ForwardRef>
+          Test Inactive
+        </span>
+      </button>
     </div>
     <div>
-      <div
-        key="0"
-      >
+      <div>
         <div>
           active
         </div>
       </div>
-      <div
-        key="1"
-      />
+      <div />
     </div>
   </div>
-</Tab>
+</DocumentFragment>
 `;
