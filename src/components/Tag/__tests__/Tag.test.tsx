@@ -1,10 +1,10 @@
 import React from 'react';
 import Tag from '@/components/Tag';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 
 describe('Tag', () => {
   it('renders correctly', () => {
-    const wrapper = mount(<Tag>Testing Tag</Tag>);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Tag>Testing Tag</Tag>);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

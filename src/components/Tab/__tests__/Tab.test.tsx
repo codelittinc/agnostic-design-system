@@ -1,11 +1,10 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import Tab from '@/components/Tab';
-import { mount } from 'enzyme';
 
 describe('Tab', () => {
   it('renders correctly', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Tab
         menuItems={[
           { title: 'Test Active', active: true, key: '1' },
@@ -21,7 +20,7 @@ describe('Tab', () => {
         ]}
       />
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('Clicking on an inactive menu button', () => {

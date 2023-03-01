@@ -1,55 +1,60 @@
 import React from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Button from '@/components/Button';
-import { mount } from 'enzyme';
 
 describe('ExampleComponent', () => {
-  it('is renders correctly', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} />);
-    expect(wrapper).toMatchSnapshot();
+  it('renders correctly', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toMatchSnapshot();
   });
 
-  it('is renders the variablesClassName', () => {
+  it('renders the variablesClassName', () => {
     const className = 'my-cool-class';
-    const wrapper = mount(
-      <Button variablesClassName={className} text='this is a test' onClick={jest.fn} />
-    );
-    expect(wrapper.props().variablesClassName).toEqual(className);
+    render(<Button variablesClassName={className} text='this is a test' onClick={jest.fn()} />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass(className);
   });
 
-  it('is renders a fixed button', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} fixed />);
-    expect(wrapper.exists('.button--fixed')).toBeTruthy();
+  it('renders a fixed button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} fixed />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--fixed');
   });
 
-  it('is renders a primary button', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} category='primary' />);
-    expect(wrapper.exists('.button--primary')).toBeTruthy();
+  it('renders a primary button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} category='primary' />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--primary');
   });
 
-  it('is renders a secondary button', () => {
-    const wrapper = mount(
-      <Button text='this is a test' onClick={jest.fn} category='secondary' fixed />
-    );
-    expect(wrapper.exists('.button--secondary')).toBeTruthy();
+  it('renders a secondary button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} category='secondary' fixed />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--secondary');
   });
 
-  it('is renders a positive button', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} category='positive' />);
-    expect(wrapper.exists('.button--positive')).toBeTruthy();
+  it('renders a positive button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} category='positive' />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--positive');
   });
 
-  it('is renders a neutral button', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} />);
-    expect(wrapper.exists('.button--neutral')).toBeTruthy();
+  it('renders a neutral button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--neutral');
   });
 
-  it('is renders a negative button', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} category='negative' />);
-    expect(wrapper.exists('.button--negative')).toBeTruthy();
+  it('renders a negative button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} category='negative' />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--negative');
   });
 
-  it('is renders a ghost button', () => {
-    const wrapper = mount(<Button text='this is a test' onClick={jest.fn} category='ghost' />);
-    expect(wrapper.exists('.button--ghost')).toBeTruthy();
+  it('renders a ghost button', () => {
+    render(<Button text='this is a test' onClick={jest.fn()} category='ghost' />);
+    expect(screen.getByRole('button', { name: 'this is a test' })).toHaveClass('button--ghost');
+  });
+
+  it('calls onClick when button is clicked', () => {
+    const handleClick = jest.fn();
+    render(<Button text='this is a test' onClick={handleClick} />);
+    const button = screen.getByRole('button', { name: 'this is a test' });
+    userEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 });

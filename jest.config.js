@@ -8,7 +8,6 @@ module.exports = {
   testPathIgnorePatterns: ['/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   setupFilesAfterEnv: ['<rootDir>setup-jest.tsx'],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
     '^@/(.*)$': '<rootDir>src/$1'

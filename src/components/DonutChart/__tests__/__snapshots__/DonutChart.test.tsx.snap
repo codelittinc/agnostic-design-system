@@ -1,70 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DonutChart renders correctly 1`] = `
-<DonutChart
-  completion={55}
-  message="Completed"
-  size={150}
-  strokewidth={10}
+<div
+  style="position: relative;"
 >
-  <div
-    style={
-      Object {
-        "position": "relative",
-      }
-    }
+  <svg
+    class="donutchart"
+    height="150"
+    width="150"
   >
-    <svg
-      className="donutchart"
-      height={150}
-      width={150}
-    >
-      <circle
-        className="donutchart-full-circle"
-        cx={75}
-        cy={75}
-        r={70}
-        style={
-          Object {
-            "strokeWidth": 10,
-          }
-        }
-        transform="rotate(-90 75,75)"
-      />
-      <circle
-        className="donutchart-indicator"
-        cx={75}
-        cy={75}
-        r={70}
-        style={
-          Object {
-            "strokeDasharray": "241.90263432641405 439.822971502571",
-            "strokeWidth": 10,
-          }
-        }
-        transform="rotate(-90 75,75)"
-      />
-      <text
-        className="donutchart-text"
-        x={75}
-        y={75}
-      />
-    </svg>
+    <circle
+      class="donutchart-full-circle"
+      cx="75"
+      cy="75"
+      r="70"
+      style="stroke-width: 10;"
+      transform="rotate(-90 75,75)"
+    />
+    <circle
+      class="donutchart-indicator"
+      cx="75"
+      cy="75"
+      r="70"
+      style="stroke-width: 10; stroke-dasharray: 241.90263432641405 439.822971502571;"
+      transform="rotate(-90 75,75)"
+    />
+    <text
+      class="donutchart-text"
+      x="75"
+      y="75"
+    />
+  </svg>
+  <span
+    class="donutchart-text"
+  >
     <span
-      className="donutchart-text"
+      class="donutchart-text-val"
     >
-      <span
-        className="donutchart-text-val"
-      >
-        55
-      </span>
-      <span
-        className="donutchart-text-label"
-      >
-         
-        Completed
-      </span>
+      55
     </span>
-  </div>
-</DonutChart>
+    <span
+      class="donutchart-text-label"
+    >
+       
+      Completed
+    </span>
+  </span>
+</div>
 `;

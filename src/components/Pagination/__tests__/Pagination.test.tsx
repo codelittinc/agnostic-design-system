@@ -1,6 +1,5 @@
 import React from 'react';
 import Pagination, { Props } from '@/components/Pagination';
-import { mount } from 'enzyme';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
@@ -10,7 +9,7 @@ const LAST_PAGE = 5;
 describe('Pagination', () => {
   it('renders correctly', () => {
     const onSelectPage = jest.fn();
-    const wrapper = mount(
+    const { asFragment } = render(
       <Pagination
         totalPages={10}
         numberOfPagesToShow={3}
@@ -18,7 +17,7 @@ describe('Pagination', () => {
         onSelectPage={onSelectPage}
       />
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('Number of pages to show', () => {

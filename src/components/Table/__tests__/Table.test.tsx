@@ -1,6 +1,5 @@
 import React from 'react';
 import Table from '@/components/Table';
-import { mount } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 
 const headerList = ['Name', 'Month', 'Gift'];
@@ -13,8 +12,8 @@ const body = [
 
 describe('Table', () => {
   it('renders correctly', () => {
-    const wrapper = mount(<Table headerList={headerList} tableContent={body} />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Table headerList={headerList} tableContent={body} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
   describe('Table output', () => {
