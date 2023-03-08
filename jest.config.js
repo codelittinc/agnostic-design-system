@@ -2,8 +2,9 @@ module.exports = {
   roots: ['<rootDir>'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.svg$': 'jest-svg-transformer'
+    '^.+\\.svg$': '<rootDir>/src/svgTransformer.js'
   },
+  testEnvironment: 'jsdom',
   testMatch: ['**/?(*.)+(spec|test).+(ts|tsx|js)'],
   testPathIgnorePatterns: ['/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],

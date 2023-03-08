@@ -4,7 +4,7 @@ import buttonNameFormatter from './buttonNameFormatter';
 import Button from '@/components/Button';
 
 function tableButtonNameFormatter(str) {
-  var word = buttonNameFormatter(str);
+  const word = buttonNameFormatter(str);
 
   return word.charAt(0).toLowerCase() + word.substring(1);
 }
