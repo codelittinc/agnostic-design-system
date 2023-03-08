@@ -364,8 +364,8 @@ FilteredOptionsDropdown.args = {
 };
 
 const sortArrayByLabel = (a, b) => {
-  var nameA = a.label.toUpperCase(); // ignore upper and lowercase
-  var nameB = b.label.toUpperCase(); // ignore upper and lowercase
+  const nameA = a.label.toUpperCase(); // ignore upper and lowercase
+  const nameB = b.label.toUpperCase(); // ignore upper and lowercase
   if (nameA < nameB) {
     return -1;
   }
