@@ -36,7 +36,7 @@ const AddressSearch: React.FC<Props> = props => {
       element.style.display = 'none';
       setPlaceService(new google.maps.places.PlacesService(element as any));
     }
-  }, [window.google]);
+  }, []);
 
   const handleClickSuggestion = suggestion => {
     setSuggestionSelected(suggestion);
@@ -55,24 +55,27 @@ const AddressSearch: React.FC<Props> = props => {
     cleanSuggestions();
   };
 
-  const getPrecitionsByValue = value => {
-    autocompleteService &&
-      autocompleteService.getPlacePredictions(
-        { input: value, sessionToken: sessionToken },
-        (
-          predictions: google.maps.places.AutocompletePrediction[],
-          status: google.maps.places.PlacesServiceStatus
-        ) => {
-          if (status !== google.maps.places.PlacesServiceStatus.OK) return;
-
-          setPlacesSuggestions(predictions);
-        }
-      );
-  };
-
   const debouncedValue = useCallback(
-    debounce(value => getPrecitionsByValue(value), 500),
-    [autocompleteService]
+    () =>
+      debounce(value => {
+        const getPredictionsByValue = value => {
+          autocompleteService &&
+            autocompleteService.getPlacePredictions(
+              { input: value, sessionToken: sessionToken },
+              (
+                predictions: google.maps.places.AutocompletePrediction[],
+                status: google.maps.places.PlacesServiceStatus
+              ) => {
+                if (status !== google.maps.places.PlacesServiceStatus.OK) return;
+
+                setPlacesSuggestions(predictions);
+              }
+            );
+        };
+
+        getPredictionsByValue(value);
+      }, 500),
+    [autocompleteService, sessionToken, setPlacesSuggestions]
   );
 
   const handleChangeInput = e => {

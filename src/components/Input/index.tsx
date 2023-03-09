@@ -116,13 +116,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       setValid(valid);
       setValidationState(valid ? VALID : INVALID);
     }
-  }, []);
+  }, [enableInitialValidation, required, validations, value]);
 
   useEffect(() => {
     if (valid !== undefined && onValidationChange) {
       onValidationChange(valid);
     }
-  }, [valid]);
+  }, [onValidationChange, valid]);
 
   const handleBlur = event => {
     onBlur && onBlur();

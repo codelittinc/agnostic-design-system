@@ -17,12 +17,12 @@ interface Props {
 
 const Tab = (props: Props) => {
   const { menuItems, components, variablesClassName } = props;
+  const defaultKey = menuItems.find(item => item.active)?.key;
+  const [activeKey, setActiveKey] = useState(defaultKey || menuItems[0].key);
+
   if (menuItems.length === 0) {
     return <></>;
   }
-
-  const defaultKey = menuItems.find(item => item.active)?.key;
-  const [activeKey, setActiveKey] = useState(defaultKey || menuItems[0].key);
 
   if (menuItems.length !== components.length) {
     return <>It is necessary to provide the same amount of menu items and components.</>;

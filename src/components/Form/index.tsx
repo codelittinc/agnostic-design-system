@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import getCustomChildren from './getCustomChildren';
 import getRerenderKeys from './getRerenderKeys';
 import getInitialValidationState from './getInitialValidationState';
@@ -21,23 +21,27 @@ const Form = (props: Props) => {
   const [customChildren, setCustomChildren] = useState<any[]>([]);
   const [fieldsValidationState, setFieldsValidationState] = useState({});
 
-  const customChildremProps = {
-    children,
-    values,
-    setValues,
-    onSubmit,
-    fieldsValidationState,
-    setFieldsValidationState
-  };
+  const customChildrenProps = useMemo(() => {
+    return {
+      children,
+      values,
+      setValues,
+      onSubmit,
+      fieldsValidationState,
+      setFieldsValidationState
+    };
+  }, [children, onSubmit, values, fieldsValidationState, setValues, setFieldsValidationState]);
 
   useEffect(() => {
     const v = getInitialValidationState(editables, values);
     setFieldsValidationState(v);
-  }, []);
+  }, [editables, values]);
+
+  const rerenderKeys = getRerenderKeys(values, fieldsValidationState, names, children);
 
   useEffect(() => {
-    setCustomChildren(getCustomChildren(customChildremProps));
-  }, getRerenderKeys(values, fieldsValidationState, names, children));
+    setCustomChildren(getCustomChildren(customChildrenProps));
+  }, [customChildrenProps, rerenderKeys]);
 
   return customChildren;
 };
