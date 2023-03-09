@@ -108,7 +108,7 @@ onRowClick.args = {
   onRowClick: handleRowClick
 };
 
-export const onRowHover = () => {
+function RowHoverTable() {
   const [page, setPage] = useState(1);
   const [rowValues, setRowValues] = useState([]);
   const [rowIndexNum, setRowIndexNum] = useState('-');
@@ -149,7 +149,8 @@ export const onRowHover = () => {
       />
     </div>
   );
-};
+}
+export const onRowHover = () => <RowHoverTable />;
 
 const renderEmptyState = () => {
   return <EmptyState description='' title='No results found' />;

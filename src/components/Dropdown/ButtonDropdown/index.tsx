@@ -89,7 +89,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
         ? getListTitle(value as T)
         : selectorText || ''
     );
-  }, [value]);
+  }, [getListTitle, multiselect, selectorText, value]);
 
   const handleClick = (options: T | T[]) => {
     onChange(options);
