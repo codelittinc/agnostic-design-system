@@ -100,7 +100,7 @@ const RichTextEditor: React.FC<Props> = props => {
         class: classNames(styles['editor-container'], variablesClassName)
       }
     },
-    extensions: extensions,
+    extensions,
     content: editorContent,
     onUpdate({ editor }) {
       onChange && onChange(editor.getHTML());

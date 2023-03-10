@@ -44,7 +44,7 @@ const AddressSearch: React.FC<Props> = props => {
       placeService.getDetails(
         {
           placeId: suggestion.place_id,
-          sessionToken: sessionToken
+          sessionToken
         },
         (place: google.maps.places.PlaceResult, status: google.maps.places.PlacesServiceStatus) => {
           if (status !== google.maps.places.PlacesServiceStatus.OK) return;
@@ -61,7 +61,7 @@ const AddressSearch: React.FC<Props> = props => {
         const getPredictionsByValue = value => {
           autocompleteService &&
             autocompleteService.getPlacePredictions(
-              { input: value, sessionToken: sessionToken },
+              { input: value, sessionToken },
               (
                 predictions: google.maps.places.AutocompletePrediction[],
                 status: google.maps.places.PlacesServiceStatus

@@ -8,7 +8,7 @@ type Props = {
   scale?: number;
 } & InputProps;
 
-const NON_DIGITS_REGEX = new RegExp(/\D+/, 'g');
+const NON_DIGITS_REGEX = /\D+/g;
 
 const isNumberBiggerThanMax = (radix, num, max) => {
   if (radix) {

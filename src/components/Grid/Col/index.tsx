@@ -102,7 +102,7 @@ const getClasses = (cols: ColSizeIndex, type: string) => {
     const sizeValue: number | undefined = cols[size];
 
     if (!sizeValue) {
-      return;
+      return null;
     }
     return styles[`codelitt-${type}-${size}-${sizeValue}`];
   });

@@ -43,7 +43,7 @@ const getCustomComponent = customChildremProps => {
 
     return React.cloneElement(child, {
       children: customChildren,
-      key: key
+      key
     });
   }
 };

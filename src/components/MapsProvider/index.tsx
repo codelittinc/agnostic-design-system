@@ -17,7 +17,7 @@ const MapsProvider = ({ apiKey, ...props }) => {
   const { loading, service, sessionToken } = useMapsAutoComplete(apiKey);
 
   return (
-    <MapsProviderContext.Provider value={{ apiKey: apiKey, loading, service, sessionToken }}>
+    <MapsProviderContext.Provider value={{ apiKey, loading, service, sessionToken }}>
       {props.children}
     </MapsProviderContext.Provider>
   );

@@ -17,7 +17,7 @@ export default function renderMenuOptions(
     <>
       {menuEditOptions?.map(buttonName => {
         if (methodTypeOptions.includes(buttonName) || buttonName === 'table') {
-          return;
+          return null;
         }
         let onClickAction = () => {
           editor.chain().focus()[`toggle${buttonNameFormatter(buttonName)}`]().run();
