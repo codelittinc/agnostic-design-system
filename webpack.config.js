@@ -75,7 +75,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack?-svgo,+titleProp,+ref![path]']
+        use: ['@svgr/webpack']
       },
       {
         test: /\.(png|jpg)$/,
