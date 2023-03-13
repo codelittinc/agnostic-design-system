@@ -29,7 +29,7 @@ module.exports = {
               modules: {
                 localIdentName: 'ads-[name]__[local]--[hash:base64:5]',
                 localIdentContext: path.resolve(__dirname, 'src'),
-                localIdentHashPrefix: 'ads-'
+                localIdentHashSalt: 'ads-'
               }
             }
           }
@@ -49,7 +49,7 @@ module.exports = {
               modules: {
                 localIdentName: '[local]',
                 localIdentContext: path.resolve(__dirname, 'src'),
-                localIdentHashPrefix: 'ads-'
+                localIdentHashSalt: 'ads-'
               }
             }
           }
