@@ -67,9 +67,7 @@ module.exports = {
           },
           {
             loader: '@mdx-js/loader',
-            options: {
-              compilers: [createCompiler({})]
-            }
+            options: {}
           }
         ]
       },
