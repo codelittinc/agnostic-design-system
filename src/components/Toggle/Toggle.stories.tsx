@@ -36,7 +36,7 @@ Default.args = {
   activeItem: items[0],
   getLabel: item => item.title,
   getValue: item => item.title,
-  items: items
+  items
 };
 
 const fourItems = [
@@ -69,6 +69,6 @@ customizedToggle.args = {
   activeItem: items[0],
   getLabel: item => item.title,
   getValue: item => item.title,
-  items: items,
+  items,
   variablesClassName: classNames(styles['custom-toggle'])
 };

@@ -49,11 +49,13 @@ In the example [here](https://design-system.codelitt.dev/?path=/story/components
 2. Regarding the **mask** property, the size of the mask string will determine the size of the valid input.
    On the following object, the key values can be added to the mask string so that their corresponding RegExp strings will be the values accepted on the input. Any character added to the mask that is different from these keys will be permanent and non-editable on the input.
 
+```javascript
 {
 '9': '[0-9]',
 'a': '[A-Za-z]',
 '\*': '[A-Za-z0-9]'
 }
+```
 
 3. Regarding the **validations** property and its object keys, similar to the filters property above: **type** can either be defined with a value of 'RegExp' or 'function' (both as strings). With each case:
 

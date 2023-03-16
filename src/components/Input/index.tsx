@@ -245,7 +245,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         required={false}
         value={value || ''}
       >
-        {() => displayInput()}
+        {displayInput()}
       </ReactInputMask>
     );
   };

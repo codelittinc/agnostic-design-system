@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from '../Grid.css';
 
@@ -95,6 +95,7 @@ interface PropTypes {
   xxlOffset?: LGAndUpColumns;
   variablesClassName?: string;
   gutterType?: Gutter;
+  children?: ReactNode;
 }
 
 const getClasses = (cols: ColSizeIndex, type: string) => {

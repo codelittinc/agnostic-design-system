@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Button from '@/components/Button';
 
 describe('ExampleComponent', () => {
@@ -54,7 +53,7 @@ describe('ExampleComponent', () => {
     const handleClick = jest.fn();
     render(<Button text='this is a test' onClick={handleClick} />);
     const button = screen.getByRole('button', { name: 'this is a test' });
-    userEvent.click(button);
+    fireEvent.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 });

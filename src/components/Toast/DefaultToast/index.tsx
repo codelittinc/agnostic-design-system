@@ -53,7 +53,7 @@ const DefaultToast: React.FC<Props> = props => {
         }
       }, autoCloseInMilliseconds);
     }
-  }, []);
+  }, [autoCloseInMilliseconds, onClose]);
 
   return (
     <div
