@@ -56,25 +56,24 @@ const AddressSearch: React.FC<Props> = props => {
   };
 
   const debouncedValue = useCallback(
-    () =>
-      debounce(value => {
-        const getPredictionsByValue = value => {
-          autocompleteService &&
-            autocompleteService.getPlacePredictions(
-              { input: value, sessionToken },
-              (
-                predictions: google.maps.places.AutocompletePrediction[],
-                status: google.maps.places.PlacesServiceStatus
-              ) => {
-                if (status !== google.maps.places.PlacesServiceStatus.OK) return;
+    debounce(value => {
+      const getPredictionsByValue = value => {
+        autocompleteService &&
+          autocompleteService.getPlacePredictions(
+            { input: value, sessionToken },
+            (
+              predictions: google.maps.places.AutocompletePrediction[],
+              status: google.maps.places.PlacesServiceStatus
+            ) => {
+              if (status !== google.maps.places.PlacesServiceStatus.OK) return;
 
-                setPlacesSuggestions(predictions);
-              }
-            );
-        };
+              setPlacesSuggestions(predictions);
+            }
+          );
+      };
 
-        getPredictionsByValue(value);
-      }, 500),
+      getPredictionsByValue(value);
+    }, 500),
     [autocompleteService, sessionToken, setPlacesSuggestions]
   );
 

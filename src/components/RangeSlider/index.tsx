@@ -11,10 +11,10 @@ interface Props<T> {
   handle?: (props) => React.ReactElement;
   handleStyle?: React.CSSProperties;
   label?: string;
-  marks?: T[];
+  marks?: Record<string | number, React.ReactNode | T[]>;
   max?: number;
   min?: number;
-  onChange?: (value: number) => void;
+  onChange?: (value: number | number[]) => void;
   railStyle?: React.CSSProperties;
   step?: number;
   trackStyle?: React.CSSProperties;
@@ -54,7 +54,7 @@ const RangeSlider = <T extends {}>(props: Props<T>) => {
         trackStyle={trackStyle}
         railStyle={railStyle}
         dotStyle={dotStyle}
-        handle={handle}
+        handleRender={handle}
         handleStyle={handleStyle}
       />
     </div>
