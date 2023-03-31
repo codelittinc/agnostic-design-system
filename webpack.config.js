@@ -1,7 +1,14 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
-const webpack = require('webpack');
-const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+//const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const path = require('path');
+
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import path from 'path'
+
+
+//const webpack = require('webpack');
+//const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
+
+import remarkGfm from 'remark-gfm'
 
 module.exports = {
   entry: './src/index.tsx',
@@ -63,12 +70,17 @@ module.exports = {
         test: /\.document\.mdx$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env'
+              ]
+            }
           },
           {
             loader: '@mdx-js/loader',
             options: {
-              compilers: [createCompiler({})]
+              remarkPlugins: [remarkGfm]
             }
           }
         ]
@@ -93,7 +105,8 @@ module.exports = {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/dist/',
-    filename: 'index.js'
+    filename: 'index.js',
+    module: true,
   },
   externals: {
     react: 'react'

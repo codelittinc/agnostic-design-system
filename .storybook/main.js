@@ -1,4 +1,6 @@
 const custom = require('../webpack.config.js');
+// import custom from "webpack.config"
+
 module.exports = {
   webpackFinal: config => {
     return {
