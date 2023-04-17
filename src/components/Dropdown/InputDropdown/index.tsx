@@ -38,6 +38,7 @@ export type Props<T> = {
   variablesClassName?: string;
   messageValidateClass: string;
   validationMessage?: string;
+  withAppendIcon?: boolean;
 } & ControlledInputProps<T | T[]>;
 
 const InputDropdown = <T extends {}>(props: Props<T>) => {
@@ -62,7 +63,8 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
     selectorText,
     variablesClassName,
     messageValidateClass,
-    validationMessage
+    validationMessage,
+    withAppendIcon = true
   } = props;
 
   const defaultFilter = options =>
@@ -161,7 +163,7 @@ const InputDropdown = <T extends {}>(props: Props<T>) => {
           onMouseLeave={() => setIsInputHovered(false)}
           variablesClassName={classnames(styles['dropdown-input'], variablesClassName)}
           actionIcon={customIcon || getArrowIcon(isListOpen, listPosition, size)}
-          withActionIcon
+          withActionIcon={withAppendIcon}
           onClickActionIcon={() => setIsListOpen(!isListOpen)}
           prepend={handleIconCategory()}
           onValidationChange={onValidationChange}

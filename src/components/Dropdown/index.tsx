@@ -47,6 +47,7 @@ export type Props<T> = {
   size: Size;
   sort?: (a: T, b: T) => number;
   variablesClassName?: string;
+  withAppendIcon?: boolean;
 } & ControlledInputProps<T | T[]>;
 
 const Dropdown = <T extends {}>(props: Props<T>) => {
