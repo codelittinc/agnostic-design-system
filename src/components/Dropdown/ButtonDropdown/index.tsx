@@ -33,6 +33,7 @@ type Props<T> = {
   messageValidateClass: string;
   validationMessage?: string;
   listPosition: ListPosition;
+  withAppendIcon?: boolean;
 } & ControlledInputProps<T | T[]>;
 
 const ButtonDropdown = <T extends {}>(props: Props<T>) => {
@@ -50,7 +51,8 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
     selectorText,
     variablesClassName,
     messageValidateClass,
-    validationMessage
+    validationMessage,
+    withAppendIcon = true
   } = props;
 
   const [listTitle, setListTitle] = useState(value ? getListTitle(value) : selectorText || '');
@@ -109,7 +111,7 @@ const ButtonDropdown = <T extends {}>(props: Props<T>) => {
           size={size}
           iconPosition={iconPosition}
           appendIcon={customIcon || getArrowIcon(isListOpen, listPosition, size)}
-          withAppendIcon
+          withAppendIcon={withAppendIcon}
           ref={buttonRef}
         />
         {isListOpen && (
