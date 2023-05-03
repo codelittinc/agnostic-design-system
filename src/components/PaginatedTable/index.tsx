@@ -19,6 +19,11 @@ export interface Props {
   onRowMouseEnter?: (row: React.ReactNode, rowIndex: number) => void;
   onRowMouseLeave?: (row?: React.ReactNode, rowIndex?: number) => void;
   renderEmptyState?: () => React.ReactNode;
+  setSortState?: (value: {
+    sortField: string | React.ReactNode;
+    sortOrder: 'ASC' | 'DESC';
+  }) => void;
+  sortIcon?: { iconAsc: React.ReactNode; iconDesc: React.ReactNode };
   totalNumberOfItems: number;
   variablesClassName?: string;
 }
@@ -35,6 +40,8 @@ const PaginatedTable = (props: Props) => {
     onRowMouseEnter,
     onRowMouseLeave,
     renderEmptyState,
+    setSortState,
+    sortIcon,
     totalNumberOfItems,
     variablesClassName
   } = props;
@@ -80,6 +87,8 @@ const PaginatedTable = (props: Props) => {
           onRowClick={onRowClick}
           onRowMouseEnter={onRowMouseEnter}
           onRowMouseLeave={onRowMouseLeave}
+          setSortState={setSortState}
+          sortIcon={sortIcon}
           renderFooter={() => (
             <tfoot className={styles['paginated-footer']}>
               <tr>

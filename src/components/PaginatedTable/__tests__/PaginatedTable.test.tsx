@@ -151,6 +151,62 @@ describe('PaginatedTable', () => {
       expect(handlePageChange).toHaveBeenCalledWith(3);
     });
   });
+
+  describe('Sortable table', () => {
+    const SortableTable = () => {
+      const [sortState, setSortState] = useState({});
+
+      return (
+        <div>
+          <p data-testid='field'>Sort Field: {'sortField' in sortState && sortState.sortField}</p>
+          <p data-testid='order'>Sort Order: {'sortOrder' in sortState && sortState.sortOrder}</p>
+
+          <PaginatedTable
+            currentPage={1}
+            handlePageChange={() => {}}
+            headerList={['First Name', 'Last Name', 'Handle', 'User Type', 'Status']}
+            id='paginated-table'
+            itemsOnCurrentPage={[
+              ['John', 'Oto', '@timo', 'type1', 'Active'],
+              ['Mark', 'Howard', '@mdo', 'type2', 'Inactive'],
+              ['Jacob', 'Martin', '@mdo', 'type1', 'Active'],
+              ['Lary', 'King', '@timo', 'type1', 'Inactive'],
+              ['Helen', 'Bonham', '@timo', 'type2', 'Active']
+            ]}
+            limit={5}
+            totalNumberOfItems={15}
+            setSortState={setSortState}
+          />
+        </div>
+      );
+    };
+
+    it('Displays the correct start sorting order and field', () => {
+      render(<SortableTable />);
+      const sortField = screen.getByTestId('field');
+      const sortOrder = screen.getByTestId('order');
+      expect(sortField).toHaveTextContent('Sort Field: First Name');
+      expect(sortOrder).toHaveTextContent('Sort Order: ASC');
+    });
+
+    it('Displays the correct sorting field after it is updated', () => {
+      render(<SortableTable />);
+      fireEvent.click(screen.getByText(/Last Name/));
+      const sortField = screen.getByTestId('field');
+      expect(sortField).toHaveTextContent('Sort Field: Last Name');
+    });
+
+    it('Displays the correct sorting order after it is updated', () => {
+      render(<SortableTable />);
+      const secondHeaderElement = screen.getByText(/Last Name/);
+      fireEvent.click(secondHeaderElement);
+      fireEvent.click(secondHeaderElement);
+      const sortField = screen.getByTestId('field');
+      const sortOrder = screen.getByTestId('order');
+      expect(sortField).toHaveTextContent('Sort Field: Last Name');
+      expect(sortOrder).toHaveTextContent('Sort Order: DESC');
+    });
+  });
 });
 
 function Wrapper(props) {

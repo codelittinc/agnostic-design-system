@@ -4,16 +4,18 @@
 
 ## Table Props
 
-|        Prop        |                   Type                   |                                                Description                                                      | Default | Mandatory |
-| :----------------: | :--------------------------------------: | :-------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
-|     headerList     |     array of strings or react nodes      |                     Specifies the list to be used to populate the table header                                  |    -    |   true    |
-|     footerList     |     array of strings or react nodes      |                     Specifies the list to be used to populate the table footer                                  |    -    |   false   |
-|     onRowClick     |                 function                 |    Specifies what happens when a user clicks in a specific row. Receives the row index and the row data.        |    -    |   false   |
-|   onRowMouseEnter  |                 function                 |    Specifies what happens when a user hovers in a specific row. Receives the row index and the row data.        |    -    |   false   |
-|   onRowMouseLeave  |                 function                 |  Specifies what happens when a user ceases hovering in a specific row. Receives the row index and the row data. |    -    |   false   |
-|    renderFooter    |                 function                 |                                       Returns the full footer HTML structure                                    |    -    |   false   |
-|    tableContent    | array of array of strings or react nodes |                  Each array inside the matrix represents a row in the table with all its content.               |    -    |   true    |
-| variablesClassName |                  string                  |                              Specifies the custom class to apply styles to the table                            |    -    |   false   |
+|        Prop        |                   Type                   |                                                                                                                                     Description                                                                                                                                      | Default | Mandatory |
+| :----------------: | :--------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----: | :-------: |
+|     footerList     |     array of strings or react nodes      |                                                                                                              Specifies the list to be used to populate the table footer                                                                                                              |    -    |   false   |
+|     headerList     |     array of strings or react nodes      |                                                                                                              Specifies the list to be used to populate the table header                                                                                                              |    -    |   true    |
+|     onRowClick     |                 function                 |                                                                                        Specifies what happens when a user clicks in a specific row. Receives the row index and the row data.                                                                                         |    -    |   false   |
+|  onRowMouseEnter   |                 function                 |                                                                                        Specifies what happens when a user hovers in a specific row. Receives the row index and the row data.                                                                                         |    -    |   false   |
+|  onRowMouseLeave   |                 function                 |                                                                                    Specifies what happens when a user ceases hovering in a specific row. Receives the row index and the row data.                                                                                    |    -    |   false   |
+|    renderFooter    |                 function                 |                                                                                                                        Returns the full footer HTML structure                                                                                                                        |    -    |   false   |
+|    setSortState    |                 function                 |                                                                                                         Calls a function whenever a change in the sorting state is detected.                                                                                                         |    -    |   false   |
+|      sortIcon      |  react node or object with react nodes   | A React node to be displayed next to the header item. Alternatively, it can be an object containing two React nodes: one for when the sorting order is ascending, and another for when it's descending. The prop also includes default icons when the setSortState prop is utilized. |    -    |   false   |
+|    tableContent    | array of array of strings or react nodes |                                                                                                   Each array inside the matrix represents a row in the table with all its content.                                                                                                   |    -    |   true    |
+| variablesClassName |                  string                  |                                                                                                               Specifies the custom class to apply styles to the table                                                                                                                |    -    |   false   |
 
 ## Getting Started
 
@@ -46,37 +48,37 @@ export default Table;
 
 ## CSS Variables Available
 
-|   Property    |      Attribute      | State |
-| :-----------: | :-----------------: | :---: |
-|     table     |    border-bottom    |       |
-|     table     | border-bottom-style |       |
-|     table     |     border-left     |       |
-|     table     |    border-right     |       |
-|     table     |     border-top      |       |
-|     table     |        width        |       |
-|     table     |        color        |       |
-|     table     |     font-family     |       |
-|     table     |   border-collapse   |       |
-|     table     |   border-spacing    |       |
-|     table     |     box-sizing      |       |
-|     table     |      font-size      |       |
-|     table     |     font-weight     |       |
-|     table     |      overflow       |       |
-|     table     |       padding       |       |
-|     header    |  background-color   |       |
-|     header    |    border-bottom    |       |
-|     header    |     border-left     |       |
-|     header    |    border-right     |       |
-|     header    |     border-top      |       |
-|     header    |        color        |       |
-|     header    |     font-weight     |       |
-|     footer    |       padding       |       |
-|     cell      |    border-bottom    |       |
-|     cell      |     border-left     |       |
-|     cell      |    border-right     |       |
-|     cell      |     border-top      |       |
-|     cell      |       padding       |       |
-| clickable-row |       cursor        |       |
-|container-cell |   vertical-align    |       |
-|    footer     |  background-color   |       |
-|      row      |  background-color   | focus |
+|    Property    |      Attribute      | State |
+| :------------: | :-----------------: | :---: |
+|     table      |    border-bottom    |       |
+|     table      | border-bottom-style |       |
+|     table      |     border-left     |       |
+|     table      |    border-right     |       |
+|     table      |     border-top      |       |
+|     table      |        width        |       |
+|     table      |        color        |       |
+|     table      |     font-family     |       |
+|     table      |   border-collapse   |       |
+|     table      |   border-spacing    |       |
+|     table      |     box-sizing      |       |
+|     table      |      font-size      |       |
+|     table      |     font-weight     |       |
+|     table      |      overflow       |       |
+|     table      |       padding       |       |
+|     header     |  background-color   |       |
+|     header     |    border-bottom    |       |
+|     header     |     border-left     |       |
+|     header     |    border-right     |       |
+|     header     |     border-top      |       |
+|     header     |        color        |       |
+|     header     |     font-weight     |       |
+|     footer     |       padding       |       |
+|      cell      |    border-bottom    |       |
+|      cell      |     border-left     |       |
+|      cell      |    border-right     |       |
+|      cell      |     border-top      |       |
+|      cell      |       padding       |       |
+| clickable-row  |       cursor        |       |
+| container-cell |   vertical-align    |       |
+|     footer     |  background-color   |       |
+|      row       |  background-color   | focus |
