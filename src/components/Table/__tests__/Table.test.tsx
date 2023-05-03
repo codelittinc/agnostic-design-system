@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from '@/components/Table';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 const headerList = ['Name', 'Month', 'Gift'];
 const body = [
@@ -43,6 +43,46 @@ describe('Table', () => {
       expect(header).toHaveTextContent('Lisa');
       expect(header).toHaveTextContent('December');
       expect(header).toHaveTextContent('Car');
+    });
+  });
+
+  describe('Sortable table', () => {
+    const SortableTable = () => {
+      const [sortState, setSortState] = useState({});
+
+      return (
+        <div>
+          <p data-testid='field'>Sort Field: {'sortField' in sortState && sortState.sortField}</p>
+          <p data-testid='order'>Sort Order: {'sortOrder' in sortState && sortState.sortOrder}</p>
+          <Table headerList={headerList} tableContent={body} setSortState={setSortState} />
+        </div>
+      );
+    };
+
+    it('Displays the correct start sorting order and field', () => {
+      render(<SortableTable />);
+      const sortField = screen.getByTestId('field');
+      const sortOrder = screen.getByTestId('order');
+      expect(sortField).toHaveTextContent('Sort Field: Name');
+      expect(sortOrder).toHaveTextContent('Sort Order: ASC');
+    });
+
+    it('Displays the correct sorting field after it is updated', () => {
+      render(<SortableTable />);
+      fireEvent.click(screen.getByText(/Month/));
+      const sortField = screen.getByTestId('field');
+      expect(sortField).toHaveTextContent('Sort Field: Month');
+    });
+
+    it('Displays the correct sorting order after it is updated', () => {
+      render(<SortableTable />);
+      const secondHeaderElement = screen.getByText(/Month/);
+      fireEvent.click(secondHeaderElement);
+      fireEvent.click(secondHeaderElement);
+      const sortField = screen.getByTestId('field');
+      const sortOrder = screen.getByTestId('order');
+      expect(sortField).toHaveTextContent('Sort Field: Month');
+      expect(sortOrder).toHaveTextContent('Sort Order: DESC');
     });
   });
 });

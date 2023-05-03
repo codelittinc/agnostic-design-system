@@ -29,6 +29,26 @@ const Template = args => {
   );
 };
 
+const SortableTableTemplate = args => {
+  const [page, setPage] = useState(1);
+  const [sortState, setSortState] = useState({});
+  const listOfItems = args.listOfItems[page - 1];
+  return (
+    <>
+      <p>Sort Field: {'sortField' in sortState && sortState.sortField}</p>
+      <p>Sort Order: {'sortOrder' in sortState && sortState.sortOrder}</p>
+      <hr />
+      <PaginatedTable
+        {...args}
+        currentPage={page}
+        handlePageChange={setPage}
+        itemsOnCurrentPage={listOfItems}
+        setSortState={setSortState}
+      />
+    </>
+  );
+};
+
 const listOfItems = [
   [
     ['John', 'Oto', '@timo', 'type1', 'Active'],
@@ -162,4 +182,12 @@ EmptyTable.args = {
   totalNumberOfItems: 0,
   listOfItems: [],
   renderEmptyState
+};
+
+export const SortableTable = SortableTableTemplate.bind({});
+SortableTable.args = {
+  headerList: ['First Name', 'Last Name', 'Handle', 'User Type', 'Status'],
+  totalNumberOfItems: 15,
+  listOfItems,
+  limit: 5
 };
