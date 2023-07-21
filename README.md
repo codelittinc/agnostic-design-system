@@ -1,3 +1,5 @@
+# 🚨 This project is deprecated. Moving forward, we will only provide new releases for bugs when requested in the issues list
+
 # Codelitt's Agnostic Design System
 
 Our design system is meant to act as the backbones of simple projects at Codelitt.
