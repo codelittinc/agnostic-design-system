@@ -42,7 +42,10 @@ const DefaultListItem = <T extends {}>(props: Props<T>) => {
   return (
     <li
       key={key}
-      onClick={e => onClick(e)}
+      onClick={e => {
+        e.stopPropagation();
+        onClick(e);
+      }}
       onKeyDown={e => onKeyDown(e)}
       role='option'
       className={classNames(

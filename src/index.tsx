@@ -30,3 +30,5 @@ export { default as Tooltip } from '@/components/Tooltip';
 export { default as UploadAvatar } from '@/components/UploadAvatar';
 export { default as ControlledForm } from '@/components/ControlledForm';
 export * from '@/components/Grid';
+
+export { useOutsideClick } from '@/hooks/useOutsideClick';
